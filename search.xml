@@ -8,7 +8,7 @@
       <link href="/2022/03/05/19-%E6%95%B0%E7%BB%84/"/>
       <url>/2022/03/05/19-%E6%95%B0%E7%BB%84/</url>
       
-        <content type="html"><![CDATA[<p>数组是一种类似于标准库类型<code>vector</code>的数据结构。与<code>vector</code>相似的地方是，数组也是存放类型相同的对象的容器，这些对象本身没有名字，需要通过其所在位置访问。与<code>vector</code>不同的地方是，<strong>数组的大小确定不变，不能随意向数组中增加元素</strong>。因为数组的大小固定，因此对某些特殊的应用来说程序的运行时性能较好，但是相应地也损失了一些灵活性。</p><blockquote><p>如果不清楚元素的确切个数，请使用<code>vector</code>。</p></blockquote><h1>定义和初始化内置数组</h1><p>数组是一种复合类型。数组的声明形如<code>a[d]</code>，其中<code>a</code>是数组的名字，<code>d</code>是数组的维度。维度说明了数组中元素的个数，因此<strong>必须大于<code>0</code>，必须是一个常量表达式</strong>。</p><p>默认情况下，数组的元素被默认初始化。</p><blockquote><p>和内置类型的变量一样，如果在函数内部定义了某种内置类型的数组，那么默认初始化会令数组含有未定义的值。</p></blockquote><p><strong>定义数组的时候必须指定数组的类型，不允许用auto关键字由初始值的列表推断类型。</strong></p><p>和vector一样，<strong>数组的元素应为对象，因此不存在引用的数组。</strong></p>]]></content>
+        <content type="html"><![CDATA[<p>数组是一种类似于标准库类型<code>vector</code>的数据结构。与<code>vector</code>相似的地方是，数组也是存放类型相同的对象的容器，这些对象本身没有名字，需要通过其所在位置访问。与<code>vector</code>不同的地方是，<strong>数组的大小确定不变，不能随意向数组中增加元素</strong>。因为数组的大小固定，因此对某些特殊的应用来说程序的运行时性能较好，但是相应地也损失了一些灵活性。</p><blockquote><p>如果不清楚元素的确切个数，请使用<code>vector</code>。</p></blockquote><h1>定义和初始化内置数组</h1><p>数组是一种复合类型。数组的声明形如<code>a[d]</code>，其中<code>a</code>是数组的名字，<code>d</code>是数组的维度。维度说明了数组中元素的个数，因此<strong>必须大于<code>0</code>，必须是一个常量表达式</strong>。</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">unsigned cnt = 42;          // not a constant expression</span><br><span class="line">constexpr unsigned sz = 42; // constant expression</span><br><span class="line">                            // constexpr see § 2.4.4 (p. 66)</span><br><span class="line">int arr[10];                // array of ten ints</span><br><span class="line">int *parr[sz];              // array of 42 pointers to int</span><br><span class="line">string bad[cnt];            // error: cnt is not a constant expression</span><br><span class="line">string strs[get_size()];    // ok if get_size is constexpr, error otherwise</span><br></pre></td></tr></table></figure><p>默认情况下，数组的元素被默认初始化。</p><blockquote><p>和内置类型的变量一样，如果在函数内部定义了某种内置类型的数组，那么默认初始化会令数组含有未定义的值。</p></blockquote><p><strong>定义数组的时候必须指定数组的类型，不允许用auto关键字由初始值的列表推断类型。</strong></p><p>和vector一样，<strong>数组的元素应为对象，因此不存在引用的数组。</strong></p><h2 id="显式初始化数组元素">显式初始化数组元素</h2><p>可以对数组的元素进行列表初始化（参见3.3.1节，第88页），此时允许忽略数组的维度。如果在声明时没有指明维度，编译器会根据初始值的数量计算并推测出来；相反，如果指明了维度，那么初始值的总数量不应该超出指定的大小。如果维度比提供的初始值数量大，则用提供的初始值初始化靠前的元素，剩下的元素被初始化成默认值</p>]]></content>
       
       
       <categories>
@@ -549,6 +549,17 @@
     
     
     <entry>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>link</title>
       <link href="/link/index.html"/>
       <url>/link/index.html</url>
@@ -563,17 +574,6 @@
       <title>tags</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
