@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>术语表-Chapter3</title>
+      <link href="/2022/03/10/21-%E6%9C%AF%E8%AF%AD%E8%A1%A8-Chapter3/"/>
+      <url>/2022/03/10/21-%E6%9C%AF%E8%AF%AD%E8%A1%A8-Chapter3/</url>
+      
+        <content type="html"><![CDATA[<p><code>begin</code>：是<code>string</code>和<code>vector</code>的成员，返回指向第一个元素的迭代器。也是一个标准库函数，输入一个数组，返回指向该数组首元素的指针。</p><p><code>缓冲区溢出（buffer overflow）</code>：一种严重的程序故障，主要的原因是试图通过一个越界的索引访问容器内容，容器类型包括<code>string</code>、<code>vector</code>和<code>数组</code>等。</p><p><code>C风格字符串（C-style string）</code>：以空字符结束的字符数组。字符串字面值是C风格字符串，C风格字符串容易出错。</p><p><code>类模板（class template）</code>：用于创建具体类类型的模板。要想使用类模板，必须提供关于类型的辅助信息。例如，要定义一个<code>vector</code>对象需要指定元素的类型，例如：<code>vector&lt;int&gt;</code>包含<code>int</code>类型的元素。</p><p><code>编译器扩展（compiler extension）</code>：某个特定的编译器为C++语言额外增加的特性。基于编译器扩展编写的程序不易移植到其他编译器上。</p><p><code>容器（container）</code>：是一种类型，其对象容纳了一组给定类型的对象。vector是一种容器类型。</p><p><code>拷贝初始化（copy initialization）</code>：使用赋值号（<code>=</code>）的初始化形式。新创建的对象是初始值的一个副本。</p><p><code>difference_type</code>：由<code>string</code>和<code>vector</code>定义的一种带符号整数类型，表示两个迭代器之间的距离。</p><p><code>直接初始化（direct initialization）</code>：不使用赋值号（<code>=</code>）的初始化形式。</p><p><code>empty</code>：是<code>string</code>和<code>vector</code>的成员，返回一个布尔值。当对象的大小为0时返回真，否则返回假。</p><p><code>end</code>：是<code>string</code>和<code>vector</code>的成员，返回一个尾后迭代器。也是一个标准库函数，输入一个数组，返回指向该数组尾元素的下一位置的指针。</p><p><code>getline</code>：在<code>string</code>头文件中定义的一个函数，以一个<code>istream</code>对象和一个<code>string</code>对象为输入参数。该函数首先读取输入流的内容直到遇到换行符停止，然后将读入的数据存入<code>string</code>对象，最后返回<code>istream</code>对象。其中换行符读入但是不保留。</p><p><code>索引（index）</code>：是下标运算符使用的值。表示要在<code>string</code>对象、<code>vector</code>对象或者数组中访问的一个位置。</p><p><code>实例化（instantiation）</code>：编译器生成一个指定的模板类或函数的过程。</p><p><code>迭代器（iterator）</code>：是一种类型，用于访问容器中的元素或者在元素之间移动。</p><p><code>迭代器运算（iterator arithmetic）</code>：是<code>string</code>或<code>vector</code>的迭代器的运算：迭代器与整数相加或相减得到一个新的迭代器，与原来的迭代器相比，新迭代器向前或向后移动了若干个位置。两个迭代器相减得到它们之间的距离，此时它们必须指向同一个容器的元素或该容器尾元素的下一位置。</p><p><code>以空字符结束的字符串（null-terminatedstring）</code>：是一个字符串，它的最后一个字符后面还跟着一个空字符（‘\0’）。</p><p><code>尾后迭代器（off-the-end iterator）</code>：<code>end</code>函数返回的迭代器，指向一个并不存在的元素，该元素位于容器尾元素的下一位置。</p><p><code>指针运算（pointer arithmetic）</code>：是指针类型支持的算术运算。指向数组的指针所支持的运算种类与迭代器运算一样。</p><p><code>prtdiff_t</code>：是<code>cstddef</code>头文件中定义的一种与机器实现有关的带符号整数类型，它的空间足够大，能够表示数组中任意两个指针之间的距离。</p><p><code>push_back</code>：是<code>vector</code>的成员，向<code>vector</code>对象的末尾添加元素。</p><p><code>范围for语句（range for）</code>：一种控制语句，可以在值的一个特定集合内迭代。</p><p><code>size</code>：是<code>string</code>和<code>vector</code>的成员，分别返回字符的数量或元素的数量。返回值的类型是<code>size_type</code>。</p><p><code>size_t</code>：是<code>cstddef</code>头文件中定义的一种与机器实现有关的无符号整数类型，它的空间足够大，能够表示任意数组的大小。</p><p><code>size_type</code>：是<code>string</code>和<code>vector</code>定义的类型的名字，能存放下任意<code>string</code>对象或<code>vector</code>对象的大小。在标准库中，<code>size_type</code>被定义为无符号类型。</p><p><code>string</code>：是一种标准库类型，表示字符的序列。</p><p><code>using声明（using declaration）</code>：令命名空间中的某个名字可被程序直接使用。<code>using 命名空间::名字</code>；上述语句的作用是令程序可以直接使用名字，而无须写它的前缀部分<code>命名空间::</code>。</p><p><code>值初始化（value initialization）</code>：是一种初始化过程。内置类型初始化为0，类类型由类的默认构造函数初始化。只有当类包含默认构造函数时，该类的对象才会被值初始化。对于容器的初始化来说，如果只说明了容器的大小而没有指定初始值的话，就会执行值初始化。此时编译器会生成一个值，而容器的元素被初始化为该值。</p><p><code>vector</code>：是一种标准库类型，容纳某指定类型的一组元素。</p><p><code>++运算符（++ operator）</code>：是迭代器和指针定义的递增运算符。执行“加1”操作使得迭代器指向下一个元素。</p><p><code>[ ]运算符（[ ] operator）</code>：下标运算符。<code>obj[j]</code>得到容器对象<code>obj</code>中位置<code>j</code>的那个元素。索引从0开始，第一个元素的索引是0，尾元素的索引是<code>obj.size()-1</code>。下标运算符的返回值是一个对象。如果<code>p</code>是指针、<code>n</code>是整数，则p[n]与*(p+n)等价。</p><p><code>-&gt;运算符（-&gt;operator）</code>：箭头运算符，该运算符综合了解引用操作和点操作。<code>a-&gt;b</code>等价于<code>(*a).b</code>。</p><p><code>&lt;&lt;运算符（&lt;&lt;operator）</code>：标准库类型<code>string</code>定义的输出运算符，负责输出<code>string</code>对象中的字符。</p><p><code>&gt;&gt;运算符（&gt;&gt;operator）</code>：标准库类型<code>string</code>定义的输入运算符，负责读入一组字符，遇到空白停止，读入的内容赋给运算符右侧的运算对象，该运算对象应该是一个<code>string</code>对象。</p><p><code>!运算符（! operator）</code>：逻辑非运算符，将它的运算对象的布尔值取反。如果运算对象是假，则结果为真，如果运算对象是真，则结果为假。</p><p><code>&amp;&amp;运算符（&amp;&amp;operator）</code>：逻辑与运算符，如果两个运算对象都是真，结果为真。只有当左侧运算对象为真时才会检查右侧运算对象。</p><p><code>||运算符（|| operator）</code>：逻辑或运算符，任何一个运算对象是真，结果就为真。只有当左侧运算对象为假时才会检查右侧运算对象。</p><blockquote><p>小结</p><ol><li><p>string和vector是两种最重要的标准库类型。string对象是一个可变长的字符序列，vector对象是一组同类型对象的容器。</p></li><li><p>迭代器允许对容器中的对象进行间接访问，对于string对象和vector对象来说，可以通过迭代器访问元素或者在元素间移动。</p></li><li><p>数组和指向数组元素的指针在一个较低的层次上实现了与标准库类型string和vector类似的功能。一般来说，应该优先选用标准库提供的类型，之后再考虑C++语言内置的低层的替代品数组或指针。</p></li></ol></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 术语 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>多维数组</title>
       <link href="/2022/03/10/20-%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84/"/>
       <url>/2022/03/10/20-%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84/</url>
@@ -611,9 +636,9 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -622,9 +647,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
