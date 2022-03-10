@@ -4,6 +4,41 @@
   
     
     <entry>
+      <title>多维数组</title>
+      <link href="/2022/03/10/20-%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84/"/>
+      <url>/2022/03/10/20-%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84/</url>
+      
+        <content type="html"><![CDATA[<p>严格来说，C++语言中没有多维数组，通常所说的多维数组其实是数组的数组。</p><p>当一个数组的元素仍然是数组时，通常使用两个维度来定义它：一个维度表示数组本身大小，另外一个维度表示其元素（也是数组）大小：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int ia[3][4]; // 大小为3的数组，每个元素是含有4个整数的数组</span><br><span class="line">// array of size 10; each element is a 20-element array whose elements are arrays of 30 ints</span><br><span class="line">int arr[10][20][30] = &#123;0&#125;; // initialize all elements to 0</span><br></pre></td></tr></table></figure><p>对于二维数组来说，常把第一个维度称作行，第二个维度称作列。</p><h2 id="多维数组的初始化">多维数组的初始化</h2><p><strong>允许使用花括号括起来的一组值初始化多维数组</strong></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int ia[3][4] = &#123;    // three elements; each element is an array of size 4</span><br><span class="line">    &#123;0, 1, 2, 3&#125;,   // initializers for the row indexed by 0</span><br><span class="line">    &#123;4, 5, 6, 7&#125;,   // initializers for the row indexed by 1</span><br><span class="line">    &#123;8, 9, 10, 11&#125;  // initializers for the row indexed by 2</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>其中内层嵌套着的花括号并非必需的。例如下面的初始化语句，形式上更为简洁，完成的功能和上面这段代码完全一样：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// equivalent initialization without the optional nested braces for each row</span><br><span class="line">int ia[3][4] = &#123;0,1,2,3,4,5,6,7,8,9,10,11&#125;;</span><br></pre></td></tr></table></figure><p>类似于一维数组，在初始化多维数组时也并非所有元素的值都必须包含在初始化列表之内。如果仅仅想初始化每一行的第一个元素，通过如下的语句即可：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// explicitly initialize only element 0 in each row</span><br><span class="line">int ia[3][4] = &#123;&#123; 0 &#125;, &#123; 4 &#125;, &#123; 8 &#125;&#125;;</span><br></pre></td></tr></table></figure><p>其他<strong>未列出的元素执行默认值初始化。</strong></p><p>在这种情况下如果再省略掉内层的花括号，结果就大不一样了:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// explicitly initialize row 0; the remaining elements are value initialized</span><br><span class="line">int ix[3][4] = &#123;0, 3, 6, 9&#125;;</span><br></pre></td></tr></table></figure><p>它初始化的是第一行的4个元素，其他元素被初始化为0。</p><h2 id="多维数组的下标引用">多维数组的下标引用</h2><p><strong>可以使用下标运算符来访问多维数组的元素，此时数组的每个维度对应一个下标运算符。</strong></p><p>如果表达式含有的下标运算符数量和数组的维度一样多，该表达式的结果将是给定类型的元素；反之，如果表达式含有的下标运算符数量比数组的维度小，则表达式的结果将是给定索引处的一个内层数组：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// assigns the first element of arr to the last element in the last row of ia</span><br><span class="line">ia[2][3] = arr[0][0][0];</span><br><span class="line">int (&amp;row)[4] = ia[1]; // binds row to the second four-element array in ia</span><br></pre></td></tr></table></figure><p>在第一个例子中，在等号左侧，<code>ia[2]</code>得到数组<code>ia</code>的最后一行，此时返回的是表示<code>ia</code>最后一行的那个一维数组而非任何实际元素；对这个一维数组再取下标，得到编号为<code>[3]</code>的元素，也就是这一行的最后一个元素。等号右侧也是类似的。<br>在第二个例子中，把<code>row</code>定义成一个含有4个整数的数组的引用，然后将其绑定到<code>ia</code>的第2行。</p><p>再举一个例子，程序中经常会用到两层嵌套的for循环来处理多维数组的元素：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">constexpr size_t rowCnt = 3, colCnt = 4;</span><br><span class="line">int ia[rowCnt][colCnt];   // 12 uninitialized elements</span><br><span class="line">// for each row</span><br><span class="line">for (size_t i = 0; i != rowCnt; ++i) &#123;</span><br><span class="line">    // for each column within the row</span><br><span class="line">    for (size_t j = 0; j != colCnt; ++j) &#123;</span><br><span class="line">        // assign the element&#x27;s positional index as its value</span><br><span class="line">        ia[i][j] = i * colCnt + j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>外层的<code>for</code>循环遍历<code>ia</code>的所有元素，注意这里的元素是一维数组；内层的<code>for</code>循环则遍历那些一维数组的整数元素。此例中，我们将元素在整个数组中的序号设为该元素的值。</p><h2 id="使用范围for语句处理多维数组">使用范围for语句处理多维数组</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">size_t cnt = 0;</span><br><span class="line">for (auto &amp;row : ia)        // for every element in the outer array</span><br><span class="line">    for (auto &amp;col : row) &#123; // for every element in the inner array</span><br><span class="line">        col = cnt;          // give this element the next value</span><br><span class="line">        ++cnt;              // increment cnt</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>因为要改变元素的值，所以得把控制变量<code>row</code>和<code>col</code>声明成引用类型。第一个<code>for</code>循环遍历<code>ia</code>的所有元素，这些元素是大小为4的数组，因此<code>row</code>的类型就应该是含有4个整数的数组的引用。第二个<code>for</code>循环遍历那些4元素数组中的某一个，因此<code>col</code>的类型是整数的引用。</p><p>在上面的例子中，因为要改变数组元素的值，所以我们选用引用类型作为循环控制变量，但其实还有一个深层次的原因促使我们这么做。举一个例子，考虑如下的循环：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (const auto &amp;row : ia)  // for every element in the outer array</span><br><span class="line">    for (auto col : row)    // for every element in the inner array</span><br><span class="line">        cout &lt;&lt; col &lt;&lt; endl;</span><br></pre></td></tr></table></figure><p>这个循环中并没有任何写操作，可是我们还是将外层循环的控制变量声明成了引用类型，这是为了避免数组被自动转成指针。</p><p>假设不用引用类型，则循环如下述形式：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for (auto row : ia)</span><br><span class="line">    for (auto col : row)</span><br></pre></td></tr></table></figure><p>程序将无法通过编译。这是因为，像之前一样第一个循环遍历<code>ia</code>的所有元素，注意这些元素实际上是大小为4的数组。因为<code>row</code>不是引用类型，所以编译器初始化<code>row</code>时会自动将这些数组形式的元素（和其他类型的数组一样）转换成指向该数组内首元素的指针。这样得到的<code>row</code>的类型就是<code>int*</code>，显然内层的循环就不合法了。</p><blockquote><p><strong>要使用<code>范围for</code>语句处理多维数组，除了最内层的循环外，其他所有循环的控制变量都应该是引用类型。</strong></p></blockquote><h2 id="指针和多维数组">指针和多维数组</h2><p>当程序使用多维数组的名字时，也会自动将其转换成指向数组首元素的指针。</p><p>因为多维数组实际上是数组的数组，所以由多维数组名转换得来的指针实际上是指向第一个内层数组的指针：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int ia[3][4];     // array of size 3; each element is an array of ints of size 4</span><br><span class="line">int (*p)[4] = ia; // p points to an array of four ints（p指向ia的第一行）</span><br><span class="line">p = &amp;ia[2];       // p now points to the last element in ia（p指向ia的第三行）</span><br></pre></td></tr></table></figure><p>等号左侧，首先由<code>(*p)</code>知道<code>p</code>是一个指针，由<code>int [4]</code>知道<code>p</code>指向的是一个包含4个整数的数组。等号右侧，<code>ia</code>返回的是<code>&amp;ia[0]</code>，即<code>ia[0]</code>的地址。因此，<code>p</code>指向的是<code>ia[0]</code>，即<code>ia</code>的第一行。</p><p>注意，在上述声明中，圆括号必不可少：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int *ip[4];    // array of pointers to int（[]优先级高于*，故而ip是一个数组，其元素为整形指针）</span><br><span class="line">int (*ip)[4];  // pointer to an array of four ints</span><br></pre></td></tr></table></figure><p>随着C++11新标准的提出，通过使用<code>auto</code>或者<code>decltype</code>就能尽可能地避免在数组前面加上一个指针类型了：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// print the value of each element in ia, with each inner array on its own line</span><br><span class="line">// p points to an array of four ints</span><br><span class="line">for (auto p = ia; p != ia + 3; ++p) &#123;</span><br><span class="line">    // q points to the first element of an array of four ints; that is, q points to an int</span><br><span class="line">    for (auto q = *p; q != *p + 4; ++q)</span><br><span class="line">         cout &lt;&lt; *q &lt;&lt; &#x27; &#x27;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>外层的<code>for</code>循环首先声明一个指针<code>p</code>并令其指向<code>ia</code>的第一个内层数组，然后依次迭代直到<code>ia</code>的全部3行都处理完为止。其中递增运算<code>++p</code>负责将指针<code>p</code>移动到<code>ia</code>的下一行。<br>内层的<code>for</code>循环负责输出内层数组所包含的值。它首先令指针<code>q</code>指向<code>p</code>当前所在行的第一个元素。<code>*p</code>是一个含有4个整数的数组，像往常一样，数组名被自动地转换成指向该数组首元素的指针。内层<code>for</code>循环不断迭代直到我们处理完了当前内层数组的所有元素为止。为了获取内层<code>for</code>循环的终止条件，再一次解引用<code>p</code>得到指向内层数组首元素的指针，给它加上4就得到了终止条件。</p><p>使用标准库函数<code>begin</code>和<code>end</code>也能实现同样的功能，而且看起来更简洁一些:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// p points to the first array in ia</span><br><span class="line">for (auto p = begin(ia); p != end(ia); ++p) &#123;</span><br><span class="line">    // q points to the first element in an inner array</span><br><span class="line">    for (auto q = begin(*p); q != end(*p); ++q)</span><br><span class="line">        cout &lt;&lt; *q &lt;&lt; &#x27; &#x27;;   // prints the int value to which q points</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="类型别名简化多维数组的指针">类型别名简化多维数组的指针</h2><p>读、写和理解一个指向多维数组的指针是一个让人不胜其烦的工作，使用类型别名（<a href="https://jiankychen.github.io/2022/03/02/12-%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B/">处理类型-类型别名</a>）能让这项工作变得简单一点儿，例如：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using int_array = int[4]; // new style type alias declaration; equivalent typedef declaration: typedef int int_array[4];</span><br><span class="line">// print the value of each element in ia, with each inner array on its own line</span><br><span class="line">for (int_array *p = ia; p != ia + 3; ++p) &#123;</span><br><span class="line">    for (int *q = *p; q != *p + 4; ++q)</span><br><span class="line">         cout &lt;&lt; *q &lt;&lt; &#x27; &#x27;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>程序将类型“4个整数组成的数组”命名为<code>int_array</code>，用类型名<code>int_array</code>定义外层循环的控制变量让程序显得简洁明了。（由<code>*p</code>知道<code>p</code>是一个指针，指向一个包含4个整数的数组。<code>q</code>是一个指向整数的指针。）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> C++ </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 指针 </tag>
+            
+            <tag> 类型别名 </tag>
+            
+            <tag> 范围for </tag>
+            
+            <tag> 下标运算符 </tag>
+            
+            <tag> begin </tag>
+            
+            <tag> end </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数组</title>
       <link href="/2022/03/05/19-%E6%95%B0%E7%BB%84/"/>
       <url>/2022/03/05/19-%E6%95%B0%E7%BB%84/</url>
@@ -17,6 +52,22 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 指针 </tag>
+            
+            <tag> 范围for </tag>
+            
+            <tag> 下标运算符 </tag>
+            
+            <tag> begin </tag>
+            
+            <tag> end </tag>
+            
+            <tag> 字符数组 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -549,17 +600,6 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>categories</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
@@ -574,6 +614,17 @@
       <title>link</title>
       <link href="/link/index.html"/>
       <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
