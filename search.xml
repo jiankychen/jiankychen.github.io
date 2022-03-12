@@ -8,7 +8,7 @@
       <link href="/2022/03/12/LeetCode-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
       <url>/2022/03/12/LeetCode-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
       
-        <content type="html"><![CDATA[<h2 id="Frameworks">Frameworks</h2><p><img src="leetcode35-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/1.png" alt=""></p><p><strong>Framework 1: 寻找满足条件的最左边的元素</strong></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while (l &lt; r) &#123;</span><br><span class="line">    int mid = l + r &gt;&gt; 1;</span><br><span class="line">    if (check(mid)) </span><br><span class="line">        r = mid;</span><br><span class="line">    else </span><br><span class="line">        l = mid + 1；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>Framework 2: 寻找满足条件的最右边的元素</strong></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while (l &lt; r) &#123;</span><br><span class="line">    int mid = l + r + 1 &gt;&gt; 1;</span><br><span class="line">    if (check(mid)) </span><br><span class="line">        l = mid;</span><br><span class="line">    else </span><br><span class="line">        r = mid - 1；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="LeetCode-35-Search-Insert-position">LeetCode 35. Search Insert position</h2><p><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode 35</a></p><p>选择 Framework 1: 寻找满足条件的最左边的元素</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int searchInsert(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">    int left = 0, right = nums.size(); // 可能找到最后一个元素的下一个位置</span><br><span class="line">    while (left &lt; right)</span><br><span class="line">    &#123;</span><br><span class="line">        int mid = (left + right) &gt;&gt; 1;</span><br><span class="line">        if (nums[mid] &gt;= target)</span><br><span class="line">            right = mid;</span><br><span class="line">        else</span><br><span class="line">            left = mid + 1;</span><br><span class="line">    &#125;;</span><br><span class="line">    return right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="Frameworks">Frameworks</h2><p><img src="leetcode-%E4%BA%8C%E5%88%86%E6%B3%95/1.png" alt=""></p><p><strong>Framework 1: 寻找满足条件的最左边的元素</strong></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while (l &lt; r) &#123;</span><br><span class="line">    int mid = l + r &gt;&gt; 1;</span><br><span class="line">    if (check(mid)) </span><br><span class="line">        r = mid;</span><br><span class="line">    else </span><br><span class="line">        l = mid + 1；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>Framework 2: 寻找满足条件的最右边的元素</strong></p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while (l &lt; r) &#123;</span><br><span class="line">    int mid = l + r + 1 &gt;&gt; 1;</span><br><span class="line">    if (check(mid)) </span><br><span class="line">        l = mid;</span><br><span class="line">    else </span><br><span class="line">        r = mid - 1；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="LeetCode-35-Search-Insert-position">LeetCode 35. Search Insert position</h2><p><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode 35</a></p><p>选择 Framework 1: 寻找满足条件的最左边的元素</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int searchInsert(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">    int left = 0, right = nums.size(); // 可能找到最后一个元素的下一个位置</span><br><span class="line">    while (left &lt; right)</span><br><span class="line">    &#123;</span><br><span class="line">        int mid = (left + right) &gt;&gt; 1;</span><br><span class="line">        if (nums[mid] &gt;= target)</span><br><span class="line">            right = mid;</span><br><span class="line">        else</span><br><span class="line">            left = mid + 1;</span><br><span class="line">    &#125;;</span><br><span class="line">    return right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -686,9 +686,9 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -697,9 +697,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
