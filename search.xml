@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>LeetCode 167. 两数之和 II - 输入有序数组</title>
+      <link href="/2022/03/14/LeetCode167-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8CII-%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/"/>
+      <url>/2022/03/14/LeetCode167-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8CII-%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/</url>
+      
+        <content type="html"><![CDATA[<h1>167. 两数之和 II - 输入有序数组</h1><p><a href="https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/">LeetCode 167</a></p><p>给你一个下标从<code>1</code>开始的整数数组 numbers，该数组已按<strong>非递减顺序排列</strong>，请你从数组中找出满足相加之和等于目标数 target 的两个数。如果设这两个数分别是<code>numbers[index1]</code>和<code>numbers[index2]</code>，则<code>1 &lt;= index1 &lt; index2 &lt;= numbers.length</code>。</p><p>以长度为<code>2</code>的整数数组<code>[index1, index2]</code>的形式返回这两个整数的下标<code>index1</code>和<code>index2</code>。</p><p>你可以假设每个输入<strong>只对应唯一的答案</strong>，而且你<strong>不可以</strong>重复使用相同的元素。</p><p>你所设计的解决方案必须只使用常量级的额外空间。</p><p>示例 1：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：numbers = [2,7,11,15], target = 9</span><br><span class="line">输出：[1,2]</span><br><span class="line">解释：2 与 7 之和等于目标数 9 。因此 index1 = 1, index2 = 2 。返回 [1, 2] 。</span><br></pre></td></tr></table></figure><p>示例 2：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：numbers = [2,3,4], target = 6</span><br><span class="line">输出：[1,3]</span><br><span class="line">解释：2 与 4 之和等于目标数 6 。因此 index1 = 1, index2 = 3 。返回 [1, 3] 。</span><br></pre></td></tr></table></figure><p>示例 3：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：numbers = [-1,0], target = -1</span><br><span class="line">输出：[1,2]</span><br><span class="line">解释：-1 与 0 之和等于目标数 -1 。因此 index1 = 1, index2 = 2 。返回 [1, 2] 。</span><br></pre></td></tr></table></figure><h2 id="Method-1-双指针">Method 1: 双指针</h2><p>初始时两个指针分别指向第一个元素位置和最后一个元素的位置。每次计算两个指针指向的两个元素之和，并和目标值比较：</p><ol><li>如果两个元素之和等于目标值，则发现了唯一解。</li><li>如果两个元素之和小于目标值，则将左侧指针右移一位。</li><li>如果两个元素之和大于目标值，则将右侧指针左移一位。</li></ol><p>移动指针之后，重复上述操作，直到找到答案。</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; numbers, int target) &#123;</span><br><span class="line">    int i = 0, j = numbers.size() - 1;</span><br><span class="line">    while (i &lt; j)</span><br><span class="line">    &#123;</span><br><span class="line">        if (numbers[i] == target - numbers[j])</span><br><span class="line">            return &#123;i + 1, j + 1&#125;;</span><br><span class="line">        else if (numbers[i] &lt; target - numbers[j])</span><br><span class="line">            i++;</span><br><span class="line">        else</span><br><span class="line">            j--;</span><br><span class="line">    &#125;;</span><br><span class="line">    return &#123;-1, -1&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>复杂度分析：</p><p>时间复杂度：<code>O(n)</code>，其中<code>n</code>是数组的长度。两个指针移动的总次数最多为<code>n</code>次</p><p>空间复杂度：<code>O(1)</code></p></blockquote><h2 id="Method-2-二分查找">Method 2: 二分查找</h2><p>在数组中找到两个数，使得它们的和等于目标值，可以首先固定第一个数，然后寻找第二个数，第二个数等于目标值减去第一个数的差。利用数组的有序性质，可以通过二分查找的方法寻找第二个数。为了避免重复寻找，在寻找第二个数时，只在第一个数的右侧寻找。</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; numbers, int target) &#123;</span><br><span class="line">    for (int i = 0; i &lt; numbers.size(); ++i) &#123;</span><br><span class="line">        int low = i + 1, high = numbers.size() - 1;</span><br><span class="line">        while (low &lt;= high) &#123;</span><br><span class="line">            int mid = (high - low) / 2 + low;</span><br><span class="line">            if (numbers[mid] == target - numbers[i]) &#123;</span><br><span class="line">                return &#123;i + 1, mid + 1&#125;;</span><br><span class="line">            &#125; else if (numbers[mid] &gt; target - numbers[i]) &#123;</span><br><span class="line">                high = mid - 1;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                low = mid + 1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return &#123;-1, -1&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>复杂度分析</p><p>时间复杂度：<code>O(nlogn)</code>，其中<code>n</code>是数组的长度。需要遍历数组一次确定第一个数，时间复杂度是<code>O(n)</code>，寻找第二个数使用二分查找，时间复杂度是<code>O(logn)</code>，因此总时间复杂度是<code>O(nlogn)</code>。</p><p>空间复杂度：<code>O(1)</code></p></blockquote><p><a href="https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/solution/liang-shu-zhi-he-ii-shu-ru-you-xu-shu-zu-by-leet-2/">题解：推荐使用双指针方法</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二分查找 </tag>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LeetCode 283. 移动零</title>
+      <link href="/2022/03/14/LeetCode283-%E7%A7%BB%E5%8A%A8%E9%9B%B6/"/>
+      <url>/2022/03/14/LeetCode283-%E7%A7%BB%E5%8A%A8%E9%9B%B6/</url>
+      
+        <content type="html"><![CDATA[<h1>283. 移动零</h1><p><a href="https://leetcode-cn.com/problems/move-zeroes/">LeetCode 283</a></p><p>给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。</p><p>请注意 ，必须在不复制数组的情况下原地对数组进行操作。</p><p>示例 1:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [0,1,0,3,12]</span><br><span class="line">输出: [1,3,12,0,0]</span><br></pre></td></tr></table></figure><p>示例 2:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [0]</span><br><span class="line">输出: [0]</span><br></pre></td></tr></table></figure><h2 id="Method-1-翻转数组">Method 1: 翻转数组</h2><ol><li>设索引为<code>i</code>，若<code>nums[i]</code>为<code>0</code>，则翻转第<code>i</code>至第<code>nums.size()-1-num</code>位。</li><li>翻转第<code>i</code>位至第<code>nums.size()-2-num</code>位，将非零元素翻转回原来的顺序。注意，经过这次翻转，需要重新对第<code>i</code>位进行判断，因为新数组的第<code>i</code>位实际上是最初数组的第<code>i+1</code>位</li></ol><blockquote><p>因为末尾已有<code>num</code>个<code>0</code>，需要将第<code>i</code>位上的<code>0</code>放到第<code>n-1-num</code>位上，才能使得两次翻转后非零元素的顺序不变 并且 之前找到的<code>0</code>仍在末尾。</p></blockquote><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 翻转left至right之间的所有元素</span><br><span class="line">void reverse(vector&lt;int&gt;&amp; nums, int left, int right)&#123;</span><br><span class="line">    while (left &lt; right)</span><br><span class="line">    &#123;</span><br><span class="line">        swap(nums[left], nums[right]);</span><br><span class="line">        left++;</span><br><span class="line">        right--;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void moveZeroes(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">    int n = nums.size(), i = 0, num = 0;</span><br><span class="line">    while (i &lt; n - num)</span><br><span class="line">    &#123;</span><br><span class="line">        if (nums[i] == 0)</span><br><span class="line">        &#123;</span><br><span class="line">            reverse(nums, i, n - 1 - num);      // 末尾已有num个0，将第i位上的0放到第n-1-num位上，执行翻转操作</span><br><span class="line">            reverse(nums, i, n - 2 - num);      // 保持末尾的num+1个0不动，翻转第i位至第n-2-num位，可使非零元素恢复原顺序</span><br><span class="line">            num++;                  // 因为移动了一个0到最末尾，故而i可以少移动一位</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">            i++;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Method-2-双指针">Method 2: 双指针</h2><p>使用双指针，左指针指向当前的搜索位置，右指针指向补0位置。当左指针搜索到0时，将左指针与右指针之间的数左移一位，右指针位置赋0，同时右指针左移一位。</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void moveZeroes(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">    int n = nums.size();</span><br><span class="line">    int i = 0, j = n - 1;</span><br><span class="line">    while (i &lt; j)</span><br><span class="line">    &#123;</span><br><span class="line">        if (nums[i] == 0)    // 第i位为0时，将第i+1至j位均向左移动一位，第j位赋值0，向左移动指针j</span><br><span class="line">        &#123;</span><br><span class="line">            for (int k = i + 1; k &lt;= j; k++)</span><br><span class="line">                nums[k-1] = nums[k];</span><br><span class="line">            nums[j] = 0;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        else i++;           // 第i位不为0时，指针i继续向右移动</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Method-3-双指针（两次遍历）">Method 3: 双指针（两次遍历）</h2><p><a href="https://leetcode-cn.com/problems/move-zeroes/solution/dong-hua-yan-shi-283yi-dong-ling-by-wang_ni_ma/">题解</a></p><p>指针<code>i</code>和<code>j</code>，指针<code>i</code>用于遍历搜索，指针<code>j</code>用来记录当前有多少非<code>0</code>元素。</p><p>第一次遍历的时候每遇到一个非<code>0</code>元素就将其往数组左边挪，第一次遍历完后，<code>j</code>指针的下标就指向了最后一个非<code>0</code>元素下标。</p><p>第二次遍历的时候，起始位置就从<code>j</code>开始到结束，将剩下的这段区域内的元素全部置为<code>0</code>。</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void moveZeroes(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">    // 指针j记录非0元素数，只要nums[i]非零就都赋给nums[j]，然后i,j向右移位，循环终止时，j所在位置是最后一个非0元素的下一位，即，赋0的起点</span><br><span class="line">    int j = 0;</span><br><span class="line">    for (int i = 0; i &lt; nums.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if (nums[i] != 0)</span><br><span class="line">        &#123;</span><br><span class="line">            nums[j] = nums[i];</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    // 从第j位开始赋0</span><br><span class="line">    for (int i = j; i &lt; nums.size(); i++)</span><br><span class="line">        nums[i] = 0;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="Method-3-双指针（一次遍历）">Method 3: 双指针（一次遍历）</h2><p><a href="https://leetcode-cn.com/problems/move-zeroes/solution/dong-hua-yan-shi-283yi-dong-ling-by-wang_ni_ma/">题解</a></p><p>这里参考了快速排序的思想，快速排序首先要确定一个待分割的元素做中间点<code>x</code>，然后把所有小于等于<code>x</code>的元素放到<code>x</code>的左边，大于<code>x</code>的元素放到其右边。</p><p>这里用<code>0</code>当做这个中间点，把不等于<code>0</code>的放到中间点的左边，等于<code>0</code>的放到其右边。</p><p>指针<code>i</code>用于遍历搜索，指针<code>j</code>用来记录当前有多少非<code>0</code>元素，只要<code>nums[i]!=0</code>，我们就交换<code>nums[i]</code>和<code>nums[j]</code>（也可以直接将nums[i]赋给），并且将<code>i</code>,<code>j</code>右移。</p><p>Code 1：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void moveZeroes(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">    int j = 0;</span><br><span class="line">    for (int i = 0; i &lt; nums.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if (nums[i] != 0)</span><br><span class="line">        &#123;</span><br><span class="line">            int temp = nums[i];</span><br><span class="line">            nums[i] = nums[j];</span><br><span class="line">            nums[j] = temp;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Code 2：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void moveZeroes(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">    int j = 0;</span><br><span class="line">    for (int i = 0; i &lt; nums.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if (nums[i] != 0)</span><br><span class="line">        &#123;</span><br><span class="line">            if (i &gt; j)  // #1</span><br><span class="line">            &#123;</span><br><span class="line">                nums[j] = nums[i];</span><br><span class="line">                nums[i] = 0;</span><br><span class="line">            &#125;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>与<code>Code 1</code>相比，<code>Code 2</code>优化<code>#1</code>处。<code>Code 2</code>避免了数组开头的非零元素的交换，也就是阻止<code>i == j</code>时交换。当<code>i &gt; j</code> 时，只需要把 <code>i</code> 的值赋值给<code>j</code>并把原位置的值置<code>0</code>。同时这里也把交换操作换成了赋值操作，理论上能更节省时间。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 189. 轮转数组</title>
       <link href="/2022/03/14/LeetCode189-%E8%BD%AE%E8%BD%AC%E6%95%B0%E7%BB%84/"/>
       <url>/2022/03/14/LeetCode189-%E8%BD%AE%E8%BD%AC%E6%95%B0%E7%BB%84/</url>
@@ -83,7 +135,7 @@
       <link href="/2022/03/14/LeetCode-Record/"/>
       <url>/2022/03/14/LeetCode-Record/</url>
       
-        <content type="html"><![CDATA[<h1>二分查找</h1><p><a href="https://leetcode-cn.com/problems/binary-search/">704. 二分查找</a></p><p><a href="https://leetcode-cn.com/problems/first-bad-version/">278. 第一个错误的版本</a></p><p><a href="https://leetcode-cn.com/problems/search-insert-position/">35. 搜索插入位置</a></p><p><a href="https://leetcode-cn.com/problems/sqrtx/">69. x 的平方根</a></p><h1>双指针</h1><p><a href="https://leetcode-cn.com/problems/squares-of-a-sorted-array/">977. 有序数组的平方</a></p><p><a href="https://leetcode-cn.com/problems/rotate-array/">189. 轮转数组</a></p>]]></content>
+        <content type="html"><![CDATA[<h1>二分查找</h1><p><a href="https://leetcode-cn.com/problems/binary-search/">704. 二分查找</a></p><p><a href="https://leetcode-cn.com/problems/first-bad-version/">278. 第一个错误的版本</a></p><p><a href="https://leetcode-cn.com/problems/search-insert-position/">35. 搜索插入位置</a></p><p><a href="https://leetcode-cn.com/problems/sqrtx/">69. x 的平方根</a></p><h1>双指针</h1><p><a href="https://leetcode-cn.com/problems/squares-of-a-sorted-array/">977. 有序数组的平方</a></p><p><a href="https://leetcode-cn.com/problems/rotate-array/">189. 轮转数组</a></p><p><a href="https://leetcode-cn.com/problems/move-zeroes/">283. 移动零</a></p><p><a href="https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/">167. 两数之和 II - 输入有序数组</a></p>]]></content>
       
       
       <categories>
@@ -788,9 +840,9 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -799,9 +851,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
