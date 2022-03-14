@@ -4,6 +4,108 @@
   
     
     <entry>
+      <title>LeetCode 189. 轮转数组</title>
+      <link href="/2022/03/14/LeetCode189-%E8%BD%AE%E8%BD%AC%E6%95%B0%E7%BB%84/"/>
+      <url>/2022/03/14/LeetCode189-%E8%BD%AE%E8%BD%AC%E6%95%B0%E7%BB%84/</url>
+      
+        <content type="html"><![CDATA[<h1>189. 轮转数组</h1><p><a href="https://leetcode-cn.com/problems/rotate-array/">LeetCode 189</a></p><p>给你一个数组，将数组中的元素向右轮转 k 个位置，其中 k 是非负数。</p><p>示例 1:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [1,2,3,4,5,6,7], k = 3</span><br><span class="line">输出: [5,6,7,1,2,3,4]</span><br><span class="line">解释:</span><br><span class="line">向右轮转 1 步: [7,1,2,3,4,5,6]</span><br><span class="line">向右轮转 2 步: [6,7,1,2,3,4,5]</span><br><span class="line">向右轮转 3 步: [5,6,7,1,2,3,4]</span><br></pre></td></tr></table></figure><p>示例 2:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [-1,-100,3,99], k = 2</span><br><span class="line">输出：[3,99,-1,-100]</span><br><span class="line">解释: </span><br><span class="line">向右轮转 1 步: [99,-1,-100,3]</span><br><span class="line">向右轮转 2 步: [3,99,-1,-100]</span><br></pre></td></tr></table></figure><h2 id="Method-1-使用额外的数组">Method 1: 使用额外的数组</h2><blockquote><p>当我们将数组的元素向右移动<code>k</code>次后，尾部<code>k mod n</code>个元素会移动至数组头部，其余元素向后移动<code>k mod n</code>个位置。</p></blockquote><p>使用额外的数组来将每个元素放至正确的位置。用<code>n</code>表示数组的长度，我们遍历原数组，将原数组下标为<code>i</code>的元素放至新数组下标为<code>(i + k) mod n</code>的位置，最后将新数组拷贝至原数组即可</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void rotate(vector&lt;int&gt;&amp; nums, int k) &#123;</span><br><span class="line">    int n = nums.size();</span><br><span class="line">    vector&lt;int&gt; temp(n);</span><br><span class="line">    for (int i = 0; i &lt;= n - 1; i++)</span><br><span class="line">        temp[(i + k) % n] = nums[i];</span><br><span class="line">    nums.assign(temp.begin(), temp.end());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Method-2-数组翻转">Method 2: 数组翻转</h2><p>先将所有元素翻转，这样尾部的<code>k mod n</code>个元素就被移至数组头部，然后我们再翻转<code>[0, k mod n − 1]</code>区间的元素和<code>[k mod n, n − 1]</code>区间的元素即能得到最后的答案</p><img src="/2022/03/14/LeetCode189-%E8%BD%AE%E8%BD%AC%E6%95%B0%E7%BB%84/1.png" class=""><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 水平翻转nums中left到right之间的元素</span><br><span class="line">void reverse(vector&lt;int&gt;&amp; nums, int left, int right) &#123;</span><br><span class="line">    while (left &lt; right)</span><br><span class="line">    &#123;</span><br><span class="line">        swap(nums[left], nums[right]);</span><br><span class="line">        left++;</span><br><span class="line">        right--;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void rotate(vector&lt;int&gt;&amp; nums, int k) &#123;</span><br><span class="line">    int n = nums.size() - 1;</span><br><span class="line">    reverse(nums, 0, n);                      // 翻转第0至nums.size()-1个元素</span><br><span class="line">    reverse(nums, 0, (k % nums.size()) - 1);  // 翻转第0至k%nums.size()-1个元素</span><br><span class="line">    reverse(nums, (k % nums.size()), n);      // 翻转第k%nums.size()至nums.size()-1个元素</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LeetCode 977. 有序数组的平方</title>
+      <link href="/2022/03/14/LeetCode977-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9/"/>
+      <url>/2022/03/14/LeetCode977-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9/</url>
+      
+        <content type="html"><![CDATA[<h1>977. 有序数组的平方</h1><p><a href="https://leetcode-cn.com/problems/squares-of-a-sorted-array/">LeetCode 977</a></p><p>给你一个按<code>非递减顺序</code>排序的整数数组<code>nums</code>，返回<code>每个数字的平方</code>组成的新数组，要求也按<code>非递减顺序</code>排序。</p><p>示例 1：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [-4,-1,0,3,10]</span><br><span class="line">输出：[0,1,9,16,100]</span><br><span class="line">解释：平方后，数组变为 [16,1,0,9,100]</span><br><span class="line">排序后，数组变为 [0,1,9,16,100]</span><br></pre></td></tr></table></figure><p>示例 2：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [-7,-3,2,3,11]</span><br><span class="line">输出：[4,9,9,49,121]</span><br></pre></td></tr></table></figure><h2 id="Method-1-双指针">Method 1: 双指针</h2><p>找出非递减数组<code>nums</code>中正负整数的分界线<code>pos</code>，假定<code>nums[pos] &lt;= 0</code>，当我们将数组<code>nums</code>中的数平方后，那么<code>nums[0]</code>到<code>nums[pos]</code>单调递减，<code>nums[pos+1]</code>到<code>nums[n−1]</code>单调递增。</p><p>令<code>i</code>, <code>j</code>分别指向<code>pos</code>, <code>pos + 1</code>，分以下四种情况进行操作：</p><ol><li><code>pos</code>是最后一个元素，即，数组<code>nums</code>全是非正数，将数组每个元素平方然后按相反顺序排列；</li><li><code>pos + 1</code>是第一个元素，即数组<code>nums</code>全是正数，将数组每个元素平方然后按原顺序排列；</li><li><code>nums[i] * nums[i] &lt;= nums[j] * nums[j]</code>，先放<code>nums[i] * nums[i]</code>；</li><li><code>nums[i] * nums[i] &gt; nums[j] * nums[j]</code>，先放<code>nums[j] * nums[j]</code>；</li></ol><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vector&lt;int&gt; sortedSquares(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">    int mid = -1; // 找到最大的负数或者零所在的位置，即，正负数分界线</span><br><span class="line">    for (int i = 0; i &lt; nums.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if (nums[i] &lt; 0)</span><br><span class="line">            mid = i;</span><br><span class="line">        else</span><br><span class="line">            break;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    vector&lt;int&gt; ans;</span><br><span class="line">    int i = mid, j = mid + 1;</span><br><span class="line">    while ((i &gt;= 0) || (j &lt; nums.size()))</span><br><span class="line">    &#123;</span><br><span class="line">        if (i &lt; 0)                  // i 超出nums左边界</span><br><span class="line">        &#123;</span><br><span class="line">            ans.push_back(nums[j] * nums[j]);</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        else if (j == nums.size())  // j 超出nums右边界</span><br><span class="line">        &#123;</span><br><span class="line">            ans.push_back(nums[i] * nums[i]);</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">        else if (nums[i] * nums[i] &lt; nums[j] * nums[j])</span><br><span class="line">        &#123;</span><br><span class="line">            ans.push_back(nums[i] * nums[i]);</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            ans.push_back(nums[j] * nums[j]);</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Method-2-双指针">Method 2: 双指针</h2><p>使用两个指针分别指向位置<code>0</code>和<code>n−1</code>，每次比较两个指针对应的数，选择较大的那个逆序放入答案并移动指针</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; sortedSquares(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int n = nums.size();</span><br><span class="line">        vector&lt;int&gt; ans(n);     // 注意这里要初始化</span><br><span class="line">        for (int i = 0, j = n - 1, pos = n - 1; i &lt;= j;) &#123;</span><br><span class="line">            if (nums[i] * nums[i] &gt; nums[j] * nums[j]) &#123;</span><br><span class="line">                ans[pos] = nums[i] * nums[i];</span><br><span class="line">                ++i;</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                ans[pos] = nums[j] * nums[j];</span><br><span class="line">                --j;</span><br><span class="line">            &#125;</span><br><span class="line">            --pos;</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LeetCode 69. x的平方根</title>
+      <link href="/2022/03/14/LeetCode69-x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/"/>
+      <url>/2022/03/14/LeetCode69-x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/</url>
+      
+        <content type="html"><![CDATA[<h1>69. x的平方根</h1><p><a href="https://leetcode-cn.com/problems/sqrtx/">LeetCode 69</a></p><p>给你一个非负整数 <code>x</code> ，计算并返回 <code>x</code> 的算术平方根。</p><p>由于返回类型是整数，结果只保留整数部分 ，小数部分将被舍去。</p><p>注意：不允许使用任何内置指数函数和算符，例如 <code>pow(x, 0.5)</code> 或者 <code>x ** 0.5</code> 。</p><p></p><p>示例 1：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：x = 4</span><br><span class="line">输出：2</span><br></pre></td></tr></table></figure><p>示例 2：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：x = 8</span><br><span class="line">输出：2</span><br><span class="line">解释：8 的算术平方根是 2.82842..., 由于返回类型是整数，小数部分将被舍去。</span><br></pre></td></tr></table></figure><h2 id="Method-二分查找">Method: 二分查找</h2><blockquote><p>找到满足<code>k*k &lt;= x</code>的最大整数<code>k</code></p></blockquote><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int mySqrt(int x) &#123;</span><br><span class="line">    int left = 0, right = x;</span><br><span class="line">    while (left &lt;= right)</span><br><span class="line">    &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if ((long long) mid * mid &lt;= x)</span><br><span class="line">            left = mid + 1;</span><br><span class="line">        else</span><br><span class="line">            right = mid - 1;</span><br><span class="line">    &#125;;</span><br><span class="line">    return right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其中，<code>(long long)</code>强制转换类型，避免<code>mid * mid</code>溢出</p><p>或，考虑<code>mid &lt;= x / mid</code>（此时需另外分析<code>mid == 0</code>的情形）</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int mySqrt(int x) &#123;</span><br><span class="line">    int left = 0, right = x;</span><br><span class="line">    while (left &lt;= right)</span><br><span class="line">    &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (mid == 0)</span><br><span class="line">            break;</span><br><span class="line">        else if (mid &lt;= (x / mid))</span><br><span class="line">            left = mid + 1;</span><br><span class="line">        else</span><br><span class="line">            right = mid - 1;</span><br><span class="line">    &#125;;</span><br><span class="line">    return right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二分查找 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LeetCode Record</title>
+      <link href="/2022/03/14/LeetCode-Record/"/>
+      <url>/2022/03/14/LeetCode-Record/</url>
+      
+        <content type="html"><![CDATA[<h1>二分查找</h1><p><a href="https://leetcode-cn.com/problems/binary-search/">704. 二分查找</a></p><p><a href="https://leetcode-cn.com/problems/first-bad-version/">278. 第一个错误的版本</a></p><p><a href="https://leetcode-cn.com/problems/search-insert-position/">35. 搜索插入位置</a></p><p><a href="https://leetcode-cn.com/problems/sqrtx/">69. x 的平方根</a></p><h1>双指针</h1><p><a href="https://leetcode-cn.com/problems/squares-of-a-sorted-array/">977. 有序数组的平方</a></p><p><a href="https://leetcode-cn.com/problems/rotate-array/">189. 轮转数组</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二分查找 </tag>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二分查找</title>
       <link href="/2022/03/12/LeetCode-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
       <url>/2022/03/12/LeetCode-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
@@ -33,7 +135,7 @@
       <link href="/2022/03/12/LeetCode35-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/"/>
       <url>/2022/03/12/LeetCode35-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/</url>
       
-        <content type="html"><![CDATA[<h1>35. Search Insert position</h1><p><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode 35</a></p><p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p><p>请必须使用时间复杂度为 <code>O(log n)</code> 的算法。</p><p></p><p>示例 1:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [1,3,5,6], target = 5</span><br><span class="line">输出: 2</span><br></pre></td></tr></table></figure><p>示例 2:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [1,3,5,6], target = 2</span><br><span class="line">输出: 1</span><br></pre></td></tr></table></figure><p>示例 3:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [1,3,5,6], target = 7</span><br><span class="line">输出: 4</span><br></pre></td></tr></table></figure><p>示例 4:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [1,3,5,6], target = 0</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure><p>示例 5:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [1], target = 0</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure><h2 id="Method">Method</h2><p>在一个有序数组中找到第一个大于等于 <code>target</code> 的下标</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int searchInsert(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">    int left = 0, right = nums.size() - 1;</span><br><span class="line">    while (left &lt;= right)</span><br><span class="line">    &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (nums[mid] &lt; target)</span><br><span class="line">            left = mid + 1;</span><br><span class="line">        else</span><br><span class="line">            right = mid - 1;</span><br><span class="line">    &#125;;</span><br><span class="line">    return left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>二分查找需要注意边界条件，比如：循环结束条件中 <code>left</code> 和 <code>right</code> 的关系，更新 <code>left</code> 和 <code>right</code> 位置时要不要加 1 减 1。</p></blockquote><p><a href="https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/">写对二分查找不是套模板并往里面填空，需要仔细分析题意</a></p>]]></content>
+        <content type="html"><![CDATA[<h1>35. Search Insert position</h1><p><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode 35</a></p><p>给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。</p><p>请必须使用时间复杂度为 <code>O(log n)</code> 的算法。</p><p></p><p>示例 1:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [1,3,5,6], target = 5</span><br><span class="line">输出: 2</span><br></pre></td></tr></table></figure><p>示例 2:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [1,3,5,6], target = 2</span><br><span class="line">输出: 1</span><br></pre></td></tr></table></figure><p>示例 3:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [1,3,5,6], target = 7</span><br><span class="line">输出: 4</span><br></pre></td></tr></table></figure><p>示例 4:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [1,3,5,6], target = 0</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure><p>示例 5:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: nums = [1], target = 0</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure><h2 id="Method-二分查找">Method: 二分查找</h2><blockquote><p>在一个有序数组中找到第一个大于等于 <code>target</code> 的下标</p></blockquote><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int searchInsert(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">    int left = 0, right = nums.size() - 1;</span><br><span class="line">    while (left &lt;= right)</span><br><span class="line">    &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;</span><br><span class="line">        if (nums[mid] &lt; target)</span><br><span class="line">            left = mid + 1;</span><br><span class="line">        else</span><br><span class="line">            right = mid - 1;</span><br><span class="line">    &#125;;</span><br><span class="line">    return left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>二分查找需要注意边界条件，比如：循环结束条件中 <code>left</code> 和 <code>right</code> 的关系，更新 <code>left</code> 和 <code>right</code> 位置时要不要加 1 减 1。</p></blockquote><p><a href="https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/">写对二分查找不是套模板并往里面填空，需要仔细分析题意</a></p>]]></content>
       
       
       <categories>
@@ -686,9 +788,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -697,9 +799,9 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
