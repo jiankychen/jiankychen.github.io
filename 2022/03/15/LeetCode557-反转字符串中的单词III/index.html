@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LeetCode 557. 反转字符串中的单词 III | Personal Blog For Jianky</title><meta name="keywords" content="双指针"><meta name="author" content="Jianky"><meta name="copyright" content="Jianky"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="557. 反转字符串中的单词 III LeetCode 557 给定一个字符串 s ，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。 示例 1： 输入：s &#x3D; &quot;Let&amp;#x27;s take LeetCode contest&quot;输出：&quot;s&amp;#x27;teL ekat edoCteeL tsetnoc&quot; 示例 2: 输入： s &#x3D; &amp;q">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LeetCode 557. 反转字符串中的单词 III | Personal Blog For Jianky</title><meta name="keywords" content="双指针"><meta name="author" content="Jianky"><meta name="copyright" content="Jianky"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="557. 反转字符串中的单词 III LeetCode 557 给定一个字符串 s ，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。 示例 1： 输入：s &#x3D; &quot;Let&#39;s take LeetCode contest&quot; 输出：&quot;s&#39;teL ekat edoCteeL tsetnoc&quot;  示例 2: 输入： s &#x3D; &quot;God">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 557. 反转字符串中的单词 III">
 <meta property="og:url" content="https://jiankychen.github.io/2022/03/15/LeetCode557-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8DIII/index.html">
 <meta property="og:site_name" content="Personal Blog For Jianky">
-<meta property="og:description" content="557. 反转字符串中的单词 III LeetCode 557 给定一个字符串 s ，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。 示例 1： 输入：s &#x3D; &quot;Let&amp;#x27;s take LeetCode contest&quot;输出：&quot;s&amp;#x27;teL ekat edoCteeL tsetnoc&quot; 示例 2: 输入： s &#x3D; &amp;q">
+<meta property="og:description" content="557. 反转字符串中的单词 III LeetCode 557 给定一个字符串 s ，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。 示例 1： 输入：s &#x3D; &quot;Let&#39;s take LeetCode contest&quot; 输出：&quot;s&#39;teL ekat edoCteeL tsetnoc&quot;  示例 2: 输入： s &#x3D; &quot;God">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jiankychen.github.io/img/franky.jpg">
 <meta property="article:published_time" content="2022-03-15T09:00:02.000Z">
-<meta property="article:modified_time" content="2022-03-15T09:16:16.476Z">
+<meta property="article:modified_time" content="2022-03-15T12:08:43.931Z">
 <meta property="article:author" content="Jianky">
 <meta property="article:tag" content="双指针">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2022-03-15 17:16:16'
+  postUpdate: '2022-03-15 20:08:43'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -147,13 +147,17 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/franky.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">55</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 帖子</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Personal Blog For Jianky</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 帖子</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">LeetCode 557. 反转字符串中的单词 III</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-15T09:00:02.000Z" title="发表于 2022-03-15 17:00:02">2022-03-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-15T09:16:16.476Z" title="更新于 2022-03-15 17:16:16">2022-03-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/LeetCode/">LeetCode</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="LeetCode 557. 反转字符串中的单词 III"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1>557. 反转字符串中的单词 III</h1>
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/franky.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">55</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 帖子</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Personal Blog For Jianky</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 帖子</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">LeetCode 557. 反转字符串中的单词 III</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-15T09:00:02.000Z" title="发表于 2022-03-15 17:00:02">2022-03-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-15T12:08:43.931Z" title="更新于 2022-03-15 20:08:43">2022-03-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/LeetCode/">LeetCode</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="LeetCode 557. 反转字符串中的单词 III"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1>557. 反转字符串中的单词 III</h1>
 <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/">LeetCode 557</a></p>
 <p>给定一个字符串 s ，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。</p>
 <p>示例 1：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;Let&#x27;s take LeetCode contest&quot;</span><br><span class="line">输出：&quot;s&#x27;teL ekat edoCteeL tsetnoc&quot;</span><br></pre></td></tr></table></figure>
+<pre><code>输入：s = &quot;Let's take LeetCode contest&quot;
+输出：&quot;s'teL ekat edoCteeL tsetnoc&quot;
+</code></pre>
 <p>示例 2:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入： s = &quot;God Ding&quot;</span><br><span class="line">输出：&quot;doG gniD&quot;</span><br></pre></td></tr></table></figure>
+<pre><code>输入： s = &quot;God Ding&quot;
+输出：&quot;doG gniD&quot;
+</code></pre>
 <h2 id="Method-1-双指针（原地解法）">Method 1: 双指针（原地解法）</h2>
 <p>当找到一个单词的时候，我们交换字符串第一个字符与倒数第一个字符，随后交换第二个字符与倒数第二个字符……如此反复，就可以在原空间上翻转单词。</p>
 <p>具体流程如下：</p>
@@ -164,7 +168,28 @@
 <li>将<code>left</code>和<code>right</code>之间的所有字符反转</li>
 </ol>
 <p>重复上述操作，直到所有字符均已被反转</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">string reverseWords(string s) &#123;</span><br><span class="line">    int search = 0;</span><br><span class="line">    auto n = s.size();</span><br><span class="line">    while (search &lt; n)</span><br><span class="line">    &#123;</span><br><span class="line">        int left = search;                            // left指向第一个字符或空字符后一个字符</span><br><span class="line">        while (s[search] != &#x27; &#x27; &amp;&amp; search &lt; n)        // 向右搜索，直到遇到空字符或者最后一个字符</span><br><span class="line">        &#123;</span><br><span class="line">            search++;</span><br><span class="line">        &#125;;</span><br><span class="line">        int right = search - 1;                       // right指向空字符前一个位置，即，单词最后一个字符所在位置</span><br><span class="line">        while (left &lt; right)                          // 反转单词</span><br><span class="line">        &#123;</span><br><span class="line">            swap(s[left], s[right]);</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;;</span><br><span class="line">        search++;                                     // 继续搜索</span><br><span class="line">    &#125;;</span><br><span class="line">    return s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>string reverseWords(string s) &#123;
+    int search = 0;
+    auto n = s.size();
+    while (search &lt; n)
+    &#123;
+        int left = search;                            // left指向第一个字符或空字符后一个字符
+        while (s[search] != ' ' &amp;&amp; search &lt; n)        // 向右搜索，直到遇到空字符或者最后一个字符
+        &#123;
+            search++;
+        &#125;;
+        int right = search - 1;                       // right指向空字符前一个位置，即，单词最后一个字符所在位置
+        while (left &lt; right)                          // 反转单词
+        &#123;
+            swap(s[left], s[right]);
+            left++;
+            right--;
+        &#125;;
+        search++;                                     // 继续搜索
+    &#125;;
+    return s;
+&#125;
+</code></pre>
 <blockquote>
 <p>复杂度分析</p>
 <p>时间复杂度：<code>O(N)</code>。字符串中的每个字符要么在<code>O(1)</code>的时间内被交换到相应的位置，要么因为是空格而保持不动。</p>
@@ -172,7 +197,26 @@
 </blockquote>
 <h2 id="Method-2-双指针（使用额外空间）">Method 2: 双指针（使用额外空间）</h2>
 <p>开辟一个新字符串。从头到尾遍历原字符串，直到找到空格为止，此时找到了一个单词并得到单词的起止位置。随后，将该单词逆序放到新字符串当中。如此循环多次，直到遍历完原字符串。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">string reverseWords(string s) &#123;</span><br><span class="line">    string ret;</span><br><span class="line">    int length = s.length();</span><br><span class="line">    int i = 0;</span><br><span class="line">    while (i &lt; length) &#123;</span><br><span class="line">        int start = i;</span><br><span class="line">        while (i &lt; length &amp;&amp; s[i] != &#x27; &#x27;) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int p = start; p &lt; i; p++) &#123;</span><br><span class="line">            ret.push_back(s[start + i - 1 - p]);</span><br><span class="line">        &#125;</span><br><span class="line">        while (i &lt; length &amp;&amp; s[i] == &#x27; &#x27;) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            ret.push_back(&#x27; &#x27;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>string reverseWords(string s) &#123;
+    string ret;
+    int length = s.length();
+    int i = 0;
+    while (i &lt; length) &#123;
+        int start = i;
+        while (i &lt; length &amp;&amp; s[i] != ' ') &#123;
+            i++;
+        &#125;
+        for (int p = start; p &lt; i; p++) &#123;
+            ret.push_back(s[start + i - 1 - p]);
+        &#125;
+        while (i &lt; length &amp;&amp; s[i] == ' ') &#123;
+            i++;
+            ret.push_back(' ');
+        &#125;
+    &#125;
+    return ret;
+&#125;
+</code></pre>
 <blockquote>
 <p>复杂度分析</p>
 <p>时间复杂度：<code>O(N)</code>，其中<code>N</code>为字符串的长度。原字符串中的每个字符都会在<code>O(1)</code>的时间内放入新字符串中。</p>
