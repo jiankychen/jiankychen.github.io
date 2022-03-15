@@ -46,7 +46,7 @@
       <link href="/2022/03/15/22-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9F%BA%E7%A1%80/"/>
       <url>/2022/03/15/22-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9F%BA%E7%A1%80/</url>
       
-        <content type="html"><![CDATA[<p>给你一个整数数组<code>salary</code>，数组里每个数都是<strong>唯一</strong>的，其中<code>salary[i]</code>是第<code>i</code>个员工的工资。</p><p>请你返回去掉最低工资和最高工资以后，剩下员工工资的平均值。</p><p></p><p>示例 1：</p><pre><code>输入：salary = [4000,3000,1000,2000]输出：2500.00000解释：最低工资和最高工资分别是 1000 和 4000 。去掉最低工资和最高工资以后的平均工资是 (2000+3000)/2= 2500</code></pre><p>示例 2：</p><pre><code>输入：salary = [1000,2000,3000]输出：2000.00000解释：最低工资和最高工资分别是 1000 和 3000 。去掉最低工资和最高工资以后的平均工资是 (2000)/1= 2000</code></pre><p>示例 3：</p><pre><code>输入：salary = [6000,5000,4000,3000,2000,1000]输出：3500.00000</code></pre><p>示例 4：</p><pre><code>输入：salary = [8000,9000,2000,3000,6000,1000]输出：4750.00000</code></pre><h2 id="Method">Method</h2><p>逐个比较，更新最大值和最小值，并累加求和，最后再减去最大值和最小值。注意，求平均值时，被除数或者除数要转换成<code>double</code>型，这样才能保留小数点后的计算结果。</p>]]></content>
+        <content type="html"><![CDATA[<p><strong>表达式</strong>通常由<strong>运算符</strong>和<strong>运算对象</strong>组成</p><p><strong>字面值</strong>和<strong>变量</strong>是最简单的表达式</p><h1>基本概念</h1><p>一元运算符：作用于一个运算对象的运算符，如取地址符<code>&amp;</code>和解引用符<code>*</code></p><p>二元运算符：作用于两个运算对象的运算符，如相等运算符<code>==</code>和乘法运算符<code>*</code></p><p>三元运算符：作用于三个运算对象，如条件运算符<code>_ ? _ : _</code></p><h2 id="组合运算符和运算对象">组合运算符和运算对象</h2><p>表达式的求值结果，依赖于运算符的<strong>优先级</strong>、<strong>结合律</strong>以及<strong>运算对象的求值顺序</strong></p><blockquote><p>优先级：例如，<code>*</code>优先级高于<code>+</code><br>结合律：通常是从左往右，遇到括号时则是由内到外<br>求值顺序：例如，<code>f1() + f2()</code>，对于<code>f1()</code>和<code>f2()</code>的计算，没有明确的顺序</p></blockquote><h2 id="重载运算符">重载运算符</h2><p>当运算符作用于类类型的运算对象时，用户可以自行定义其含义</p><blockquote><p>这种自定义的过程事实上是为已存在的运算符赋予了另外一层含义，所以称之为重载运算符</p></blockquote><p><code>IO</code>库的<code>&gt;&gt;</code>和<code>&lt;&lt;</code>运算符以及<code>string</code>对象、<code>vector</code>对象和迭代器使用的运算符都是重载的运算符</p><p>使用重载运算符时，其包括运算对象的类型和返回值的类型，都是由该运算符定义的</p><p><strong>运算对象的个数、运算符的优先级和结合律都是无法改变的</strong></p><h2 id="左值和右值">左值和右值</h2><p>C++的表达式要么是右值，要么就是左值，即，非左即右</p><blockquote><p>C语言：左值可以位于赋值语句的左侧，右值则不能</p></blockquote><p>C++语言则复杂得多：</p><ol><li>右值：取不到地址的表达式</li><li>左值：能取到地址的表达式</li><li>常量对象为代表的左值不能作为赋值语句的左侧运算对象。（即，不能修改常量对象的值）</li><li>某些表达式的求值结果是对象，但它们是右值。（例如，临时的对象<code>1+a</code>无法取地址，故而是右值）</li></ol><p><strong>当一个对象被用作右值的时候，用的是对象的值（内容）</strong></p><p><strong>当对象被用作左值的时候，用的是对象的身份（在内存中的位置）</strong></p><blockquote><p>在需要右值的地方可以用左值来代替。当一个左值被当成右值使用时，实际使用的是它的内容（值）</p><p>不能把右值当成左值（也就是位置）使用</p></blockquote><p><strong>取地址符作用于一个左值运算对象，返回一个指向该运算对象的指针，这个指针是一个右值</strong></p><p><strong>内置解引用运算符、下标运算符、迭代器解引用运算符、<code>string</code>和<code>vector</code>的下标运算符的求值结果都是左值</strong></p><p>内置类型和迭代器的递增递减运算符作用于左值运算对象，其前置版本（之前章节所用的形式）所得的结果也是左值</p><p>关键字<code>decltype</code>与表达式：<strong>如果表达式的求值结果是左值，<code>decltype</code>作用于该表达式（不是变量）得到一个引用类型</strong>。例如，对于<code>int *p</code>，因为解引用运算符（即，<code>*p</code>）生成左值，所以<code>decltype(*p)</code>的结果是引用类型，即<code>int&amp;</code>；另一方面，因为取地址运算符（即，<code>&amp;p</code>）生成右值，所以<code>decltype(&amp;p)</code>的结果是<code>int**</code></p>]]></content>
       
       
       <categories>
@@ -950,17 +950,6 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/manifest.json"/>
       <url>/manifest.json</url>
@@ -972,9 +961,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -986,6 +975,17 @@
       <title>link</title>
       <link href="/link/index.html"/>
       <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
