@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>LeetCode 557. 反转字符串中的单词 III</title>
+      <link href="/2022/03/15/LeetCode557-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8DIII/"/>
+      <url>/2022/03/15/LeetCode557-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8DIII/</url>
+      
+        <content type="html"><![CDATA[<h1>557. 反转字符串中的单词 III</h1><p><a href="https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/">LeetCode 557</a></p><p>给定一个字符串 s ，你需要反转字符串中每个单词的字符顺序，同时仍保留空格和单词的初始顺序。</p><p>示例 1：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;Let&#x27;s take LeetCode contest&quot;</span><br><span class="line">输出：&quot;s&#x27;teL ekat edoCteeL tsetnoc&quot;</span><br></pre></td></tr></table></figure><p>示例 2:</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入： s = &quot;God Ding&quot;</span><br><span class="line">输出：&quot;doG gniD&quot;</span><br></pre></td></tr></table></figure><h2 id="Method-1-双指针（原地解法）">Method 1: 双指针（原地解法）</h2><p>当找到一个单词的时候，我们交换字符串第一个字符与倒数第一个字符，随后交换第二个字符与倒数第二个字符……如此反复，就可以在原空间上翻转单词。</p><p>具体流程如下：</p><ol><li>指针<code>left</code>指向第一个字符或空字符前一个字符（双指针中的左端指针）</li><li>指针<code>search</code>向右搜索</li><li>当<code>search</code>搜索到空字符或尾后时，将<code>search - 1</code>赋给双指针中的右端指针<code>right</code></li><li>将<code>left</code>和<code>right</code>之间的所有字符反转</li></ol><p>重复上述操作，直到所有字符均已被反转</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">string reverseWords(string s) &#123;</span><br><span class="line">    int search = 0;</span><br><span class="line">    auto n = s.size();</span><br><span class="line">    while (search &lt; n)</span><br><span class="line">    &#123;</span><br><span class="line">        int left = search;                            // left指向第一个字符或空字符后一个字符</span><br><span class="line">        while (s[search] != &#x27; &#x27; &amp;&amp; search &lt; n)        // 向右搜索，直到遇到空字符或者最后一个字符</span><br><span class="line">        &#123;</span><br><span class="line">            search++;</span><br><span class="line">        &#125;;</span><br><span class="line">        int right = search - 1;                       // right指向空字符前一个位置，即，单词最后一个字符所在位置</span><br><span class="line">        while (left &lt; right)                          // 反转单词</span><br><span class="line">        &#123;</span><br><span class="line">            swap(s[left], s[right]);</span><br><span class="line">            left++;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;;</span><br><span class="line">        search++;                                     // 继续搜索</span><br><span class="line">    &#125;;</span><br><span class="line">    return s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>复杂度分析</p><p>时间复杂度：<code>O(N)</code>。字符串中的每个字符要么在<code>O(1)</code>的时间内被交换到相应的位置，要么因为是空格而保持不动。</p><p>空间复杂度：<code>O(1)</code>。因为不需要开辟额外的数组。</p></blockquote><h2 id="Method-2-双指针（使用额外空间）">Method 2: 双指针（使用额外空间）</h2><p>开辟一个新字符串。从头到尾遍历原字符串，直到找到空格为止，此时找到了一个单词并得到单词的起止位置。随后，将该单词逆序放到新字符串当中。如此循环多次，直到遍历完原字符串。</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">string reverseWords(string s) &#123;</span><br><span class="line">    string ret;</span><br><span class="line">    int length = s.length();</span><br><span class="line">    int i = 0;</span><br><span class="line">    while (i &lt; length) &#123;</span><br><span class="line">        int start = i;</span><br><span class="line">        while (i &lt; length &amp;&amp; s[i] != &#x27; &#x27;) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int p = start; p &lt; i; p++) &#123;</span><br><span class="line">            ret.push_back(s[start + i - 1 - p]);</span><br><span class="line">        &#125;</span><br><span class="line">        while (i &lt; length &amp;&amp; s[i] == &#x27; &#x27;) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            ret.push_back(&#x27; &#x27;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>复杂度分析</p><p>时间复杂度：<code>O(N)</code>，其中<code>N</code>为字符串的长度。原字符串中的每个字符都会在<code>O(1)</code>的时间内放入新字符串中。</p><p>空间复杂度：<code>O(N)</code>。开辟了与原字符串等大的空间。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LeetCode 344. 反转字符串</title>
+      <link href="/2022/03/15/LeetCode344-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+      <url>/2022/03/15/LeetCode344-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+      
+        <content type="html"><![CDATA[<h1>344. 反转字符串</h1><p><a href="https://leetcode-cn.com/problems/reverse-string/">LeetCode 344</a></p><p>编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组<code>s</code>的形式给出。</p><p>不要给另外的数组分配额外的空间，你必须<strong>原地修改输入数组</strong>、使用<code>O(1)</code>的<strong>额外空间</strong>解决这一问题。</p><p>示例 1：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：s = [&quot;h&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;]</span><br><span class="line">输出：[&quot;o&quot;,&quot;l&quot;,&quot;l&quot;,&quot;e&quot;,&quot;h&quot;]</span><br></pre></td></tr></table></figure><p>示例 2：</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：s = [&quot;H&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;h&quot;]</span><br><span class="line">输出：[&quot;h&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;H&quot;]</span><br></pre></td></tr></table></figure><h2 id="Method-双指针">Method: 双指针</h2><ol><li>将<code>left</code>指向字符数组首元素，<code>right</code>指向字符数组尾元素。</li><li>当<code>left &lt; right</code>：交换<code>s[left]</code>和<code>s[right]</code>；<code>left</code>指针右移一位；<code>right</code>指针左移一位。</li><li>当<code>left &gt;= right</code>，反转结束，返回字符数组即可。</li></ol><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void reverseString(vector&lt;char&gt;&amp; s) &#123;</span><br><span class="line">    int left = 0, right = s.size() - 1;</span><br><span class="line">    while (left &lt; right)</span><br><span class="line">    &#123;</span><br><span class="line">        char temp = s[right];</span><br><span class="line">        s[right] = s[left];</span><br><span class="line">        s[left] = temp;</span><br><span class="line">        left++;</span><br><span class="line">        right--;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 167. 两数之和 II - 输入有序数组</title>
       <link href="/2022/03/14/LeetCode167-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8CII-%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/"/>
       <url>/2022/03/14/LeetCode167-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8CII-%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/</url>
@@ -135,7 +185,7 @@
       <link href="/2022/03/14/LeetCode-Record/"/>
       <url>/2022/03/14/LeetCode-Record/</url>
       
-        <content type="html"><![CDATA[<h1>二分查找</h1><p><a href="https://leetcode-cn.com/problems/binary-search/">704. 二分查找</a></p><p><a href="https://leetcode-cn.com/problems/first-bad-version/">278. 第一个错误的版本</a></p><p><a href="https://leetcode-cn.com/problems/search-insert-position/">35. 搜索插入位置</a></p><p><a href="https://leetcode-cn.com/problems/sqrtx/">69. x 的平方根</a></p><h1>双指针</h1><p><a href="https://leetcode-cn.com/problems/squares-of-a-sorted-array/">977. 有序数组的平方</a></p><p><a href="https://leetcode-cn.com/problems/rotate-array/">189. 轮转数组</a></p><p><a href="https://leetcode-cn.com/problems/move-zeroes/">283. 移动零</a></p><p><a href="https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/">167. 两数之和 II - 输入有序数组</a></p>]]></content>
+        <content type="html"><![CDATA[<h1>二分查找</h1><ol start="704"><li><p>二分查找<br><a href="https://leetcode-cn.com/problems/binary-search/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/12/LeetCode-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">Hexo</a></p></li><li><p>第一个错误的版本<br><a href="https://leetcode-cn.com/problems/first-bad-version/">LeetCode</a></p></li><li><p>搜索插入位置<br><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/12/LeetCode35-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/">Hexo</a></p></li><li><p>x 的平方根<br><a href="https://leetcode-cn.com/problems/sqrtx/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode69-x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">Hexo</a></p></li></ol><h1>双指针</h1><ol start="977"><li><p>有序数组的平方<br><a href="https://leetcode-cn.com/problems/squares-of-a-sorted-array/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode977-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9/">Hexo</a></p></li><li><p>轮转数组<br><a href="https://leetcode-cn.com/problems/rotate-array/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode189-%E8%BD%AE%E8%BD%AC%E6%95%B0%E7%BB%84/">Hexo</a></p></li><li><p>移动零<br><a href="https://leetcode-cn.com/problems/move-zeroes/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode283-%E7%A7%BB%E5%8A%A8%E9%9B%B6/">Hexo</a></p></li><li><p>两数之和 II - 输入有序数组<br><a href="https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode167-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8CII-%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/">Hexo</a></p></li><li><p>反转字符串<br><a href="https://leetcode-cn.com/problems/reverse-string/">LeetCode</a></p></li><li><p>反转字符串中的单词 III<br><a href="https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/">LeetCode</a></p></li></ol>]]></content>
       
       
       <categories>
@@ -538,9 +588,9 @@
       
         <tags>
             
-            <tag> 指针 </tag>
-            
             <tag> const </tag>
+            
+            <tag> 指针 </tag>
             
             <tag> constexpr </tag>
             
@@ -569,9 +619,9 @@
       
         <tags>
             
-            <tag> 引用 </tag>
-            
             <tag> 指针 </tag>
+            
+            <tag> 引用 </tag>
             
         </tags>
       
@@ -840,9 +890,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -851,9 +901,9 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
