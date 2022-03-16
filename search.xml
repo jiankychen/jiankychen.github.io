@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>LeetCode19-删除链表的倒数第N个结点</title>
+      <link href="/2022/03/16/LeetCode19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E7%BB%93%E7%82%B9/"/>
+      <url>/2022/03/16/LeetCode19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E7%BB%93%E7%82%B9/</url>
+      
+        <content type="html"><![CDATA[<h1>19. Remove N-th Node from End of List</h1><p>Given the head of a linked list, remove the nth node from the end of the list and return its head.</p><p></p><p>Example 1:</p><img src="/2022/03/16/LeetCode19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E7%BB%93%E7%82%B9/1.png" class=""><pre><code>Input: head = [1,2,3,4,5], n = 2Output: [1,2,3,5]</code></pre><p>Example 2:</p><pre><code>Input: head = [1], n = 1Output: []</code></pre><p>Example 3:</p><pre><code>Input: head = [1,2], n = 1Output: [1]</code></pre><h2 id="Method-快慢指针">Method: 快慢指针</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 双指针 </tag>
+            
+            <tag> 链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 704. 二分查找</title>
       <link href="/2022/03/16/LeetCode704-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
       <url>/2022/03/16/LeetCode704-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
