@@ -385,9 +385,9 @@
             
             <tag> 类型别名 </tag>
             
-            <tag> 下标运算符 </tag>
-            
             <tag> 范围for </tag>
+            
+            <tag> 下标运算符 </tag>
             
             <tag> begin </tag>
             
@@ -418,9 +418,9 @@
             
             <tag> 指针 </tag>
             
-            <tag> 下标运算符 </tag>
-            
             <tag> 范围for </tag>
+            
+            <tag> 下标运算符 </tag>
             
             <tag> begin </tag>
             
@@ -490,13 +490,13 @@
       
         <tags>
             
-            <tag> vector </tag>
-            
-            <tag> push_back </tag>
+            <tag> 范围for </tag>
             
             <tag> 下标运算符 </tag>
             
-            <tag> 范围for </tag>
+            <tag> vector </tag>
+            
+            <tag> push_back </tag>
             
         </tags>
       
@@ -521,11 +521,11 @@
       
         <tags>
             
-            <tag> 下标运算符 </tag>
+            <tag> string </tag>
             
             <tag> 范围for </tag>
             
-            <tag> string </tag>
+            <tag> 下标运算符 </tag>
             
             <tag> string::size_type </tag>
             
@@ -961,9 +961,9 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -983,9 +983,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
