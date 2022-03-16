@@ -27,7 +27,7 @@
       <link href="/2022/03/15/LeetCode1523-%E5%9C%A8%E5%8C%BA%E9%97%B4%E8%8C%83%E5%9B%B4%E5%86%85%E7%BB%9F%E8%AE%A1%E5%A5%87%E6%95%B0%E6%95%B0%E7%9B%AE/"/>
       <url>/2022/03/15/LeetCode1523-%E5%9C%A8%E5%8C%BA%E9%97%B4%E8%8C%83%E5%9B%B4%E5%86%85%E7%BB%9F%E8%AE%A1%E5%A5%87%E6%95%B0%E6%95%B0%E7%9B%AE/</url>
       
-        <content type="html"><![CDATA[<h1>1523. 在区间范围内统计奇数数目</h1><p><a href="https://leetcode-cn.com/problems/count-odd-numbers-in-an-interval-range/">LeetCode 1523</a></p><p>给你两个非负整数<code>low</code>和<code>high</code>。请你返回<code>low</code>和<code>high</code>之间（包括二者）奇数的数目。</p><p></p><p>示例 1：</p><pre><code>输入：low = 3, high = 7输出：3解释：3 到 7 之间奇数数字为 [3,5,7] 。</code></pre><p>示例 2：</p><pre><code>输入：low = 8, high = 10输出：1解释：8 到 10 之间奇数数字为 [9] 。</code></pre><h2 id="Method-前缀和思想">Method: 前缀和思想</h2><blockquote><p>暴力枚举<code>[low,high]</code>中的所有元素会超出时间限制。</p></blockquote><p>可以使用前缀和思想来解决这个问题，定义<code>pre(x)</code>为区间<code>[0,x]</code>中奇数的个数，则<code>pre(x)=(x+1)/2</code>。因此<code>[low,high]</code>之间的奇数数目为<code>pre(high)−pre(low−1)</code>。</p><pre><code>int pre(int x)&#123; // 返回[0,x]之间的奇数数目    return (x + 1) / 2;&#125;int countOdds(int low, int high) &#123; // [low,high]之间的奇数数目=[0,high]之间的奇数数目-[0,low-1]之间的奇数数目    return pre(high) - pre(low - 1);&#125;</code></pre><blockquote><p>时间复杂度：<code>O(1)</code>。</p><p>空间复杂度：<code>O(1)</code>。</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h1>1523. 在区间范围内统计奇数数目</h1><p><a href="https://leetcode-cn.com/problems/count-odd-numbers-in-an-interval-range/">LeetCode 1523</a></p><p>给你两个非负整数<code>low</code>和<code>high</code>。请你返回<code>low</code>和<code>high</code>之间（包括二者）奇数的数目。</p><p></p><p>示例 1：</p><pre><code>输入：low = 3, high = 7输出：3解释：3 到 7 之间奇数数字为 [3,5,7] 。</code></pre><p>示例 2：</p><pre><code>输入：low = 8, high = 10输出：1解释：8 到 10 之间奇数数字为 [9] 。</code></pre><h2 id="Method-前缀和思想">Method: 前缀和思想</h2><blockquote><p>暴力枚举<code>[low,high]</code>中的所有元素会超出时间限制。</p></blockquote><p>可以使用前缀和思想来解决这个问题，定义<code>pre(x)</code>为区间<code>[0,x]</code>中奇数的个数，则<code>pre(x)=(x+1)/2</code>。因此<code>[low,high]</code>之间的奇数数目为<code>pre(high)−pre(low−1)</code>。</p><p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mo stretchy="false">(</mo><mi>h</mi><mi>i</mi><mi>g</mi><mi>h</mi><mo stretchy="false">)</mo><mo>−</mo><mi>p</mi><mi>r</mi><mi>e</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>w</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">pre(high)−pre(low−1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal">re</span><span class="mopen">(</span><span class="mord mathnormal">hi</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">h</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal">re</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span></p><pre><code>int pre(int x)&#123; // 返回[0,x]之间的奇数数目    return (x + 1) / 2;&#125;int countOdds(int low, int high) &#123; // [low,high]之间的奇数数目=[0,high]之间的奇数数目-[0,low-1]之间的奇数数目    return pre(high) - pre(low - 1);&#125;</code></pre><blockquote><p>时间复杂度：<code>O(1)</code>。</p><p>空间复杂度：<code>O(1)</code>。</p></blockquote>]]></content>
       
       
       <categories>
@@ -670,9 +670,9 @@
       
         <tags>
             
-            <tag> const </tag>
-            
             <tag> 指针 </tag>
+            
+            <tag> const </tag>
             
             <tag> constexpr </tag>
             
@@ -701,9 +701,9 @@
       
         <tags>
             
-            <tag> 指针 </tag>
-            
             <tag> 引用 </tag>
+            
+            <tag> 指针 </tag>
             
         </tags>
       
