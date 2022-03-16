@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>LeetCode 876. 链表的中间结点</title>
+      <link href="/2022/03/16/LeetCode876-%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9/"/>
+      <url>/2022/03/16/LeetCode876-%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9/</url>
+      
+        <content type="html"><![CDATA[<h1>876. Middle of the Linked List</h1><p><a href="https://leetcode-cn.com/problems/middle-of-the-linked-list/">LeetCode</a></p><p>Given the head of a singly linked list, return <code>the middle node</code> of the linked list.</p><p>If there are two middle nodes, return <code>the second middle</code> node.</p><p>Example 1:</p><pre><code>Input: head = [1,2,3,4,5]Output: [3,4,5]Explanation: The middle node of the list is node 3.</code></pre><p>Example 2:</p><pre><code>Input: head = [1,2,3,4,5,6]Output: [4,5,6]Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.</code></pre><h2 id="Method-1-数组">Method 1: 数组</h2><p>对链表进行遍历，同时将遍历到的元素依次放入数组<code>A</code>中。如果我们遍历到了<code>N</code>个元素，那么链表以及数组的长度也为<code>N</code>，对应的中间节点即为<code>A[N/2]</code></p><pre><code>ListNode* middleNode(ListNode* head) &#123;    vector&lt;ListNode*&gt; A = &#123;head&#125;;    while (A.back()-&gt;next != NULL)        A.push_back(A.back()-&gt;next);    return A[A.size() / 2];&#125;</code></pre><p>时间复杂度：<code>O(N)</code>，其中<code>N</code>是给定链表中的结点数目。<br>空间复杂度：<code>O(N)</code>，即数组<code>A</code>用去的空间。</p><h2 id="Method-2-单指针">Method 2: 单指针</h2><p>对链表进行两次遍历。第一次遍历时，我们统计链表中的元素个数<code>N</code>；第二次遍历时，我们遍历到第<code>N/2</code>个元素（链表的首节点为第<code>0</code>个元素）时，将该元素返回即可</p><blockquote><p>注意，题目要求「两个中间结点的时候，返回<strong>第二个中间结点</strong>」。此时，快指针可以前进的条件是：<strong>当前快指针和当前快指针的下一个结点都非空</strong>。</p><p>如果题目要求「在两个中间结点的时候，返回<strong>第一个中间结点</strong>」，快指针可以前进的条件是：<strong>当前快指针的下一个结点和当前快指针的下下一个结点都非空</strong>。</p></blockquote><pre><code>ListNode* middleNode(ListNode* head) &#123;    ListNode *current = head;    int n = 0;    while (current != nullptr)      // 统计链表的节点数    &#123;        n++;        current = current-&gt;next;    &#125;    current = head;    for (int i = 0; i &lt; n / 2; i++) // 寻找链表的中间节点        current = current-&gt;next;    return current;&#125;</code></pre><p>时间复杂度：<code>O(N)</code>，其中<code>N</code>是给定链表的结点数目。</p><p>空间复杂度：<code>O(1)</code>，只需要常数空间存放变量和指针。</p><h2 id="Method-3-快慢指针">Method 3: 快慢指针</h2><p>用两个指针<code>slow</code>与<code>fast</code>一起遍历链表。<code>slow</code>一次走一步，<code>fast</code>一次走两步。那么当<code>fast</code>到达链表的末尾时，<code>slow</code>必然位于中间</p><pre><code>ListNode* middleNode(ListNode* head) &#123;    // 快慢指针，快指针一次前进两步，慢指针一次前进一步    ListNode *fast = head, *slow = head;    // 判断条件为：快指针当前节点非空且下一节点都非空。这样才能保证返回第二个中间节点（存在两个中间节点时）    while (fast != nullptr &amp;&amp; fast-&gt;next != nullptr)        &#123;        slow = slow-&gt;next;        fast = fast-&gt;next-&gt;next;    &#125;    return slow;&#125;</code></pre><p>时间复杂度：<code>O(N)</code>，其中N是给定链表的结点数目。</p><p>空间复杂度：<code>O(1)</code>，只需要常数空间存放<code>slow</code>和<code>fast</code>两个指针。</p><p><a href="https://leetcode-cn.com/problems/middle-of-the-linked-list/solution/lian-biao-de-zhong-jian-jie-dian-by-leetcode-solut/">题解：链表的中间结点</a></p><p><a href="https://leetcode-cn.com/problems/middle-of-the-linked-list/solution/kuai-man-zhi-zhen-zhu-yao-zai-yu-diao-shi-by-liwei/">题解：快慢指针（注意链表长度为偶数时，返回第 2 个结点的细节）</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 双指针 </tag>
+            
+            <tag> 链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 1491. 去掉最低工资和最高工资后的平均工资</title>
       <link href="/2022/03/15/LeetCode1491-%E5%8E%BB%E6%8E%89%E6%9C%80%E4%BD%8E%E5%B7%A5%E8%B5%84%E5%92%8C%E6%9C%80%E9%AB%98%E5%B7%A5%E8%B5%84%E5%90%8E%E7%9A%84%E5%B9%B3%E5%9D%87%E5%B7%A5%E8%B5%84/"/>
       <url>/2022/03/15/LeetCode1491-%E5%8E%BB%E6%8E%89%E6%9C%80%E4%BD%8E%E5%B7%A5%E8%B5%84%E5%92%8C%E6%9C%80%E9%AB%98%E5%B7%A5%E8%B5%84%E5%90%8E%E7%9A%84%E5%B9%B3%E5%9D%87%E5%B7%A5%E8%B5%84/</url>
@@ -18,6 +45,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 排序 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -27,7 +60,7 @@
       <link href="/2022/03/15/LeetCode1523-%E5%9C%A8%E5%8C%BA%E9%97%B4%E8%8C%83%E5%9B%B4%E5%86%85%E7%BB%9F%E8%AE%A1%E5%A5%87%E6%95%B0%E6%95%B0%E7%9B%AE/"/>
       <url>/2022/03/15/LeetCode1523-%E5%9C%A8%E5%8C%BA%E9%97%B4%E8%8C%83%E5%9B%B4%E5%86%85%E7%BB%9F%E8%AE%A1%E5%A5%87%E6%95%B0%E6%95%B0%E7%9B%AE/</url>
       
-        <content type="html"><![CDATA[<h1>1523. 在区间范围内统计奇数数目</h1><p><a href="https://leetcode-cn.com/problems/count-odd-numbers-in-an-interval-range/">LeetCode 1523</a></p><p>给你两个非负整数<code>low</code>和<code>high</code>。请你返回<code>low</code>和<code>high</code>之间（包括二者）奇数的数目。</p><p></p><p>示例 1：</p><pre><code>输入：low = 3, high = 7输出：3解释：3 到 7 之间奇数数字为 [3,5,7] 。</code></pre><p>示例 2：</p><pre><code>输入：low = 8, high = 10输出：1解释：8 到 10 之间奇数数字为 [9] 。</code></pre><h2 id="Method-前缀和思想">Method: 前缀和思想</h2><blockquote><p>暴力枚举<code>[low,high]</code>中的所有元素会超出时间限制。</p></blockquote><p>可以使用前缀和思想来解决这个问题，定义<code>pre(x)</code>为区间<code>[0,x]</code>中奇数的个数，则<code>pre(x)=(x+1)/2</code>。因此<code>[low,high]</code>之间的奇数数目为<code>pre(high)−pre(low−1)</code>。</p><p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mi>r</mi><mi>e</mi><mo stretchy="false">(</mo><mi>h</mi><mi>i</mi><mi>g</mi><mi>h</mi><mo stretchy="false">)</mo><mo>−</mo><mi>p</mi><mi>r</mi><mi>e</mi><mo stretchy="false">(</mo><mi>l</mi><mi>o</mi><mi>w</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">pre(high)−pre(low−1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal">re</span><span class="mopen">(</span><span class="mord mathnormal">hi</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">h</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mord mathnormal">re</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span></p><pre><code>int pre(int x)&#123; // 返回[0,x]之间的奇数数目    return (x + 1) / 2;&#125;int countOdds(int low, int high) &#123; // [low,high]之间的奇数数目=[0,high]之间的奇数数目-[0,low-1]之间的奇数数目    return pre(high) - pre(low - 1);&#125;</code></pre><blockquote><p>时间复杂度：<code>O(1)</code>。</p><p>空间复杂度：<code>O(1)</code>。</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h1>1523. 在区间范围内统计奇数数目</h1><p><a href="https://leetcode-cn.com/problems/count-odd-numbers-in-an-interval-range/">LeetCode 1523</a></p><p>给你两个非负整数<code>low</code>和<code>high</code>。请你返回<code>low</code>和<code>high</code>之间（包括二者）奇数的数目。</p><p></p><p>示例 1：</p><pre><code>输入：low = 3, high = 7输出：3解释：3 到 7 之间奇数数字为 [3,5,7] 。</code></pre><p>示例 2：</p><pre><code>输入：low = 8, high = 10输出：1解释：8 到 10 之间奇数数字为 [9] 。</code></pre><h2 id="Method-前缀和思想">Method: 前缀和思想</h2><blockquote><p>暴力枚举<code>[low,high]</code>中的所有元素会超出时间限制。</p></blockquote><p>可以使用前缀和思想来解决这个问题，定义<code>pre(x)</code>为区间<code>[0,x]</code>中奇数的个数，则<code>pre(x)=(x+1)/2</code>。因此<code>[low,high]</code>之间的奇数数目为<code>pre(high)−pre(low−1)</code>。</p><pre><code>int pre(int x)&#123; // 返回[0,x]之间的奇数数目    return (x + 1) / 2;&#125;int countOdds(int low, int high) &#123; // [low,high]之间的奇数数目=[0,high]之间的奇数数目-[0,low-1]之间的奇数数目    return pre(high) - pre(low - 1);&#125;</code></pre><blockquote><p>时间复杂度：<code>O(1)</code>。</p><p>空间复杂度：<code>O(1)</code>。</p></blockquote>]]></content>
       
       
       <categories>
@@ -267,7 +300,7 @@
       <link href="/2022/03/14/LeetCode-Record/"/>
       <url>/2022/03/14/LeetCode-Record/</url>
       
-        <content type="html"><![CDATA[<h1>二分查找</h1><ol start="704"><li><p>二分查找<br><a href="https://leetcode-cn.com/problems/binary-search/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/12/LeetCode-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">Hexo</a></p></li><li><p>第一个错误的版本<br><a href="https://leetcode-cn.com/problems/first-bad-version/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/15/LeetCode278-%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%89%88%E6%9C%AC/">Hexo</a></p></li><li><p>搜索插入位置<br><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/12/LeetCode35-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/">Hexo</a></p></li><li><p>x 的平方根<br><a href="https://leetcode-cn.com/problems/sqrtx/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode69-x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">Hexo</a></p></li></ol><h1>双指针</h1><ol start="977"><li><p>有序数组的平方<br><a href="https://leetcode-cn.com/problems/squares-of-a-sorted-array/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode977-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9/">Hexo</a></p></li><li><p>轮转数组<br><a href="https://leetcode-cn.com/problems/rotate-array/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode189-%E8%BD%AE%E8%BD%AC%E6%95%B0%E7%BB%84/">Hexo</a></p></li><li><p>移动零<br><a href="https://leetcode-cn.com/problems/move-zeroes/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode283-%E7%A7%BB%E5%8A%A8%E9%9B%B6/">Hexo</a></p></li><li><p>两数之和 II - 输入有序数组<br><a href="https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode167-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8CII-%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/">Hexo</a></p></li><li><p>反转字符串<br><a href="https://leetcode-cn.com/problems/reverse-string/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/15/LeetCode344-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/">Hexo</a></p></li><li><p>反转字符串中的单词 III<br><a href="https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/15/LeetCode557-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8DIII/">Hexo</a></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1>二分查找</h1><ol start="704"><li><p>二分查找<br><a href="https://leetcode-cn.com/problems/binary-search/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/12/LeetCode-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">Hexo</a></p></li><li><p>第一个错误的版本<br><a href="https://leetcode-cn.com/problems/first-bad-version/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/15/LeetCode278-%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%89%88%E6%9C%AC/">Hexo</a></p></li><li><p>搜索插入位置<br><a href="https://leetcode-cn.com/problems/search-insert-position/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/12/LeetCode35-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE/">Hexo</a></p></li><li><p>x 的平方根<br><a href="https://leetcode-cn.com/problems/sqrtx/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode69-x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">Hexo</a></p></li></ol><h1>双指针</h1><ol start="977"><li><p>有序数组的平方<br><a href="https://leetcode-cn.com/problems/squares-of-a-sorted-array/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode977-%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9/">Hexo</a></p></li><li><p>轮转数组<br><a href="https://leetcode-cn.com/problems/rotate-array/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode189-%E8%BD%AE%E8%BD%AC%E6%95%B0%E7%BB%84/">Hexo</a></p></li><li><p>移动零<br><a href="https://leetcode-cn.com/problems/move-zeroes/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode283-%E7%A7%BB%E5%8A%A8%E9%9B%B6/">Hexo</a></p></li><li><p>两数之和 II - 输入有序数组<br><a href="https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/14/LeetCode167-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8CII-%E8%BE%93%E5%85%A5%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84/">Hexo</a></p></li><li><p>反转字符串<br><a href="https://leetcode-cn.com/problems/reverse-string/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/15/LeetCode344-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/">Hexo</a></p></li><li><p>反转字符串中的单词 III<br><a href="https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/15/LeetCode557-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8DIII/">Hexo</a></p></li><li><p>链表的中间结点<br><a href="https://leetcode-cn.com/problems/middle-of-the-linked-list/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/16/LeetCode876-%E9%93%BE%E8%A1%A8%E7%9A%84%E4%B8%AD%E9%97%B4%E7%BB%93%E7%82%B9/">Hexo</a></p></li></ol><h1>基本数据类型</h1><ol start="1523"><li><p>在区间范围内统计奇数数目<br><a href="https://leetcode-cn.com/problems/count-odd-numbers-in-an-interval-range/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/16/LeetCode1523-%E5%9C%A8%E5%8C%BA%E9%97%B4%E8%8C%83%E5%9B%B4%E5%86%85%E7%BB%9F%E8%AE%A1%E5%A5%87%E6%95%B0%E6%95%B0%E7%9B%AE/">Hexo</a></p></li><li><p>去掉最低工资和最高工资后的平均工资<br><a href="https://leetcode-cn.com/problems/average-salary-excluding-the-minimum-and-maximum-salary/">LeetCode</a><br><a href="https://jiankychen.github.io/2022/03/16/LeetCode1491-%E5%8E%BB%E6%8E%89%E6%9C%80%E4%BD%8E%E5%B7%A5%E8%B5%84%E5%92%8C%E6%9C%80%E9%AB%98%E5%B7%A5%E8%B5%84%E5%90%8E%E7%9A%84%E5%B9%B3%E5%9D%87%E5%B7%A5%E8%B5%84/">Hexo</a></p></li></ol>]]></content>
       
       
       <categories>
@@ -961,9 +994,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -983,9 +1016,9 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
