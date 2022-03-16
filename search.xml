@@ -385,9 +385,9 @@
             
             <tag> 类型别名 </tag>
             
-            <tag> 范围for </tag>
-            
             <tag> 下标运算符 </tag>
+            
+            <tag> 范围for </tag>
             
             <tag> begin </tag>
             
@@ -418,9 +418,9 @@
             
             <tag> 指针 </tag>
             
-            <tag> 范围for </tag>
-            
             <tag> 下标运算符 </tag>
+            
+            <tag> 范围for </tag>
             
             <tag> begin </tag>
             
@@ -490,13 +490,13 @@
       
         <tags>
             
-            <tag> 范围for </tag>
-            
-            <tag> 下标运算符 </tag>
-            
             <tag> vector </tag>
             
             <tag> push_back </tag>
+            
+            <tag> 下标运算符 </tag>
+            
+            <tag> 范围for </tag>
             
         </tags>
       
@@ -521,11 +521,11 @@
       
         <tags>
             
-            <tag> string </tag>
+            <tag> 下标运算符 </tag>
             
             <tag> 范围for </tag>
             
-            <tag> 下标运算符 </tag>
+            <tag> string </tag>
             
             <tag> string::size_type </tag>
             
@@ -828,7 +828,7 @@
       <link href="/2021/10/27/5-%E5%88%9D%E8%AF%86cpp-%E4%B8%AD/"/>
       <url>/2021/10/27/5-%E5%88%9D%E8%AF%86cpp-%E4%B8%AD/</url>
       
-        <content type="html"><![CDATA[<h1>while</h1><p>while 语句的形式是</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while (condition)</span><br><span class="line">    statement</span><br></pre></td></tr></table></figure><p><code>while</code>语句持续地交替检测<code>condition</code>和执行<code>statement</code>，直至<code>condition</code>为假为止</p><h1>语句块</h1><p>语句块(block)，是指用花括号<code>&#123;&#125;</code>包围的零条或多条语句的序列</p><p>语句块也是语句的一种，在任何要求使用语句的地方都可以使用语句块，如：</p><pre><code>int sum = 0, val = 1;while (val &lt;= 10)    &#123;        sum = sum + val;        // 等价于 sum += val;        val = val + 1;          // 等价于 ++ val;    &#125;</code></pre><h1>for</h1><p><code>for</code>语句包含循环头和循环体，循环头控制循环体的执行次数</p><p>循环头：初始化语句(init-statement)、循环条件(condition)、表达式(expression)，即：<br><code>for (init-statement; condition; expression)</code></p><p><strong>初始化语句只在<code>for</code>循环入口处执行一次。在初始化语句中定义的变量，在循环结束之后是不能使用的</strong></p><p>循环体每次执行前都会先检查循环条件</p><p>表达式在<code>for</code>循环体之后执行（若循环体不被执行，则表达式亦不会被执行）</p><p>执行完表达式后，<code>for</code>语句重新检测循环条件，循环持续至循环条件为假</p><pre><code>int sum = 0;for (int val = 1; val &lt;= 10; ++ val)&#123;    sum += val;&#125;</code></pre><p>例中，初始化语句中定义的变量<code>val</code>在<code>for</code>语句结束后即失效</p><h1>for与while</h1><h2 id="for">for</h2><p>一般用于循环次数已知的情况，并且<code>for</code>循环可以节省内存以及代码简洁，在初始化语句中定义一个局部变量，循环结束后，局部变量即被释放</p><h2 id="while">while</h2><p>一般用于循环次数不确定的情况，并且通常需要在循环之前定义变量</p><h1>读取数量不定的输入数据</h1><pre><code>#include &lt;iostream&gt;int main()&#123;    int sum = 0, value = 0;    // 读取数据直至遇到文件尾，计算所有读入的值的和    while (std::cin &gt;&gt; value)        sum += value;    std::cout &lt;&lt; &quot;Sum is: &quot; &lt;&lt; sum &lt;&lt; std::endl;    return 0;&#125;</code></pre><p>例中，数据读取操作是在<code>while</code>的循环条件中完成的</p><p><code>while</code>循环条件的求值就是执行表达式<code>std::cin &gt;&gt; value</code>，表达式<code>std::cin &gt;&gt; value</code>返回输入运算符<code>&gt;&gt;</code>左侧运算对象，即<code>std::cin</code>，因此，该循环条件实际上是检测<code>std::cin</code></p><p>当我们使用一个<code>istream</code>对象如<code>cin</code>作为条件时，其效果是检测流(stream)的状态，当遇到文件结束符(end-of-file)或遇到一个无效的输入时(例如读入的值不是一个整数)，<code>istream</code>对象的状态会变为无效。进一步地，无效状态的<code>istream</code>对象会使条件变为假，循环结束</p><p>键盘输入文件结束符：<code>Ctrl + Z</code>然后按<code>Enter</code>或<code>Return</code>键(windows系统)，<code>Ctrl + D</code>键(UNIX系统、Mac OS X系统)</p><h1>if</h1><pre><code>if (condition)&#123;    statement;&#125;</code></pre><p>条件<code>condition</code>为真，执行条件之后的语句块<code>statement</code>，否则不予执行</p><p>或者</p><pre><code>if (condition)&#123;    statement1;&#125;else&#123;    statement2;&#125;</code></pre><p>条件<code>condition</code>为真时执行<code>statement1</code>，否则执行<code>statement2</code></p><p>示例：用<code>if</code>语句统计输入序列中每个值连续出现了多少次</p><pre><code>#include &lt;iostream&gt;using std::cin;using std::cout;using std::endl;int main()&#123;    int currentNum, num;            // currentNum为当前统计的数字，num为新读取的数字    if (cin &gt;&gt; currentNum)          // 初始化当前统计数字    &#123;        int count = 1;              // 初始化当前统计数字的出现次数        while (cin &gt;&gt; num)          // 读取下一个数字        &#123;            if (num == currentNum)  // 如果新输入数字与当前统计的数字相同，出现次数加一                ++ count;            else                    // 如果不同，输出当前统计数字的出现次数，并更新所统计的数字，重置计数器            &#123;                cout &lt;&lt; currentNum &lt;&lt; &quot; occurs &quot; &lt;&lt; count &lt;&lt; &quot; times &quot; &lt;&lt; endl;                currentNum = num;                count = 1;            &#125;        &#125;        cout &lt;&lt; currentNum &lt;&lt; &quot; occurs &quot; &lt;&lt; count &lt;&lt; &quot; times &quot; &lt;&lt; endl;     // 输出文件最后一个数字的出现次数    &#125;    return 0;&#125;</code></pre>]]></content>
+        <content type="html"><![CDATA[<h1>while</h1><p>while 语句的形式是</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">while (condition)</span><br><span class="line">    statement</span><br></pre></td></tr></table></figure><p><code>while</code>语句持续地交替检测<code>condition</code>和执行<code>statement</code>，直至<code>condition</code>为假为止</p><h1>语句块</h1><p>语句块(block)，是指用花括号<code>&#123;&#125;</code>包围的零条或多条语句的序列</p><p>语句块也是语句的一种，在任何要求使用语句的地方都可以使用语句块，如：</p><pre><code>int sum = 0, val = 1;while (val &lt;= 10)    &#123;        sum = sum + val;        // 等价于 sum += val;        val = val + 1;          // 等价于 ++ val;    &#125;</code></pre><h1>for</h1><p><code>for</code>语句包含循环头和循环体，循环头控制循环体的执行次数</p><p>循环头：初始化语句(init-statement)、循环条件(condition)、表达式(expression)，即：<br><code>for (init-statement; condition; expression)</code></p><p><strong>初始化语句只在<code>for</code>循环入口处执行一次。在初始化语句中定义的变量，在循环结束之后是不能使用的</strong></p><p>循环体每次执行前都会先检查循环条件</p><p>表达式在<code>for</code>循环体之后执行（若循环体不被执行，则表达式亦不会被执行）</p><p>执行完表达式后，<code>for</code>语句重新检测循环条件，循环持续至循环条件为假</p><pre><code>int sum = 0;for (int val = 1; val &lt;= 10; ++ val)&#123;    sum += val;&#125;</code></pre><p>例中，初始化语句中定义的变量<code>val</code>在<code>for</code>语句结束后即失效</p><h1>for与while</h1><h2 id="for">for</h2><p>一般用于循环次数已知的情况，并且<code>for</code>循环可以节省内存以及代码简洁，在初始化语句中定义一个局部变量，循环结束后，局部变量即被释放</p><h2 id="while">while</h2><p>一般用于循环次数不确定的情况，并且通常需要在循环之前定义变量</p><h1>读取数量不定的输入数据</h1><pre><code>#include &lt;iostream&gt;int main()&#123;    int sum = 0, value = 0;    // 读取数据直至遇到文件尾，计算所有读入的值的和    while (std::cin &gt;&gt; value)        sum += value;    std::cout &lt;&lt; &quot;Sum is: &quot; &lt;&lt; sum &lt;&lt; std::endl;    return 0;&#125;</code></pre><p>例中，数据读取操作是在<code>while</code>的循环条件中完成的</p><p><code>while</code>循环条件的求值就是执行表达式<code>std::cin &gt;&gt; value</code>，表达式<code>std::cin &gt;&gt; value</code>返回输入运算符<code>&gt;&gt;</code>左侧运算对象，即<code>std::cin</code>，因此，该循环条件实际上是检测<code>std::cin</code></p><p>当我们使用一个<code>istream</code>对象如<code>cin</code>作为条件时，其效果是检测流(stream)的状态，当遇到文件结束符(end-of-file)或遇到一个无效的输入时(例如读入的值不是一个整数)，<code>istream</code>对象的状态会变为无效。进一步地，无效状态的<code>istream</code>对象会使条件变为假，循环结束</p><p>键盘输入文件结束符：<code>Ctrl + Z</code>然后按<code>Enter</code>或<code>Return</code>键(windows系统)，<code>Ctrl + D</code>键(UNIX系统、Mac OS X系统)</p><h1>if</h1><pre><code>if (condition)&#123;    statement;&#125;</code></pre><p>条件<code>condition</code>为真，执行条件之后的语句块<code>statement</code>，否则不予执行</p><p>或者</p><pre><code>if (condition)&#123;    statement1;&#125;else&#123;    statement2;&#125;</code></pre><p>条件<code>condition</code>为真时执行<code>statement1</code>，否则执行<code>statement2</code></p><p>示例：用<code>if</code>语句统计输入序列中每个值连续出现了多少次</p><pre><code>#include &lt;iostream&gt;using std::cin;using std::cout;using std::endl;int main()&#123;    int currentNum, num;            // currentNum为当前统计的数字，num为新读取的数字    if (cin &gt;&gt; currentNum)          // 初始化当前统计数字    &#123;        int count = 1;              // 初始化当前统计数字的出现次数        while (cin &gt;&gt; num)          // 读取下一个数字        &#123;            if (num == currentNum)  // 如果新输入数字与当前统计的数字相同，出现次数加一                ++ count;            else                    // 如果不同，输出当前统计数字的出现次数，并更新所统计的数字，重置计数器            &#123;                cout &lt;&lt; currentNum &lt;&lt; &quot; occurs &quot; &lt;&lt; count &lt;&lt; &quot; times &quot; &lt;&lt; endl;                currentNum = num;                count = 1;            &#125;        &#125;        cout &lt;&lt; currentNum &lt;&lt; &quot; occurs &quot; &lt;&lt; count &lt;&lt; &quot; times &quot; &lt;&lt; endl;     // 输出文件最后一个数字的出现次数    &#125;    return 0;&#125;</code></pre>]]></content>
       
       
       <categories>
