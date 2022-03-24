@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>LeetCode 116. 填充每个节点的下一个右侧节点指针</title>
+      <link href="/2022/03/24/LeetCode116-%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88/"/>
+      <url>/2022/03/24/LeetCode116-%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/">LeetCode 116</a></p><p>You are given a <strong>perfect binary tree</strong> where all leaves are on the same level, and every parent has two children. The binary tree has the following definition:</p><pre><code>struct Node &#123;int val;Node *left;Node *right;Node *next;&#125;</code></pre><p>Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to <code>NULL</code>.</p><p>Initially, all next pointers are set to <code>NULL</code>.</p><p>Example 1:</p><img src="/2022/03/24/LeetCode116-%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88/1.png" class=""><pre><code>Input: root = [1,2,3,4,5,6,7]Output: [1,#,2,3,#,4,5,6,7,#]Explanation: Given the above perfect binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B. The serialized output is in level order as connected by the next pointers, with '#' signifying the end of each level.</code></pre><p>Example 2:</p><pre><code>Input: root = []Output: []</code></pre><p>Constraints:</p><ul><li>The number of nodes in the tree is in the range <code>[0, 212 - 1]</code>.</li><li><code>-1000 &lt;= Node.val &lt;= 1000</code></li></ul><p>Follow-up:</p><ul><li>You may only use <code>constant extra space</code>.</li><li>The <strong>recursive approach</strong> is fine. You may assume implicit stack space does not count as extra space for this problem.</li></ul><h2 id="method-1-递归"><a class="markdownIt-Anchor" href="#method-1-递归"></a> Method 1: 递归</h2><p>以从上往下的方向看，<code>1</code>，<code>2</code>，<code>3</code>，<code>5</code>，<code>6</code>这几个节点在位置上都是紧挨着的，同时这几个节点都是左右串联的。</p><img src="/2022/03/24/LeetCode116-%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88/2.jpg" class=""><p>我们以当前 <code>root</code> 节点为起始，左右节点不断的深入下面，<code>left</code> 节点不断往右走，<code>right</code> 节点不断往左走，当这两个节点走到底之后，整个纵深这段就完成了串联。如 <code>1</code>，<code>2 3</code>，<code>5 6</code>，<code>11 12</code>，两两之间实现了连接</p><p>递归函数实现如下：</p><ul><li>终止条件：当前节点为空时</li><li>函数体内：以当前节点为起始，完成从上往下的纵深串联，再递归的调用当前节点 <code>left</code> 和 <code>right</code></li></ul><img src="/2022/03/24/LeetCode116-%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88/3.gif" class=""><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(Node* root)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root==<span class="literal">nullptr</span>) <span class="keyword">return</span>;</span><br><span class="line">    Node *left=root-&gt;left;</span><br><span class="line">    Node *right=root-&gt;right;</span><br><span class="line">    <span class="comment">//将整个一段纵深里边的左右邻居节点串联起来 如1# 2 3# 5 6# 11 12#</span></span><br><span class="line">    <span class="keyword">while</span>(left!=<span class="literal">nullptr</span>)&#123;</span><br><span class="line">        left-&gt;next=right;   <span class="comment">// 将当前层次的左右节点串联</span></span><br><span class="line">        left=left-&gt;right;   <span class="comment">// left节点更新为它的右子节点</span></span><br><span class="line">        right=right-&gt;left;  <span class="comment">// right节点更新为它的左子节点</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//结束当前这一深度，转而去进行左子节点和右子节点的纵深串联</span></span><br><span class="line">    <span class="built_in">dfs</span>(root-&gt;left);</span><br><span class="line">    <span class="built_in">dfs</span>(root-&gt;right);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Node* <span class="title">connect</span><span class="params">(Node* root)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">dfs</span>(root);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度：<code>O(n)</code></p><p>空间复杂度：<code>O(h)</code>，<code>h</code> 是树的高度</p><p>^_^ 太牛了这个解法。。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LeetCode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode 617. 合并二叉树</title>
       <link href="/2022/03/24/LeetCode617-%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
       <url>/2022/03/24/LeetCode617-%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
@@ -909,9 +934,9 @@
       
         <tags>
             
-            <tag> 指针 </tag>
-            
             <tag> const </tag>
+            
+            <tag> 指针 </tag>
             
             <tag> constexpr </tag>
             
@@ -940,9 +965,9 @@
       
         <tags>
             
-            <tag> 引用 </tag>
-            
             <tag> 指针 </tag>
+            
+            <tag> 引用 </tag>
             
         </tags>
       
