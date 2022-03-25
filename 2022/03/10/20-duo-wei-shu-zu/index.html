@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>多维数组 | Personal Blog For Jianky</title><meta name="keywords" content="指针,类型别名,范围for,下标运算符,begin,end"><meta name="author" content="Jianky"><meta name="copyright" content="Jianky"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="严格来说，C++语言中没有多维数组，通常所说的多维数组其实是数组的数组。 当一个数组的元素仍然是数组时，通常使用两个维度来定义它：一个维度表示数组本身大小，另外一个维度表示其元素（也是数组）大小： int ia[3][4]; &#x2F;&#x2F; 大小为3的数组，每个元素是含有4个整数的数组&#x2F;&#x2F; array of size 10; each element is a 20-element array whose">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多维数组">
+<meta property="og:url" content="https://jiankychen.github.io/2022/03/10/20-duo-wei-shu-zu/index.html">
+<meta property="og:site_name" content="Personal Blog For Jianky">
+<meta property="og:description" content="严格来说，C++语言中没有多维数组，通常所说的多维数组其实是数组的数组。 当一个数组的元素仍然是数组时，通常使用两个维度来定义它：一个维度表示数组本身大小，另外一个维度表示其元素（也是数组）大小： int ia[3][4]; &#x2F;&#x2F; 大小为3的数组，每个元素是含有4个整数的数组&#x2F;&#x2F; array of size 10; each element is a 20-element array whose">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jiankychen.github.io/img/franky.jpg">
+<meta property="article:published_time" content="2022-03-10T13:29:56.000Z">
+<meta property="article:modified_time" content="2022-03-22T12:02:02.462Z">
+<meta property="article:author" content="Jianky">
+<meta property="article:tag" content="指针">
+<meta property="article:tag" content="类型别名">
+<meta property="article:tag" content="范围for">
+<meta property="article:tag" content="下标运算符">
+<meta property="article:tag" content="begin">
+<meta property="article:tag" content="end">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jiankychen.github.io/img/franky.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://jiankychen.github.io/2022/03/10/20-duo-wei-shu-zu/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/pwa/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Jianky","link":"链接: ","source":"来源: Personal Blog For Jianky","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '多维数组',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2022-03-22 20:02:02'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/franky.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 帖子</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Personal Blog For Jianky</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 帖子</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">多维数组</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-10T13:29:56.000Z" title="发表于 2022-03-10 21:29:56">2022-03-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-22T12:02:02.462Z" title="更新于 2022-03-22 20:02:02">2022-03-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/">C++</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="多维数组"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><p>严格来说，C++语言中没有多维数组，通常所说的多维数组其实是数组的数组。</p>
+<p>当一个数组的元素仍然是数组时，通常使用两个维度来定义它：一个维度表示数组本身大小，另外一个维度表示其元素（也是数组）大小：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ia[<span class="number">3</span>][<span class="number">4</span>]; <span class="comment">// 大小为3的数组，每个元素是含有4个整数的数组</span></span><br><span class="line"><span class="comment">// array of size 10; each element is a 20-element array whose elements are arrays of 30 ints</span></span><br><span class="line"><span class="keyword">int</span> arr[<span class="number">10</span>][<span class="number">20</span>][<span class="number">30</span>] = &#123;<span class="number">0</span>&#125;; <span class="comment">// initialize all elements to 0</span></span><br></pre></td></tr></table></figure>
+<p>对于二维数组来说，常把第一个维度称作行，第二个维度称作列。</p>
+<h2 id="多维数组的初始化"><a class="markdownIt-Anchor" href="#多维数组的初始化"></a> 多维数组的初始化</h2>
+<p><strong>允许使用花括号括起来的一组值初始化多维数组</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ia[<span class="number">3</span>][<span class="number">4</span>] = &#123;    <span class="comment">// three elements; each element is an array of size 4</span></span><br><span class="line">    &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;,   <span class="comment">// initializers for the row indexed by 0</span></span><br><span class="line">    &#123;<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>&#125;,   <span class="comment">// initializers for the row indexed by 1</span></span><br><span class="line">    &#123;<span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>&#125;  <span class="comment">// initializers for the row indexed by 2</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>其中内层嵌套着的花括号并非必需的。例如下面的初始化语句，形式上更为简洁，完成的功能和上面这段代码完全一样：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// equivalent initialization without the optional nested braces for each row</span></span><br><span class="line"><span class="keyword">int</span> ia[<span class="number">3</span>][<span class="number">4</span>] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>类似于一维数组，在初始化多维数组时也并非所有元素的值都必须包含在初始化列表之内。如果仅仅想初始化每一行的第一个元素，通过如下的语句即可：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// explicitly initialize only element 0 in each row</span></span><br><span class="line"><span class="keyword">int</span> ia[<span class="number">3</span>][<span class="number">4</span>] = &#123;&#123; <span class="number">0</span> &#125;, &#123; <span class="number">4</span> &#125;, &#123; <span class="number">8</span> &#125;&#125;;</span><br></pre></td></tr></table></figure>
+<p>其他<strong>未列出的元素执行默认值初始化。</strong></p>
+<p>在这种情况下如果再省略掉内层的花括号，结果就大不一样了:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// explicitly initialize row 0; the remaining elements are value initialized</span></span><br><span class="line"><span class="keyword">int</span> ix[<span class="number">3</span>][<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">9</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>它初始化的是第一行的4个元素，其他元素被初始化为0。</p>
+<h2 id="多维数组的下标引用"><a class="markdownIt-Anchor" href="#多维数组的下标引用"></a> 多维数组的下标引用</h2>
+<p><strong>可以使用下标运算符来访问多维数组的元素，此时数组的每个维度对应一个下标运算符。</strong></p>
+<p>如果表达式含有的下标运算符数量和数组的维度一样多，该表达式的结果将是给定类型的元素；反之，如果表达式含有的下标运算符数量比数组的维度小，则表达式的结果将是给定索引处的一个内层数组：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// assigns the first element of arr to the last element in the last row of ia</span></span><br><span class="line">ia[<span class="number">2</span>][<span class="number">3</span>] = arr[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line"><span class="built_in"><span class="keyword">int</span></span> (&amp;row)[<span class="number">4</span>] = ia[<span class="number">1</span>]; <span class="comment">// binds row to the second four-element array in ia</span></span><br></pre></td></tr></table></figure>
+<p>在第一个例子中，在等号左侧，<code>ia[2]</code>得到数组<code>ia</code>的最后一行，此时返回的是表示<code>ia</code>最后一行的那个一维数组而非任何实际元素；对这个一维数组再取下标，得到编号为<code>[3]</code>的元素，也就是这一行的最后一个元素。等号右侧也是类似的。<br />
+在第二个例子中，把<code>row</code>定义成一个含有4个整数的数组的引用，然后将其绑定到<code>ia</code>的第2行。</p>
+<p>再举一个例子，程序中经常会用到两层嵌套的for循环来处理多维数组的元素：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">constexpr</span> <span class="keyword">size_t</span> rowCnt = <span class="number">3</span>, colCnt = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">int</span> ia[rowCnt][colCnt];   <span class="comment">// 12 uninitialized elements</span></span><br><span class="line"><span class="comment">// for each row</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i != rowCnt; ++i) &#123;</span><br><span class="line">    <span class="comment">// for each column within the row</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> j = <span class="number">0</span>; j != colCnt; ++j) &#123;</span><br><span class="line">        <span class="comment">// assign the element&#x27;s positional index as its value</span></span><br><span class="line">        ia[i][j] = i * colCnt + j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>外层的<code>for</code>循环遍历<code>ia</code>的所有元素，注意这里的元素是一维数组；内层的<code>for</code>循环则遍历那些一维数组的整数元素。此例中，我们将元素在整个数组中的序号设为该元素的值。</p>
+<h2 id="使用范围for语句处理多维数组"><a class="markdownIt-Anchor" href="#使用范围for语句处理多维数组"></a> 使用范围for语句处理多维数组</h2>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">size_t</span> cnt = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp;row : ia)        <span class="comment">// for every element in the outer array</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;col : row) &#123; <span class="comment">// for every element in the inner array</span></span><br><span class="line">        col = cnt;          <span class="comment">// give this element the next value</span></span><br><span class="line">        ++cnt;              <span class="comment">// increment cnt</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>因为要改变元素的值，所以得把控制变量<code>row</code>和<code>col</code>声明成引用类型。第一个<code>for</code>循环遍历<code>ia</code>的所有元素，这些元素是大小为4的数组，因此<code>row</code>的类型就应该是含有4个整数的数组的引用。第二个<code>for</code>循环遍历那些4元素数组中的某一个，因此<code>col</code>的类型是整数的引用。</p>
+<p>在上面的例子中，因为要改变数组元素的值，所以我们选用引用类型作为循环控制变量，但其实还有一个深层次的原因促使我们这么做。举一个例子，考虑如下的循环：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;row : ia)  <span class="comment">// for every element in the outer array</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> col : row)    <span class="comment">// for every element in the inner array</span></span><br><span class="line">        cout &lt;&lt; col &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<p>这个循环中并没有任何写操作，可是我们还是将外层循环的控制变量声明成了引用类型，这是为了避免数组被自动转成指针。</p>
+<p>假设不用引用类型，则循环如下述形式：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> row : ia)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> col : row)</span><br></pre></td></tr></table></figure>
+<p>程序将无法通过编译。这是因为，像之前一样第一个循环遍历<code>ia</code>的所有元素，注意这些元素实际上是大小为4的数组。因为<code>row</code>不是引用类型，所以编译器初始化<code>row</code>时会自动将这些数组形式的元素（和其他类型的数组一样）转换成指向该数组内首元素的指针。这样得到的<code>row</code>的类型就是<code>int*</code>，显然内层的循环就不合法了。</p>
+<blockquote>
+<p><strong>要使用<code>范围for</code>语句处理多维数组，除了最内层的循环外，其他所有循环的控制变量都应该是引用类型。</strong></p>
+</blockquote>
+<h2 id="指针和多维数组"><a class="markdownIt-Anchor" href="#指针和多维数组"></a> 指针和多维数组</h2>
+<p>当程序使用多维数组的名字时，也会自动将其转换成指向数组首元素的指针。</p>
+<p>因为多维数组实际上是数组的数组，所以由多维数组名转换得来的指针实际上是指向第一个内层数组的指针：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> ia[<span class="number">3</span>][<span class="number">4</span>];     <span class="comment">// array of size 3; each element is an array of ints of size 4</span></span><br><span class="line"><span class="built_in"><span class="keyword">int</span></span> (*p)[<span class="number">4</span>] = ia; <span class="comment">// p points to an array of four ints（p指向ia的第一行）</span></span><br><span class="line">p = &amp;ia[<span class="number">2</span>];       <span class="comment">// p now points to the last element in ia（p指向ia的第三行）</span></span><br></pre></td></tr></table></figure>
+<p>等号左侧，首先由<code>(*p)</code>知道<code>p</code>是一个指针，由<code>int [4]</code>知道<code>p</code>指向的是一个包含4个整数的数组。等号右侧，<code>ia</code>返回的是<code>&amp;ia[0]</code>，即<code>ia[0]</code>的地址。因此，<code>p</code>指向的是<code>ia[0]</code>，即<code>ia</code>的第一行。</p>
+<p>注意，在上述声明中，圆括号必不可少：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> *ip[<span class="number">4</span>];    <span class="comment">// array of pointers to int（[]优先级高于*，故而ip是一个数组，其元素为整形指针）</span></span><br><span class="line"><span class="built_in"><span class="keyword">int</span></span> (*ip)[<span class="number">4</span>];  <span class="comment">// pointer to an array of four ints</span></span><br></pre></td></tr></table></figure>
+<p>随着C++11新标准的提出，通过使用<code>auto</code>或者<code>decltype</code>就能尽可能地避免在数组前面加上一个指针类型了：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// print the value of each element in ia, with each inner array on its own line</span></span><br><span class="line"><span class="comment">// p points to an array of four ints</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> p = ia; p != ia + <span class="number">3</span>; ++p) &#123;</span><br><span class="line">    <span class="comment">// q points to the first element of an array of four ints; that is, q points to an int</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> q = *p; q != *p + <span class="number">4</span>; ++q)</span><br><span class="line">        cout &lt;&lt; *q &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>外层的<code>for</code>循环首先声明一个指针<code>p</code>并令其指向<code>ia</code>的第一个内层数组，然后依次迭代直到<code>ia</code>的全部3行都处理完为止。其中递增运算<code>++p</code>负责将指针<code>p</code>移动到<code>ia</code>的下一行。<br />
+内层的<code>for</code>循环负责输出内层数组所包含的值。它首先令指针<code>q</code>指向<code>p</code>当前所在行的第一个元素。<code>*p</code>是一个含有4个整数的数组，像往常一样，数组名被自动地转换成指向该数组首元素的指针。内层<code>for</code>循环不断迭代直到我们处理完了当前内层数组的所有元素为止。为了获取内层<code>for</code>循环的终止条件，再一次解引用<code>p</code>得到指向内层数组首元素的指针，给它加上4就得到了终止条件。</p>
+<p>使用标准库函数<code>begin</code>和<code>end</code>也能实现同样的功能，而且看起来更简洁一些:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// p points to the first array in ia</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> p = <span class="built_in">begin</span>(ia); p != <span class="built_in">end</span>(ia); ++p) &#123;</span><br><span class="line">    <span class="comment">// q points to the first element in an inner array</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> q = <span class="built_in">begin</span>(*p); q != <span class="built_in">end</span>(*p); ++q)</span><br><span class="line">        cout &lt;&lt; *q &lt;&lt; <span class="string">&#x27; &#x27;</span>;   <span class="comment">// prints the int value to which q points</span></span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类型别名简化多维数组的指针"><a class="markdownIt-Anchor" href="#类型别名简化多维数组的指针"></a> 类型别名简化多维数组的指针</h2>
+<p>读、写和理解一个指向多维数组的指针是一个让人不胜其烦的工作，使用类型别名（<a href="https://jiankychen.github.io/2022/03/02/12-%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B/">处理类型-类型别名</a>）能让这项工作变得简单一点儿，例如：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> int_array = <span class="keyword">int</span>[<span class="number">4</span>]; <span class="comment">// new style type alias declaration; equivalent typedef declaration: typedef int int_array[4];</span></span><br><span class="line"><span class="comment">// print the value of each element in ia, with each inner array on its own line</span></span><br><span class="line"><span class="keyword">for</span> (int_array *p = ia; p != ia + <span class="number">3</span>; ++p) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> *q = *p; q != *p + <span class="number">4</span>; ++q)</span><br><span class="line">        cout &lt;&lt; *q &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序将类型“4个整数组成的数组”命名为<code>int_array</code>，用类型名<code>int_array</code>定义外层循环的控制变量让程序显得简洁明了。（由<code>*p</code>知道<code>p</code>是一个指针，指向一个包含4个整数的数组。<code>q</code>是一个指向整数的指针。）</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Jianky</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://jiankychen.github.io/2022/03/10/20-duo-wei-shu-zu/">https://jiankychen.github.io/2022/03/10/20-duo-wei-shu-zu/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://jiankychen.github.io" target="_blank">Personal Blog For Jianky</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8C%87%E9%92%88/">指针</a><a class="post-meta__tags" href="/tags/%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D/">类型别名</a><a class="post-meta__tags" href="/tags/%E8%8C%83%E5%9B%B4for/">范围for</a><a class="post-meta__tags" href="/tags/%E4%B8%8B%E6%A0%87%E8%BF%90%E7%AE%97%E7%AC%A6/">下标运算符</a><a class="post-meta__tags" href="/tags/begin/">begin</a><a class="post-meta__tags" href="/tags/end/">end</a></div><div class="post_share"><div class="social-share" data-image="/img/franky.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/10/21-zhu-yu-biao-chapter3/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">术语表-Chapter3</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/05/19-shu-zu/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数组</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/03/05/19-shu-zu/" title="数组"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-05</div><div class="title">数组</div></div></a></div><div><a href="/2022/03/03/16-biao-zhun-ku-lei-xing-string/" title="标准库类型string"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-03</div><div class="title">标准库类型string</div></div></a></div><div><a href="/2022/03/04/17-biao-zhun-ku-lei-xing-vector/" title="标准库类型vector"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-04</div><div class="title">标准库类型vector</div></div></a></div><div><a href="/2022/03/05/18-die-dai-qi/" title="迭代器"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-05</div><div class="title">迭代器</div></div></a></div><div><a href="/2022/02/28/10-fu-he-lei-xing/" title="复合类型"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-28</div><div class="title">复合类型</div></div></a></div><div><a href="/2022/03/01/11-const-xian-ding-fu/" title="const限定符"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-01</div><div class="title">const限定符</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text"> 多维数组的初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%8B%E6%A0%87%E5%BC%95%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text"> 多维数组的下标引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%8C%83%E5%9B%B4for%E8%AF%AD%E5%8F%A5%E5%A4%84%E7%90%86%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">3.</span> <span class="toc-text"> 使用范围for语句处理多维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E5%92%8C%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">4.</span> <span class="toc-text"> 指针和多维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D%E7%AE%80%E5%8C%96%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%8C%87%E9%92%88"><span class="toc-number">5.</span> <span class="toc-text"> 类型别名简化多维数组的指针</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Jianky</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog! My email is jiechean@163.com</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

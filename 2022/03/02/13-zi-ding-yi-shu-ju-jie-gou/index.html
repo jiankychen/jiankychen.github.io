@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>自定义数据结构 | Personal Blog For Jianky</title><meta name="keywords" content="struct,点运算符,头文件,预处理器,头文件保护符"><meta name="author" content="Jianky"><meta name="copyright" content="Jianky"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从最基本的层面理解，数据结构是把一组相关的数据元素组织起来然后使用它们的策略和方法。 C++语言允许用户以类的形式自定义数据类型，而库类型string、istream、ostream等也都是以类的形式定义的。  定义Sales_data类型 struct Sales_data&amp;#123;    std::string bookNo;    unsigned units_sold &#x3D; 0;    d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义数据结构">
+<meta property="og:url" content="https://jiankychen.github.io/2022/03/02/13-zi-ding-yi-shu-ju-jie-gou/index.html">
+<meta property="og:site_name" content="Personal Blog For Jianky">
+<meta property="og:description" content="从最基本的层面理解，数据结构是把一组相关的数据元素组织起来然后使用它们的策略和方法。 C++语言允许用户以类的形式自定义数据类型，而库类型string、istream、ostream等也都是以类的形式定义的。  定义Sales_data类型 struct Sales_data&amp;#123;    std::string bookNo;    unsigned units_sold &#x3D; 0;    d">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jiankychen.github.io/img/franky.jpg">
+<meta property="article:published_time" content="2022-03-02T12:53:38.000Z">
+<meta property="article:modified_time" content="2022-03-22T12:13:41.948Z">
+<meta property="article:author" content="Jianky">
+<meta property="article:tag" content="struct">
+<meta property="article:tag" content="点运算符">
+<meta property="article:tag" content="头文件">
+<meta property="article:tag" content="预处理器">
+<meta property="article:tag" content="头文件保护符">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jiankychen.github.io/img/franky.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://jiankychen.github.io/2022/03/02/13-zi-ding-yi-shu-ju-jie-gou/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/pwa/manifest.json"/><link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="/pwa/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/pwa/16.png"/><link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Jianky","link":"链接: ","source":"来源: Personal Blog For Jianky","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '自定义数据结构',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2022-03-22 20:13:41'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/franky.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">45</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">61</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 帖子</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Personal Blog For Jianky</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 帖子</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">自定义数据结构</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-02T12:53:38.000Z" title="发表于 2022-03-02 20:53:38">2022-03-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-22T12:13:41.948Z" title="更新于 2022-03-22 20:13:41">2022-03-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/">C++</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="自定义数据结构"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><p>从最基本的层面理解，数据结构是把一组相关的数据元素组织起来然后使用它们的策略和方法。</p>
+<p>C++语言允许用户以类的形式自定义数据类型，而库类型<code>string</code>、<code>istream</code>、<code>ostream</code>等也都是以类的形式定义的。</p>
+<h1 id="定义sales_data类型"><a class="markdownIt-Anchor" href="#定义sales_data类型"></a> 定义Sales_data类型</h1>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Sales_data</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    std::string bookNo;</span><br><span class="line">    <span class="keyword">unsigned</span> units_sold = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> revenue = <span class="number">0.0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这里的类以关键字<code>struct</code>开始，紧跟着类名和类体（其中类体部分可以为空）。类体由花括号包围形成了一个新的作用域。类内部定义的名字必须唯一，但是可以与类外部定义的名字重复。</p>
+<p><strong>类体右侧的表示结束的花括号后必须写一个分号</strong>，这是因为类体后面可以紧跟变量名以示对该类型对象的定义，所以分号必不可少：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Sales_data</span> &#123;</span> <span class="comment">/* ... */</span> &#125; accum, trans, *salesptr; <span class="comment">// equivalent, but better way to define these objects</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Sales_data</span> &#123;</span> <span class="comment">/* ... */</span> &#125;;</span><br><span class="line">Sales_data accum, trans, *salesptr;</span><br></pre></td></tr></table></figure>
+<p>分号表示声明符（通常为空）的结束。</p>
+<p>一般来说，最好不要把对象的定义和类的定义放在一起。</p>
+<p>用户也可以使用C++语言提供的另外一个关键字<code>class</code>来定义自己的数据结构。</p>
+<p>类的定义可以与<code>main</code>函数放在同一个文件内，但是，我们通常在头文件中定义类，并且类所在头文件的名字应与类的名字一样。例如，库类型string在名为string的头文件中定义。又如，我们应该把Sales_data类定义在名为Sales_data.h的头文件中。</p>
+<h1 id="类数据成员"><a class="markdownIt-Anchor" href="#类数据成员"></a> 类数据成员</h1>
+<p>类体定义类的成员，我们上面定义的类只有数据成员（datamember）。</p>
+<p>类的数据成员定义了类的对象的具体内容，每个对象有自己的一份数据成员拷贝。修改一个对象的数据成员，不会影响其他<code>Sales_data</code>的对象。</p>
+<p>定义数据成员的方法：首先说明一个基本类型，随后紧跟一个或多个声明符。</p>
+<p>C++11新标准规定，可以为数据成员提供一个类内初始值（in-class initializer）。创建对象时，类内初始值将用于初始化数据成员。没有初始值的成员将被默认初始化。</p>
+<blockquote>
+<p>对类内初始值的限制：要么放在花括号里，要么放在等号右边，而不能使用圆括号。</p>
+</blockquote>
+<h1 id="使用sales_data类"><a class="markdownIt-Anchor" href="#使用sales_data类"></a> 使用Sales_data类</h1>
+<p><a target="_blank" rel="noopener" href="https://weread.qq.com/web/reader/ff732fe072021a24ff7bb24k1ff325f02181ff1de7742fc">详见：自己动手实现对于Sales_data类的操作</a></p>
+<p>关键在于，使用点操作符(<code>.</code>)读入对象的成员，如</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">Sales_data data1;                               <span class="comment">// data1为Sales_data类型的对象</span></span><br><span class="line">std::cin &gt;&gt; data1.bookNo &gt;&gt; data1.units_sold;   <span class="comment">// 写入对象data1的bookNo成员和units_sold成员</span></span><br></pre></td></tr></table></figure>
+<h1 id="编写自己的头文件"><a class="markdownIt-Anchor" href="#编写自己的头文件"></a> 编写自己的头文件</h1>
+<p>为了确保各个文件中类的定义一致，<strong>类通常被定义在头文件中，而且类所在头文件的名字应与类的名字一样。</strong></p>
+<p>头文件通常包含那些只能被定义一次的实体，如类、<code>const</code>和<code>constexpr</code>变量等。</p>
+<p>头文件也经常用到其他头文件的功能。因此，有必要在书写头文件时做适当处理，使其遇到多次包含的情况也能安全和正常地工作。</p>
+<blockquote>
+<p>头文件一旦改变，相关的源文件必须重新编译以获取更新过的声明。</p>
+</blockquote>
+<h2 id="预处理器概述"><a class="markdownIt-Anchor" href="#预处理器概述"></a> 预处理器概述</h2>
+<p>确保头文件多次包含仍能安全工作的常用技术是<strong>预处理器</strong>（preprocessor），它由C++语言从C语言继承而来。</p>
+<blockquote>
+<p>预处理器是在编译之前执行的一段程序，可以部分地改变我们所写的程序。之前已经用到了一项预处理功能<code>#include</code>，当预处理器看到<code>#include</code>标记时就会用指定的头文件的内容代替<code>#include</code>。</p>
+</blockquote>
+<p>C++程序还会用到的一项预处理功能是<strong>头文件保护符</strong>（headerguard），头文件保护符依赖于预处理变量。</p>
+<blockquote>
+<p>预处理变量有两种状态：已定义和未定义。#define指令把一个名字设定为预处理变量。另外两个指令则分别检查某个指定的预处理变量是否已经定义：#ifdef当且仅当变量已定义时为真，#ifndef当且仅当变量未定义时为真。一旦检查结果为真，则执行后续操作直至遇到#endif指令为止。</p>
+</blockquote>
+<p>使用这些功能就能有效地防止重复包含的发生：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> SALES_DATA_H    <span class="comment">// SALES_DATA_H即为预处理变量，ifndef是if not defined的缩写。若未定义SALES_DATA_H，则执行后续操作，直到遇到#endif指令</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SALES_DATA_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Sales_data</span> &#123;</span></span><br><span class="line">    std::string bookNo;</span><br><span class="line">    <span class="keyword">unsigned</span> units_sold = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> revenue = <span class="number">0.0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>第一次包含Sales_data.h时，#ifndef的检查结果为真，预处理器将顺序执行后面的操作直至遇到#endif为止。此时，预处理变量SALES_DATA_H的值将变为已定义，而且Sales_data.h也会被拷贝到我们的程序中来。后面如果再一次包含Sales_data.h，则#ifndef的检查结果将为假，编译器将忽略#ifndef到#endif之间的部分。</p>
+<blockquote>
+<p>预处理变量无视C++语言中关于作用域的规则。</p>
+</blockquote>
+<p>整个程序中的预处理变量包括头文件保护符必须唯一，<strong>通常的做法是基于头文件中类的名字来构建保护符的名字</strong>，以确保其唯一性。为了避免与程序中的其他实体发生名字冲突，<strong>一般把预处理变量的名字全部大写</strong>。</p>
+<blockquote>
+<p>头文件即使（目前还）没有被包含在任何其他头文件中，也应该设置保护符。头文件保护符很简单，程序员只要习惯性地加上就可以了，没必要太在乎你的程序到底需不需要。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Jianky</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://jiankychen.github.io/2022/03/02/13-zi-ding-yi-shu-ju-jie-gou/">https://jiankychen.github.io/2022/03/02/13-zi-ding-yi-shu-ju-jie-gou/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://jiankychen.github.io" target="_blank">Personal Blog For Jianky</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/struct/">struct</a><a class="post-meta__tags" href="/tags/%E7%82%B9%E8%BF%90%E7%AE%97%E7%AC%A6/">点运算符</a><a class="post-meta__tags" href="/tags/%E5%A4%B4%E6%96%87%E4%BB%B6/">头文件</a><a class="post-meta__tags" href="/tags/%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/">预处理器</a><a class="post-meta__tags" href="/tags/%E5%A4%B4%E6%96%87%E4%BB%B6%E4%BF%9D%E6%8A%A4%E7%AC%A6/">头文件保护符</a></div><div class="post_share"><div class="social-share" data-image="/img/franky.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/02/14-zhu-yu-biao-chapter2/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">术语表-Chapter2</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/02/12-chu-li-lei-xing/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">处理类型</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/03/03/15-ming-ming-kong-jian-de-using-sheng-ming/" title="命名空间的using声明"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-03</div><div class="title">命名空间的using声明</div></div></a></div><div><a href="/2021/10/27/6-chu-shi-cpp-xia/" title="初识C++(下)"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-27</div><div class="title">初识C++(下)</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89sales_data%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text"> 定义Sales_data类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B1%BB%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98"><span class="toc-number">2.</span> <span class="toc-text"> 类数据成员</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8sales_data%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text"> 使用Sales_data类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text"> 编写自己的头文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8%E6%A6%82%E8%BF%B0"><span class="toc-number">4.1.</span> <span class="toc-text"> 预处理器概述</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By Jianky</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog! My email is jiechean@163.com</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
