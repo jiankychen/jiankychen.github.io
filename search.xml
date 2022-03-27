@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>剑指Offer 06. 从尾到头打印链表</title>
+      <link href="/2022/03/27/jian-zhi-offer06-cong-wei-dao-tou-da-yin-lian-biao/"/>
+      <url>/2022/03/27/jian-zhi-offer06-cong-wei-dao-tou-da-yin-lian-biao/</url>
+      
+        <content type="html"><![CDATA[<p>输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）</p><h2 id="method-1-遍历添加"><a class="markdownIt-Anchor" href="#method-1-遍历添加"></a> Method 1: 遍历添加</h2><p>先统计链表节点的个数 <code>count</code> ，然后定义一个数组，逆序记录链表各节点的值</p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">reversePrint</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 记录链表的节点数</span></span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    ListNode *node = head;</span><br><span class="line">    <span class="keyword">while</span> (node != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        count++;</span><br><span class="line">        node = node-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 创建数组</span></span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">nums</span><span class="params">(count,<span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="comment">// 逆序记录链表节点的值</span></span><br><span class="line">    node = head;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = count - <span class="number">1</span>; node != <span class="literal">nullptr</span>; i--) &#123;</span><br><span class="line">        nums[i] = node-&gt;val;</span><br><span class="line">        node = node-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> 为链表长度，遍历统计、遍历修改皆使用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span> 时间</p><p>空间复杂度：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mclose">)</span></span></span></span>，新建了一个 <code>vector</code> 容器</p><h2 id="method-2-栈"><a class="markdownIt-Anchor" href="#method-2-栈"></a> Method 2: 栈</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指Offer </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>剑指Offer 05. 替换空格</title>
       <link href="/2022/03/27/jian-zhi-offer05-ti-huan-kong-ge/"/>
       <url>/2022/03/27/jian-zhi-offer05-ti-huan-kong-ge/</url>
