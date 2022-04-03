@@ -61,6 +61,15 @@ F5: 启动调试
 
 # 终端Terminal指令
 
+## 配置cmd
+
+以管理员身份运行`powershell`
+
+ - 输入`set-ExecutionPolicy RemoteSigned`然后回车
+
+ - 根据提示，输入`Y`回车即可
+
+
 ## hexo
 `hexo n " "`: 新建md文件
 
