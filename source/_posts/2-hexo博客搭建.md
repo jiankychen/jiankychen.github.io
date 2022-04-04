@@ -135,9 +135,9 @@ cover: false
 
 
 # 多终端同步
-通过维护两条git分支来实现：第一个分支是 Gihub 上的 main 分支，用于存放发布的博文的静态页面；另外再新建一个分支，比如命名为 hexo ，通过此分支存放主题、原始的博客文件等等，这些文件才是不同电脑需要同步的文件
+通过维护两条git分支来实现：第一个分支是 github 上的 main 分支（注：最初的默认分支名为master，我此前改成了main），用于存放发布的博文的静态页面；另外再新建一个分支，比如命名为 hexo ，通过此分支存放主题、原始的博客文件等等，这些文件才是不同电脑需要同步的文件
 
-当每次修改主题或者新增博文后，先将修改的主题文件（在themes文件夹下）或者新增博客（在source文件夹下），同步到远程的 hexo 分支，然后在通过 hexo g -d命令发布博文，也就是将新增的博文的静态页面同步到 main 分支
+当每次修改主题或者新增博文后，先将修改的主题文件（在themes文件夹下）或者新增博客（在source文件夹下），同步到远程的 hexo 分支，然后在通过 `hexo g -d` 命令发布博文，也就是将新增的博文的静态页面同步到 main 分支
 
 ## 配置
 
@@ -153,11 +153,11 @@ git remote add origin git@github.com:yourname/yourname.github.io.git  // 将本�
 git push origin hexo  // push到github项目的hexo分支上
 ```
 
-> 注意：如果使用的是通过git clone下来的主题theme（比如 butterfly），要把主题文件夹下面把.git文件夹（这是一个隐藏文件夹，vscode以及cmd不可见，需要在文件资源管理器中查看“隐藏的项目”）删除掉，不然主题无法push到远程仓库
+注意：如果使用的是通过 `git clone` 下来的主题 theme（比如 butterfly），要把主题文件夹下面把 .git 文件夹（这是一个隐藏文件夹，vscode 以及 cmd 不可见，需要在文件资源管理器中查看“隐藏的项目”）删除掉，否则的话，主题无法 push 到远程仓库
 
 ### 终端2：将github的hexo分支clone到本地，并进行初次配置
 
-```cpp
+```git
 git clone -b hexo git@github.com:yourname/yourname.github.io.git  // 将Github中hexo分支clone到本地
 cd  yourname.github.io  	// 切换到刚刚clone的文件夹内
 npm install    			// 注意，这里一定要切换到刚刚clone的文件夹内执行，安装必要的所需组件，不用再init
@@ -182,16 +182,16 @@ hexo g -d   			// 同步main分支
 不管是终端1还是终端2，后续如果修改了主题或者新增了博文，按照以下步骤即可：
 
 ```git
-git pull origin hexo  	// 先pull完成本地与远端的融合
+git pull origin hexo  	// 先git pull，将远端文件更新本地
 hexo n "NEW POST"
 git add source		// 添加source文件，或者通过 `git add .` 添加全部文件
-git commit -m "XX"	// 提交至暂存区
+git commit -m "XX"		// 提交至暂存区
 git push origin hexo	// push到hexo分支
 hexo g -d   		// 同步到main分支
 ```
 
 
-# 参考
+# 参考资料
 
 [视频教程](https://www.bilibili.com/video/BV1Yb411a7ty?p=1&share_medium=android&share_plat=android&share_source=WEIXIN&share_tag=s_i&timestamp=1635071237&unique_k=kYdWS1)
 
