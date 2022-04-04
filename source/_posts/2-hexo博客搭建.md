@@ -47,17 +47,23 @@ cover: false
 
 ## 生成博客
 ### 新建blog文件
-1. 找到git安装路径下的`git-cmd.exe`，以管理员权限打开
-2. 输入`mkdir e:\blog`并回车，实现在`e:\`路径下创建blog文件夹
-3. 配置路径，输入`cd e:\blog`回车，输入`e:`，回车
+1. 以管理员权限打开 `cmd`
+2. 输入`mkdir e:\blog`并回车，实现在`e:\`路径下创建`blog`文件夹
+3. 配置路径：先输入`e:`回车，切换默认目录至`e`盘；然后输入`cd e:\blog`回车，切换至`e:\blog`目录
+
+> `cmd` 切换目录：
+>  - “盘符:”命令：进入指定硬盘区域，例：`D:`命令，切换到D盘
+>  - “cd+空格+文件位置”命令：切换到该磁盘下的指定目录
+>  - `dir`命令，显示当前目录下的所有文件
+>  - `cd ..`命令：返回上一级目录
 
 ### 初始化
 1. 初始化博客：输入`hexo init`，回车，等待...直到出现`INFO Starting blogging with Hexo`
 2. 启动本地博客服务：输入`hexo s`，回车，得到本地访问地址`http://localhost:4000`
-3. 访问本地博客：浏览器打开`localhost:4000`
+3. 访问本地博客：浏览器打开[https://localhost:4000/](https://localhost:4000/)
 
 ### 安装git插件
-1. 配置到blog目录，`cd e:\blog`
+1. 配置到`blog`目录：在`cmd`命令行输入`e:`回车，然后输入`cd e:\blog`回车
 2. 安装部署插件：输入`cnpm install --save hexo-deployer-git`并回车，等待安装完成，如若出现warning可直接忽略
 
 ### 配置git
@@ -66,12 +72,12 @@ cover: false
 3. 输入`git config --global user.name YourName`，`YourName`是github用户名
 
 ### 创建github仓库
-1. 登录github网页的个人账户
+1. 登录 github 网页的个人账户
 2. 右上角`New repository`新建仓库
 3. `Repository name`命名为个人用户名`YourName`加上`.github.io`，即，仓库名为`YourName.github.io`
 
 ### 配置_config.yml
-1. 使用记事本打开`e:\blog`路径下的`_config.yml`文件
+1. 打开`e:\blog`路径下的`_config.yml`文件
 2. 找到`Deployment`板块，配置如下
 
 		# Deployment
@@ -86,9 +92,9 @@ cover: false
 **注：冒号后面需要有英文环境下的空格**
 
 ### 部署到github仓库
-1. cmd命令行配置到路径`e:\blog`
-2. 部署：输入`hexo d`并回车，部署到Github仓库里
-3. 等待弹窗，输入github账户密码，即配置完成
+1. `cmd`命令行配置到路径`e:\blog`
+2. 部署：输入`hexo d`并回车，部署到 github 仓库里
+3. 等待弹窗，输入 github 账户密码，即配置完成
 
 ## hexo相关命令
 1. `hexo clean`：清理
@@ -129,6 +135,17 @@ cover: false
 
 [文章置顶：hexo-generator-index](https://github.com/hexojs/hexo-generator-index)
 
+
+
+## 多终端同步
+
+[为客户端及服务端添加ssh-key](https://blog.csdn.net/ywl470812087/article/details/104459288)
+
+[如何解决github+Hexo的博客多终端同步问题](https://blog.csdn.net/Monkey_LZL/article/details/60870891?spm=1001.2014.3001.5506)
+
+[Hexo+Git+Github博客在多台终端同步管理](https://blog.csdn.net/steven_zdg988/article/details/111240905?spm=1001.2014.3001.5506)
+
+
 # 参考
 
 [视频教程](https://www.bilibili.com/video/BV1Yb411a7ty?p=1&share_medium=android&share_plat=android&share_source=WEIXIN&share_tag=s_i&timestamp=1635071237&unique_k=kYdWS1)
@@ -147,7 +164,3 @@ cover: false
 [hexo+github本地和线上图片不显示问题](https://blog.csdn.net/z952957407/article/details/111642548?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&utm_relevant_index=1)
 
 [添加 Waline 评论系统](https://blog.csdn.net/jiunian_2761/article/details/122621667)
-
-[解决git@github.com: Permission denied (publickey). Could not read from remote repository](https://blog.csdn.net/ywl470812087/article/details/104459288)
-
-[Hexo+Git+Github博客在多台终端同步管理](https://blog.csdn.net/steven_zdg988/article/details/111240905?spm=1001.2014.3001.5506)
