@@ -241,3 +241,5 @@ g
 [编辑器测评](https://zhuanlan.zhihu.com/p/208791140)
 
 编辑器推荐：**vscode**，Joplin，Typora，sublime，Moeditor
+
+[Create slide deck written in Marp Markdown on VS Code.](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)

@@ -277,3 +277,14 @@ cout << "Your hex number is: " << result << endl;
 ```
 假设输入的内容如下：`12 0 5 15 8 15`
 程序的输出结果将是：`Your hex number is: C05F8F`
+
+
+# 成员函数
+
+![](16-标准库类型string/string常用函数1.png)
+
+![](16-标准库类型string/string常用函数2.png)
+
+![](16-标准库类型string/string常用函数3.png)
+
+参考：[https://www.boyuai.com/learn/courses/148/lessons/2481/steps/0?from=qz](https://www.boyuai.com/learn/courses/148/lessons/2481/steps/0?from=qz)
