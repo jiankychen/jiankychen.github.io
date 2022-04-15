@@ -11,6 +11,22 @@
       avatar: https://img-blog.csdnimg.cn/20210614201246512.png
       descr: 刷题指引
 
+    - name: Road To Coding
+      link: https://www.r2coding.com/#/README
+      avatar: https://cdn.jsdelivr.net/gh/justacoder99/r2coding@master/img/r2coding_logo_index.15y992dieibg.png
+      descr: 编程自学之路
+
+    - name: Oi Wiki
+      link: https://oi-wiki.org/
+      avatar: https://oi-wiki.org/
+      descr: 知识集锦
+
+    - name: algo
+      link: https://dowalle.gitbook.io/algo/
+      avatar: https://dowalle.gitbook.io/algo/
+      descr: 知识集锦
+
+
 - class_name:  # 可留空
   class_desc:  # 可留空
   link_list:
