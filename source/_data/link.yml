@@ -1,4 +1,4 @@
-- class_name:  # 可留空
+- class_name:  Coding
   class_desc:  # 可留空
   link_list:
     - name: 编程导航
@@ -27,7 +27,7 @@
       descr: 知识集锦
 
 
-- class_name:  # 可留空
+- class_name:  Blogs
   class_desc:  # 可留空
   link_list:
     - name: Kavin
@@ -45,7 +45,7 @@
       avatar: https://konb-hui.github.io/blog/images/avatar.webp
       descr: Konb's blog
 
-- class_name:  # 可留空
+- class_name:  Support
   class_desc:  # 可留空
   link_list:
     - name: Hexo
