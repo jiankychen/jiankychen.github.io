@@ -98,6 +98,30 @@ cover: false
 
 
 
+## 排序
+[剑指Offer 03. 数组中重复的数字](https://jiankychen.github.io/2022/04/19/jian-zhi-offer03-shu-zu-zhong-chong-fu-de-shu-zi/)
+
+
+## 二分查找
+
+[278. 第一个错误的版本](https://jiankychen.github.io/2022/03/15/leetcode278-di-yi-ge-cuo-wu-de-ban-ben/)
+
+[35. 搜索插入位置](https://jiankychen.github.io/2022/03/12/leetcode35-sou-suo-cha-ru-wei-zhi/)
+
+[69. x 的平方根](https://jiankychen.github.io/2022/03/14/leetcode69-x-de-ping-fang-gen/)
+
+[34. 在排序数组中查找元素的第一个和最后一个位置](https://jiankychen.github.io/2022/04/19/leetcode34-zai-pai-xu-shu-zu-zhong-cha-zhao-yuan-su-de-di-yi-ge-he-zui-hou-yi-ge-wei-zhi/)
+
+[744. 寻找比目标字母大的最小字母](https://jiankychen.github.io/2022/04/19/leetcode744-xun-zhao-bi-mu-biao-zi-mu-da-de-zui-xiao-zi-mu/)
+
+
+## 广度优先搜索/深度优先搜索
+
+[733. 图像渲染](https://jiankychen.github.io/2022/03/22/leetcode733-tu-xiang-xuan-ran/)
+
+[695. 岛屿的最大面积](https://jiankychen.github.io/2022/03/22/leetcode695-dao-yu-de-zui-da-mian-ji/)
+
+
 ## 回溯算法
 
 
@@ -111,20 +135,5 @@ cover: false
 
 
 
-## 二分查找
-
-[278. 第一个错误的版本](https://jiankychen.github.io/2022/03/15/leetcode278-di-yi-ge-cuo-wu-de-ban-ben/)
-
-[35. 搜索插入位置](https://jiankychen.github.io/2022/03/12/leetcode35-sou-suo-cha-ru-wei-zhi/)
-
-[69. x 的平方根](https://jiankychen.github.io/2022/03/14/leetcode69-x-de-ping-fang-gen/)
-
-
-
-## 广度优先搜索/深度优先搜索
-
-[733. 图像渲染](https://jiankychen.github.io/2022/03/22/leetcode733-tu-xiang-xuan-ran/)
-
-[695. 岛屿的最大面积](https://jiankychen.github.io/2022/03/22/leetcode695-dao-yu-de-zui-da-mian-ji/)
 
 

@@ -48,7 +48,7 @@ Constraints:
 
 ## Method: 二分查找
 
-关键在于找到大于 `target` 的最小字母，可以考虑二分查找算法
+旨在找出大于 `target` 的最小字母，可以考虑二分查找算法
 
 二分查找的基本思路：
  1. 考虑 `while` 循环终止条件为 `left = right`
@@ -74,7 +74,7 @@ int LowerBoundSearch(vector<char> letters, char target) {
         return left;
     else  // 所有字母都比 target 小（注意：字母在 letters 中依序循环出现，返回 0 ）
         return 0;
-    // // 等价于以下代码
+    // // 等价于
     // return letters[left] > target ? left : 0;
 }
 
