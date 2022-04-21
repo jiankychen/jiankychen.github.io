@@ -39,6 +39,8 @@ cover: false
 
 [27. 移除元素](https://jiankychen.github.io/2022/03/29/leetcode27-yi-chu-yuan-su/)
 
+[剑指Offer 03. 数组中重复的数字](https://jiankychen.github.io/2022/04/19/jian-zhi-offer03-shu-zu-zhong-chong-fu-de-shu-zi/)
+
 
 ## 链表
 
@@ -99,7 +101,6 @@ cover: false
 
 
 ## 排序
-[剑指Offer 03. 数组中重复的数字](https://jiankychen.github.io/2022/04/19/jian-zhi-offer03-shu-zu-zhong-chong-fu-de-shu-zi/)
 
 
 ## 二分查找
