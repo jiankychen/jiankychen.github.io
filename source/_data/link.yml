@@ -1,4 +1,23 @@
-- class_name:  Coding
+- class_name:  Resource
+  class_desc:  # 可留空
+  link_list:
+    - name: C++ Reference
+      link: https://en.cppreference.com/w/
+      avatar: 
+      descr: Online reference
+      
+    - name: Learn C++
+      link: https://www.learncpp.com/
+      avatar: https://www.learncpp.com/blog/wp-content/uploads/learncpp.png?ezimgfmt=rs:32x32/rscb2/ng:webp/ngcb2
+      descr: Skill up
+
+    - name: C++ Tutorial
+      link: https://www.tutorialspoint.com/cplusplus/index.htm
+      avatar: https://www.tutorialspoint.com/cplusplus/images/cpp-mini-logo.jpg
+      descr: Tutorials
+
+
+- class_name:  Resource
   class_desc:  # 可留空
   link_list:
     - name: 编程导航
@@ -18,12 +37,12 @@
 
     - name: Oi Wiki
       link: https://oi-wiki.org/
-      avatar: https://oi-wiki.org/
+      avatar: https://oi-wiki.org/images/wordArt.webp
       descr: 知识集锦
 
     - name: algo
       link: https://dowalle.gitbook.io/algo/
-      avatar: https://dowalle.gitbook.io/algo/
+      avatar: 
       descr: 知识集锦
 
 
