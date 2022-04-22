@@ -1,30 +1,6 @@
-- class_name:  Resource
+- class_name:  Guidance
   class_desc:  # 可留空
-  link_list:
-    - name: C++ Reference
-      link: https://en.cppreference.com/w/
-      avatar: 
-      descr: Online reference
-      
-    - name: Learn C++
-      link: https://www.learncpp.com/
-      avatar: https://www.learncpp.com/blog/wp-content/uploads/learncpp.png?ezimgfmt=rs:32x32/rscb2/ng:webp/ngcb2
-      descr: Skill up
-
-    - name: C++ Tutorial
-      link: https://www.tutorialspoint.com/cplusplus/index.htm
-      avatar: https://www.tutorialspoint.com/cplusplus/images/cpp-mini-logo.jpg
-      descr: Tutorials
-
-
-- class_name:  Resource
-  class_desc:  # 可留空
-  link_list:
-    - name: 编程导航
-      link: https://www.code-nav.cn/
-      avatar: https://636f-codenav-8grj8px727565176-1256524210.tcb.qcloud.la/img/logo.png
-      descr: 资源合集
-      
+  link_list: 
     - name: 代码随想录
       link: https://programmercarl.com/
       avatar: https://img-blog.csdnimg.cn/20210614201246512.png
@@ -33,7 +9,15 @@
     - name: Road To Coding
       link: https://www.r2coding.com/#/README
       avatar: https://cdn.jsdelivr.net/gh/justacoder99/r2coding@master/img/r2coding_logo_index.15y992dieibg.png
-      descr: 知识集锦
+      descr: 编程自学之路
+
+- class_name:  Resource
+  class_desc:  # 可留空
+  link_list:
+    - name: 编程导航
+      link: https://www.code-nav.cn/resources
+      avatar: https://636f-codenav-8grj8px727565176-1256524210.tcb.qcloud.la/img/logo.png
+      descr: 资源合集
 
     - name: Oi Wiki
       link: https://oi-wiki.org/
@@ -64,6 +48,24 @@
       avatar: https://konb-hui.github.io/blog/images/avatar.webp
       descr: Konb's blog
 
+- class_name:  C++
+  class_desc:  # 可留空
+  link_list:
+    - name: C++ Reference
+      link: https://en.cppreference.com/w/
+      avatar: 
+      descr: Online reference
+      
+    - name: Learn C++
+      link: https://www.learncpp.com/
+      avatar: https://www.learncpp.com/blog/wp-content/uploads/learncpp.png?ezimgfmt=rs:32x32/rscb2/ng:webp/ngcb2
+      descr: Skill up
+
+    - name: C++ Tutorial
+      link: https://www.tutorialspoint.com/cplusplus/index.htm
+      avatar: https://www.tutorialspoint.com/cplusplus/images/cpp-mini-logo.jpg
+      descr: Tutorials
+
 - class_name:  Support
   class_desc:  # 可留空
   link_list:
@@ -71,4 +73,10 @@
       link: https://hexo.io/zh-tw/
       avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
       descr: 网页框架
+      
+    - name: Butterfly
+      link: https://github.com/jerryc127/hexo-theme-butterfly
+      avatar: 
+      descr: Hexo 主题
+      
       
