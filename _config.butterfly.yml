@@ -414,7 +414,7 @@ footer:
   owner:
     enable: true
     since: 2021
-  custom_text: Hi, welcome to my blog! My email is jiechean@163.com
+  custom_text: Hi, welcome to my blog!
   copyright: true # Copyright of theme and framework
 
 # Analysis
