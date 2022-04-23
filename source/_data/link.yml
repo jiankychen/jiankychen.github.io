@@ -30,7 +30,7 @@
       descr: 知识集锦
 
 
-- class_name:  Blogs
+- class_name:  Friends
   class_desc:  # 可留空
   link_list:
     - name: Kavin
