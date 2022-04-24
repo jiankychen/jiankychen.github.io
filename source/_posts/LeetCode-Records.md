@@ -39,6 +39,8 @@ cover: false
 
 [27. 移除元素](https://jiankychen.github.io/2022/03/29/leetcode27-yi-chu-yuan-su/)
 
+[LeetCode 209. 长度最小的子数组](https://jiankychen.github.io/2022/04/24/leetcode209-chang-du-zui-xiao-de-zi-shu-zu/)
+
 [剑指Offer 03. 数组中重复的数字](https://jiankychen.github.io/2022/04/19/jian-zhi-offer03-shu-zu-zhong-chong-fu-de-shu-zi/)
 
 
@@ -134,7 +136,7 @@ cover: false
 
 ## 动态规划
 
-
+[剑指Offer 10- II. 青蛙跳台阶问题](https://jiankychen.github.io/2022/04/23/dong-tai-gui-hua/)
 
 
 

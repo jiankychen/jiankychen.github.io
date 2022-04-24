@@ -63,32 +63,29 @@ Example 2:
 
 
 ## Method 1: 双指针
-定义双指针：`l` 对应 将要被覆盖的位置，`r` 对应 当前搜索位置，均
 
-`r` 右移，并进行如下操作：
+`slow` 对应 将要被覆盖的位置，`fast` 对应 当前搜索位置，均初始化为 `0`
 
- - 如果 `nums[r] == val` ，跳过该元素
+`fast` 右移，并进行如下操作，直到 `fast == nums.size() - 1` ：
 
- - 如果 `nums[r] != val` ，令 `nums[l] = nums[r]` ，并让 `l` 右移一位
+ - 如果 `nums[fast] == val` ，跳过该元素
 
-直到 `r == nums.size()` ，循环结束
+ - 如果 `nums[fast] != val` ，令 `nums[slow] = nums[fast]` ，并让 `l` 右移一位
+
+代码实现：
 
 ```cpp
-int removeElement(vector<int>& nums, int val) { // 双指针法
+int removeElement(vector<int>& nums, int val) {
     int n = nums.size();
-    int l = 0, r = 0;                           // l 对应 将要被覆盖的位置，r 对应 当前搜索位置
-    while (r < n) {
-        if (nums[r] != val) {                   // 对值不为 val 的元素进行移位，值为 val 则跳过
-            nums[l] = nums[r];
-            l++;
-        }
-        r++;
-    }
-    return l;                                   // l 即为 新数组的长度（因为数组下标从 0 开始）
+    int slow = 0;
+    for (int fast = 0; fast < n; fast++)
+        if (nums[fast] != val) // 对值不为 val 的元素进行移位，值为 val 则跳过
+            nums[slow++] = nums[fast];
+    return slow;               // slow 即为 新数组的长度
 }
 ```
 
-时间复杂度 ：$O(n)$
+时间复杂度 ：$O(n)$，其中 $n$ 为数组的长度
 
 空间复杂度 ：$O(1)$
 
@@ -128,6 +125,6 @@ int removeElement(vector<int>& nums, int val) {
 }
 ```
 
-时间复杂度 ：$O(n)$，其中 $n$ 为数组的长度
+时间复杂度 ：$O(n)$
 
 空间复杂度 ：$O(1)$
