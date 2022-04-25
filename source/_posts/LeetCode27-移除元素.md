@@ -3,7 +3,7 @@ title: LeetCode 27. 移除元素
 date: 2022-03-29 23:01:45
 tags:
  - 数组
- - 双指针法
+ - 双指针
 categories:
  - LeetCode
 cover: false
