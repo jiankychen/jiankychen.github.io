@@ -11,7 +11,7 @@ cover: false
 
 [LeetCode 59](https://leetcode-cn.com/problems/spiral-matrix-ii/)
 
-给你一个正整数 `n` ，生成一个包含 $1$ 到 $n^2$ 所有元素，且元素按顺时针顺序螺旋排列的 $n \times n$ 正方形矩阵
+给定一个正整数 `n` ，要求生成一个包含 $1$ 到 $n^2$ 所有元素，且元素按顺时针顺序螺旋排列的 $n \times n$ 正方形矩阵
 
 示例 1:
 
