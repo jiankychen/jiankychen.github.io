@@ -9,26 +9,29 @@ categories:
 cover: false
 ---
 
-[LeetCode 59](https://leetcode-cn.com/problems/spiral-matrix-ii/)
+[LeetCode 59. Spiral Matrix II](https://leetcode-cn.com/problems/spiral-matrix-ii/)
 
-给定一个正整数 `n` ，要求生成一个包含 $1$ 到 $n^2$ 所有元素，且元素按顺时针顺序螺旋排列的 $n \times n$ 正方形矩阵
-
-示例 1:
-
-    输入：n = 3
-    输出：[[1,2,3],[8,9,4],[7,6,5]]
-
-![示例 1](LeetCode59-螺旋矩阵II/1.jpg)
+Given a positive integer `n`, generate an $n \times n$ matrix filled with elements from $1$ to $n^2$ in **spiral order**.
 
 
-示例 2:
+Example 1:
 
-    输入：n = 1
-    输出：[[1]]
+![Example 1](LeetCode59-螺旋矩阵II/1.jpg)
+
+    Input: n = 3
+    Output: [[1,2,3],[8,9,4],[7,6,5]]
 
 
-提示：
- - 1 <= n <= 20
+Example 2:
+
+    Input: n = 1
+    Output: [[1]]
+ 
+
+Constraints:
+
+ - `1 <= n <= 20`
+
 
 ## Method: 模拟
 
