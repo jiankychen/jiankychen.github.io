@@ -162,5 +162,4 @@ public:
  * obj->deleteAtIndex(index);
  */
 ```
-
-
+## Method: 双链表

@@ -39,9 +39,9 @@ cover: false
 
 [27. 移除元素](https://jiankychen.github.io/2022/03/29/leetcode27-yi-chu-yuan-su/)
 
-[LeetCode 209. 长度最小的子数组](https://jiankychen.github.io/2022/04/24/leetcode209-chang-du-zui-xiao-de-zi-shu-zu/)
+[209. 长度最小的子数组](https://jiankychen.github.io/2022/04/24/leetcode209-chang-du-zui-xiao-de-zi-shu-zu/)
 
-[LeetCode 59. 螺旋矩阵 II](https://jiankychen.github.io/2022/04/24/leetcode59-luo-xuan-ju-zhen-ii/)
+[59. 螺旋矩阵 II](https://jiankychen.github.io/2022/04/24/leetcode59-luo-xuan-ju-zhen-ii/)
 
 [剑指Offer 03. 数组中重复的数字](https://jiankychen.github.io/2022/04/19/jian-zhi-offer03-shu-zu-zhong-chong-fu-de-shu-zi/)
 
@@ -51,6 +51,12 @@ cover: false
 [876. 链表的中间结点](https://jiankychen.github.io/2022/03/16/leetcode876-lian-biao-de-zhong-jian-jie-dian/)
 
 [19. 删除链表的倒数第N个结点](https://jiankychen.github.io/2022/03/16/leetcode19-shan-chu-lian-biao-de-dao-shu-di-n-ge-jie-dian/)
+
+[203. 移除链表元素](https://jiankychen.github.io/2022/04/28/leetcode203-yi-chu-lian-biao-yuan-su/)
+
+[707. 设计链表](https://jiankychen.github.io/2022/04/28/leetcode707-she-ji-lian-biao/)
+
+[206. 反转链表](https://jiankychen.github.io/2022/04/28/leetcode206-fan-zhuan-lian-biao/)
 
 [剑指Offer 06. 从尾到头打印链表](https://jiankychen.github.io/2022/03/27/jian-zhi-offer06-cong-wei-dao-tou-da-yin-lian-biao)
 
