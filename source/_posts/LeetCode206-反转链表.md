@@ -73,4 +73,57 @@ ListNode* reverseList(ListNode* head) {
 }
 ```
 
+时间复杂度：$O(n)$，其中 $n$ 为链表长度
+
+空间复杂度：$O(1)$
+
+
 ## Method 2: 递归
+
+可以利用递归算法实现上述双指针算法的逻辑，代码如下：
+```cpp
+ListNode* reverse(ListNode* pre,ListNode* cur){
+    if(cur == NULL) return pre;
+    ListNode* temp = cur->next;
+    cur->next = pre;
+    // 可以和双指针法的代码进行对比，如下递归的写法，其实就是做了这两步
+    // pre = cur;
+    // cur = temp;
+    return reverse(cur,temp);
+}
+ListNode* reverseList(ListNode* head) {
+    // 和双指针法初始化是一样的逻辑
+    // ListNode* cur = head;
+    // ListNode* pre = NULL;
+    return reverse(NULL, head);
+}
+```
+
+上述算法实质上都是沿着链表的方向 **从前往后** 翻转指针指向
+
+也可以 **从后往前** 翻转指针指向
+
+代码实现：
+
+```cpp
+ListNode* reverseList(ListNode* head) { // 翻转 head->next 的 next 指针，使其指向 head
+    // 迭代终止条件
+    if (head == NULL || head->next == NULL)
+        return head;
+    
+    // 递归调用，使 head->next->next 的下一个节点是 head->next
+    ListNode *last = reverseList(head->next);
+
+    // 使 head->next 的下一个节点是 head
+    head->next->next = head;
+
+    // 此时的 head 节点为反转链表的尾节点，next 指针应指向 NULL
+    head->next = NULL;
+
+    return last;
+}
+```
+
+时间复杂度：$O(n)$，其中 $n$ 为链表长度
+
+空间复杂度：$O(n)$，递归调用的栈空间
