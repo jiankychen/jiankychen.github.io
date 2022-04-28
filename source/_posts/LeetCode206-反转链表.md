@@ -84,18 +84,19 @@ ListNode* reverseList(ListNode* head) {
 可以利用递归算法实现上述双指针算法的逻辑，代码如下：
 ```cpp
 ListNode* reverse(ListNode* pre,ListNode* cur){
+    // 递归终止条件，返回的是反转链表的头节点
     if(cur == NULL) return pre;
+
+    // 修改 cur 的 next 指针，指向 pre
     ListNode* temp = cur->next;
     cur->next = pre;
-    // 可以和双指针法的代码进行对比，如下递归的写法，其实就是做了这两步
-    // pre = cur;
-    // cur = temp;
+
+    // 递归，使 temp 的 next 指针指向 cur
     return reverse(cur,temp);
 }
+
 ListNode* reverseList(ListNode* head) {
-    // 和双指针法初始化是一样的逻辑
-    // ListNode* cur = head;
-    // ListNode* pre = NULL;
+    // 调用递归函数，逐层反转原链表中 head 节点及其之后节点的 next 指针
     return reverse(NULL, head);
 }
 ```
@@ -108,11 +109,11 @@ ListNode* reverseList(ListNode* head) {
 
 ```cpp
 ListNode* reverseList(ListNode* head) { // 翻转 head->next 的 next 指针，使其指向 head
-    // 迭代终止条件
+    // 递归终止条件
     if (head == NULL || head->next == NULL)
         return head;
     
-    // 递归调用，使 head->next->next 的下一个节点是 head->next
+    // 递归，使 head->next->next 的下一个节点是 head->next
     ListNode *last = reverseList(head->next);
 
     // 使 head->next 的下一个节点是 head
