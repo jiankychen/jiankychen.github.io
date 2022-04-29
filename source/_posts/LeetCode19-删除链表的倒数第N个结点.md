@@ -2,8 +2,8 @@
 title: LeetCode 19. 删除链表的倒数第N个结点
 date: 2022-03-16 22:26:43
 tags:
- - 双指针
  - 链表
+ - 双指针
 categories:
  - LeetCode
 cover: false
@@ -15,7 +15,7 @@ Given the head of a linked list, remove the nth node from the end of the list an
 
  
 
-Example 1:
+**Example 1:**
 
 ![](LeetCode19-删除链表的倒数第N个结点/1.png)
 
@@ -24,55 +24,62 @@ Example 1:
 
 
 
-Example 2:
+**Example 2:**
 
     Input: head = [1], n = 1
     Output: []
 
 
-Example 3:
+**Example 3:**
 
     Input: head = [1,2], n = 1
     Output: [1]
 
+Constraints:
 
-## Method: 快慢指针
+ - The number of nodes in the list is `sz`.
+ - `1 <= sz <= 30`
+ - `0 <= Node.val <= 100`
+ - `1 <= n <= sz`
 
-> 在对链表进行操作时，一种常用的技巧是添加一个**哑节点**（dummy node），它的 `next` 指针指向链表的头节点。这样一来，我们就不需要对头节点进行特殊的判断了。
-> 
-> 在本题中，**如果我们要删除节点 `y`，我们需要知道节点 `y` 的前驱节点 `x`，并将 `x` 的指针指向 `y` 的后继节点**，即，**`x->next = x->next->next`**。
-> 
-> 但由于头节点不存在前驱节点，因此我们需要在删除头节点时进行特殊判断。但如果我们添加了哑节点，那么头节点的前驱节点就是哑节点本身，此时我们就只需要考虑通用的情况即可。
 
-由于我们需要找到倒数第 `n` 个节点，因此我们可以使用两个指针 `fast` 和 `slow` 同时对链表进行遍历，并且 `fast` 比 `slow` 超前 `n` 个节点。当 `fast` 遍历到链表的末尾时，`slow` 就恰好处于倒数第 `n` 个节点。
+## Method: 双指针
 
-如果我们能够得到的是倒数第 `n` 个节点的前驱节点，删除操作会更加方便。因此我们可以考虑在初始时将 `slow` 指向`哑节点`，其余的操作步骤不变。这样一来，当 `fast` 遍历到链表的末尾时，`slow` 的下一个节点就是我们需要删除的节点。只需要修改一次指针，`slow->next = slow->next->next`，就能完成删除操作。
+解题思路如下：
+
+1. 添加一个**哑节点**（dummy node），即，虚拟头节点，它的 `next` 指针指向链表的头节点
+
+2. 定义快慢指针 `fast` 和 `slow` ，初始值为哑结点，然后让 `fast` 指针移动 `n` 步，使得 `fast` 比 `slow` 超前 `n` 个节点
+
+3. 同时移动 `fast` 和 `slow` 指针，当 `fast` 遍历到链表的最后一个节点时（`fast != nullptr && fast->next == nullptr`），`slow` 的下一个节点就是需要删除的节点
+
+4. 修改指针，即，`slow->next = slow->next->next` ，完成删除操作
+
+> 因为添加了哑结点，如果需要删除的是头节点，同样可以采用上述步骤进行
+
+代码实现：
 
 ```cpp
 ListNode* removeNthFromEnd(ListNode* head, int n) {
-    ListNode *dummy = new ListNode(0, head); // 创建一个哑结点，记录链表开头，同时用来实现head=[1]等特殊情况的结点删除
-    ListNode *fast = head, *slow = dummy;
-    for (int num = 0; num < n; num++)
-        fast = fast->next;
-    while (fast != nullptr)
-    {
+    ListNode* dummyHead = new ListNode(0, head);   // 创建哑结点
+    ListNode *fast = dummyHead, *slow = dummyHead; // 初始化 fast 指针和 slow 指针
+    for (int i = 0; i < n; i++)
+        fast = fast->next;      // fast 指针前进 n 步，即，比 slow 超前 n 步
+    while (fast != nullptr && fast->next != nullptr) { // 两指针同时移动，直到 fast 走到最后一个节点时
         fast = fast->next;
         slow = slow->next;
     }
-    slow->next = slow->next->next;  // 把需要删除的结点的前一个和后一个连接，从而删除结点
-    ListNode *ans = dummy->next;
-    delete dummy;
-    return ans;
+    ListNode* node = slow->next; // 暂存待删除节点
+    slow->next = slow->next->next;  // 在链表中删除节点
+    delete node;                 // 清除已删除节点的内存
+    return dummyHead->next;
 }
 ```
 
 
-时间复杂度：`O(L)`，其中 `L` 是链表的长度。
+时间复杂度：$O(n)$，其中 $n$ 是链表的长度
 
-空间复杂度：`O(1)`。
+空间复杂度：$O(1)$
 
 
-
-## Method: 栈
-
-## Method: 计算链表长度
+另，也可以令 `fast` 指针先走 `n + 1` 步，然后才同时移动两个指针，当 `fast` 指针到达链表的尾后，即 `fast == nullptr` 时，`slow` 指针也是指向待删除节点的上一个节点
