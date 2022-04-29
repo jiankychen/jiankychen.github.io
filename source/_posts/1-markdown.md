@@ -271,7 +271,7 @@ VScode 可借助插件 Markdown Preview Mermaid Support 实现流程图
 测试结果 1
 
 ```mermaid
-graph TD;
+graph LR;
     A --> B;
     B --> X;
     X --> C;
