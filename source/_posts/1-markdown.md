@@ -233,6 +233,69 @@ e
 g
 
 
+## 绘制流程图
+
+安装插件：Markdown Preview Mermaid Support
+
+创建流程图模板 `mermaid`
+
+流程图方向：
+ - `TB` ：top bottom - 从上到下
+ - `BT` ：bottom top - 从下到上
+ - `RL` ：right left - 从右到左
+ - `LR` ：left right - 从左到右
+ - `TD` ：等同于 TB
+
+流程块形状：
+ - `[]` ：方形
+ - `()` ：圆角
+ - `(())` ：圆形
+ - `{}` ：菱形
+ - `{{}}` ：六角形
+ - `[\\]` ：平行四边形
+ - `[//]` ：平行四边形
+
+连接线样式：
+ - `-->` ：有向箭头
+ - `---` ：无向连接线
+ - `-.-` ：虚线
+ - `===` ：加粗线条
+
+测试代码 1
+
+    ```mermaid
+    graph LR;
+        A --> B;
+        B --> X;
+        X --> C;
+    ```
+
+测试结果 1
+
+```mermaid
+graph TD;
+    A --> B;
+    B --> X;
+    X --> C;
+```
+
+测试代码 2
+
+    ```mermaid
+    graph LR
+        1[A] --> 2(B) --- 3((C)) -.- 4[/D/]
+    ```
+
+测试结果 2
+
+```mermaid
+graph LR
+    1[A] --> 2(B) --- 3((C)) -.- 4[/D/]
+```
+
+[利用 Markdown Preview Mermaid Support 插件画流程图](https://blog.csdn.net/ghlfllz/article/details/121360040)
+
+[绘制流程图的语法](https://www.jianshu.com/p/7864c1cf5660)
 
 ## 参考资料
 
@@ -243,3 +306,5 @@ g
 编辑器推荐：**vscode**，Joplin，Typora，sublime，Moeditor
 
 [Create slide deck written in Marp Markdown on VS Code.](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
+
+[通过自定义元素的方式画流程图](https://blog.csdn.net/fengliluohua/article/details/121229903)

@@ -55,7 +55,7 @@ Given the `head` of a singly linked list, reverse the list, and return the *reve
     - 存储 `cur` 的下一个节点指针，记作 `tmp` ，即，`tmp = cur->next` 
     - 修改 `cur` 的 `next` 指针的指向，即，`cur->next = pre` ，令其指向上一个节点 `pre` ，实现反转
     - `pre` 和 `cur` 同时向后移动：执行 `pre = cur` , `cur = tmp`
-3. 遍历结束时，`pre` 指向的是原链表的最后一个节点，同时也是反转之和新链表的头节点，因此，返回 `pre` 即可
+3. 遍历结束时，`pre` 指向的是原链表的最后一个节点，同时也是反转之后新链表的头节点，因此，返回 `pre` 即可
 
 
 代码实现：
@@ -129,3 +129,6 @@ ListNode* reverseList(ListNode* head) { // 翻转 head->next 的 next 指针，�
 时间复杂度：$O(n)$，其中 $n$ 为链表长度
 
 空间复杂度：$O(n)$，递归调用的栈空间
+
+参考：
+ - [代码随想录：翻转链表](https://www.programmercarl.com/0206.%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8.html)

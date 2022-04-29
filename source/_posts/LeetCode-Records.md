@@ -58,6 +58,8 @@ cover: false
 
 [206. 反转链表](https://jiankychen.github.io/2022/04/28/leetcode206-fan-zhuan-lian-biao/)
 
+[24. 两两交换链表中的节点](https://jiankychen.github.io/2022/04/29/leetcode24-liang-liang-jiao-huan-lian-biao-zhong-de-jie-dian/)
+
 [剑指Offer 06. 从尾到头打印链表](https://jiankychen.github.io/2022/03/27/jian-zhi-offer06-cong-wei-dao-tou-da-yin-lian-biao)
 
 
