@@ -1,5 +1,5 @@
 ---
-title: LeetCode160-相交链表
+title: LeetCode 160. 相交链表
 date: 2022-04-29 16:42:45
 tags:
  - 链表
@@ -7,6 +7,8 @@ categories:
  - LeetCode
 cover: false
 ---
+
+[LeetCode 160. Intersection of Two Linked Lists](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/)
 
 Given the heads of two singly linked-lists `headA` and `headB`, return *the node at which the two lists intersect*. If the two linked lists have no intersection at all, return `null`.
 
@@ -24,7 +26,7 @@ The test cases are generated such that there are no cycles anywhere in the entir
 
 **Custom Judge:**
 
-The inputs to the **judge** are given as follows (your program is not given these inputs):
+The inputs to the **judge** are given as follows (your program is **not** given these inputs):
 
  - `intersectVal` - The value of the node where the intersection occurs. This is `0` if there is no intersected node.
  - `listA` - The first linked list.
@@ -96,3 +98,42 @@ graph LR;
  
 
 **Follow up:** Could you write a solution that runs in `O(m + n)` time and use only `O(1)` memory?
+
+
+## 思路
+
+两链表的交点是指两链表对应节点的指针相等（而不是数值相等），因此，需要找出两个链表交点节点的指针
+
+**若两链表相交，则两链表的交点及以后节点均对应相等**
+
+可将两链表 “尾端对齐” ，从较短链表的头节点开始检查，比较两链表对应节点是否相等
+
+## Method
+
+解题步骤如下：
+
+1. 定义指针 `curA` 指向链表 A 的头节点，指针 `curB` 指向链表 B 的头节点
+
+![](LeetCode160-相交链表/1.png)
+
+2. 求出两个链表的长度 `m` 和 `n` ，将指针 `curA` 移动到第 `m - n + 1` 个节点，使得两个指针后续可移动步数相同（类似于两链表尾端对齐）
+
+
+![](LeetCode160-相交链表/2.png)
+
+1. 比较 `curA` 是否与 `curB` 相同
+    - 若相同，则找到交点
+    - 若不相同，则同时将 `curA` 和 `curB` 向后移动，直到 `curA` 和 `curB` 到达链表末尾
+
+若未找到交点，返回空指针
+
+```cpp
+
+```
+
+时间复杂度：$O(m + n)$，其中 $m$ 和 $n$ 分别为两链表长度
+
+空间复杂度：$O(1)$
+
+参考：
+- [代码随想录：相交链表](https://www.programmercarl.com/%E9%9D%A2%E8%AF%95%E9%A2%9802.07.%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4.html#%E6%80%9D%E8%B7%AF)
