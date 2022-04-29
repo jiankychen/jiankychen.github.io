@@ -297,7 +297,7 @@ graph LR
 
 除 `Mermaid` 流程图外，也可以通过 `Flowchart` 的方式绘制流程图
 
-[通过自定义元素的方式画流程图](https://blog.csdn.net/fengliluohua/article/details/121229903)
+[通过 Flowchart 画流程图](https://blog.csdn.net/fengliluohua/article/details/121229903)
 
 注意，hexo 默认不支持 `Flowchart` 和 `merimaid` 流程图，需要安装插件
 
