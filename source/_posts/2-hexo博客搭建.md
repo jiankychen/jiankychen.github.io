@@ -132,7 +132,7 @@ cover: false
 
 [文章置顶：hexo-generator-index](https://github.com/hexojs/hexo-generator-index)
 
-
+[Mermaid流程图：hexo-filter-mermaid-diagrams](https://blog.csdn.net/wzh0709zml/article/details/103310405?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1)
 
 # 多终端同步
 通过维护两条git分支来实现：第一个分支是 github 上的 main 分支（注：最初的默认分支名为master，我此前改成了main），用于存放发布的博文的静态页面；另外再新建一个分支，比如命名为 hexo ，通过此分支存放主题、原始的博客文件等等，这些文件才是不同电脑需要同步的文件
