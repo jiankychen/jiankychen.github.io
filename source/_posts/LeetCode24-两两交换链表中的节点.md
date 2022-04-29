@@ -90,6 +90,14 @@ Given a linked list, swap every two adjacent nodes and return its head. You mus
 
 ## Method: 双指针
 
+维护 `pre` 指针和 `cur` 指针，依照上述步骤完成 `cur` 和 `cur` 下个节点 `cur->next` 的交换
+
+遍历 `cur` 指针，直到 `cur` 为空 或 `cur->next` 为空
+ - 若 `cur` 为空，则链表节点数为偶数，此前的两两交换刚好完成所有节点交换
+ - 若 `cur` 不为空但 `cur->next` 为空，则链表节点数为奇数，两两交换后还剩最后一个节点，此时无需再进行交换
+
+代码实现：
+
 ```cpp
 // 省略了结构体 ListNode 的定义
 ListNode* swapPairs(ListNode* head) {
