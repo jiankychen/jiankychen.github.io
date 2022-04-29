@@ -114,24 +114,57 @@ graph LR;
 
 1. 定义指针 `curA` 指向链表 A 的头节点，指针 `curB` 指向链表 B 的头节点
 
-![](LeetCode160-相交链表/1.png)
+    ![](LeetCode160-相交链表/1.png)
 
 2. 求出两个链表的长度 `m` 和 `n` ，将指针 `curA` 移动到第 `m - n + 1` 个节点，使得两个指针后续可移动步数相同（类似于两链表尾端对齐）
 
+    ![](LeetCode160-相交链表/2.png)
 
-![](LeetCode160-相交链表/2.png)
-
-1. 比较 `curA` 是否与 `curB` 相同
+3. 比较 `curA` 是否与 `curB` 相同
     - 若相同，则找到交点
     - 若不相同，则同时将 `curA` 和 `curB` 向后移动，直到 `curA` 和 `curB` 到达链表末尾
 
 若未找到交点，返回空指针
 
 ```cpp
-
+ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+    // 链表 A 的长度
+    int m = 0;
+    ListNode *curA = headA;
+    while (curA != nullptr) {
+        m++;
+        curA = curA->next;
+    }
+    // 链表 B 的长度
+    int n = 0;
+    ListNode *curB = headB;
+    while (curB != nullptr) {
+        n++;
+        curB = curB->next;
+    }
+    curA = headA;
+    curB = headB;
+    // 令 curA 为长链的头节点，curB 为短链的头节点，m 为长链的长度，n 为短链的长度
+    if (m < n) {
+        swap(m, n);
+        swap(curA, curB);
+    }
+    // 令 curA 和 curB 的起点一致
+    for (int i = 0; i < m - n; i++)
+        curA = curA->next;
+    // 遍历 curA 和 curB
+    while (curA != nullptr) {
+        if (curA == curB)
+            return curA;
+        curA = curA->next;
+        curB = curB->next;
+    }
+    // 未找到交点
+    return NULL;
+}
 ```
 
-时间复杂度：$O(m + n)$，其中 $m$ 和 $n$ 分别为两链表长度
+时间复杂度：$O(m + n)$，其中 $m$ 和 $n$ 为两链表长度
 
 空间复杂度：$O(1)$
 
