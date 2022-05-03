@@ -70,6 +70,7 @@ cover: false
 
 ## 哈希表
 
+[242. 有效的字母异位词](https://jiankychen.github.io/2022/05/03/leetcode242-you-xiao-de-zi-mu-yi-wei-ci/)
 
 
 
