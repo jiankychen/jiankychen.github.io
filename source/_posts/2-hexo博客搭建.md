@@ -209,3 +209,6 @@ hexo g -d   		// 同步到main分支
 [hexo+github本地和线上图片不显示问题](https://blog.csdn.net/z952957407/article/details/111642548?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&utm_relevant_index=1)
 
 [添加 Waline 评论系统](https://blog.csdn.net/jiunian_2761/article/details/122621667)
+ - [Waline邮箱设置](https://blog.csdn.net/hubojing/article/details/122659549)
+ - [解决 LeanCloud 流控问题](https://www.aimtao.net/slef-wake-leancloud/)
+ - [评论后台](https://waline-comments-jiankychen.vercel.app/ui/login)

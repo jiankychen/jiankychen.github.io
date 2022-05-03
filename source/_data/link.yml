@@ -55,16 +55,18 @@
       link: https://en.cppreference.com/w/
       avatar: 
       descr: Online reference
-      
-    - name: Learn C++
-      link: https://www.learncpp.com/
-      avatar: https://www.learncpp.com/blog/wp-content/uploads/learncpp.png?ezimgfmt=rs:32x32/rscb2/ng:webp/ngcb2
-      descr: Skill up
 
-    - name: C++ Tutorial
-      link: https://www.tutorialspoint.com/cplusplus/index.htm
-      avatar: https://www.tutorialspoint.com/cplusplus/images/cpp-mini-logo.jpg
+    - name: C Plus Plus
+      link: http://www.cplusplus.com/
+      avatar: http://www.cplusplus.com/img/welcometo.gif
       descr: Tutorials
+
+    - name: Stack Overflow
+      link: https://stackoverflow.com/
+      avatar: https://stackoverflow.com/
+      descr: Community
+
+      
 
 - class_name:  Support
   class_desc:  # 可留空
