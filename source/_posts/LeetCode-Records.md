@@ -72,6 +72,11 @@ cover: false
 
 [242. 有效的字母异位词](https://jiankychen.github.io/2022/05/03/leetcode242-you-xiao-de-zi-mu-yi-wei-ci/)
 
+[349. 两个数组的交集](https://jiankychen.github.io/2022/05/03/leetcode349-liang-ge-shu-zu-de-jiao-ji/)
+
+[202. 快乐数](https://jiankychen.github.io/2022/05/03/leetcode202-kuai-le-shu/)
+
+[1. 两数之和](https://jiankychen.github.io/2022/05/03/leetcode1-liang-shu-zhi-he/)
 
 
 ## 字符串

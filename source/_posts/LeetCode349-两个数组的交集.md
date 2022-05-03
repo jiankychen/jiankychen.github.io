@@ -40,6 +40,7 @@ Given two integer arrays `nums1` and `nums2`, return **an array of their interse
 
 注意到题目要求输出的每个元素必须唯一，且不考虑输出结果的顺序，故而选用 `unordered_set`
 
+> 注：相比于数组而言，直接使用 set 不仅占用空间比数组大，而且速度慢。因此，在 数组元素大小有限 且 哈希值比较集中 时，应尽量用 数组 ，而如果哈希值比较少、特别分散、跨度非常大，则考虑用 set
 
 ## unordered_set
 
