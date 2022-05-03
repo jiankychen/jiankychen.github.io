@@ -198,9 +198,7 @@ hexo g -d   		// 同步到main分支
 
 [个人博客地址](https://jiankychen.github.io/)
 
-[解决 Github 连接不上的问题](https://zhuanlan.zhihu.com/p/108898992?utm_source=wechat_session)
-
-[如何配置HOSTS文件](https://jingyan.baidu.com/article/63f2362893f7e10208ab3df8.html)
+[解决 Github 连接不上的问题](https://jingyan.baidu.com/article/63f2362893f7e10208ab3df8.html)
 
 [HOSTS文件配置](https://www.cnblogs.com/philobing/p/15670470.html)
 
