@@ -7,7 +7,7 @@ tags:
 categories:
  - LeetCode
 description:
-cover: /img/default_cover2.jpg
+cover: false
 top_img: /img/Earth.jpg
 ---
 
