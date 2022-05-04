@@ -48,6 +48,13 @@
       avatar: https://konb-hui.github.io/blog/images/avatar.webp
       descr: Konb's blog
 
+    - name: Abacteria
+      link: https://abacteria.github.io
+      avatar: https://img2.baidu.com/it/u=3355533752,3799407811&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=363
+      descr: Abacteria's blog
+
+
+
 - class_name:  C++
   class_desc:  # 可留空
   link_list:
