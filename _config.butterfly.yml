@@ -93,13 +93,14 @@ avatar:
 disable_top_img: true
 
 # The banner image of home page
-index_img:
+index_img: https://wx1.sinaimg.cn/mw2000/0084pl75gy1h1a652alm5j31hc0u014c.jpg
+
 
 # If the banner of page not setting, it will show the top_img
-default_top_img:
+default_top_img: 'linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)'
 
 # The banner image of archive page
-archive_img:
+archive_img: 
 
 # If the banner of tag page not setting, it will show the top_img
 # note: tag page, not tags page (子標籤頁面的 top_img)

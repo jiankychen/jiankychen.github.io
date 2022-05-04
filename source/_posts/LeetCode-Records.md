@@ -1,7 +1,7 @@
 ---
 title: LeetCode Records
 date: 2022-03-14 19:18:16
-# sticky: 5     # 置顶的优先级
+sticky: 5     # 置顶的优先级
 tags:
 categories:
  - LeetCode
