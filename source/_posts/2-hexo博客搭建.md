@@ -116,7 +116,7 @@ cover: false
 
 [中文链接转成拼音：hexo-permalink-pinyin](https://github.com/viko16/hexo-permalink-pinyin)
 
-[本地搜索：hexo-generator-search](https://github.com/viko16/hexo-permalink-pinyin)
+[本地搜索：hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
 
 [帖子字数统计：hexo-wordcount](https://github.com/willin/hexo-wordcount)
 
