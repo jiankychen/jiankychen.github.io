@@ -99,11 +99,11 @@ index_img: /img/SpaceStation.jpg
 default_top_img: 'linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)'
 
 # The banner image of archive page
-archive_img: /img/Rocket.jpg
+archive_img: 'linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)'
 
 # If the banner of tag page not setting, it will show the top_img
 # note: tag page, not tags page (子標籤頁面的 top_img)
-tag_img: /img/Earth.jpg
+tag_img: /img/EarthNight.jpg
 
 # The banner image of tag page
 # format:
@@ -112,7 +112,7 @@ tag_per_img:
 
 # If the banner of category page not setting, it will show the top_img
 # note: category page, not categories page (子分類頁面的 top_img)
-category_img: /img/EarthNight.jpg
+category_img: /img/Earth.jpg
 
 # The banner image of category page
 # format:
@@ -188,7 +188,7 @@ index_post_content:
 toc:
   enable: true
   number: true
-  style_simple: false # for post
+  style_simple: true # for post
 
 post_copyright:
   enable: true
@@ -491,14 +491,14 @@ theme_color:
   paginator: "#00c4b6"
   button_hover: "#FF7242"
   text_selection: "#00c4b6"
-  link_color:   "#F47466"
+  link_color: "#F47466"
   meta_color: "#858585"
   hr_color: "#A4D8FA"
-  code_foreground: "#0072BD"
+  code_foreground: "#00B0F0"
   code_background: "rgba(27, 31, 35, .05)"
   toc_color: "#00c4b6"
-  blockquote_padding_color: "#49b1f5"
-  blockquote_background_color: "#49b1f5"
+  blockquote_padding_color: "#7B9586"
+  blockquote_background_color: "#7B9586"
 
 # The top_img settings of home page
 # default: top img - full screen, site info - middle (默認top_img全屏，site_info在中間)
@@ -516,10 +516,10 @@ tag_ui: # 留空或 index
 # Website Background (設置網站背景)
 # can set it to color or image (可設置圖片 或者 顔色)
 # The formal of image: url(http://xxxxxx.com/xxx.jpg)
-background: 
+background: # "#C4B6A8" # "#7B9586" # "#CED5D8"
 
 # Footer Background
-footer_bg: 
+footer_bg: /img/Rocket.jpg
 
 # the position of bottom right button/default unit: px (右下角按鈕距離底部的距離/默認單位為px)
 rightside-bottom:
