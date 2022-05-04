@@ -100,7 +100,7 @@ index_img: /img/SpaceStation.jpg
 default_top_img: 'linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)'
 
 # The banner image of archive page
-archive_img: 
+archive_img: /img/EarthNight.jpg
 
 # If the banner of tag page not setting, it will show the top_img
 # note: tag page, not tags page (子標籤頁面的 top_img)
