@@ -7,6 +7,6 @@ tags:
 categories:
  - LeetCode
 description:
-cover: url(/source/img/1.jpg)
+cover: /img/default_cover2.jpg
 top_img: 
 ---
