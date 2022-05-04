@@ -210,3 +210,6 @@ hexo g -d   		// 同步到main分支
  - [Waline邮箱设置](https://blog.csdn.net/hubojing/article/details/122659549)
  - [解决 LeanCloud 流控问题](https://www.aimtao.net/slef-wake-leancloud/)
  - [评论后台](https://waline-comments-jiankychen.vercel.app/ui/login)
+
+
+[Butterfly 主题美化](https://guole.fun/posts/butterfly-custom/)

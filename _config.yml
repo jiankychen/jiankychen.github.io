@@ -117,7 +117,7 @@ permalink_pinyin:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: butterfly
+theme: butterfly # butterfly or tranquilpeak
 
 # offline config passed to sw-precache.
 service_worker:

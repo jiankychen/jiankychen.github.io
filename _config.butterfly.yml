@@ -35,7 +35,7 @@ code_word_wrap: true
 copy:
   enable: true
   copyright:
-    enable: true
+    enable: false
     limit_count: 50
 
 # social settings (社交圖標設置)
@@ -126,7 +126,7 @@ cover:
   archives_enable: true
   # the position of cover in home page (封面顯示的位置)
   # left/right/both
-  position: left
+  position: both
   # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)
   default_cover:
     # - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
@@ -169,8 +169,8 @@ wordcount:
 # 3: auto_excerpt (default)
 # false: do not show the article introduction
 index_post_content:
-  method: 3
-  length: 500 # if you set method to 2 or 3, the length need to config
+  method: 2
+  length: 300 # if you set method to 2 or 3, the length need to config
 
 # Post
 # --------------------------------------
@@ -179,7 +179,7 @@ index_post_content:
 toc:
   enable: true
   number: true
-  style_simple: true
+  style_simple: false # for post
 
 post_copyright:
   enable: true
@@ -209,7 +209,7 @@ post_edit:
 # Related Articles
 related_post:
   enable: true
-  limit: 6 # Number of posts displayed
+  limit: 3 # Number of posts displayed
   date_type: created # or created or updated 文章日期顯示創建日或者更新日
 
 # figcaption (圖片描述文字)
@@ -507,10 +507,10 @@ tag_ui: # 留空或 index
 # Website Background (設置網站背景)
 # can set it to color or image (可設置圖片 或者 顔色)
 # The formal of image: url(http://xxxxxx.com/xxx.jpg)
-background:
+background: 
 
 # Footer Background
-footer_bg: false
+footer_bg: 
 
 # the position of bottom right button/default unit: px (右下角按鈕距離底部的距離/默認單位為px)
 rightside-bottom:
@@ -584,7 +584,8 @@ display_mode: light
 beautify:
   enable: true
   field: post # site/post
-  title-prefix-icon: '\f0c1'
+  # title-prefix-icon: '\f0c1'
+  title-prefix-icon: '\f863'
   title-prefix-icon-color: '#F47466'
 
 # Global font settings
@@ -841,6 +842,7 @@ css_prefix: true
 inject:
   head:
     # - <link rel="stylesheet" href="/xxx.css">
+    - <link rel="stylesheet" href="/css/custom.css">
   bottom:
     # - <script src="xxxx"></script>
 
