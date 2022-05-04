@@ -130,6 +130,15 @@ cover:
   position: both
   # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)
   default_cover:
+    - /img/cover1.jpg
+    - /img/cover2.jpg
+    - /img/cover3.jpg
+    - /img/cover4.jpg
+    - /img/cover5.jpg
+    - /img/cover6.jpg
+    - /img/cover7.jpg
+    - /img/cover8.jpg
+    - /img/cover9.jpg
     # - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
 
 # Replace Broken Images (替換無法顯示的圖片)
