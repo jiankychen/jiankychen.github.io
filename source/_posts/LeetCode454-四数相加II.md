@@ -65,7 +65,7 @@ Given four integer arrays `nums1`, `nums2`, `nums3`, and `nums4` all of length `
 
 ```cpp
 int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vector<int>& nums4) {
-    // 统计 nums1 和 nums2 数组中任意两元素之和，并将 元素和 以及 和出现的次数 分别作为 map 的 key 和 value
+    // 统计 nums1 和 nums2 数组中任意两元素之和
     unordered_map<int, int> map;
     for (auto a : nums1)
         for (auto b : nums2)
@@ -81,8 +81,8 @@ int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vec
 ```
 
 时间复杂度：$O(n^2)$
- - 两个 `for` 循环，时间复杂度为 `O(n^2)`
- - 每次哈希查找的时间复杂度为 `O(1)`
+ - 两个 `for` 循环，时间复杂度为 $O(n^2)$
+ - 每次哈希查找的时间复杂度为 $O(1)$
 
 空间复杂度：$O(n^2)$，哈希 `map` 所需要的空间
 
