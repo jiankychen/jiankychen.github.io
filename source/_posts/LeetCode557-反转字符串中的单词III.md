@@ -15,13 +15,13 @@ Given a string s, reverse the order of characters in each word within a sentence
 
  
 
-Example 1:
+**Example 1:**
 
     Input: s = "Let's take LeetCode contest"
     Output: "s'teL ekat edoCteeL tsetnoc"
 
 
-Example 2:
+**Example 2:**
 
     Input: s = "God Ding"
     Output: "doG gniD"
@@ -32,10 +32,10 @@ Example 2:
 当找到一个单词的时候，我们交换字符串第一个字符与倒数第一个字符，随后交换第二个字符与倒数第二个字符……如此反复，就可以在原空间上翻转单词。
 
 具体流程如下：
-1. 指针`left`指向第一个字符或空字符前一个字符（双指针中的左端指针）
-2. 指针`search`向右搜索
-3. 当`search`搜索到空字符或尾后时，将`search - 1`赋给双指针中的右端指针`right`
-4. 将`left`和`right`之间的所有字符反转
+1. 指针 `left` 指向第一个字符或空字符前一个字符（双指针中的左端指针）
+2. 指针 `search` 向右搜索
+3. 当 `search` 搜索到空字符或尾后时，将 `search - 1` 赋给双指针中的右端指针 `right` 
+4. 将 `left` 和 `right` 之间的所有字符反转
 
 重复上述操作，直到所有字符均已被反转
 
@@ -63,11 +63,9 @@ string reverseWords(string s) {
 }
 ```
 
-> 复杂度分析
-> 
-> 时间复杂度：`O(N)`。字符串中的每个字符要么在`O(1)`的时间内被交换到相应的位置，要么因为是空格而保持不动。
-> 
-> 空间复杂度：`O(1)`。因为不需要开辟额外的数组。
+时间复杂度：$O(N)$ ，字符串中的每个字符要么在 $O(1)$ 的时间内被交换到相应的位置，要么因为是空格而保持不动
+
+空间复杂度：$O(1)$ ，因为不需要开辟额外的数组
 
 
 ## Method 2: 双指针（使用额外空间）
@@ -94,6 +92,6 @@ string reverseWords(string s) {
 }
 ```
 
-时间复杂度：`O(N)`，其中`N`为字符串的长度。原字符串中的每个字符都会在`O(1)`的时间内放入新字符串中。
+时间复杂度：$O(N)$ ，其中 $N$ 为字符串的长度。原字符串中的每个字符都会在 $O(1)$ 的时间内放入新字符串中
 
-空间复杂度：`O(N)`。开辟了与原字符串等大的空间。
+空间复杂度：$O(N)$ ，开辟了与原字符串等大的空间

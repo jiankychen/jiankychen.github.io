@@ -17,13 +17,13 @@ You must do this by modifying the input array **in-place** with `O(1)` extra mem
 
  
 
-Example 1:
+**Example 1:**
 
     Input: s = ["h","e","l","l","o"]
     Output: ["o","l","l","e","h"]
 
 
-Example 2:
+**Example 2:**
 
     Input: s = ["H","a","n","n","a","h"]
     Output: ["h","a","n","n","a","H"]
@@ -53,6 +53,6 @@ void reverseString(vector<char>& s) {
 
 
 
-时间复杂度：`O(N)`，其中`N`为字符数组的长度。一共执行了`N/2`次的交换。
+时间复杂度：$O(N)$，其中 `N` 为字符数组的长度。一共执行了 `N/2` 次的交换
 
-空间复杂度：`O(1)`。只使用了常数空间来存放若干变量。
+空间复杂度：$O(1)$。只使用了常数空间来存放若干变量

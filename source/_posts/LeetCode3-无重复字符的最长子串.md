@@ -15,21 +15,21 @@ Given a string `s`, find the length of the **longest substring** without repeati
 
  
 
-Example 1:
+**Example 1:**
 
     Input: s = "abcabcbb"
     Output: 3
     Explanation: The answer is "abc", with the length of 3.
 
 
-Example 2:
+**Example 2:**
 
     Input: s = "bbbbb"
     Output: 1
     Explanation: The answer is "b", with the length of 1.
 
 
-Example 3:
+**Example 3:**
 
     Input: s = "pwwkew"
     Output: 3
@@ -44,7 +44,7 @@ Example 3:
 
 重复以下循环，直至右指针到达尾后：
 1. 判断右指针对应字符是否与窗口内字符重复
-2. 若重复，更新`无重复字符最长子串`的长度，并找到窗口内重复字符所在位置的下一位，令左指针指向该位置
+2. 若重复，更新 *无重复字符最长子串* 的长度，并找到窗口内重复字符所在位置的下一位，令左指针指向该位置
 3. 若不重复，将右指针对应字符当前无重复字符子串（右指针继续右移），继续循环
 
 程序实现：
@@ -83,6 +83,6 @@ public:
 };
 ```
 
-程序中的`isRepeat`函数，采用的是遍历的方式来判断重复字符。事实上，可以借助哈希集合（即 C++ 中的 `std::unordered_set`）来判断。在左指针向右移动的时候，我们从哈希集合中移除一个字符，在右指针向右移动的时候，我们往哈希集合中添加一个字符。
+程序中的 `isRepeat` 函数，采用的是遍历的方式来判断重复字符。事实上，可以借助哈希集合（即 C++ 中的 `std::unordered_set` ）来判断。在左指针向右移动的时候，我们从哈希集合中移除一个字符，在右指针向右移动的时候，我们往哈希集合中添加一个字符。
 
 [题解：滑动窗口](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/hua-dong-chuang-kou-by-powcai/)

@@ -31,7 +31,7 @@ An **Anagram** is a word or phrase formed by rearranging the letters of a differ
 
 **Constraints:**
 
- - 1 <= `s.length`, `t.length` <= 5 * 10^4^
+ - $1 \le$ `s.length`, `t.length` $\le 5 \times 10^4$
  - `s` and `t` consist of lowercase English letters.
  
 

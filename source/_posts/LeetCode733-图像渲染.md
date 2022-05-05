@@ -22,7 +22,7 @@ Return the modified image after performing the flood fill.
 
  
 
-Example 1:
+**Example 1:**
 
 ![](LeetCode733-图像渲染/1.png)
 
@@ -32,7 +32,7 @@ Example 1:
     Note the bottom corner is not colored 2, because it is not 4-directionally connected to the starting pixel.
 
 
-Example 2:
+**Example 2:**
 
     Input: image = [[0,0,0],[0,0,0]], sr = 0, sc = 0, newColor = 2
     Output: [[2,2,2],[2,2,2]]
@@ -71,9 +71,9 @@ vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int ne
     return image;
 ```
 
-时间复杂度：`O(n × m)`，其中 `n` 和 `m` 分别是二维数组的行数和列数。最坏情况下需要遍历所有的方格一次。
+时间复杂度：$O(n \times m)$，其中 `n` 和 `m` 分别是二维数组的行数和列数。最坏情况下需要遍历所有的方格一次。
 
-空间复杂度：`O(n × m)`，主要为队列的开销。
+空间复杂度：$O(n \times m)$，主要为队列的开销。
 
 
 ## Method 2: 深度优先搜索
@@ -103,6 +103,6 @@ vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int ne
 }
 ```
 
-时间复杂度：`O(n × m)`，最坏情况下需要遍历所有的方格一次。
+时间复杂度：$O(n \times m)$，最坏情况下需要遍历所有的方格一次。
 
-空间复杂度：`O(n × m)`，主要为栈空间的开销。
+空间复杂度：$O(n \times m)$，主要为栈空间的开销。

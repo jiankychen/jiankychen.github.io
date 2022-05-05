@@ -12,9 +12,9 @@ cover: false
 
 [LeetCode 167](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)
 
-Given a ***1-indexed*** array of integers numbers that is already sorted ***in non-decreasing order***, find two numbers such that they add up to a specific target number. Let these two numbers be `numbers[index1]` and `numbers[index2]` where `1 <= index1 < index2 <= numbers.length`.
+Given a **1-indexed** array of integers numbers that is already sorted ***in non-decreasing order***, find two numbers such that they add up to a specific target number. Let these two numbers be `numbers[index1]` and `numbers[index2]` where `1 <= index1 < index2 <= numbers.length`.
 
-Return the indices of the two numbers, `index1` and `index2`, ***added by one*** as an integer array `[index1, index2]` of *length 2*.
+Return the indices of the two numbers, `index1` and `index2`, **added by one** as an integer array `[index1, index2]` of *length 2*.
 
 The tests are generated such that there is **exactly one solution**. You **may not** use the same element twice.
 
@@ -22,21 +22,21 @@ Your solution must use only constant extra space.
 
  
 
-Example 1:
+**Example 1:**
 
     Input: numbers = [2,7,11,15], target = 9
     Output: [1,2]
     Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2].
 
 
-Example 2:
+**Example 2:**
 
     Input: numbers = [2,3,4], target = 6
     Output: [1,3]
     Explanation: The sum of 2 and 4 is 6. Therefore index1 = 1, index2 = 3. We return [1, 3].
 
 
-Example 3:
+**Example 3:**
 
     Input: numbers = [-1,0], target = -1
     Output: [1,2]
@@ -66,9 +66,9 @@ vector<int> twoSum(vector<int>& numbers, int target) {
 }
 ```
 
-时间复杂度：`O(n)`，其中`n`是数组的长度。两个指针移动的总次数最多为`n`次
+时间复杂度：$O(n)$ ，其中 $n$ 是数组的长度。两个指针移动的总次数最多为 $n$ 次
 
-空间复杂度：`O(1)`
+空间复杂度：$O(1)$
 
 
 ## Method 2: 二分查找
@@ -93,9 +93,11 @@ vector<int> twoSum(vector<int>& numbers, int target) {
 ```
 
 
-时间复杂度：`O(nlogn)`，其中`n`是数组的长度。需要遍历数组一次确定第一个数，时间复杂度是`O(n)`，寻找第二个数使用二分查找，时间复杂度是`O(logn)`，因此总时间复杂度是`O(nlogn)`。
+时间复杂度：$O(n \log{n})$，其中 $n$ 是数组的长度
+ - 需要遍历数组一次确定第一个数，时间复杂度是 $O(n)$
+ - 寻找第二个数使用二分查找，时间复杂度是 $O(\log{n})$
 
-空间复杂度：`O(1)`
+空间复杂度：$O(1)$
 
 
 [题解：推荐使用双指针方法](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/solution/liang-shu-zhi-he-ii-shu-ru-you-xu-shu-zu-by-leet-2/)

@@ -43,7 +43,7 @@ Return `true` if `n` is a happy number, and `false` if not.
 
 **Constraints:**
 
- - $1$ <= `n` <= $2^{31} - 1$
+ - $1 \le$ `n` $\le 2^{31} - 1$
 
 
 ## 思路
@@ -98,7 +98,7 @@ bool isHappy(int n) {
 [代码随想录：快乐数](https://www.programmercarl.com/0202.%E5%BF%AB%E4%B9%90%E6%95%B0.html)
 
 时间复杂度：$O(\log{n})$
- - 查找给定数字的下一个值的时间复杂度为 $O(\log{n})$ ，因为数字的位数由 $O(\log_{10} {n}) = O(\log{n})$ 确定
+ - 查找给定数字的下一个值的时间复杂度为 $O(\log{n})$ ，因为数字的位数由 $O(\log_{10}{n}) = O(\log{n})$ 确定
  - 总体的时间复杂度还需考虑循环过程中的数字个数，这里简单起见仅考虑计算下一个值的时间复杂度
 
 空间复杂度：$O(\log{n})$

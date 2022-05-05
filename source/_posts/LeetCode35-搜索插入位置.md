@@ -17,19 +17,19 @@ You must write an algorithm with `O(log n)` runtime complexity.
 
  
 
-Example 1:
+**Example 1:**
 
     Input: nums = [1,3,5,6], target = 5
     Output: 2
 
 
-Example 2:
+**Example 2:**
 
     Input: nums = [1,3,5,6], target = 2
     Output: 1
 
 
-Example 3:
+**Example 3:**
 
     Input: nums = [1,3,5,6], target = 7
     Output: 4
@@ -37,6 +37,7 @@ Example 3:
 
 
 ## Method: 二分查找
+
 在一个有序数组中找到第一个大于等于 `target` 的下标
 ```cpp
 int searchInsert(vector<int>& nums, int target) {

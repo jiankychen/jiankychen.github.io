@@ -15,7 +15,7 @@ Given an array, rotate the array to the right by `k` steps, where `k` is non-neg
 
  
 
-Example 1:
+**Example 1:**
 
     Input: nums = [1,2,3,4,5,6,7], k = 3
     Output: [5,6,7,1,2,3,4]
@@ -25,7 +25,7 @@ Example 1:
     rotate 3 steps to the right: [5,6,7,1,2,3,4]
 
 
-Example 2:
+**Example 2:**
 
     Input: nums = [-1,-100,3,99], k = 2
     Output: [3,99,-1,-100]
@@ -50,11 +50,12 @@ void rotate(vector<int>& nums, int k) {
 ```
 
 ## Method 2: 数组翻转
-先将所有元素翻转，这样尾部的`k mod n`个元素就被移至数组头部，然后我们再翻转`[0, k mod n − 1]`区间的元素和`[k mod n, n − 1]`区间的元素即能得到最后的答案
-![](LeetCode189-轮转数组/1.png)
+先将所有元素翻转，这样尾部的 `k mod n` 个元素就被移至数组头部，然后我们再翻转 `[0, k mod n − 1]` 区间的元素和 `[k mod n, n − 1]` 区间的元素即能得到最后的答案
+
+![数组翻转](LeetCode189-轮转数组/1.png)
 
 ```cpp
-// 水平翻转nums中left到right之间的元素
+// 水平翻转 nums 中 left 到 right 之间的元素
 void reverse(vector<int>& nums, int left, int right) {
     while (left < right)
     {
@@ -63,9 +64,8 @@ void reverse(vector<int>& nums, int left, int right) {
         right--;
     };
 }
-```
 
-```cpp
+
 void rotate(vector<int>& nums, int k) {
     int n = nums.size() - 1;
     reverse(nums, 0, n);                      // 翻转第0至nums.size()-1个元素

@@ -24,7 +24,7 @@ Implement the MyLinkedList class:
  - `void deleteAtIndex(int index)` Delete the `index`-th node in the linked list, if the `index` is valid.
  
 
-Example 1:
+**Example 1:**
 
     Input: 
     ["MyLinkedList", "addAtHead", "addAtTail", "addAtIndex", "get", "deleteAtIndex", "get"]
@@ -42,9 +42,9 @@ Example 1:
     myLinkedList.get(1);              // return 3
  
 
-Constraints:
+**Constraints:**
 
- - 0 <= `index`, `val` <= 1000
+ - $0 \le$ `index`, `val` $\le 1000$
  - Please do not use the built-in LinkedList library.
  - At most `2000` calls will be made to `get`, `addAtHead`, `addAtTail`, `addAtIndex` and `deleteAtIndex`.
 

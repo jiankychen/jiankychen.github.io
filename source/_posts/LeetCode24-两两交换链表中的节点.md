@@ -37,7 +37,7 @@ Given a linked list, swap every two adjacent nodes and return its head. You mus
 **Constraints:**
 
  - The number of nodes in the list is in the range `[0, 100]`.
- - `0 <= Node.val <= 100`
+ - $0 \le$ `Node.val` $\le 100$
 
 ## 思路
 

@@ -14,14 +14,14 @@ cover: false
 
 在一个长度为 `n` 的数组 `nums` 里，所有数字都在 0 ~ n-1 的范围内，请找出数组中任意一个重复的数字
 
-Example 1：
+**Example 1：**
 
     输入：[2, 3, 1, 0, 2, 5, 3]
     输出：2 或 3 
  
 
-Constraints：
- - `2 <= n <= 100000`
+**Constraints：**
+ - $2 \le$ `n` $\le 100000$
 
 ## stable_sort 函数
 

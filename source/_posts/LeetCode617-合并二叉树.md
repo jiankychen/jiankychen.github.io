@@ -19,14 +19,15 @@ Imagine that when you put one of them to cover the other, some nodes of the two 
 
 Note: The merging process must **start from the root nodes** of both trees.
 
-Example 1:
+**Example 1:**
+
 ![](LeetCode617-合并二叉树/1.jpg)
 
     Input: root1 = [1,3,2,5], root2 = [2,1,3,null,4,null,7]
     Output: [3,4,5,5,4,null,7]
 
 
-Example 2:
+**Example 2:**
 
     Input: root1 = [1], root2 = [1,2]
     Output: [2,2]
@@ -55,9 +56,9 @@ TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {    // 深度优先搜�
 }
 ```
 
-时间复杂度：`O(min(m,n))`，其中 `m` 和 `n` 分别是两个二叉树的节点个数。对两个二叉树同时进行深度优先搜索，只有当两个二叉树中的对应节点都不为空时才会对该节点进行显性合并操作，因此被访问到的节点数不会超过较小的二叉树的节点数
+时间复杂度：$O(\min(m,n))$，其中 `m` 和 `n` 分别是两个二叉树的节点个数。对两个二叉树同时进行深度优先搜索，只有当两个二叉树中的对应节点都不为空时才会对该节点进行显性合并操作，因此被访问到的节点数不会超过较小的二叉树的节点数
 
-空间复杂度：`O(min(m,n))`，其中 `m` 和 `n` 分别是两个二叉树的节点个数。空间复杂度取决于递归调用的层数，递归调用的层数不会超过较小的二叉树的最大高度，最坏情况下，二叉树的高度等于节点数
+空间复杂度：$O(\min(m,n))$，其中 `m` 和 `n` 分别是两个二叉树的节点个数。空间复杂度取决于递归调用的层数，递归调用的层数不会超过较小的二叉树的最大高度，最坏情况下，二叉树的高度等于节点数
 
 [^_^]: 这里被注释掉了
     LeetCode 用户 "学医写不了脚本" 的留言：官方的`dfs`可能存在问题，直接 `return t1`，导致的是有一部分内存会和 `root1` 共享，修改官方代码后的结果：

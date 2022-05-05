@@ -16,13 +16,13 @@ Since the return type is an integer, the decimal digits are truncated, and only
 
 Note: You are not allowed to use any built-in exponent function or operator, such as `pow(x, 0.5)` or `x ** 0.5`.
 
-Example 1:
+**Example 1:**
 
     Input: x = 4
     Output: 2
 
 
-Example 2:
+**Example 2:**
 
     Input: x = 8
     Output: 2
@@ -30,6 +30,7 @@ Example 2:
 
 
 ## Method: 二分查找
+
 找到满足`k*k <= x`的最大整数`k`
 ```cpp
 int mySqrt(int x) {

@@ -16,7 +16,7 @@ Return the average salary of employees excluding the minimum and maximum salary.
 
  
 
-Example 1:
+**Example 1:**
 
     Input: salary = [4000,3000,1000,2000]
     Output: 2500.00000
@@ -24,7 +24,7 @@ Example 1:
     Average salary excluding minimum and maximum salary is (2000+3000) / 2 = 2500
 
 
-Example 2:
+**Example 2:**
 
     Input: salary = [1000,2000,3000]
     Output: 2000.00000
@@ -33,8 +33,9 @@ Example 2:
 
 
 
-## Method
-逐个比较，更新最大值和最小值，并累加求和，最后再减去最大值和最小值。注意，求平均值时，被除数或者除数要转换成`double`型，这样才能保留小数点后的计算结果。
+## Method：前缀和
+
+逐个比较，更新最大值和最小值，并累加求和，最后再减去最大值和最小值。注意，求平均值时，被除数或者除数要转换成 `double` 型，这样才能保留小数点后的计算结果。
 
 ```cpp
 double average(vector<int>& salary) {
@@ -50,6 +51,6 @@ double average(vector<int>& salary) {
 ```
 
 
-时间复杂度：`O(n)`。选取最大值、最小值和求和的过程的时间代价都是`O(n)`，故渐进时间复杂度为`O(n)`。
+时间复杂度：$O(n)$ ，选取最大值、最小值和求和的过程的时间代价都是 $O(n)$ ，故渐进时间复杂度为 $O(n)$
 
-空间复杂度：`O(1)`。这里只用到了常量级别的辅助空间。
+空间复杂度：$O(1)$ ，这里只用到了常量级别的辅助空间。

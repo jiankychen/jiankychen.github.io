@@ -12,24 +12,24 @@ cover: false
 
 Given the `head` of a linked list and an integer `val`, remove all the nodes of the linked list that has `Node.val == val`, and return the *new* `head`.
 
-Example 1:
+**Example 1:**
 
 ![](LeetCode203-移除链表元素/1.png)
 
     Input: head = [1,2,6,3,4,5,6], val = 6
     Output: [1,2,3,4,5]
 
-Example 2:
+**Example 2:**
 
     Input: head = [], val = 1
     Output: []
 
-Example 3:
+**Example 3:**
 
     Input: head = [7,7,7,7], val = 7
     Output: []
 
-Constraints:
+**Constraints:**
 
  - The number of nodes in the list is in the range [0, 10^4^].
  - 1 <= `Node.val` <= 50

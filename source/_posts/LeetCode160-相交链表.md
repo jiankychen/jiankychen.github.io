@@ -89,15 +89,15 @@ graph LR;
 
  - The number of nodes of `listA` is in the `m`.
  - The number of nodes of `listB` is in the `n`.
- - 1 <= `m`, `n` <= 3 * 10^4^
- - 1 <= `Node.val` <= 10^5^
- - 0 <= `skipA` < m
- - 0 <= `skipB` < n
+ - $1 \le$ `m`, `n` $\le 3 \times 10^4$
+ - $1 \le$ `Node.val` $\le 10^5$
+ - $0 \le$ `skipA` $< m$
+ - $0 \le$ `skipB` $< n$
  - `intersectVal` is `0` if `listA` and `listB` do not intersect.
  - `intersectVal == listA[skipA] == listB[skipB]` if `listA` and `listB` intersect.
  
 
-**Follow up:** Could you write a solution that runs in `O(m + n)` time and use only `O(1)` memory?
+**Follow up:** Could you write a solution that runs in $O(m + n)$ time and use only $O(1)$ memory?
 
 
 ## 思路
