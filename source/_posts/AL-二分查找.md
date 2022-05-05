@@ -101,7 +101,7 @@ for( int times = 0; times < 100; ++times ) { // 二分 100 次
 
     Reference:
 
-    ![](二分查找/1.png)
+    ![](AL-二分查找/1.png)
 
     **Framework 1: 寻找满足条件的最左边的元素**
     ```cpp
