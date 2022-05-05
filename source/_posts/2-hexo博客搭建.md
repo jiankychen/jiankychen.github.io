@@ -130,9 +130,12 @@ cover: false
 
 [Mermaid流程图：hexo-filter-mermaid-diagrams](https://blog.csdn.net/wzh0709zml/article/details/103310405?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1)
 
-[将通过相对路径引用的 markdown 文件转为对应的链接：hexo-filter-link-post](https://github.com/tcatche/hexo-filter-link-post)
-
 [为 github 生成 readme.md 文件：hexo-generator-readme-file](https://github.com/tcatche/hexo-generator-readme-file)
+
+[^_^]:
+
+	[检查失效链接：hexo-broken-links-checker](https://github.com/sergeyzwezdin/hexo-broken-links-checker)
+     - 安装时可能需要另外执行 `cnpm install encoding@^0.1.0 --save` 添加依赖 `encoding@^0.1.0`
 
 
 # 多终端同步
