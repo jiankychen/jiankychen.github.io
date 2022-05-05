@@ -108,7 +108,7 @@ tag_img: /img/EarthNight.jpg
 # The banner image of tag page
 # format:
 #  - tag name: xxxxx
-tag_per_img:
+tag_per_img: 'linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)'
 
 # If the banner of category page not setting, it will show the top_img
 # note: category page, not categories page (子分類頁面的 top_img)
@@ -117,7 +117,7 @@ category_img: /img/Earth.jpg
 # The banner image of category page
 # format:
 #  - category name: xxxxx
-category_per_img:
+category_per_img: 'linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)'
 
 cover:
   # display the cover or not (是否顯示文章封面)

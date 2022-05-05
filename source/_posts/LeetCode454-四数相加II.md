@@ -41,8 +41,8 @@ Given four integer arrays `nums1`, `nums2`, `nums3`, and `nums4` all of length `
  - `n == nums2.length`
  - `n == nums3.length`
  - `n == nums4.length`
- - 1 <= `n` <= 200
- - -2^28^ <= `nums1[i]`, `nums2[i]`, `nums3[i]`, `nums4[i]` <= 2^28^
+ - $1$ <= `n` <= $200$
+ - $-2^{28}$ <= `nums1[i]`, `nums2[i]`, `nums3[i]`, `nums4[i]` <= $2^{28}$
 
 ## 思路
 
