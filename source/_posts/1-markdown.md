@@ -2,8 +2,8 @@
 title: markdown
 date: 2021-10-24 18:35:00
 tags:
- - 
 categories:
+ - Tutorial
 cover: false
 ---
 
@@ -295,13 +295,9 @@ graph LR
 
 [绘制流程图的语法](https://www.jianshu.com/p/7864c1cf5660)
 
-除 `Mermaid` 流程图外，也可以通过 `Flowchart` 的方式绘制流程图
+除 `Mermaid` 流程图外，也可以通过 [Flowchart](https://blog.csdn.net/fengliluohua/article/details/121229903) 的方式绘制流程图
 
-[通过 Flowchart 画流程图](https://blog.csdn.net/fengliluohua/article/details/121229903)
-
-注意，hexo 默认不支持 `Flowchart` 和 `merimaid` 流程图，需要安装插件
-
-[Hexo 引入 Mermaid](https://blog.csdn.net/wzh0709zml/article/details/103310405?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1)
+注意，hexo 默认不支持 `Flowchart` 和 `merimaid` 流程图，需要安装插件，具体可参考 [Hexo 引入 Mermaid](https://blog.csdn.net/wzh0709zml/article/details/103310405?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1)
 
 ## 参考资料
 

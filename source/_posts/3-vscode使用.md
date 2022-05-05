@@ -1,12 +1,13 @@
 ---
-title: vscode使用
+title: vscode 使用
 date: 2021-10-26 21:42:36
 tags: 
 categories:
+ - Tutorial
 cover: false
 ---
 
-# vscode快捷键
+# vscode 快捷键
 
 ## 主命令框
 Ctrl + Shift + P: 打开命令面板
@@ -59,9 +60,9 @@ Ctrl + F5: 运行但不调试
 F5: 启动调试
 
 
-# 终端Terminal指令
+# 终端 Terminal
 
-## 配置cmd
+## 配置 cmd
 
 以管理员身份运行`powershell`
 
@@ -70,7 +71,7 @@ F5: 启动调试
  - 根据提示，输入`Y`回车即可
 
 
-## hexo
+## hexo 指令
 `hexo n " "`: 新建md文件
 
 `hexo c`: 清理
@@ -79,7 +80,7 @@ F5: 启动调试
 
 `hexo d`: 部署到github
 
-## g++
+## g++ 指令
 `g++ hello.cpp -o hello.exe`: 输出编译后的结果到指定的文件file中 (输出指定的可执行文件 hello.exe)，-o不仅可以指定输出的可执行文件，还可以指定中间文件的输出
 
 `g++ -o hello.exe hello.cpp`: 同上
