@@ -107,6 +107,8 @@ date: 2021-10-24 23:06:24
 ## hexo主题
 
 [主题Butterfly配置](https://butterfly.js.org/posts/21cfbf15/)
+ - [Butterfly 主题美化](https://guole.fun/posts/butterfly-custom/)
+
 
 [hexo主题列表](https://hexo.io/themes/)
 
@@ -115,7 +117,7 @@ date: 2021-10-24 23:06:24
 
 [代码高亮: hexo-prism-plugin ](https://github.com/ele828/hexo-prism-plugin)
 
-[静态链接转换：hexo-permalink-pinyin](https://github.com/viko16/hexo-permalink-pinyin) / [hexo-abbrlink](https://github.com/rozbo/hexo-abbrlink)
+[静态链接转换：hexo-abbrlink](https://github.com/rozbo/hexo-abbrlink) / [hexo-permalink-pinyin](https://github.com/viko16/hexo-permalink-pinyin)
 
 [本地搜索：hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
 
@@ -132,6 +134,8 @@ date: 2021-10-24 23:06:24
 [Mermaid流程图：hexo-filter-mermaid-diagrams](https://blog.csdn.net/wzh0709zml/article/details/103310405?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1)
 
 [为 github 生成 readme.md 文件：hexo-generator-readme-file](https://github.com/tcatche/hexo-generator-readme-file)
+
+[hexo 插件列表](https://hexo.io/plugins/)
 
 [^_^]:
 
@@ -215,6 +219,3 @@ hexo g -d   		// 同步到main分支
  - [Waline邮箱设置](https://blog.csdn.net/hubojing/article/details/122659549)
  - [解决 LeanCloud 流控问题](https://www.aimtao.net/slef-wake-leancloud/)
  - [评论后台](https://waline-comments-jiankychen.vercel.app/ui/login)
-
-
-[Butterfly 主题美化](https://guole.fun/posts/butterfly-custom/)

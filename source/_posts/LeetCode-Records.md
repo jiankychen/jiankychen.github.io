@@ -10,18 +10,14 @@ tags:
 ---
 
 [^_^]: 
-    链接的基本构成：https://jiankychen.github.io/年/月/日/文章名字
-
-    链接中的英文字母全部为小写，文章名字中的汉字全部改成拼音，并用-连接两个拼音
-
-    如：167. 两数之和 II - 输入有序数组：https://jiankychen.github.io/2022/03/14/leetcode167-liang-shu-zhi-he-ii-shu-ru-you-xu-shu-zu/
+    链接的基本构成：https://jiankychen.github.io/posts/文章的abbrlink
 
 
 ## 基本数据类型
 
-[1523. 在区间范围内统计奇数数目](https://jiankychen.github.io/2022/03/15/leetcode1523-zai-qu-jian-fan-wei-nei-tong-ji-qi-shu-shu-mu/)
+[1523. 在区间范围内统计奇数数目](https://jiankychen.github.io/posts/933a3849)
 
-[1491. 去掉最低工资和最高工资后的平均工资](https://jiankychen.github.io/2022/03/15/leetcode1491-qu-diao-zui-di-gong-zi-he-zui-gao-gong-zi-hou-de-ping-jun-gong-zi/)
+[1491. 去掉最低工资和最高工资后的平均工资](https://jiankychen.github.io/posts/b3858f6e)
 
 
 [^_^]: 
@@ -32,76 +28,77 @@ tags:
 
 ## 数组
 
-[217. 存在重复元素](https://jiankychen.github.io/2022/03/26/leetcode217-cun-zai-chong-fu-yuan-su/)
+[217. 存在重复元素](https://jiankychen.github.io/posts/2b0a159a)
 
-[704. 二分查找](https://jiankychen.github.io/2022/03/16/leetcode704-er-fen-cha-zhao/)
 
-[977. 有序数组的平方](https://jiankychen.github.io/2022/03/14/leetcode977-you-xu-shu-zu-de-ping-fang/)
+[704. 二分查找](https://jiankychen.github.io/posts/4a298fcf)
 
-[27. 移除元素](https://jiankychen.github.io/2022/03/29/leetcode27-yi-chu-yuan-su/)
+[977. 有序数组的平方](https://jiankychen.github.io/posts/6864a963)
 
-[209. 长度最小的子数组](https://jiankychen.github.io/2022/04/24/leetcode209-chang-du-zui-xiao-de-zi-shu-zu/)
+[27. 移除元素](https://jiankychen.github.io/posts/c425967e)
 
-[59. 螺旋矩阵 II](https://jiankychen.github.io/2022/04/24/leetcode59-luo-xuan-ju-zhen-ii/)
+[209. 长度最小的子数组](https://jiankychen.github.io/posts/cfd138c6)
 
-[剑指Offer 03. 数组中重复的数字](https://jiankychen.github.io/2022/04/19/jian-zhi-offer03-shu-zu-zhong-chong-fu-de-shu-zi/)
+[59. 螺旋矩阵 II](https://jiankychen.github.io/posts/6b429da4)
+
+[剑指Offer 03. 数组中重复的数字](https://jiankychen.github.io/posts/b5e5ca5b)
 
 
 ## 链表
 
-[203. 移除链表元素](https://jiankychen.github.io/2022/04/28/leetcode203-yi-chu-lian-biao-yuan-su/)
+[203. 移除链表元素](https://jiankychen.github.io/posts/c5f901bc)
 
-[707. 设计链表](https://jiankychen.github.io/2022/04/28/leetcode707-she-ji-lian-biao/)
+[707. 设计链表](https://jiankychen.github.io/posts/f8927f54)
 
-[876. 链表的中间结点](https://jiankychen.github.io/2022/03/16/leetcode876-lian-biao-de-zhong-jian-jie-dian/)
+[876. 链表的中间结点](https://jiankychen.github.io/posts/ccf16d67)
 
-[206. 反转链表](https://jiankychen.github.io/2022/04/28/leetcode206-fan-zhuan-lian-biao/)
+[206. 反转链表](https://jiankychen.github.io/posts/7c5d77fa)
 
-[24. 两两交换链表中的节点](https://jiankychen.github.io/2022/04/29/leetcode24-liang-liang-jiao-huan-lian-biao-zhong-de-jie-dian/)
+[24. 两两交换链表中的节点](https://jiankychen.github.io/posts/f84c47a9)
 
-[19. 删除链表的倒数第N个结点](https://jiankychen.github.io/2022/03/16/leetcode19-shan-chu-lian-biao-de-dao-shu-di-n-ge-jie-dian/)
+[19. 删除链表的倒数第N个结点](https://jiankychen.github.io/posts/bcf47f8f)
 
-[160. 相交链表](https://jiankychen.github.io/2022/04/29/leetcode160-xiang-jiao-lian-biao/)
+[160. 相交链表](https://jiankychen.github.io/posts/fd7c45a8)
 
-[142. 环形链表 II](https://jiankychen.github.io/2022/04/29/leetcode142-huan-xing-lian-biao-ii/)
+[142. 环形链表 II](https://jiankychen.github.io/posts/fe4aea2)
 
-[剑指Offer 06. 从尾到头打印链表](https://jiankychen.github.io/2022/03/27/jian-zhi-offer06-cong-wei-dao-tou-da-yin-lian-biao)
+[剑指Offer 06. 从尾到头打印链表](https://jiankychen.github.io/posts/3e7ca0d2)
 
 
 
 ## 哈希表
 
-[242. 有效的字母异位词](https://jiankychen.github.io/2022/05/03/leetcode242-you-xiao-de-zi-mu-yi-wei-ci/)
+[242. 有效的字母异位词](https://jiankychen.github.io/posts/30250b0)
 
-[349. 两个数组的交集](https://jiankychen.github.io/2022/05/03/leetcode349-liang-ge-shu-zu-de-jiao-ji/)
+[349. 两个数组的交集](https://jiankychen.github.io/posts/c10e195a)
 
-[202. 快乐数](https://jiankychen.github.io/2022/05/03/leetcode202-kuai-le-shu/)
+[202. 快乐数](https://jiankychen.github.io/posts/76ed881c)
 
-[1. 两数之和](https://jiankychen.github.io/2022/05/03/leetcode1-liang-shu-zhi-he/)
+[1. 两数之和](https://jiankychen.github.io/posts/3da9e18f)
 
-[454. 四数相加II](https://jiankychen.github.io/2022/05/04/leetcode454-si-shu-xiang-jia-ii/)
+[454. 四数相加II](https://jiankychen.github.io/posts/40552b28)
 
 
 ## 字符串
-[344. 反转字符串](https://jiankychen.github.io/2022/03/15/leetcode344-fan-zhuan-zi-fu-chuan/)
+[344. 反转字符串](https://jiankychen.github.io/posts/d9baf118)
 
-[557. 反转字符串中的单词 III](https://jiankychen.github.io/2022/03/15/leetcode557-fan-zhuan-zi-fu-chuan-zhong-de-dan-ci-iii/)
+[557. 反转字符串中的单词 III](https://jiankychen.github.io/posts/e1635286)
 
-[剑指Offer 05. 替换空格](https://jiankychen.github.io/2022/03/27/jian-zhi-offer05-ti-huan-kong-ge)
+[剑指Offer 05. 替换空格](https://jiankychen.github.io/posts/fff72920)
 
 
 
 ## 双指针法
 
-[189. 轮转数组](https://jiankychen.github.io/2022/03/14/leetcode189-lun-zhuan-shu-zu/)
+[189. 轮转数组](https://jiankychen.github.io/posts/55ffda0f)
 
-[283. 移动零](https://jiankychen.github.io/2022/03/14/leetcode283-yi-dong-ling/)
+[283. 移动零](https://jiankychen.github.io/posts/35c387f3)
 
-[167. 两数之和 II - 输入有序数组](https://jiankychen.github.io/2022/03/14/leetcode167-liang-shu-zhi-he-ii-shu-ru-you-xu-shu-zu/)
+[167. 两数之和 II - 输入有序数组](https://jiankychen.github.io/posts/81250b8a)
 
-[3. 无重复字符的最长子串](https://jiankychen.github.io/2022/03/22/leetcode3-wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/)
+[3. 无重复字符的最长子串](https://jiankychen.github.io/posts/3deb1e70)
 
-[567. 字符串的排列](https://jiankychen.github.io/2022/03/22/leetcode567-zi-fu-chuan-de-pai-lie/)
+[567. 字符串的排列](https://jiankychen.github.io/posts/9f11d9b)
 
 
 
@@ -113,15 +110,15 @@ tags:
 
 ## 二叉树
 
-[144. 二叉树的前序遍历](https://jiankychen.github.io/2022/03/23/er-cha-shu/)
+[144. 二叉树的前序遍历](https://jiankychen.github.io/posts/e85d694a)
 
-[94. 二叉树的中序遍历](https://jiankychen.github.io/2022/03/23/er-cha-shu/)
+[94. 二叉树的中序遍历](https://jiankychen.github.io/posts/e85d694a)
 
-[145. 二叉树的后序遍历](https://jiankychen.github.io/2022/03/23/er-cha-shu/)
+[145. 二叉树的后序遍历](https://jiankychen.github.io/posts/e85d694a)
 
-[617. 合并二叉树](https://jiankychen.github.io/2022/03/24/leetcode617-he-bing-er-cha-shu/)
+[617. 合并二叉树](https://jiankychen.github.io/posts/113bbac)
 
-[116. 填充每个节点的下一个右侧节点指针](https://jiankychen.github.io/2022/03/24/leetcode116-tian-chong-mei-ge-jie-dian-de-xia-yi-ge-you-ce-jie-dian-zhi-zhen/)
+[116. 填充每个节点的下一个右侧节点指针](https://jiankychen.github.io/posts/33b5a27e)
 
 
 
@@ -130,22 +127,22 @@ tags:
 
 ## 二分查找
 
-[278. 第一个错误的版本](https://jiankychen.github.io/2022/03/15/leetcode278-di-yi-ge-cuo-wu-de-ban-ben/)
+[278. 第一个错误的版本](https://jiankychen.github.io/posts/4cc2938)
 
-[35. 搜索插入位置](https://jiankychen.github.io/2022/03/12/leetcode35-sou-suo-cha-ru-wei-zhi/)
+[35. 搜索插入位置](https://jiankychen.github.io/posts/d91b6109)
 
-[69. x 的平方根](https://jiankychen.github.io/2022/03/14/leetcode69-x-de-ping-fang-gen/)
+[69. x 的平方根](https://jiankychen.github.io/posts/379f5d4c)
 
-[34. 在排序数组中查找元素的第一个和最后一个位置](https://jiankychen.github.io/2022/04/19/leetcode34-zai-pai-xu-shu-zu-zhong-cha-zhao-yuan-su-de-di-yi-ge-he-zui-hou-yi-ge-wei-zhi/)
+[34. 在排序数组中查找元素的第一个和最后一个位置](https://jiankychen.github.io/posts/a56851c5)
 
-[744. 寻找比目标字母大的最小字母](https://jiankychen.github.io/2022/04/19/leetcode744-xun-zhao-bi-mu-biao-zi-mu-da-de-zui-xiao-zi-mu/)
+[744. 寻找比目标字母大的最小字母](https://jiankychen.github.io/posts/7e8f6f39)
 
 
 ## 广度优先搜索/深度优先搜索
 
-[733. 图像渲染](https://jiankychen.github.io/2022/03/22/leetcode733-tu-xiang-xuan-ran/)
+[733. 图像渲染](https://jiankychen.github.io/posts/67cb564f)
 
-[695. 岛屿的最大面积](https://jiankychen.github.io/2022/03/22/leetcode695-dao-yu-de-zui-da-mian-ji/)
+[695. 岛屿的最大面积](https://jiankychen.github.io/posts/edd44cd5)
 
 
 ## 回溯算法
@@ -159,7 +156,7 @@ tags:
 
 ## 动态规划
 
-[剑指Offer 10- II. 青蛙跳台阶问题](https://jiankychen.github.io/2022/04/23/dong-tai-gui-hua/)
+[剑指Offer 10- II. 青蛙跳台阶问题](https://jiankychen.github.io/posts/a80d0031)
 
 
 

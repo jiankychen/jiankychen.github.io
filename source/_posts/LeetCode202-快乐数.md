@@ -108,7 +108,7 @@ bool isHappy(int n) {
 
 ## Method 2: 快慢指针
 
-可以采用类似于 [LeetCode 142. 环形链表 II](https://jiankychen.github.io/2022/04/29/leetcode142-huan-xing-lian-biao-ii/) 的方法，定义快慢指针，判断是否存在环
+可以采用类似于 [LeetCode 142. 环形链表 II](https://jiankychen.github.io/posts/fe4aea2) 的方法，定义快慢指针，判断是否存在环
  - 若存在环，则快慢指针一定会在环内相遇，即，数 `n` 不是快乐数
  - 否则，快指针会比慢指针先到达数字 1 ，即，数 `n` 是快乐数
 
