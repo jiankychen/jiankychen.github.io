@@ -1,12 +1,13 @@
 ---
 title: LeetCode 344. 反转字符串
-date: 2022-03-15 16:59:29
 tags:
- - 双指针
- - 字符串
+  - 双指针
+  - 字符串
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: d9baf118
+date: 2022-03-15 16:59:29
 ---
 
 [LeetCode 344](https://leetcode-cn.com/problems/reverse-string/)

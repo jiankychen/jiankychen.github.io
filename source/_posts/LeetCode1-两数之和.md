@@ -1,11 +1,12 @@
 ---
 title: LeetCode 1. 两数之和
-date: 2022-05-03 21:06:21
 tags:
- - 哈希表
+  - 哈希表
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 3da9e18f
+date: 2022-05-03 21:06:21
 ---
 
 [LeetCode 1. Two Sum](https://leetcode-cn.com/problems/two-sum/)

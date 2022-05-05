@@ -1,11 +1,12 @@
 ---
 title: LeetCode 69. x的平方根
-date: 2022-03-14 19:22:34
 tags:
- - 二分查找
+  - 二分查找
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 379f5d4c
+date: 2022-03-14 19:22:34
 ---
 
 [LeetCode 69](https://leetcode-cn.com/problems/sqrtx/)

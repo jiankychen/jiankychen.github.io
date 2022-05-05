@@ -1,11 +1,11 @@
 ---
 title: 术语表-Chapter1
+categories:
+  - C++
+cover: false
+abbrlink: 265d235c
 date: 2022-01-01 16:32:27
 tags:
-categories:
- - C++
-# cover: figures/4-初识cpp/1.png
-cover: false
 ---
 
 

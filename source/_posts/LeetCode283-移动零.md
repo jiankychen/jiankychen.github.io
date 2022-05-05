@@ -1,12 +1,13 @@
 ---
 title: LeetCode 283. 移动零
-date: 2022-03-14 20:53:59
 tags:
- - 双指针
- - 数组
+  - 双指针
+  - 数组
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 35c387f3
+date: 2022-03-14 20:53:59
 ---
 
 [LeetCode 283](https://leetcode-cn.com/problems/move-zeroes/)

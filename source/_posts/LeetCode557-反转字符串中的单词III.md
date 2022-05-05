@@ -1,12 +1,13 @@
 ---
 title: LeetCode 557. 反转字符串中的单词 III
-date: 2022-03-15 17:00:02
 tags:
- - 双指针
- - 字符串
+  - 双指针
+  - 字符串
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: e1635286
+date: 2022-03-15 17:00:02
 ---
 
 [LeetCode 557](https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/)

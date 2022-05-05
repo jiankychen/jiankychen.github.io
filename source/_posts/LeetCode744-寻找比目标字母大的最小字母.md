@@ -1,12 +1,13 @@
 ---
 title: LeetCode 744. 寻找比目标字母大的最小字母
-date: 2022-04-19 15:53:36
 tags:
- - 数组
- - 二分查找
+  - 数组
+  - 二分查找
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 7e8f6f39
+date: 2022-04-19 15:53:36
 ---
 
 Given a characters array `letters` that is sorted in **non-decreasing** order and a character `target`, return the smallest character in the array that is larger than `target`.

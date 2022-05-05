@@ -1,12 +1,13 @@
 ---
 title: LeetCode 202. 快乐数
-date: 2022-05-03 19:46:27
 tags:
- - 哈希表
- - 双指针
+  - 哈希表
+  - 双指针
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 76ed881c
+date: 2022-05-03 19:46:27
 ---
 
 [LeetCode 202. Happy Number](https://leetcode-cn.com/problems/happy-number/)

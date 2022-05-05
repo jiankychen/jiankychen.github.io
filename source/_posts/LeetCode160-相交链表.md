@@ -1,11 +1,12 @@
 ---
 title: LeetCode 160. 相交链表
-date: 2022-04-29 16:42:45
 tags:
- - 链表
+  - 链表
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: fd7c45a8
+date: 2022-04-29 16:42:45
 ---
 
 [LeetCode 160. Intersection of Two Linked Lists](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/)

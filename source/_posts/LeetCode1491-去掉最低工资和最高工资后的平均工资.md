@@ -1,11 +1,12 @@
 ---
 title: LeetCode 1491. 去掉最低工资和最高工资后的平均工资
-date: 2022-03-15 22:26:56
 tags:
- - 数组
+  - 数组
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: b3858f6e
+date: 2022-03-15 22:26:56
 ---
 
 [LeetCode 1491](https://leetcode-cn.com/problems/average-salary-excluding-the-minimum-and-maximum-salary/)

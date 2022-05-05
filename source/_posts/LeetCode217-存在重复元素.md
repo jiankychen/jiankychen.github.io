@@ -1,12 +1,13 @@
 ---
 title: LeetCode 217. 存在重复元素
-date: 2022-03-26 21:38:39
 tags:
- - 哈希表
- - 数组
+  - 哈希表
+  - 数组
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 2b0a159a
+date: 2022-03-26 21:38:39
 ---
 
 [LeetCode 217](https://leetcode-cn.com/problems/contains-duplicate/)

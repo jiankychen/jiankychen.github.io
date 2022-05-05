@@ -1,11 +1,12 @@
 ---
 title: LeetCode 707. 设计链表
-date: 2022-04-28 20:26:37
-tags: 
- - 链表
+tags:
+  - 链表
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: f8927f54
+date: 2022-04-28 20:26:37
 ---
 
 [LeetCode 707. Design Linked List](https://leetcode-cn.com/problems/design-linked-list/)

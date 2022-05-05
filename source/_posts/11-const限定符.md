@@ -1,10 +1,11 @@
 ---
 title: const限定符
-date: 2022-03-01 14:42:14
-tags: 
 categories:
- - C++
+  - C++
 cover: false
+abbrlink: d2de0515
+date: 2022-03-01 14:42:14
+tags:
 ---
 
 用关键字`const`对变量的类型加以限定，使得变量成为常量：

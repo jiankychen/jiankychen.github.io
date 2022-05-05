@@ -1,12 +1,13 @@
 ---
 title: LeetCode 142. 环形链表 II
-date: 2022-04-29 19:52:07
 tags:
- - 链表
- - 双指针
+  - 链表
+  - 双指针
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: fe4aea2
+date: 2022-04-29 19:52:07
 ---
 
 [LeetCode 142. Linked List Cycle II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)

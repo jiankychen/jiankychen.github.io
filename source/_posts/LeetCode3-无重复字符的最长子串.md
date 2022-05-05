@@ -1,12 +1,13 @@
 ---
 title: LeetCode 3. 无重复字符的最长子串
-date: 2022-03-22 19:57:44
 tags:
- - 字符串
- - 双指针
+  - 字符串
+  - 双指针
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 3deb1e70
+date: 2022-03-22 19:57:44
 ---
 
 [LeetCode 3](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)

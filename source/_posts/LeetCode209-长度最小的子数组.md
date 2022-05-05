@@ -1,12 +1,13 @@
 ---
 title: LeetCode 209. 长度最小的子数组
-date: 2022-04-24 21:03:19
 tags:
- - 数组
- - 滑动窗口
+  - 数组
+  - 滑动窗口
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: cfd138c6
+date: 2022-04-24 21:03:19
 ---
 
 [LeetCode 209](https://leetcode-cn.com/problems/minimum-size-subarray-sum/)

@@ -1,13 +1,14 @@
 ---
 title: 剑指Offer 06. 从尾到头打印链表
-date: 2022-03-27 16:16:06
 tags:
- - 链表
- - 回溯
- - 栈
+  - 链表
+  - 回溯
+  - 栈
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 3e7ca0d2
+date: 2022-03-27 16:16:06
 ---
 
 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）

@@ -1,12 +1,13 @@
 ---
 title: LeetCode 242. 有效的字母异位词
-date: 2022-05-03 11:10:29
 tags:
- - 哈希表
- - 数组
+  - 哈希表
+  - 数组
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 30250b0
+date: 2022-05-03 11:10:29
 ---
 
 [LeetCode 242. Valid Anagram](https://leetcode-cn.com/problems/valid-anagram/)

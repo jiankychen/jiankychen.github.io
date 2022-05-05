@@ -1,12 +1,13 @@
 ---
 title: LeetCode 27. 移除元素
-date: 2022-03-29 23:01:45
 tags:
- - 数组
- - 双指针
+  - 数组
+  - 双指针
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: c425967e
+date: 2022-03-29 23:01:45
 ---
 
 Given an integer array `nums` and an integer `val`, remove all occurrences of `val` in `nums` *in-place*. The relative order of the elements may be changed.

@@ -1,11 +1,12 @@
 ---
 title: LeetCode 278. 第一个错误的版本
-date: 2022-03-15 17:24:41
-tags: 
- - 二分查找
+tags:
+  - 二分查找
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 4cc2938
+date: 2022-03-15 17:24:41
 ---
 
 [LeetCode 278](https://leetcode-cn.com/problems/first-bad-version/)

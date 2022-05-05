@@ -1,12 +1,13 @@
 ---
 title: LeetCode 704. 二分查找
-date: 2022-03-16 22:21:17
 tags:
- - 数组
- - 二分查找
+  - 数组
+  - 二分查找
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 4a298fcf
+date: 2022-03-16 22:21:17
 ---
 
 [LeetCode 704](https://leetcode-cn.com/problems/binary-search/)

@@ -1,12 +1,13 @@
 ---
 title: LeetCode 24. 两两交换链表中的节点
-date: 2022-04-29 10:16:01
-tags: 
- - 链表
- - 双指针
+tags:
+  - 链表
+  - 双指针
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: f84c47a9
+date: 2022-04-29 10:16:01
 ---
 
 [LeetCode 24. Swap Nodes in Pairs](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)

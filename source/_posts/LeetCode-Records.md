@@ -1,11 +1,12 @@
 ---
 title: LeetCode Records
-date: 2022-03-14 19:18:16
-sticky: 5     # 置顶的优先级
-tags:
+sticky: 5
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 1b7ed9b4
+date: 2022-03-14 19:18:16
+tags:
 ---
 
 [^_^]: 

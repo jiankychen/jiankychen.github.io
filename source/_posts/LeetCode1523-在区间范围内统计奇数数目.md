@@ -1,11 +1,12 @@
 ---
 title: LeetCode 1523. 在区间范围内统计奇数数目
-date: 2022-03-15 22:20:34
 tags:
- - 数组
+  - 数组
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 933a3849
+date: 2022-03-15 22:20:34
 ---
 
 [LeetCode 1523](https://leetcode-cn.com/problems/count-odd-numbers-in-an-interval-range/)

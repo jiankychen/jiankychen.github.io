@@ -1,12 +1,13 @@
 ---
 title: LeetCode 349. 两个数组的交集
-date: 2022-05-03 11:35:06
 tags:
- - 哈希表
- - 数组
+  - 哈希表
+  - 数组
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: c10e195a
+date: 2022-05-03 11:35:06
 ---
 
 [LeetCode 349. Intersection of Two Arrays](https://leetcode-cn.com/problems/intersection-of-two-arrays/)

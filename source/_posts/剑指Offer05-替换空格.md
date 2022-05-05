@@ -1,11 +1,12 @@
 ---
 title: 剑指Offer 05. 替换空格
-date: 2022-03-27 15:15:53
 tags:
- - 字符串
+  - 字符串
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: fff72920
+date: 2022-03-27 15:15:53
 ---
 
 请实现一个函数，把字符串 `s` 中的每个空格替换成 "%20"

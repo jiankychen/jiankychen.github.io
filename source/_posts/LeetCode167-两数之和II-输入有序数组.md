@@ -1,13 +1,14 @@
 ---
 title: LeetCode 167. 两数之和 II - 输入有序数组
-date: 2022-03-14 23:06:59
 tags:
- - 双指针
- - 二分查找
- - 数组
+  - 双指针
+  - 二分查找
+  - 数组
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 81250b8a
+date: 2022-03-14 23:06:59
 ---
 
 [LeetCode 167](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)

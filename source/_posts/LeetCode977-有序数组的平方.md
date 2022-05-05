@@ -1,12 +1,13 @@
 ---
 title: LeetCode 977. 有序数组的平方
-date: 2022-03-14 19:54:12
 tags:
- - 数组
- - 双指针
+  - 数组
+  - 双指针
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 6864a963
+date: 2022-03-14 19:54:12
 ---
 
 [LeetCode 977](https://leetcode-cn.com/problems/squares-of-a-sorted-array/)

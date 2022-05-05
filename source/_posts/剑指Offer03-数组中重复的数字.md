@@ -1,13 +1,14 @@
 ---
 title: 剑指Offer 03. 数组中重复的数字
-date: 2022-04-19 16:32:45
 tags:
- - 数组
- - 排序
- - 哈希表
+  - 数组
+  - 排序
+  - 哈希表
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: b5e5ca5b
+date: 2022-04-19 16:32:45
 ---
 
 [剑指Offer 03](https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/)

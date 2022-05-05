@@ -1,12 +1,13 @@
 ---
 title: LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置
-date: 2022-04-19 13:37:20
 tags:
- - 数组
- - 二分查找
+  - 数组
+  - 二分查找
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: a56851c5
+date: 2022-04-19 13:37:20
 ---
 
 [LeetCode 34](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)

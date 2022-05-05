@@ -1,13 +1,14 @@
 ---
 title: LeetCode 695. 岛屿的最大面积
-date: 2022-03-22 19:59:22
-tags: 
- - 数组
- - 递归
- - 广度优先搜索
+tags:
+  - 数组
+  - 递归
+  - 广度优先搜索
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: edd44cd5
+date: 2022-03-22 19:59:22
 ---
 
 [LeetCode 695](https://leetcode-cn.com/problems/max-area-of-island/)

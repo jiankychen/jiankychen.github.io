@@ -1,12 +1,13 @@
 ---
 title: LeetCode 876. 链表的中间结点
-date: 2022-03-16 21:54:52
-tags: 
- - 链表
- - 双指针
+tags:
+  - 链表
+  - 双指针
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: ccf16d67
+date: 2022-03-16 21:54:52
 ---
 
 [LeetCode](https://leetcode-cn.com/problems/middle-of-the-linked-list/)

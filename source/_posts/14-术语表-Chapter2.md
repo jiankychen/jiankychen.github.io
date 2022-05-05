@@ -1,10 +1,11 @@
 ---
 title: 术语表-Chapter2
-date: 2022-03-02 22:52:51
-tags: 
 categories:
- - C++
+  - C++
 cover: false
+abbrlink: bf5472e6
+date: 2022-03-02 22:52:51
+tags:
 ---
 
 `地址（address）`：是一个数字，根据它可以找到内存中的一个字节。

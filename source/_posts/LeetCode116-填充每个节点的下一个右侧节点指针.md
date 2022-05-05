@@ -1,12 +1,13 @@
 ---
 title: LeetCode 116. 填充每个节点的下一个右侧节点指针
-date: 2022-03-24 23:05:16
-tags: 
- - 二叉树
- - 递归
+tags:
+  - 二叉树
+  - 递归
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 33b5a27e
+date: 2022-03-24 23:05:16
 ---
 
 [LeetCode 116](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/)

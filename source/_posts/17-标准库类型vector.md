@@ -1,11 +1,12 @@
 ---
 title: 标准库类型vector
-date: 2022-03-04 16:33:57
 tags:
- - 数组
+  - 数组
 categories:
- - C++
+  - C++
 cover: false
+abbrlink: adaa911e
+date: 2022-03-04 16:33:57
 ---
 
 标准库**类型**`vector`表示对象的集合，其中所有对象的类型都相同。集合中的每个对象都有一个与之对应的索引，索引用于访问对象。因为`vector`“容纳着”其他对象，所以它也常被称作`容器（container）`。

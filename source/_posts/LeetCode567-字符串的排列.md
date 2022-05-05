@@ -1,12 +1,13 @@
 ---
 title: LeetCode 567. 字符串的排列
-date: 2022-03-22 19:58:19
-tags: 
- - 字符串
- - 双指针
+tags:
+  - 字符串
+  - 双指针
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 9f11d9b
+date: 2022-03-22 19:58:19
 ---
 
 [LeetCode 567](https://leetcode-cn.com/problems/permutation-in-string/)

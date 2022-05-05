@@ -1,11 +1,11 @@
 ---
 title: 初识C++(中)
+categories:
+  - C++
+cover: false
+abbrlink: bf7c72c5
 date: 2021-10-27 12:48:55
 tags:
-categories:
- - C++
-# cover: figures/4-初识cpp/1.png
-cover: false
 ---
 
 # while

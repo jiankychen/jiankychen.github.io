@@ -1,12 +1,13 @@
 ---
 title: LeetCode 617. 合并二叉树
-date: 2022-03-24 21:51:31
-tags: 
- - 二叉树
- - 递归
+tags:
+  - 二叉树
+  - 递归
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 113bbac
+date: 2022-03-24 21:51:31
 ---
 
 [LeetCode 617](https://leetcode-cn.com/problems/merge-two-binary-trees/)

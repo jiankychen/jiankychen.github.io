@@ -1,11 +1,12 @@
 ---
 title: LeetCode 203. 移除链表元素
-date: 2022-04-28 12:59:46
-tags: 
- - 链表
+tags:
+  - 链表
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: c5f901bc
+date: 2022-04-28 12:59:46
 ---
 
 [LeetCode 203. Remove Linked List Elements](https://leetcode-cn.com/problems/remove-linked-list-elements/)

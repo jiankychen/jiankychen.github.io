@@ -1,10 +1,11 @@
 ---
 title: vscode 使用
-date: 2021-10-26 21:42:36
-tags: 
 categories:
- - Tutorial
+  - Tutorial
 cover: false
+abbrlink: b84c37ec
+date: 2021-10-26 21:42:36
+tags:
 ---
 
 # vscode 快捷键

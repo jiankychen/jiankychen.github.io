@@ -1,12 +1,13 @@
 ---
 title: LeetCode 35. 搜索插入位置
-date: 2022-03-12 20:40:33
-tags: 
- - 二分查找
- - 数组
+tags:
+  - 二分查找
+  - 数组
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: d91b6109
+date: 2022-03-12 20:40:33
 ---
 
 [LeetCode 35](https://leetcode-cn.com/problems/search-insert-position/)

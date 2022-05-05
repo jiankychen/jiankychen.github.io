@@ -1,10 +1,11 @@
 ---
 title: 命名空间的using声明
-date: 2022-03-03 09:40:55
-tags: 
 categories:
- - C++
+  - C++
 cover: false
+abbrlink: 65b35a95
+date: 2022-03-03 09:40:55
+tags:
 ---
 
 `std::cin`的意思就是要使用命名空间`std`中的名字`cin`。

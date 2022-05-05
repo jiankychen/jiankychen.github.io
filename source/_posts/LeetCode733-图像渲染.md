@@ -1,13 +1,14 @@
 ---
 title: LeetCode 733. 图像渲染
-date: 2022-03-22 19:58:47
-tags: 
- - 数组
- - 递归
- - 广度优先搜索
+tags:
+  - 数组
+  - 递归
+  - 广度优先搜索
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 67cb564f
+date: 2022-03-22 19:58:47
 ---
 
 [LeetCode 733](https://leetcode-cn.com/problems/flood-fill/)

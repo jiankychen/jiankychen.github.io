@@ -1,12 +1,13 @@
 ---
 title: LeetCode 189. 轮转数组
-date: 2022-03-14 20:12:23
-tags: 
- - 双指针
- - 数组
+tags:
+  - 双指针
+  - 数组
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 55ffda0f
+date: 2022-03-14 20:12:23
 ---
 
 [LeetCode 189](https://leetcode-cn.com/problems/rotate-array/)

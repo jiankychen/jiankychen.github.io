@@ -1,11 +1,12 @@
 ---
 title: 标准库类型string
-date: 2022-03-03 09:50:33
-tags: 
- - 字符串
+tags:
+  - 字符串
 categories:
- - C++
+  - C++
 cover: false
+abbrlink: 287a6bec
+date: 2022-03-03 09:50:33
 ---
 
 标准库**类型**`string`表示可变长的字符序列，**使用`string`类型必须首先包含`string`头文件**。作为标准库的一部分，**`string`定义在命名空间`std`中**。

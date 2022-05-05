@@ -1,12 +1,13 @@
 ---
 title: LeetCode 19. 删除链表的倒数第N个结点
-date: 2022-03-16 22:26:43
 tags:
- - 链表
- - 双指针
+  - 链表
+  - 双指针
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: bcf47f8f
+date: 2022-03-16 22:26:43
 ---
 
 [LeetCode](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
