@@ -112,9 +112,9 @@ cover: false
 
 ## 插件
 
-[代码高亮插件: hexo-prism-plugin ](https://github.com/ele828/hexo-prism-plugin)
+[代码高亮: hexo-prism-plugin ](https://github.com/ele828/hexo-prism-plugin)
 
-[中文链接转成拼音：hexo-permalink-pinyin](https://github.com/viko16/hexo-permalink-pinyin)
+[静态链接转换：hexo-permalink-pinyin](https://github.com/viko16/hexo-permalink-pinyin) / [hexo-abbrlink](https://github.com/rozbo/hexo-abbrlink)
 
 [本地搜索：hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
 
@@ -122,18 +122,17 @@ cover: false
 
 [显示本地图片：hexo-asset-img](https://github.com/yiyungent/hexo-asset-img)
 
-[渲染器：hexo-renderer-pug](https://github.com/hexojs/hexo-renderer-pug)
+[渲染器：hexo-renderer-pug](https://github.com/hexojs/hexo-renderer-pug) + [hexo-renderer-stylus](https://github.com/hexojs/hexo-renderer-stylus)
 
-[渲染器：hexo-renderer-stylus](https://github.com/hexojs/hexo-renderer-stylus)
-
-[数学公式：@neilsustc/markdown-it-katex](https://github.com/yzhang-gh/markdown-it-katex)
-
-[数学公式：@upupming/hexo-renderer-markdown-it-plus](https://github.com/upupming/hexo-renderer-markdown-it-plus)
+[数学公式：@neilsustc/markdown-it-katex](https://github.com/yzhang-gh/markdown-it-katex) + [@upupming/hexo-renderer-markdown-it-plus](https://github.com/upupming/hexo-renderer-markdown-it-plus)
 
 [文章置顶：hexo-generator-index](https://github.com/hexojs/hexo-generator-index)
 
 [Mermaid流程图：hexo-filter-mermaid-diagrams](https://blog.csdn.net/wzh0709zml/article/details/103310405?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1)
 
+[将通过相对路径引用的 markdown 文件转为对应的链接：hexo-filter-link-post](https://github.com/tcatche/hexo-filter-link-post)
+
+[为 github 生成 readme.md 文件：hexo-generator-readme-file](https://github.com/tcatche/hexo-generator-readme-file)
 
 
 # 多终端同步

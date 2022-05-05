@@ -20,6 +20,12 @@ cover: false
 
 [1523. 在区间范围内统计奇数数目](https://jiankychen.github.io/2022/03/15/leetcode1523-zai-qu-jian-fan-wei-nei-tong-ji-qi-shu-shu-mu/)
 
+[Test1](./LeetCode1523-在区间范围内统计奇数数目.md)
+
+[Test2](/LeetCode1523-在区间范围内统计奇数数目.md)
+
+[Test3](LeetCode1523-在区间范围内统计奇数数目.md)
+
 [1491. 去掉最低工资和最高工资后的平均工资](https://jiankychen.github.io/2022/03/15/leetcode1491-qu-diao-zui-di-gong-zi-he-zui-gao-gong-zi-hou-de-ping-jun-gong-zi/)
 
 
