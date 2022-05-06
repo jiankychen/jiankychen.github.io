@@ -2,12 +2,15 @@
 title: LeetCode383-赎金信
 tags:
   - 哈希表
+  - 字符串
 categories:
   - LeetCode
 cover: false
 abbrlink: 579713f1
 date: 2022-05-06 20:14:15
 ---
+
+[LeetCode 383. Ransom Note](https://leetcode-cn.com/problems/ransom-note/)
 
 Given two strings `ransomNote` and `magazine`, return `true` if `ransomNote` can be constructed from `magazine` and `false` otherwise.
 
@@ -36,7 +39,7 @@ Each letter in `magazine` can only be used once in `ransomNote`.
  - $1 \le$ `ransomNote.length`, `magazine.length` $\le 10^5$
  - `ransomNote` and `magazine` consist of **lowercase** English letters.
 
-## 哈希
+## Method: 哈希
 
 由于字符串中只有小写字母，可以考虑用 数组 实现哈希法
 
