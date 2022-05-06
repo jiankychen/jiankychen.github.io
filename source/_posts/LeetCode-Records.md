@@ -78,6 +78,7 @@ tags:
 
 [454. 四数相加II](https://jiankychen.github.io/posts/40552b28)
 
+[383. 赎金信](https://jiankychen.github.io/posts/579713f1)
 
 ## 字符串
 [344. 反转字符串](https://jiankychen.github.io/posts/d9baf118)

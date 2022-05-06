@@ -1,11 +1,12 @@
 ---
 title: LeetCode383-赎金信
-date: 2022-05-06 20:14:15
 tags:
- - 哈希表
+  - 哈希表
 categories:
- - LeetCode
+  - LeetCode
 cover: false
+abbrlink: 579713f1
+date: 2022-05-06 20:14:15
 ---
 
 Given two strings `ransomNote` and `magazine`, return `true` if `ransomNote` can be constructed from `magazine` and `false` otherwise.
