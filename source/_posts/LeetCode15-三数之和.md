@@ -1,6 +1,5 @@
 ---
 title: LeetCode15-三数之和
-date: 2022-05-06 20:52:59
 tags:
   - 数组
   - 哈希表
@@ -8,6 +7,8 @@ tags:
 categories:
   - LeetCode
 cover: false
+abbrlink: 1b6e2437
+date: 2022-05-06 20:52:59
 ---
 
 [LeetCode 15. 3Sum](https://leetcode-cn.com/problems/3sum/)
