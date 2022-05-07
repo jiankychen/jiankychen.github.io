@@ -194,6 +194,7 @@ git push origin hexo	// push到hexo分支
 hexo g -d   		// 同步到main分支
 ```
 
+> 终端 1 是在 blog 根目录下执行以上命令，而终端 2 则是在 clone 下来的 yourname.github.io 文件夹内执行命令
 
 # 参考资料
 
