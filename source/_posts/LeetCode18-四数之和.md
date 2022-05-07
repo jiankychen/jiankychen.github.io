@@ -43,13 +43,17 @@ Given an array `nums` of `n` integers, return *an array of all the **unique** qu
 
 与 [LeetCode 15. 三数之和](https://jiankychen.github.io/posts/1b6e2437/) 基本一致
 
+这里采用 排序 + 双指针 解法
+
 ## Method: 排序 + 双指针
 
 解题思路：
 
-1. 采用两个 `for` 循环分别遍历 `i` 和 `j` ，其中，`i` 从 `0` 开始遍历，`j` 从 `i + 1` 开始遍历（注意，要分别对 `nums[i]` 和 `nums[j]` 进行去重）
+1. 对数组 `nums` 排序
 
-2. 采用双指针法在 `[j + 1, nums.size() - 1]` 区间内查找所有能与 `nums[i]` , `nums[j]` 组成四元组的元素 `nums[left]` 和 `nums[right]` ，其中，指针 `left` 从 `j + 1` 位置开始向右遍历，指针 `right` 从 `nums.size() - 1` 位置开始向左遍历
+2. 采用两个 `for` 循环分别遍历 `i` 和 `j` ，其中，`i` 从 `0` 开始遍历，`j` 从 `i + 1` 开始遍历（注意，要分别对 `nums[i]` 和 `nums[j]` 进行去重）
+
+3. 采用双指针法在 `[j + 1, nums.size() - 1]` 区间内查找所有能与 `nums[i]` , `nums[j]` 组成四元组的元素 `nums[left]` 和 `nums[right]` ，其中，指针 `left` 从 `j + 1` 位置开始向右遍历，指针 `right` 从 `nums.size() - 1` 位置开始向左遍历
 
 具体步骤可参考 [LeetCode 15. 三数之和](https://jiankychen.github.io/posts/1b6e2437/) 中的 Method 2
 
