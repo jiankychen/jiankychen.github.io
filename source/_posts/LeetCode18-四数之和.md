@@ -83,8 +83,6 @@ vector<vector<int>> fourSum(vector<int>& nums, int target) {
 
 其中，需要注意 `nums[i] + nums[j] + nums[left] + nums[right]` 会溢出，因此，不能直接将 `nums[i] + nums[j] + nums[left] + nums[right]` 与 `target` 比较，可比较 `nums[left] + nums[right]` 与 `target - nums[i] - nums[j]`
 
-另外，
-
 时间复杂度：$O(n^3)$
  - 遍历 `i` 和 `j` ： $O(n^2)$
  - 双指针查找： $O(n)$
