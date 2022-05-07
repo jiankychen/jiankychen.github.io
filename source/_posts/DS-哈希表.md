@@ -525,13 +525,13 @@ multimap 的接口与 map 类似
 
 另外，关于 set 和 map 的具体实现：
 
-1. `std::set` 和 `std::multiset` 的底层实现都是红黑树，`std::unordered_set` 的底层实现是哈希表
+1. `std::set` 和 `std::multiset` 的底层实现是红黑树，而`std::unordered_set` 的底层实现是哈希表
 
-2. `std::map` 和 `std::multimap` 的底层实现都是红黑树，`std::unordered_map` 的底层实现是哈希表
+2. `std::map` 和 `std::multimap` 的底层实现是红黑树，而`std::unordered_map` 的底层实现是哈希表
 
 3. 基于红黑树实现的，`key` 是有序的，而基于哈希表的，`key` 是无序的
 
-4. `std::multiset` 和 `std::unordered_map` 允许 `key` 重复，其余不允许 `key` 重复
+4. 只有 `std::multiset` 和 `std::multimap` 允许 `key` 重复，其余的都不允许
 
 5. 在同样满足需求的情况下，`std::unordered_set` 是效率最高的 set ；类似的，在同样满足需求的情况下，`std::unordered_map` 是效率最高的 map
 
