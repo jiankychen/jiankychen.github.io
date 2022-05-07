@@ -82,6 +82,8 @@ tags:
 
 [15. 三数之和](https://jiankychen.github.io/posts/1b6e2437)
 
+[18. 四数之和](https://jiankychen.github.io/posts/bb4f52a2)
+
 
 ## 字符串
 [344. 反转字符串](https://jiankychen.github.io/posts/d9baf118)
