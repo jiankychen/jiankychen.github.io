@@ -41,13 +41,30 @@ Notice that the solution set must **not** contain **duplicate** triplets.
  - $- 10^5 \le$ `nums[i]` $\le 10^5$
 
 
-## Method 1: 排序 + 哈希
+## 思路
 
-基本思路：两层 `for` 循环遍历 `nums[i]` 和 `nums[j]` ，然后使用哈希法来确定 `- nums[i] - nums[j]` 是否在数组中出现
+暴力法查找的时间复杂度为 $O(n^3)$
 
-然而，由于题目要求 “ `i != j`, `i != k`, `j != k` ” 并且 “ 任意两个三元组不能相同 ” ，需要在查找时进行剪枝以避免重复，或是查找结束后剔除 `(i, j, k)` 存在重复的情况
+注意：题目要求 “ `i != j`, `i != k`, `j != k` ” 并且 “ 任意两个三元组不能相同 ” ，需要在查找时进行剪枝以避免重复，或是查找结束后剔除重复三元组
 
-可以首先对数组进行排序，将重复的元素值集中，便于去重
+本题的难点也在于如何去除重复解
+
+首先，可以对数组进行排序（最终只需要输出元素值即可，无需输出元素索引，故而可以打乱原数组顺序），将重复的元素值集中，便于去重
+
+于是，有以下两种方法可以用于查找：
+
+1. 哈希法：采用两层 `for` 循环分别遍历 `i` 和 `j` （按照从左往右的顺序），并采用哈希法检查 `[i, j]` 区间范围内是否有元素能与 `nums[i]` ，`nums[j]` 组成三元组
+
+2. 双指针法：采用一个 `for` 循环遍历 `i` ，并采用双指针法在 `[i + 1, nums.size() - 1]` 区间内查找所有能与 `nums[i]` 组成三元组的元素 `nums[left]` 和 `nums[right]` ，其中，指针 `left` 从 `i + 1` 位置开始向右遍历，指针 `right` 从 `nums.size() - 1` 位置开始向左遍历
+
+两种方法都能实现 $O(n^2)$ 的时间复杂度，但哈希法不便进行去重操作，因此，建议使用排序与双指针法解题
+
+
+## Method 1: 排序 + 哈希法
+
+两层 `for` 循环遍历 `nums[i]` 和 `nums[j]` ，并使用哈希法来确定 `[i, j]` 区间内是否存在值为 `- nums[i] - nums[j]` 的元素
+
+注意去重
 
 ```cpp
 vector<vector<int>> threeSum(vector<int>& nums) {
@@ -76,13 +93,7 @@ vector<vector<int>> threeSum(vector<int>& nums) {
 }
 ```
 
-时间复杂度：$O(n^2)$
-
-空间复杂度：$O(\log{n})$，这里仅考虑了排序的空间复杂度 $O(\log{n})$ ，忽略了储存结果的空间
-
-参考：[代码随想录：三数之和](https://www.programmercarl.com/0015.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C.html#%E5%93%88%E5%B8%8C%E8%A7%A3%E6%B3%95)
-
-以上代码中，有几个地方没弄明白：
+有几个地方没弄明白
 
 第一个地方：
 
@@ -117,4 +128,88 @@ vector<vector<int>> threeSum(vector<int>& nums) {
 
 这里边的细节也太细了吧。。弃了弃了。。
 
+时间复杂度：$O(n^2)$
+
+空间复杂度：$O(\log{n})$，这里仅考虑了排序的空间复杂度 $O(\log{n})$ ，忽略了储存结果的空间
+
 ## Method 2: 排序 + 双指针
+
+解题步骤：
+
+1. 对数组进行排序（从小到大排序）
+
+2. 遍历数组下标 `i`
+
+     - 若 `nums[i] > 0` ，则 `i` 右侧不存在能与 `nums[i]` 组成三元组的元素，直接返回结果
+
+     - 若 `i > 0 && nums[i] == nums[i - 1]` ，当前 `i` 能找到的三元组与 `i - 1` 时找到的完全相同，为避免产生重复解，跳过当前 `i`
+
+     - 定义指针 `left` 指向 `i + 1` 位置，指针 `right` 指向 `nums.size() - 1` 位置，当 `left < right` 时，执行循环：
+       - 计算 `sum = nums[i] + nums[left] + nums[right]`
+       - 若 `sum > 0` ，则 `nums[right]` 偏大，将 `right` 左移
+       - 若 `sum < 0` ，则 `nums[left]` 偏小，将 `left` 右移
+       - 若 `sum == 0` ，记录结果，并将 `left` 右移、将 `right` 左移，以跳过重复的 `nums[left]` 和 `nums[right]`
+
+
+注意：同一个 `i` 可以与不同的元素组成多个不同的三元组，因此，在找到一对可行的 `nums[left]` 和 `nums[right]` 后仍需继续查找，直到 `left < right` 不满足
+
+代码实现：
+
+```cpp
+vector<vector<int>> threeSum(vector<int>& nums) {
+    sort(nums.begin(), nums.end()); // 排序
+    vector<vector<int>> res;        // 存储结果
+    for (int i = 0; i < nums.size(); i++) {
+        if (nums[i] > 0) break;
+        if (i > 0 && nums[i] == nums[i - 1]) continue;
+        int left = i + 1, right = nums.size() - 1;
+        int sum = 0;
+        while (left < right) {
+            sum = nums[i] + nums[left] + nums[right];
+            if (sum > 0) right--;
+            if (sum < 0) left++;
+            if (sum == 0) {
+                res.push_back(vector<int>{nums[i], nums[left], nums[right]});
+                // 将 left 右移（注意，++left 至少执行一次）
+                while (left < right && nums[left] == nums[++left]);
+                // 将 right 左移（注意，--right 至少执行一次）
+                while (left < right && nums[right] == nums[--right]);
+            }
+        }
+    }
+    return res;
+}
+```
+
+需要注意的第一个地方：
+
+    if (i > 0 && nums[i] == nums[i - 1]) continue;
+
+这里不能改成 `if (nums[i] == nums[i + 1]) continue;` ，否则，以数组 `nums = [-1, 0, 1, 2, -1, -4]` 为例（排序后，`nums = [-4, -1, -1, 0, 1, 2]` ），查找时将会遗漏 `[-1, -1, 2]` 这一个三元组。因为当 `i = 1` 时 `nums[1] == nums[2]` 条件成立，因此不会进行双指针查找；而当 `i = 2` 时，只会查找 `i` 右侧的元素，故而遗失了对 `[-1, -1, x]` 这几种情况的查找，`x` 为第二个 `-1` 右侧的任意值
+
+上述的 Method 1 也是类似道理
+
+需要注意的第二个地方：
+
+    if (sum == 0) {
+        res.push_back(vector<int>{nums[i], nums[left], nums[right]});
+        while (left < right && nums[left] == nums[++left]);
+        while (left < right && nums[right] == nums[--right]);
+    }
+
+这里的 `++left` 和 `--right` 都至少执行一次：执行一次是因为找到了一个三元组，需要同时移动双指针，以进行下一次的查找；执行多次则是为了跳过重复的 `nums[left]` 和 `nums[right]`
+
+并且，注意这里的 `nums[left] == nums[++left]` 语句，将当前 `left` 对应元素值与 `left` 右移之后对应元素值进行比较，不能将其改成 `nums[++left] == nums[left]` ，也不能改成 `nums[left] == nums[left++]` 。语句 `nums[right] == nums[--right]` 同理
+
+这个地方似乎还有其他坑。。暂未理清，等待后续。。
+
+
+时间复杂度：$O(n^2)$
+ - 遍历 `i` ： $O(n)$
+ - 双指针查找： $O(n)$
+
+空间复杂度：$O(\log{n})$
+ - 不考虑存储结果的数组
+ - 仅考虑排序所需栈空间
+
+参考：[代码随想录：三数之和](https://www.programmercarl.com/0015.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C.html#%E5%93%88%E5%B8%8C%E8%A7%A3%E6%B3%95)
