@@ -214,7 +214,19 @@ vector<vector<int>> threeSum(vector<int>& nums) {
         right--;
     }
 
-这个地方似乎还有其他坑。。暂未理清，等待后续。。
+另外，当 `sum > 0` 时，可对 `nums[right]` 进行去重，以跳过重复的 `nums[right]` ，即，将 `if (sum > 0) right--;` 改写为
+
+    if (sum > 0)
+        while (left < right && nums[right] == nums[--right]);
+
+或者改写为
+
+    if (sum > 0) {
+        right--;
+        while (left < right && nums[right] == nums[right + 1]) right--;
+    }
+
+类似地，当 `sum < 0` 时，也可对 `nums[left]` 进行去重，以跳过重复的 `nums[left]`
 
 
 时间复杂度：$O(n^2)$

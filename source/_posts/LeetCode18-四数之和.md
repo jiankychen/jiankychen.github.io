@@ -41,9 +41,9 @@ Given an array `nums` of `n` integers, return *an array of all the **unique** qu
 
 ## 思路
 
-与 [LeetCode 15. 三数之和](https://jiankychen.github.io/posts/1b6e2437/) 基本一致
+需注意区分本题与 [LeetCode 454. 四数相加II](https://jiankychen.github.io/posts/40552b28)
 
-这里采用 排序 + 双指针 解法
+本题的解题方法与 [LeetCode 15. 三数之和](https://jiankychen.github.io/posts/1b6e2437/) 基本一致，这里采用 排序 + 双指针 解法
 
 ## Method: 排序 + 双指针
 
@@ -86,6 +86,15 @@ vector<vector<int>> fourSum(vector<int>& nums, int target) {
 ```
 
 其中，需要注意 `nums[i] + nums[j] + nums[left] + nums[right]` 会溢出，因此，不能直接将 `nums[i] + nums[j] + nums[left] + nums[right]` 与 `target` 比较，可比较 `nums[left] + nums[right]` 与 `target - nums[i] - nums[j]`
+
+另外，当 `temp2 < target - temp1` 时，可跳过重复的 `nums[left]` ，当 `temp2 > target - temp1` 时，可跳过重复的 `nums[right]` ，即，将第 12 至 13 行代码改写为：
+
+    if (temp2 < target - temp1)
+        while (left < right && nums[left] == nums[++left]);
+    else if (temp2 > target - temp1)
+        while (left < right && nums[right] == nums[--right]);
+
+具体可见 [LeetCode 15. 三数之和](https://jiankychen.github.io/posts/1b6e2437/)
 
 时间复杂度：$O(n^3)$
  - 遍历 `i` 和 `j` ： $O(n^2)$
