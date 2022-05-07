@@ -201,6 +201,19 @@ vector<vector<int>> threeSum(vector<int>& nums) {
 
 并且，注意这里的 `nums[left] == nums[++left]` 语句，将当前 `left` 对应元素值与 `left` 右移之后对应元素值进行比较，不能将其改成 `nums[++left] == nums[left]` ，也不能改成 `nums[left] == nums[left++]` 。语句 `nums[right] == nums[--right]` 同理
 
+第二个地方可以改写成
+
+    if (sum == 0) {
+        res.push_back(vector<int>{nums[i], nums[left], nums[right]});
+        // 先将 left 移到最靠右的一个 nums[left]
+        while (left < right && nums[left] == nums[left + 1]) left++;
+        // 先将 right 移到最靠左的一个 nums[right]
+        while (left < right && nums[right] == nums[right - 1]) right--;
+        // 再分别移动一次 left 和 right ，以进行下一次查找
+        left++;
+        right--;
+    }
+
 这个地方似乎还有其他坑。。暂未理清，等待后续。。
 
 
