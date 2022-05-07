@@ -2,6 +2,7 @@
 title: 剑指Offer 05. 替换空格
 tags:
   - 字符串
+  - 双指针
 categories:
   - LeetCode
 cover: false
@@ -9,12 +10,17 @@ abbrlink: fff72920
 date: 2022-03-27 15:15:53
 ---
 
-请实现一个函数，把字符串 `s` 中的每个空格替换成 "%20"
+[剑指Offer 05. 替换空格](https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/)
 
-示例 1：
+Please replace each **space** in string `s` with "**%20**".
 
-    输入：s = "We are happy."
-    输出："We%20are%20happy."
+**Example 1：**
+
+    Input：s = "We are happy."
+    Output："We%20are%20happy."
+
+**Constraint：**
+ - $0 \le$ `s.length` $\le 10000$
 
 ## Method 1: 遍历添加
 
@@ -39,55 +45,60 @@ string replaceSpace(string s) {
 
    - `push_back()` ：向后加入的是 `char` 类型
 
-时间复杂度：$O(N)$，其中，$N$ 为字符串的长度，遍历赋值执行 $N$ 次循环
+时间复杂度：$O(n)$，其中，$n$ 为字符串的长度
 
-空间复杂度：$O(N)$，新建了一个字符串
+空间复杂度：$O(n)$，新建了一个字符串
 
 
 ## Method 2: 原地修改（双指针）
 
-先统计整个字符串中的空格数目，然后把字符串大小扩充为替换后的大小，用 双指针 方法 **从右向左** 移元素
+基本思路：先统计整个字符串中的空格数目，然后把字符串大小扩充为替换后的大小，用 双指针 方法 **从右向左** 移元素
 
-> 很多数组/字符串填充类的问题，都可以先预先扩充数组的大小，然后再从右向左进行操作。 这么做有两个好处：1. 不用申请新数组；2. 从右向左填充元素，避免了从前向后填充元素带来的 “每次添加元素都要将添加元素之后的所有元素向后移动” 。
+解题步骤：
 
-算法流程：
-1. 初始化：空格数量 `count` ，字符串 `s` 的长度 `len`
+1. 统计空格数量 `count`
 
-2. 统计空格数量：遍历 `s` ，遇空格则 `count++`
+2. 修改 `s` 长度：将所有空格都替换成 "%20" 后，新字符串应比原字符串长 `2 * count`
 
-3. 修改 `s` 长度：将所有空格都替换成 "%20" 后的字符串长度应为 `len + 2 * count`
+3. 定义指针 `left` 指向原字符串尾部元素， `right` 指向新字符串尾部元素
 
-4. 从右向左遍历修改：`i` 指向原字符串尾部元素， `j` 指向新字符串尾部元素；当 `i = j` 时（代表左边已没有空格）结束循环
+4. 从右向左遍历修改 `s` ，当 `left == right` 时（代表左边已没有空格）结束循环
 
-    - 当 `s[i]` 不为空格时：执行 `s[j] = s[i]`
+    - 当 `s[left]` 不是空格时，执行 `s[right] = s[left]`
 
-    - 当 `s[i]` 为空格时：将字符串闭区间 `[j-2, j]` 的元素修改为 "%20" ；由于修改了 `3` 个元素，因此需要 `j -= 2`
+    - 当 `s[left]` 是空格时，将区间 `[right - 2, right]` 内的元素修改为 "%20"
 
-5. 返回已修改的字符串 `s`
+代码实现：
 
 ```cpp
 string replaceSpace(string s) {
-    int count = 0, len = s.size();
     // 统计空格数量
+    int count = 0;
     for (auto c : s)
         if (c == ' ') count++;
-    // 修改 s 长度
-    int newLen = len + 2 * count;
-    s.resize(newLen);
-    // 从右向左遍历修改
-    for(int i = len - 1, j = newLen - 1; i < j; i--, j--) {
-        if (s[i] != ' ') s[j] = s[i];
-        else {
-            s[j - 2] = '%';
-            s[j - 1] = '2';
-            s[j] = '0';
-            j -= 2;         // 因为循环体结束后会进行 j--，故而这里是 j-=2
+    // 扩充字符串长度
+    int oldSize = s.size(), newSize = oldSize + 2 * count;
+    s.resize(newSize);
+    // 双指针法
+    int left = oldSize - 1, right = newSize - 1;
+    while (left < right) {
+        if (s[left] == ' ') {
+            s[right--] = '0';
+            s[right--] = '2';
+            s[right--] = '%';
+            left--;
         }
+        else
+            s[right--] = s[left--];
     }
     return s;
 }
 ```
 
-时间复杂度：$O(N)$，遍历统计、遍历修改皆使用 $O(N)$ 时间
+时间复杂度：$O(n)$，统计空格数量、双指针法修改 `s` 的时间复杂度均为 $O(n)$
 
 空间复杂度：$O(1)$，由于是原地扩展 `s` 长度，因此使用 $O(1)$ 额外空间
+
+很多数组/字符串填充类的问题，都可以先预先扩充数组的大小，然后再从右向左进行操作。这么做有两个好处：
+1. 不用申请新数组，降低了空间复杂度
+2. 从右向左填充元素，避免了从左向右填充元素带来的 “每次添加元素都要将该位置右边的元素向后移动” 的问题，降低了时间复杂度，也简化了算法
