@@ -225,4 +225,6 @@ vector<vector<int>> threeSum(vector<int>& nums) {
  - 不考虑存储结果的数组
  - 仅考虑排序所需栈空间
 
-参考：[代码随想录：三数之和](https://www.programmercarl.com/0015.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C.html#%E5%93%88%E5%B8%8C%E8%A7%A3%E6%B3%95)
+参考：
+ - [代码随想录：三数之和](https://www.programmercarl.com/0015.%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C.html#%E5%93%88%E5%B8%8C%E8%A7%A3%E6%B3%95)
+ - [Krahets：三数之和（排序+双指针，易懂图解）](https://leetcode-cn.com/problems/3sum/solution/3sumpai-xu-shuang-zhi-zhen-yi-dong-by-jyd/)
