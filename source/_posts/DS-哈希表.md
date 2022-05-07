@@ -505,3 +505,34 @@ multimap 的接口与 map 类似
 头文件：`#include <unordered_map>`
 
 [cplusplus：std::unordered_map](http://www.cplusplus.com/reference/unordered_map/unordered_map/)
+
+
+
+### 总结
+
+数组是简单的哈希表
+ - 数组的大小是有限的，受到系统栈空间（不是数据结构的栈）的限制
+ - 如果数组空间够大，但哈希值比较少、特别分散、跨度非常大，使用数组会造成空间的极大浪费
+
+当哈希值分布较为集中时，可以直接采用数组实现哈希法，例如，[LeetCode 242. 有效的字母异位词](https://jiankychen.github.io/posts/30250b0/)，[LeetCode 383. 赎金信](https://jiankychen.github.io/posts/579713f1/)
+
+
+而当哈希值比较少、特别分散、跨度非常大的时候，则考虑用 set 实现哈希法，例如，[LeetCode 349. 两个数组的交集](https://jiankychen.github.io/posts/c10e195a/)，[LeetCode 202. 快乐数](https://jiankychen.github.io/posts/76ed881c/)
+
+与集合 set 中每个元素只能是一个 `key` 相比，`map` 还可以存放与 `key` 对应的 `value` ，因此不仅可以用来保存元素值，还可以保存元素值的下标，例如，[LeetCode 1. 两数之和](https://jiankychen.github.io/posts/3da9e18f/)，[LeetCode 454. 四数相加 II](https://jiankychen.github.io/posts/40552b28/)
+
+虽然 map 可以适用所有哈希法的场景，但 map 要维护红黑树或者符号表，还要做哈希函数的运算，相比之下，在某些场景下采用 数组 或 set 会效率更高，因此，需要根据实际需要来选择 数组 或 set 或 map
+
+另外，关于 set 和 map 的具体实现：
+
+1. `std::set` 和 `std::multiset` 的底层实现都是红黑树，`std::unordered_set` 的底层实现是哈希表
+
+2. `std::map` 和 `std::multimap` 的底层实现都是红黑树，`std::unordered_map` 的底层实现是哈希表
+
+3. 基于红黑树实现的，`key` 是有序的，而基于哈希表的，`key` 是无序的
+
+4. `std::multiset` 和 `std::unordered_map` 允许 `key` 重复，其余不允许 `key` 重复
+
+5. 在同样满足需求的情况下，`std::unordered_set` 是效率最高的 set ；类似的，在同样满足需求的情况下，`std::unordered_map` 是效率最高的 map
+
+参考：[代码随想录：哈希表总结](https://www.programmercarl.com/%E5%93%88%E5%B8%8C%E8%A1%A8%E6%80%BB%E7%BB%93.html)
