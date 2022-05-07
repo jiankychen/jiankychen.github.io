@@ -1,5 +1,5 @@
 ---
-title: LeetCode15-三数之和
+title: LeetCode 15. 三数之和
 tags:
   - 数组
   - 哈希表
@@ -57,7 +57,7 @@ vector<vector<int>> threeSum(vector<int>& nums) {
     for (int i = 0; i < nums.size(); i++) { // 判断 i 右侧元素是否能与 nums[i] 组成三元组
         if (nums[i] > 0) // 最小值大于 0， 不存在可行的三元组
             break;
-        if (i > 0 && nums[i] == nums[i - 1]) // nums[i] 与 nums[i - 1] 重复，应跳过
+        if (i > 0 && nums[i] == nums[i - 1]) // nums[i] 与 nums[i - 1] 重复，应跳过（似乎这里也存在某些坑）
             continue;
         unordered_set<int> set;
         for (int j = i + 1; j < nums.size(); j++) { // 判断 i 与 j 之间是否有元素能够与 nums[i] , nums[j] 形成三元组

@@ -137,11 +137,6 @@ date: 2021-10-24 23:06:24
 
 [hexo 插件列表](https://hexo.io/plugins/)
 
-[^_^]:
-
-	[检查失效链接：hexo-broken-links-checker](https://github.com/sergeyzwezdin/hexo-broken-links-checker)
-     - 安装时可能需要另外执行 `cnpm install encoding@^0.1.0 --save` 添加依赖 `encoding@^0.1.0`
-
 
 # 多终端同步
 通过维护两条git分支来实现：第一个分支是 github 上的 main 分支（注：最初的默认分支名为master，我此前改成了main），用于存放发布的博文的静态页面；另外再新建一个分支，比如命名为 hexo ，通过此分支存放主题、原始的博客文件等等，这些文件才是不同电脑需要同步的文件

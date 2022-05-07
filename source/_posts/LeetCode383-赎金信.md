@@ -1,5 +1,5 @@
 ---
-title: LeetCode383-赎金信
+title: LeetCode 383. 赎金信
 tags:
   - 哈希表
   - 字符串
