@@ -97,6 +97,8 @@ tags:
 
 [剑指Offer 05. 替换空格](https://jiankychen.github.io/posts/fff72920)
 
+[剑指Offer 58-II. 左旋转字符串](https://jiankychen.github.io/posts/5c5f7907)
+
 ## 双指针法
 
 [189. 轮转数组](https://jiankychen.github.io/posts/55ffda0f)
