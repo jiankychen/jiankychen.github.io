@@ -77,8 +77,6 @@ int strStr(string haystack, string needle) {
 
 ## Method 2: KMP 算法
 
-Knuth-Morris-Pratt 算法，简称 KMP 算法，由 Donald Knuth、James H. Morris 和 Vaughan Pratt 三人于 1977 年联合发表
-
 参考：
- - [力扣官方题解：实现 strStr()](https://leetcode.cn/problems/implement-strstr/solution/shi-xian-strstr-by-leetcode-solution-ds6y/)
- - [代码随想录：实现 strStr()](https://www.programmercarl.com/0028.%E5%AE%9E%E7%8E%B0strStr.html)
+ - [代码随想录](https://www.programmercarl.com/0028.%E5%AE%9E%E7%8E%B0strStr.html)
+ - [力扣官方题解](https://leetcode.cn/problems/implement-strstr/solution/shi-xian-strstr-by-leetcode-solution-ds6y/)
