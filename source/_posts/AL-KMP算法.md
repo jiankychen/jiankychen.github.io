@@ -1,10 +1,11 @@
 ---
 title: KMP 算法
-date: 2022-05-10 21:22:31
 tags: KMP
 categories:
- - 算法
+  - 算法
 cover: false
+abbrlink: 36b55f59
+date: 2022-05-10 21:22:31
 ---
 
 Knuth-Morris-Pratt 算法，简称 KMP 算法，由 Donald Knuth、James H. Morris 和 Vaughan Pratt 三人于 1977 年联合发表
