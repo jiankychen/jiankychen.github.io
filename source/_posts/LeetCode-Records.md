@@ -95,9 +95,13 @@ tags:
 
 [151. 颠倒字符串中的单词](https://jiankychen.github.io/posts/2b58e836)
 
+[28. 实现 strStr()](https://jiankychen.github.io/posts/8f083358)
+
 [剑指Offer 05. 替换空格](https://jiankychen.github.io/posts/fff72920)
 
 [剑指Offer 58-II. 左旋转字符串](https://jiankychen.github.io/posts/5c5f7907)
+
+
 
 ## 双指针法
 
