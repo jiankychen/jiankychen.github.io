@@ -164,6 +164,7 @@ void getNext(int* next, const string& s) {
 
 具体实例可见 [LeetCode 28. 实现 strStr()](https://jiankychen.github.io/posts/8f083358)
 
+
 参考资料：
  - [代码随想录](https://www.programmercarl.com/0028.%E5%AE%9E%E7%8E%B0strStr.html)
  - [力扣官方题解](https://leetcode.cn/problems/implement-strstr/solution/shi-xian-strstr-by-leetcode-solution-ds6y/)
