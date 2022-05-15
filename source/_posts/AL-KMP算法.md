@@ -18,7 +18,7 @@ KMP 算法主要应用于 **字符串匹配**
 
 检测文本串 "aabaabaaf" 中是否含有 模式串 "aabaaf"，KMP 算法的查找过程如下所示
 
-![](https://code-thinking.cdn.bcebos.com/gifs/KMP%E7%B2%BE%E8%AE%B21.gif)
+![KMP算术运行过程的示意图](https://code-thinking.cdn.bcebos.com/gifs/KMP%E7%B2%BE%E8%AE%B21.gif)
 
 [^_^]:
 
