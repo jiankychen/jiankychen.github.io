@@ -201,13 +201,9 @@ hexo g -d   		// 同步到main分支
 [视频教程](https://www.bilibili.com/video/BV1Yb411a7ty?p=1&share_medium=android&share_plat=android&share_source=WEIXIN&share_tag=s_i&timestamp=1635071237&unique_k=kYdWS1)
 
 
-[个人博客地址](https://jiankychen.github.io/)
+[解决 Github 连接不上的问题：HOSTS文件配置](https://www.cnblogs.com/philobing/p/15670470.html)
 
-[解决 Github 连接不上的问题](https://jingyan.baidu.com/article/63f2362893f7e10208ab3df8.html)
-
-[HOSTS文件配置](https://www.cnblogs.com/philobing/p/15670470.html)
-
-[修改hosts文件提示没有权限保存怎么办](https://jingyan.baidu.com/article/3c343ff7b8fe550d377963e7.html)
+[使用SSH地址](https://blog.csdn.net/weixin_42569846/article/details/105808683)
 
 [hexo+github本地和线上图片不显示问题](https://blog.csdn.net/z952957407/article/details/111642548?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&utm_relevant_index=1)
 
