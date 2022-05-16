@@ -18,7 +18,7 @@ KMP 算法主要应用于 **字符串匹配**
 
 检测文本串 "aabaabaaf" 中是否含有 模式串 "aabaaf"，KMP 算法的查找过程如下所示
 
-![KMP算术运行过程的示意图](https://code-thinking.cdn.bcebos.com/gifs/KMP%E7%B2%BE%E8%AE%B21.gif)
+![KMP算法运行过程的示意图](https://code-thinking.cdn.bcebos.com/gifs/KMP%E7%B2%BE%E8%AE%B21.gif)
 
 [^_^]:
 
@@ -89,7 +89,7 @@ next 数组就是一个前缀表
 因此，当模式串的 `f` 与文本串匹配失败时，找到 `f` 前一位所对应的前缀表元素 `2` ，模式串下标为 `2` 的字符将与文本串重新匹配
  - 字符 `f` 之前这部分的字符串（也就是字符串 "aabaa" ）的最长相等前后缀字符串是 "aa" ，匹配失败的位置是后缀子串的下一位，那么我们找到相同前缀的下一位继续匹配即可
 
-![](https://code-thinking.cdn.bcebos.com/gifs/KMP%E7%B2%BE%E8%AE%B22.gif)
+![利用前缀表进行匹配的过程](https://code-thinking.cdn.bcebos.com/gifs/KMP%E7%B2%BE%E8%AE%B22.gif)
 
 
 
@@ -107,7 +107,6 @@ next 数组就是一个前缀表
         - 依据 $\pi (i)$ 定义，$\pi (i)$ 是相同前后缀的最大长度，故，$\pi (i)$ 不小于当前相同前后缀的长度，即，$\pi (i) \ge \pi (i - 1) + 1$
         - 结合第一个性质，可得，$\pi (i) = \pi (i - 1) + 1$
 
-    <!-- ![计算前缀表的算法原理，源于力扣官方题解](AL-KMP算法/principle.png) -->
 
     ### 前缀表的计算方法
 
