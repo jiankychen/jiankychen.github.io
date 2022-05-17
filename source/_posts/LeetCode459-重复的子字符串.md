@@ -61,7 +61,7 @@ next 数组最后一位元素记录了整个字符串的 最长相同前后缀 �
 
 其周期长度 = 字符串总长度 - next 数组最后一位元素值 = 9 - 6 = 3
 
-因此，可以作出以下结论：若 **`next[s.size() - 1]` 非零** 且 **字符串总长度能够被周期长度整除** ，字符串具有周期性，即，可以由子串重复多次而构成
+因此，可以作出以下结论：若 **`next[s.size() - 1]` 非零** 且 **字符串总长度 `s.size()` 能够被 `s.size() - next[s.size() - 1]` 整除** ，则，字符串具有周期性，即，可以由子串重复多次而构成
 
 有关该方法正确性的理论证明，可参考 [力扣官方题解：重复的子字符串（方法三）](https://leetcode.cn/problems/repeated-substring-pattern/solution/zhong-fu-de-zi-zi-fu-chuan-by-leetcode-solution/)
 
