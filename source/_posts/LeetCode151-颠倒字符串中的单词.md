@@ -99,27 +99,29 @@ void reverse(string &s, int left, int right) {
         swap(s[left++], s[right--]);
 }
 
-// 反转字符串中的单词
-string reverseWords(string s) {
-    // 双指针，去掉多余空格
+// 双指针，去掉多余空格
+void removeExtraSpaces(string &s) { // 双指针法
     int slow = 0, fast = 0;
     while (fast < s.size() && s[fast] == ' ') fast++; // 跳过字符串首部的空格
     for (; fast < s.size(); fast++) {
         if (s[fast] == ' ' && s[fast - 1] == ' ')     // 跳过重复的空格
             continue;
-        s[slow++] = s[fast];          // 移动元素
+        s[slow++] = s[fast];       // 移动元素
     }
-    slow--;                           // slow 指向元素移动后的末尾字符
-    while (s[slow] == ' ') slow--;    // slow 移到最后一个非空格字符的位置（排除字符串尾部的空格）
-    s.resize(slow + 1);               // 调整 s 的大小
-    // 反转整个字符串
-    reverse(s, 0, s.size() - 1);
-    // 双指针法，反转每个单词
+    slow--;                        // slow 指向元素移动后的末尾字符
+    while (s[slow] == ' ') slow--; // slow 移到最后一个非空格字符的位置（排除字符串尾部的空格）
+    s.resize(slow + 1);            // 调整 s 的大小
+}
+
+// 翻转字符串中的单词
+string reverseWords(string s) {
+    removeExtraSpaces(s);        // 移除多余空格
+    reverse(s, 0, s.size() - 1); // 反转整个字符串
     int start = 0, end = 0;
-    while (end <= s.size()) {
+    while (end <= s.size()) {    // 双指针法，反转每个单词
         if (s[end] == ' ' || end == s.size()) { // end 遇到空格或者到达尾后，反转单词
             reverse(s, start, end - 1);
-            start = end + 1;         // 下一个单词的起点
+            start = end + 1;     // 下一个单词的起点
         }
         end++;
     }
@@ -130,3 +132,25 @@ string reverseWords(string s) {
 时间复杂度：$O(n)$
 
 空间复杂度：$O(1)$
+
+
+> 有关 多余空格的去除 ，还可以参考 [代码随想录：翻转字符串里的单词](https://www.programmercarl.com/0151.%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D.html) 中的思路
+
+[^_^]: 被注释掉了
+
+    即：
+    
+    ```cpp
+    void removeExtraSpaces(string& s) { // 去除所有空格并在相邻单词之间添加空格, 快慢指针
+        int slow = 0;
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] != ' ') { // 遇到非空格就处理，即删除所有空格
+                if (slow != 0) // slow != 0 说明不是第一个单词，需要在单词前添加空格
+                    s[slow++] = ' ';
+                while (i < s.size() && s[i] != ' ')  // 补上该单词，遇到空格说明单词结束
+                    s[slow++] = s[i++];
+            }
+        }
+        s.resize(slow); // slow 的大小即为去除多余空格后的大小
+    }
+    ```
