@@ -115,13 +115,13 @@ string reverseWords(string s) {
     // 反转整个字符串
     reverse(s, 0, s.size() - 1);
     // 双指针法，反转每个单词
-    int left = 0, right = 0;
-    while (right <= s.size()) {
-        if (s[right] == ' ' || right == s.size()) { // right 遇到空格或者到达尾后，反转单词
-            reverse(s, left, right - 1);
-            left = right + 1;
+    int start = 0, end = 0;
+    while (end <= s.size()) {
+        if (s[end] == ' ' || end == s.size()) { // end 遇到空格或者到达尾后，反转单词
+            reverse(s, start, end - 1);
+            start = end + 1;         // 下一个单词的起点
         }
-        right++;
+        end++;
     }
     return s;
 }
