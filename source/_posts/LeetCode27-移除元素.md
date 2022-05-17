@@ -94,33 +94,31 @@ int removeElement(vector<int>& nums, int val) {
 ## Method 2: 双指针优化
 如果要移除的元素恰好在数组的开头，方法一需要把每一个元素都左移一位
 
-注意到，题目允许改变元素的顺序，因此，可以定义两个指针初始时分别指向数组的首尾，向中间移动遍历该序列
+可以定义两个指针，初始时分别指向数组的首尾，向中间移动遍历该序列（题目允许改变元素的顺序）
 
 
 算法流程：
 
 执行以下循环，直到 `left` 与 `right` 重合
 
- - 判断左指针 `left` 的元素是否等于 `val` ：若是，将右指针 `right` 指向的元素复制到左指针 `left` 的位置，然后右指针 `right` 左移一位；若否，左指针 `left` 右移一位
+ - 判断 `left` 的元素是否等于 `val` 
+   - 若是，将 `right` 指向的元素复制到 `left` 的位置，然后 `right` 左移一位
+   - 若否，`left` 右移一位
   
-注意这里的 `right` 指向的元素也有可能是 `val` ，此时：
+> 注意这里的 `right` 指向的元素也有可能是 `val` ，此时：
+>  - 可以选择将 `val` 赋值给 `left` ，然后 `right` 左移（在这种情况下，赋值后 `left` 位置的元素仍为 `val` ，`left` 不会移动）
+>  - 也可以选择跳过该元素，即， `right` 直接左移
 
- - 可以选择将 `val` 赋值给 `left` ，然后 `right` 左移（在这种情况下，赋值后 `left` 位置的元素仍为 `val` ，`left` 不会移动）
-
- - 也可以选择跳过该元素，即， `right` 直接左移
-
-与方法一相比，方法二避免了值不为 `val` 的元素的重复赋值操作
+代码实现：
 
 ```cpp
 int removeElement(vector<int>& nums, int val) {
-    int left = 0, right = nums.size();
+    int left = 0, right = nums.size() - 1;
     while (left < right) {
-        if (nums[left] == val) {
-            nums[left] = nums[right - 1];
-            right--;
-        } else {
+        if (nums[left] == val)
+            nums[left] = nums[right--];
+        else
             left++;
-        }
     }
     return left;
 }
@@ -129,3 +127,5 @@ int removeElement(vector<int>& nums, int val) {
 时间复杂度 ：$O(n)$
 
 空间复杂度 ：$O(1)$
+
+与 Method 1 相比，Method 2 避免了值不为 `val` 元素的重复赋值操作
