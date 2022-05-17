@@ -10,7 +10,7 @@ abbrlink: d9baf118
 date: 2022-03-15 16:59:29
 ---
 
-[LeetCode 344](https://leetcode-cn.com/problems/reverse-string/)
+[LeetCode 344. Reverse String](https://leetcode-cn.com/problems/reverse-string/)
 
 Write a function that reverses a string. The input string is given as an array of characters `s`.
 
@@ -46,9 +46,8 @@ You must do this by modifying the input array **in-place** with `O(1)` extra mem
 ```cpp
 void reverseString(vector<char>& s) {
     int left = 0, right = s.size() - 1; // 双指针
-    while (left < right) {
+    while (left < right)
         swap(s[left++], s[right--]);    // 交换，并移动指针
-    }
 }
 ```
 

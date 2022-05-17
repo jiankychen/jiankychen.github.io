@@ -107,6 +107,10 @@ tags:
 
 ## 双指针法
 
+[27. 移除元素](https://jiankychen.github.io/posts/c425967e)
+
+[344. 反转字符串](https://jiankychen.github.io/posts/d9baf118)
+
 [189. 轮转数组](https://jiankychen.github.io/posts/55ffda0f)
 
 [283. 移动零](https://jiankychen.github.io/posts/35c387f3)
