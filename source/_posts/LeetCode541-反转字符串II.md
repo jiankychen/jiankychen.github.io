@@ -83,12 +83,12 @@ string reverseStr(string s, int k) {
         reverse(s, i, min(i + k - 1, num.size() - 1));
 
 
-
 时间复杂度：$O(n)$，其中，$n$ 为字符串长度
  - 遍历 `i` 的时间复杂度为 $O(n / k)$
  - 每反转 `k` 个字符的时间复杂度为 $O(k)$
 
 空间复杂度：$O(1)$
 
+> 当需要以固定规律对字符串逐段处理时，可试着在 `for` 循环的表达式上做做文章
 
 参考：[力扣官方题解：反转字符串 II](https://leetcode-cn.com/problems/reverse-string-ii/solution/fan-zhuan-zi-fu-chuan-ii-by-leetcode-sol-ua7s/)
