@@ -97,6 +97,8 @@ tags:
 
 [28. 实现 strStr()](https://jiankychen.github.io/posts/8f083358)
 
+[459. 重复的子字符串](https://jiankychen.github.io/posts/e28abd31)
+
 [剑指Offer 05. 替换空格](https://jiankychen.github.io/posts/fff72920)
 
 [剑指Offer 58-II. 左旋转字符串](https://jiankychen.github.io/posts/5c5f7907)
