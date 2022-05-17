@@ -87,6 +87,8 @@ int strStr(string haystack, string needle) {
     - 若模式串字符 `needle[j]` 与文本串字符 `haystack[i]` 相同，则将 `i` 和 `j` 同时右移
     - 若不相同，连续执行 `j = next[j - 1]` ，直到 `needle[j] == haystack[i]` 或 `j == 0`
 
+具体原理及步骤可参阅 [KMP 算法](https://jiankychen.github.io/posts/36b55f59/)
+
 代码实现：
 
 ```cpp
@@ -119,6 +121,11 @@ int strStr(string haystack, string needle) {
     return -1;
 }
 ```
+
+时间复杂度：$O(n + m)$
+
+空间复杂度：$O(m)$，使用额外空间存储 next 数组
+
 
 参考：
  - [代码随想录](https://www.programmercarl.com/0028.%E5%AE%9E%E7%8E%B0strStr.html)
