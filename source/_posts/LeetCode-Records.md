@@ -56,7 +56,7 @@ tags:
 
 [24. 两两交换链表中的节点](https://jiankychen.github.io/posts/f84c47a9)
 
-[19. 删除链表的倒数第N个结点](https://jiankychen.github.io/posts/bcf47f8f)
+[19. 删除链表的倒数第 N 个结点](https://jiankychen.github.io/posts/bcf47f8f)
 
 [160. 相交链表](https://jiankychen.github.io/posts/fd7c45a8)
 
@@ -107,9 +107,19 @@ tags:
 
 ## 双指针法
 
-[27. 移除元素](https://jiankychen.github.io/posts/c425967e)
+[^_^]: 被注释掉了
 
-[344. 反转字符串](https://jiankychen.github.io/posts/d9baf118)
+    [27. 移除元素](https://jiankychen.github.io/posts/c425967e)
+
+    [344. 反转字符串](https://jiankychen.github.io/posts/d9baf118)
+
+    [剑指Offer 05. 替换空格](https://jiankychen.github.io/posts/fff72920)
+
+    [151. 颠倒字符串中的单词](https://jiankychen.github.io/posts/2b58e836)
+
+    [206. 反转链表](https://jiankychen.github.io/posts/7c5d77fa)
+
+    [19. 删除链表的倒数第 N 个结点](https://jiankychen.github.io/posts/bcf47f8f)
 
 [189. 轮转数组](https://jiankychen.github.io/posts/55ffda0f)
 

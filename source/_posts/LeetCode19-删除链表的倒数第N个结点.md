@@ -1,5 +1,5 @@
 ---
-title: LeetCode 19. 删除链表的倒数第N个结点
+title: LeetCode 19. 删除链表的倒数第 N 个结点
 tags:
   - 链表
   - 双指针
@@ -43,6 +43,7 @@ Given the `head` of a linked list, remove the `n`-th node **from the end** of th
  - $0 \le$ `Node.val` $\le 100$
  - $1 \le$ `n` $\le$ `sz`
 
+**Follow up:** Could you do this in one pass?
 
 ## Method: 双指针
 
@@ -65,22 +66,44 @@ ListNode* removeNthFromEnd(ListNode* head, int n) {
     ListNode* dummyHead = new ListNode(0, head);   // 创建哑结点
     ListNode *fast = dummyHead, *slow = dummyHead; // 初始化 fast 指针和 slow 指针
     for (int i = 0; i < n; i++)
-        fast = fast->next;      // fast 指针前进 n 步，即，比 slow 超前 n 步
-    while (fast != nullptr && fast->next != nullptr) { // 两指针同时移动，直到 fast 走到最后一个节点时
+        fast = fast->next;          // fast 指针前进 n 步，即，比 slow 超前 n 步
+    while (fast != nullptr && fast->next != nullptr) { // 两指针同时移动，直到 fast 走到最后一个节点
         fast = fast->next;
         slow = slow->next;
     }
-    ListNode* node = slow->next; // 暂存待删除节点
+    ListNode* node = slow->next;    // 暂存待删除节点
     slow->next = slow->next->next;  // 在链表中删除节点
-    delete node;                 // 清除已删除节点的内存
-    return dummyHead->next;
+    delete node;                    // 清除已删除节点的内存
+
+    ListNode* ans = dummyHead->next;
+    delete dummyHead;               // 清除哑结点
+    return ans;
 }
 ```
 
 
-时间复杂度：$O(n)$，其中 $n$ 是链表的长度
+时间复杂度：$O(L)$，其中 $L$ 是链表的长度
 
 空间复杂度：$O(1)$
 
 
-另，也可以令 `fast` 指针先走 `n + 1` 步，然后才同时移动两个指针，当 `fast` 指针到达链表的尾后，即 `fast == nullptr` 时，`slow` 指针也是指向待删除节点的上一个节点
+[^_^]: 这一段被注释掉了
+
+    另，也可以令 `fast` 指针先走 `n + 1` 步，然后才同时移动两个指针，当 `fast` 指针到达链表的尾后，即 `fast == nullptr` 时，`slow` 指针也是指向待删除节点的上一个节点
+
+    代码如下：
+
+    ```cpp
+    ListNode* dummy = new ListNode(0, head);
+    ListNode* slow = dummy;
+    ListNode* fast = head;
+    while (n--)                  // 移动 fast ，使其比 slow 超前 n + 1 步
+        fast = fast->next;
+    while (fast != nullptr) {    // 当 fast 移动到尾后时，slow 指向倒数第 n + 1 个节点
+        fast = fast->next;
+        slow = slow->next;
+    }
+    ListNode* node = slow->next;
+    slow->next = slow->next->next;
+    delete node;
+    ```

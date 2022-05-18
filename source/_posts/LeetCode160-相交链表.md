@@ -103,65 +103,63 @@ graph LR;
 
 ## 思路
 
-两链表的交点是指两链表对应节点的指针相等（而不是数值相等），因此，需要找出两个链表交点节点的指针
+两链表的交点是指两链表对应 **节点的指针相等** （而不是数值相等），因此，需要找出两个链表相交节点的指针
 
 **若两链表相交，则两链表的交点及以后节点均对应相等**
 
 可将两链表 “尾端对齐” ，从较短链表的头节点开始检查，比较两链表对应节点是否相等
 
-## Method
+## Method: 双指针
 
-解题步骤如下：
+算法流程：
 
-1. 定义指针 `curA` 指向链表 A 的头节点，指针 `curB` 指向链表 B 的头节点
+1. 求出两个链表的长度 `m` 和 `n`
+
+
+2. 定义指针 `curA` 指向长链表的头节点，指针 `curB` 指向短链表的头节点
 
     ![](LeetCode160-相交链表/1.png)
 
-2. 求出两个链表的长度 `m` 和 `n` ，将指针 `curA` 移动到第 `m - n + 1` 个节点，使得两个指针后续可移动步数相同（类似于两链表尾端对齐）
+3. 将指针 `curA` 移动到第 `m - n + 1` 个节点，使得两个指针后续可移动步数相同（类似于两链表尾端对齐）
 
     ![](LeetCode160-相交链表/2.png)
 
-3. 比较 `curA` 是否与 `curB` 相同
+4. 比较 `curA` 是否与 `curB` 相同
     - 若相同，则找到交点
     - 若不相同，则同时将 `curA` 和 `curB` 向后移动，直到 `curA` 和 `curB` 到达链表末尾
 
-若未找到交点，返回空指针
+5. 若未找到交点，返回空指针
+
+代码实现：
 
 ```cpp
+int getSize(ListNode *head) { // 计算链表的长度
+    int num = 0;
+    ListNode *cur = head;
+    while (cur != nullptr) {
+        num++;
+        cur = cur->next;
+    }
+    return num;
+}
+
 ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-    // 链表 A 的长度
-    int m = 0;
-    ListNode *curA = headA;
-    while (curA != nullptr) {
-        m++;
-        curA = curA->next;
-    }
-    // 链表 B 的长度
-    int n = 0;
-    ListNode *curB = headB;
-    while (curB != nullptr) {
-        n++;
-        curB = curB->next;
-    }
-    curA = headA;
-    curB = headB;
-    // 令 curA 为长链的头节点，curB 为短链的头节点，m 为长链的长度，n 为短链的长度
-    if (m < n) {
+    int m = getSize(headA);
+    int n = getSize(headB);
+    ListNode *curA = headA, *curB = headB;
+    if (m < n) {              // curA 指向长链，curB 指向短链
         swap(m, n);
         swap(curA, curB);
     }
-    // 令 curA 和 curB 的起点一致
-    for (int i = 0; i < m - n; i++)
+    for (int i = 0; i < m - n; i++) // 令 curA 和 curB 的起点一致
         curA = curA->next;
-    // 遍历 curA 和 curB
-    while (curA != nullptr) {
+    while (curA != nullptr) { // 遍历 curA 和 curB ，看两者是否相等
         if (curA == curB)
             return curA;
         curA = curA->next;
         curB = curB->next;
     }
-    // 未找到交点
-    return NULL;
+    return NULL;    // curA 已经移动到尾后，此时仍未找到交点
 }
 ```
 
@@ -169,5 +167,4 @@ ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
 
 空间复杂度：$O(1)$
 
-参考：
-- [代码随想录：相交链表](https://www.programmercarl.com/%E9%9D%A2%E8%AF%95%E9%A2%9802.07.%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4.html#%E6%80%9D%E8%B7%AF)
+参考：[代码随想录：相交链表](https://www.programmercarl.com/%E9%9D%A2%E8%AF%95%E9%A2%9802.07.%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4.html#%E6%80%9D%E8%B7%AF)
