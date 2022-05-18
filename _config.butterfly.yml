@@ -90,7 +90,7 @@ avatar:
   effect: false
 
 # Disable all banner image
-disable_top_img: 
+disable_top_img: true
 
 # The banner image of home page
 index_img: /img/SpaceStation.jpg
