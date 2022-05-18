@@ -14,6 +14,8 @@ tags:
 
 ![](DS-数据结构简介/1.png)
 
+> 不要对数据结构的使用浅尝辄止，而要深挖起内部原理
+
 
 ## 数组
 数组是将相同类型的元素存储于 **连续内存空间** 的数据结构，其长度不可变。构建数组时需要在初始化时给定长度，例如：
@@ -161,31 +163,104 @@ head->val = 5;
 
 [代码随想录：链表理论基础](https://www.programmercarl.com/%E9%93%BE%E8%A1%A8%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html#%E5%8D%95%E9%93%BE%E8%A1%A8)
 
-## 栈
-栈是一种具有 **先入后出** 特点的抽象数据结构，可使用数组或链表实现
 
-```cpp
-stack<int> stk;
-```
+## STL
+
+STL 是 Standard Template Library 的简称，即，标准模板库
+
+STL 可分为容器（containers）、迭代器（iterators）、空间配置器（allocator）、配接器（adapters）、算法（algorithms）、仿函数（functors）六个部分
+
+在 C++ 标准中，STL 被组织为下面的13个头文件: `<algorithm>` 、`<deque>` 、`<functional>` 、`<iterator>` 、`<vector>` 、`<list>` 、`<map>` 、`<memory>` 、`<numeric>` 、`<queue>` 、`<set>` 、`<stack>` 和 `<utility>`
+
+STL 的版本很多，其中，三个最为普遍的 STL 版本：
+
+ - HP STL 是 C++ STL 的第一个实现版本，而且开放源代码。其他版本的 C++ STL 一般是以 HP STL 为蓝本实现出来的。不过，现在已经很少直接使用此版本的 STL 了
+
+ - PJ STL（全称为 P.J. Plauger STL）由 P.J.Plauger 参照HP STL实现出来的，是 HP STL 的一个继承版本。PJ STL 被 Visual C++ 编译器所采用，但不是开源的
+
+ - SGI STL 也是 HP STL 的一个继承版本，和 HP STL 一样，SGI STL 也是开源的，其源代码的可读性可非常好。被 Linux 下的 C++ 编译器 GCC 所采用
+
+
+接下来介绍的 栈 和 队列 也是 SGI STL 里面的数据结构
+
+
+## 栈
+
+栈是一种具有 **先入后出** 特点的抽象数据结构，使用前需要引入 `stack` 头文件
+
+栈不提供迭代器，也不允许遍历
+
+栈依赖于底层容器完成所有工作，对外提供统一的接口。其中，底层容器是可插拔的，即，我们可以控制使用何种容器来实现栈的功能
+
+因此，在 STL 中，栈往往不被归类为 容器 ，而被归类为 容器适配器（container adapter）
+
+栈的底层实现可以是 `vector` ，`deque` ，`list` ，主要使用 数组 和 链表 的底层实现。**对于 SGI STL ，如果不指定，则默认使用 `deque` 作为底层容器**
+> `deque` 是一个双向队列，，只要封住一端、开通另一端，即可实现栈的逻辑
+
+
+我们可以指定 vector 为栈的底层实现，其初始化语句为：
+
+    std::stack<int, std::vector<int>> stk; // 使用 vector 为底层容器的栈
+
+栈常用的成员函数：
+
+ - `push()` ：在最顶层加入数据
+
+ - `pop()` ：返回并移除最顶层的数据
+
+ - `top()` ：返回最顶层数据的值，但不移除它
+
+ - `empty()` ：判断栈是否为空
+
+ - `size()` ：返回栈的大小
+
 
 如下图所示，通过常用操作 **入栈** `push()` ，**出栈** `pop()` ，展示了栈的先入后出特性
 ```cpp
+stack<int> stk;
 stk.push(1); // 元素 1 入栈
 stk.push(2); // 元素 2 入栈
-stk.pop();   // 出栈 -> 元素 2
-stk.pop();   // 出栈 -> 元素 1
+stk.pop();   // 元素 2 出栈
+stk.pop();   // 元素 1 出栈
 ```
 ![](DS-数据结构简介/3.png)
 
 
+
+
 ## 队列
-队列是一种具有 **先入先出** 特点的抽象数据结构，可使用链表实现
-```cpp
-queue<int> que;
-```
+
+队列（queue）是一种具有 **先入先出** 特点的抽象数据结构，使用前需先引入 `queue` 头文件
+
+队列不提供迭代器，不允许有遍历行为
+
+STL 队列 也不被归类为 容器 ，而被归类为 容器适配器（container adapter）
+
+队列的底层实现可以是 `deque` 和 `list` 。**对于 SGI STL ，如果不指定，则默认使用 `deque` 作为底层容器**
+
+可以指定 `list` 为栈的底层实现，其初始化语句为：
+
+    std::queue<int, std::list<int>> que; // 使用 list 为底层容器
+
+
+队列常用的成员函数：
+
+ - `push()` ：在队尾插入元素
+
+ - `pop()` ：弹出队首元素
+
+ - `front()` ：返回队首元素
+
+ - `back()` ：返回队尾元素
+
+ - `empty()` ：判断队列是否为空
+
+ - `size()` ：返回队列中元素的数量
+
 
 如下图所示，通过常用操作 **入队** `push()` ，**出队** `pop()` ，展示了队列的先入先出特性
 ```cpp
+queue<int> que;
 que.push(1); // 元素 1 入队
 que.push(2); // 元素 2 入队
 que.pop();   // 出队 -> 元素 1
@@ -193,6 +268,21 @@ que.pop();   // 出队 -> 元素 2
 ```
 ![](DS-数据结构简介/4.png)
 
+此外，`queue` 还提供了一些运算符。较为常用的是： 使用赋值运算符 `=` 为 `queue` 赋值
+
+例如
+```cpp
+queue<int> q1, q2;
+q1.push(1);
+q2 = q1;
+cout << q2.front() << endl;
+```
+
+### 双端队列
+
+### 循环队列
+
+可参考 [OI Wiki：队列](https://oi-wiki.org/ds/queue/)
 
 ## 树
 树是一种非线性数据结构，根据子节点数量可分为 **二叉树** 和 **多叉树** ，最顶层的节点称为 **根节点** `root`
