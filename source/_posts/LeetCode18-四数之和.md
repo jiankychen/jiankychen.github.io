@@ -68,11 +68,10 @@ vector<vector<int>> fourSum(vector<int>& nums, int target) {
         for (int j = i + 1; j < nums.size(); j++) {
             if (j > i + 1 && nums[j] == nums[j - 1]) continue; // 对 nums[j] 去重
             int left = j + 1, right = nums.size() - 1;
-            int temp1 = nums[i] + nums[j]; // 直接计算 nums[i] + nums[j] + nums[left] + nums[right] 会溢出
+            int temp = nums[i] + nums[j]; // 直接计算 nums[i] + nums[j] + nums[left] + nums[right] 会溢出
             while (left < right) {
-                int temp2 = nums[left] + nums[right];
-                if (temp2 < target - temp1) left++;
-                else if (temp2 > target - temp1) right--;
+                if (nums[left] + nums[right] < target - temp) left++;
+                else if (nums[left] + nums[right] > target - temp) right--;
                 else {
                     res.push_back({nums[i], nums[j], nums[left], nums[right]});
                     while (left < right && nums[left] == nums[++left]); // 对 nums[left] 去重
