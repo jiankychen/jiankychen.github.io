@@ -55,7 +55,7 @@ Given an array `nums` of `n` integers, return *an array of all the **unique** qu
 
 3. 采用双指针法在 `[j + 1, nums.size() - 1]` 区间内查找所有能与 `nums[i]` , `nums[j]` 组成四元组的元素 `nums[left]` 和 `nums[right]` ，其中，指针 `left` 从 `j + 1` 位置开始向右遍历，指针 `right` 从 `nums.size() - 1` 位置开始向左遍历
 
-具体步骤可参考 [LeetCode 15. 三数之和](https://jiankychen.github.io/posts/1b6e2437/) 中的 Method 2
+具体步骤可参考 [LeetCode 15. 三数之和](https://jiankychen.github.io/posts/1b6e2437/)
 
 代码实现：
 

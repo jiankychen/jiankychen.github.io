@@ -121,6 +121,14 @@ tags:
 
     [19. 删除链表的倒数第 N 个结点](https://jiankychen.github.io/posts/bcf47f8f)
 
+    [160. 相交链表](https://jiankychen.github.io/posts/fd7c45a8)
+
+    [142. 环形链表 II](https://jiankychen.github.io/posts/fe4aea2)
+
+    [15. 三数之和](https://jiankychen.github.io/posts/1b6e2437)
+
+    [18. 四数之和](https://jiankychen.github.io/posts/bb4f52a2)
+
 [189. 轮转数组](https://jiankychen.github.io/posts/55ffda0f)
 
 [283. 移动零](https://jiankychen.github.io/posts/35c387f3)

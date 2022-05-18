@@ -47,9 +47,9 @@ There is a cycle in a linked list if there is some node in the list that can be 
 
 **Constraints:**
 
- - The number of the nodes in the list is in the range `[0, 104]`.
- - -10^5^ <= `Node.val` <= 10^5^
- - `pos` is `-1` or a valid index in the linked-list.
+ - The number of the nodes in the list is in the range $[0, 10^4]$.
+ - $- 10^5 \le$ `Node.val` $\le 10^5$
+ - `pos` is `-1` or a **valid index** in the linked-list.
  
 
 **Follow up:** Can you solve it using `O(1)` (i.e. constant) memory?
@@ -79,7 +79,7 @@ There is a cycle in a linked list if there is some node in the list that can be 
 
 由于 `fast` 指针一步两节点，`slow` 指针一步一节点，则 `fast` 走过节点数为 `slow` 指针走过节点数的 `2` 倍，即：`2 (x + y) = x + y + n (y + z)`
 
-故而，环形的入口节点 `x` 应满足 **`x = (n - 1) (y + z) + z`** ，注意 `n` 一定大于等于 `1`
+故而，环形的入口节点 `x` 应满足 **`x = (n - 1) (y + z) + z`** ，注意 `n` 一定大于等于 `1` （否则，`fast` 不可能与 `slow` 相遇）
 
 这意味着，**指针 `index1` 从头结点出发，与此同时，指针 `index2` 从相遇节点出发，两指针每次均只走一个节点，这两个指针相遇的节点就是环形入口的节点**
 
@@ -89,7 +89,7 @@ There is a cycle in a linked list if there is some node in the list that can be 
 
 
 
-## 快慢指针
+## Method: 快慢指针
 
 ```cpp
 ListNode *detectCycle(ListNode *head) {
@@ -108,7 +108,7 @@ ListNode *detectCycle(ListNode *head) {
             return index1;  // index1 与 index2 的相遇点即为环形入口
         }
     }
-    // 不存在环形
+    // fast 不与 slow 相遇，不存在环形
     return NULL;
 }
 ```

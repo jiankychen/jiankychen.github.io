@@ -60,79 +60,82 @@ Notice that the solution set must **not** contain **duplicate** triplets.
 两种方法都能实现 $O(n^2)$ 的时间复杂度，但哈希法不便进行去重操作，因此，建议使用排序与双指针法解题
 
 
-## Method 1: 排序 + 哈希法
+[^_^]: 哈希法被注释掉了
 
-两层 `for` 循环遍历 `nums[i]` 和 `nums[j]` ，并使用哈希法来确定 `[i, j]` 区间内是否存在值为 `- nums[i] - nums[j]` 的元素
+    ## Method 1: 排序 + 哈希法
 
-注意去重
+    两层 `for` 循环遍历 `nums[i]` 和 `nums[j]` ，并使用哈希法来确定 `[i, j]` 区间内是否存在值为 `- nums[i] - nums[j]` 的元素
 
-```cpp
-vector<vector<int>> threeSum(vector<int>& nums) {
-    vector<vector<int>> ans;            // 存放结果
-    sort(nums.begin(), nums.end());     // 排序
-    // 寻找满足条件的三元组
-    for (int i = 0; i < nums.size(); i++) { // 判断 i 右侧元素是否能与 nums[i] 组成三元组
-        if (nums[i] > 0) // 最小值大于 0， 不存在可行的三元组
-            break;
-        if (i > 0 && nums[i] == nums[i - 1]) // nums[i] 与 nums[i - 1] 重复，应跳过（似乎这里也存在某些坑）
-            continue;
-        unordered_set<int> set;
-        for (int j = i + 1; j < nums.size(); j++) { // 判断 i 与 j 之间是否有元素能够与 nums[i] , nums[j] 形成三元组
-            if (j > i + 2 && nums[j] == nums[j - 1] && nums[j - 1] == nums[j - 2]) // nums[j] 与 nums[j - 1] , nums[j - 2] 重复，跳过
+    注意去重
+
+    ```cpp
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> ans;            // 存放结果
+        sort(nums.begin(), nums.end());     // 排序
+        // 寻找满足条件的三元组
+        for (int i = 0; i < nums.size(); i++) { // 判断 i 右侧元素是否能与 nums[i] 组成三元组
+            if (nums[i] > 0) // 最小值大于 0， 不存在可行的三元组
+                break;
+            if (i > 0 && nums[i] == nums[i - 1]) // nums[i] 与 nums[i - 1] 重复，应跳过（似乎这里也存在某些坑）
                 continue;
-            int temp = 0 - nums[i] - nums[j];
-            if (set.find(temp) != set.end()) {
-                ans.push_back({nums[i], temp, nums[j]});
-                set.erase(temp);
+            unordered_set<int> set;
+            for (int j = i + 1; j < nums.size(); j++) { // 判断 i 与 j 之间是否有元素能够与 nums[i] , nums[j] 形成三元组
+                if (j > i + 2 && nums[j] == nums[j - 1] && nums[j - 1] == nums[j - 2]) // nums[j] 与 nums[j - 1] , nums[j - 2] 重复，跳过
+                    continue;
+                int temp = 0 - nums[i] - nums[j];
+                if (set.find(temp) != set.end()) {
+                    ans.push_back({nums[i], temp, nums[j]});
+                    set.erase(temp);
+                }
+                else
+                    set.insert(nums[j]);
             }
-            else
-                set.insert(nums[j]);
         }
+        return ans;
     }
-    return ans;
-}
-```
+    ```
 
-有几个地方没弄明白
+    有几个地方没弄明白
 
-第一个地方：
+    第一个地方：
 
-    if (j > i + 2 && nums[j] == nums[j - 2])
-        continue;
-    // nums[j] == nums[j - 2] 等价于 nums[j] == nums[j - 1] && nums[j - 1] == nums[j - 2]
+        if (j > i + 2 && nums[j] == nums[j - 2])
+            continue;
+        // nums[j] == nums[j - 2] 等价于 nums[j] == nums[j - 1] && nums[j - 1] == nums[j - 2]
 
-第二个地方：
+    第二个地方：
 
-    if (set.find(temp) != set.end()) {
-        ans.push_back({nums[i], temp, nums[j]});
-        set.erase(temp);
-    }
-    else
-        set.insert(nums[j]);
+        if (set.find(temp) != set.end()) {
+            ans.push_back({nums[i], temp, nums[j]});
+            set.erase(temp);
+        }
+        else
+            set.insert(nums[j]);
 
-将第一个地方改为 `if(j > i + 2 && nums[j] == nums[j - 1]) continue;`  时，出现以下结果：
+    将第一个地方改为 `if(j > i + 2 && nums[j] == nums[j - 1]) continue;`  时，出现以下结果：
 
-![](LeetCode15-三数之和/1.png)
+    ![](LeetCode15-三数之和/1.png)
 
-这是因为，当 `j = 3` 时 `nums[j] == nums[j - 1]` ，执行 `continue` ，跳过了对 `(x, 1, 1)` 的查找
+    这是因为，当 `j = 3` 时 `nums[j] == nums[j - 1]` ，执行 `continue` ，跳过了对 `(x, 1, 1)` 的查找
 
-第二个地方，做以下考虑：
- - 当 `if` 条件满足时，已经确定 `nums[i]` , `temp` 可以和 `nums[j]` 组成三元组，因此  `nums[i]` , `temp` 不可能再跟 `j` 右侧元素组成满足条件的三元组（最终结果不能包含重复的三元组），故而将 `temp` 从 `set` 中剔除
- - 当 `if` 条件不满足时，未找到能与 `nums[i]` , `nums[j]` 组成三元组的 `temp` ，为了能在 `j` 右侧继续寻找满足条件的 `temp` ，需要将 `nums[j]` 插入到 `set` 当中，以使得当前的 `nums[j]` 能被容纳在 `j` 右移之后的查找范围内（即，将当前 `nums[j]` 作为后续的 `j` 所能够查找到的 `temp` 的一个可能值） 
+    第二个地方，做以下考虑：
+    - 当 `if` 条件满足时，已经确定 `nums[i]` , `temp` 可以和 `nums[j]` 组成三元组，因此  `nums[i]` , `temp` 不可能再跟 `j` 右侧元素组成满足条件的三元组（最终结果不能包含重复的三元组），故而将 `temp` 从 `set` 中剔除
+    - 当 `if` 条件不满足时，未找到能与 `nums[i]` , `nums[j]` 组成三元组的 `temp` ，为了能在 `j` 右侧继续寻找满足条件的 `temp` ，需要将 `nums[j]` 插入到 `set` 当中，以使得当前的 `nums[j]` 能被容纳在 `j` 右移之后的查找范围内（即，将当前 `nums[j]` 作为后续的 `j` 所能够查找到的 `temp` 的一个可能值） 
 
-将第二个地方的 `set.erase(temp);` 删除以后，出现以下情况：
+    将第二个地方的 `set.erase(temp);` 删除以后，出现以下情况：
 
-![](LeetCode15-三数之和/2.png)
+    ![](LeetCode15-三数之和/2.png)
 
-这是因为，当 `j = 3` 时找到了第一个三元组 `[-2,0,2]` 但未将 `0` 从 `set` 中剔除，而当 `j` 右移一位后，条件 `nums[j] == nums[j - 2]` 不满足，`j = 4` 时也重新在 `set` 中查找到了 `0` （刚好与第一个地方联系上了）
+    这是因为，当 `j = 3` 时找到了第一个三元组 `[-2,0,2]` 但未将 `0` 从 `set` 中剔除，而当 `j` 右移一位后，条件 `nums[j] == nums[j - 2]` 不满足，`j = 4` 时也重新在 `set` 中查找到了 `0` （刚好与第一个地方联系上了）
 
-这里边的细节也太细了吧。。弃了弃了。。
+    这里边的细节也太细了吧。。弃了弃了。。
 
-时间复杂度：$O(n^2)$
+    时间复杂度：$O(n^2)$
 
-空间复杂度：$O(\log{n})$，这里仅考虑了排序的空间复杂度 $O(\log{n})$ ，忽略了储存结果的空间
+    空间复杂度：$O(\log{n})$，这里仅考虑了排序的空间复杂度 $O(\log{n})$ ，忽略了储存结果的空间
 
-## Method 2: 排序 + 双指针
+
+## Method: 排序 + 双指针
 
 解题步骤：
 
@@ -151,7 +154,7 @@ vector<vector<int>> threeSum(vector<int>& nums) {
        - 若 `sum == 0` ，记录结果，并将 `left` 右移、将 `right` 左移，以跳过重复的 `nums[left]` 和 `nums[right]`
 
 
-注意：同一个 `i` 可以与不同的元素组成多个不同的三元组，因此，在找到一对可行的 `nums[left]` 和 `nums[right]` 后仍需继续查找，直到 `left < right` 不满足
+> 注意：同一个 `i` 可以与不同的元素组成多个不同的三元组，因此，在找到一对可行的 `nums[left]` 和 `nums[right]` 后仍需继续查找，直到 `left < right` 不满足
 
 代码实现：
 
@@ -187,7 +190,7 @@ vector<vector<int>> threeSum(vector<int>& nums) {
 
 这里不能改成 `if (nums[i] == nums[i + 1]) continue;` ，否则，以数组 `nums = [-1, 0, 1, 2, -1, -4]` 为例（排序后，`nums = [-4, -1, -1, 0, 1, 2]` ），查找时将会遗漏 `[-1, -1, 2]` 这一个三元组。因为当 `i = 1` 时 `nums[1] == nums[2]` 条件成立，因此不会进行双指针查找；而当 `i = 2` 时，只会查找 `i` 右侧的元素，故而遗失了对 `[-1, -1, x]` 这几种情况的查找，`x` 为第二个 `-1` 右侧的任意值
 
-上述的 Method 1 也是类似道理
+<!-- 上述的 Method 1 也是类似道理 -->
 
 需要注意的第二个地方：
 
@@ -201,7 +204,7 @@ vector<vector<int>> threeSum(vector<int>& nums) {
 
 并且，注意这里的 `nums[left] == nums[++left]` 语句，将当前 `left` 对应元素值与 `left` 右移之后对应元素值进行比较，不能将其改成 `nums[++left] == nums[left]` ，也不能改成 `nums[left] == nums[left++]` 。语句 `nums[right] == nums[--right]` 同理
 
-第二个地方可以改写成
+特别地，第二个地方可以改写成
 
     if (sum == 0) {
         res.push_back(vector<int>{nums[i], nums[left], nums[right]});
