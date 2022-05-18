@@ -1,12 +1,13 @@
 ---
 title: LeetCode 232. 用栈实现队列
-date: 2022-05-18 22:29:08
 tags:
- - 栈
- - 队列
+  - 栈
+  - 队列
 categories:
   - LeetCode
 cover: false
+abbrlink: 81d08953
+date: 2022-05-18 22:29:08
 ---
 
 
