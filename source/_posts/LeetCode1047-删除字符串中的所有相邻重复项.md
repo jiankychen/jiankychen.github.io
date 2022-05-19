@@ -37,7 +37,7 @@ Return *the final string after all such duplicate removals have been made.* It c
 
 **Constraints:**
 
- - $1 \le$ s.length $\le 10^5$
+ - $1 \le$ `s.length` $\le 10^5$
  - `s` consists of lowercase English letters.
 
 ## 思路
@@ -48,7 +48,7 @@ Return *the final string after all such duplicate removals have been made.* It c
 
 ## Method: 栈
 
-由于栈具有后进先出的特性，栈顶元素对应的是字符串的尾端，因此，填充目标字符串时需按从右往左顺序填充
+由于栈顶元素对应的是字符串的尾端，填充目标字符串时需按从右往左顺序填充
 
 代码实现：
 
@@ -79,7 +79,7 @@ string removeDuplicates(string s) {
 
 ## Method: 字符串
 
-由于 `std::string` 类本身就提供了类似 入栈 和 出栈 的接口，可以直接将目标字符串作为栈
+在 C++ 中，由于标准库类型 `string` 本身就提供了类似 入栈 和 出栈 的接口，可直接将目标字符串作为栈
 
 
 代码实现：
