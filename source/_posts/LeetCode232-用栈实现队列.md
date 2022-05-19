@@ -55,6 +55,12 @@ Implement the `MyQueue` class:
 **Follow-up:** Can you implement the queue such that each operation is *amortized* `O(1)` time complexity? In other words, performing n operations will take overall `O(n)` time even if one of those operations may take longer.
 
 
+## 思路
+
+栈具有后进先出的特性
+
+若将一个栈的所有元素移入到另一个栈中，元素的排列顺序会变得与之前相反
+
 ## Method
 
 解题思路：
@@ -63,17 +69,17 @@ Implement the `MyQueue` class:
     - 栈 `stk1` 用来作为存储队列，即，最先入队的在 `stk1` 栈顶，最后入队的在 `stk1` 栈底
     - 栈 `stk2` 作为临时存储空间，用来协助实现队列的功能
 
-2. 针对 `void push(int x)` 函数的实现：
+2. `void push(int x)` 函数的实现：
     - 若 `stk1` 非空：先将 `stk1` 内的所有元素都移出来，放进 `stk2` ，然后将 `x` 压入栈 `stk1` ，将 `stk2` 内的元素移回 `stk1`
     - 若 `stk1` 为空，直接将 `x` 压入栈 `stk1` 即可
 
-3. 针对 `int pop()` 函数的实现：
+3. `int pop()` 函数的实现：
     - 记录 `stk1` 栈顶元素值，并弹出 `stk1` 栈顶元素，返回其值
 
-4. 针对 `int peek()` 函数的实现：
+4. `int peek()` 函数的实现：
     - 直接返回 `stk1` 栈顶元素值即可
 
-5. 针对 `bool empty()` 函数的实现：
+5. `bool empty()` 函数的实现：
     - 判断 `stk1` 是否为空即可
 
 > 另，也可以 “将最先入队的放 `stk1` 栈底，最后入队的在 `stk1` 栈顶” ，此时：入队操作可直接将 `x` 压入栈 `stk1` ；出队操作需将 `stk1` 栈底以上的元素全都临时存放到 `stk2` ，待 `stk1` 栈底元素弹出后，再将 `stk2` 所有元素移回 `stk1`
@@ -134,6 +140,6 @@ public:
  */
  ```
 
-注意，`pop()` 没有返回值，不能作为右值；`top()` 具有返回值，可以作为右值
+注意，标准库实现的栈和队列，其成员函数 `pop()` 没有返回值，不能作为右值；`top()` 具有返回值，可以作为右值
 
 另外，关于 `peek()` 函数的实现，可以直接调用已经定义了的 `MyQueue` 类别的 `pop()` 函数，即，通过函数的复用来实现。这样可以降低出错的可能性
