@@ -82,16 +82,14 @@ bool isValid(string s) {
     if (s.size() % 2) return false; // 括号数为奇数，直接返回 false
     stack<int> stk;
     for (auto c : s) { // 范围 for
-        // 当 c 为左括号时，把对应的 右括号 压入栈
+        // 当 c 为 左括号 时，把对应的 右括号 压入栈
         if (c == '(') stk.push(')');
         else if (c == '[') stk.push(']');
         else if (c == '{') stk.push('}');
         // 当栈为空，或者，c 是 右括号 但 不等于栈顶元素，匹配失败
-        else if (stk.empty() || c != stk.top())
-            return false;
+        else if (stk.empty() || c != stk.top()) return false;
         // c 是 右括号 且 等于栈顶元素，匹配成功，从栈顶移除左括号
-        else
-            stk.pop();
+        else stk.pop();
     }
     // 所有括号均已遍历完成，若栈为空，则匹配成功
     return stk.empty();
