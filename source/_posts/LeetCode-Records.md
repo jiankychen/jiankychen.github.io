@@ -44,6 +44,8 @@ tags:
 [剑指Offer 03. 数组中重复的数字](https://jiankychen.github.io/posts/b5e5ca5b)
 
 
+
+
 ## 链表
 
 [203. 移除链表元素](https://jiankychen.github.io/posts/c5f901bc)
@@ -66,6 +68,7 @@ tags:
 
 
 
+
 ## 哈希表
 
 [242. 有效的字母异位词](https://jiankychen.github.io/posts/30250b0)
@@ -85,6 +88,8 @@ tags:
 [18. 四数之和](https://jiankychen.github.io/posts/bb4f52a2)
 
 
+
+
 ## 字符串
 
 [344. 反转字符串](https://jiankychen.github.io/posts/d9baf118)
@@ -102,6 +107,7 @@ tags:
 [剑指Offer 05. 替换空格](https://jiankychen.github.io/posts/fff72920)
 
 [剑指Offer 58-II. 左旋转字符串](https://jiankychen.github.io/posts/5c5f7907)
+
 
 
 
@@ -147,6 +153,10 @@ tags:
 
 [225. 用队列实现栈](https://jiankychen.github.io/posts/5a1b1370)
 
+[20. 有效的括号](https://jiankychen.github.io/posts/2998838f)
+
+
+
 ## 二叉树
 
 [144. 二叉树的前序遍历](https://jiankychen.github.io/posts/e85d694a)
@@ -161,7 +171,11 @@ tags:
 
 
 
+
+
 ## 排序
+
+
 
 
 ## 二分查找
@@ -177,6 +191,9 @@ tags:
 [744. 寻找比目标字母大的最小字母](https://jiankychen.github.io/posts/7e8f6f39)
 
 
+
+
+
 ## 广度优先搜索/深度优先搜索
 
 [733. 图像渲染](https://jiankychen.github.io/posts/67cb564f)
@@ -184,12 +201,18 @@ tags:
 [695. 岛屿的最大面积](https://jiankychen.github.io/posts/edd44cd5)
 
 
+
+
 ## 回溯算法
 
 
 
 
+
+
 ## 贪心算法
+
+
 
 
 
