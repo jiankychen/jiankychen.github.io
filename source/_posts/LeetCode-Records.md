@@ -157,6 +157,7 @@ tags:
 
 [1047. 删除字符串中的所有相邻重复项](https://jiankychen.github.io/posts/7fd44fa1)
 
+[150. 逆波兰表达式求值](https://jiankychen.github.io/posts/7936534f)
 
 
 ## 二叉树
