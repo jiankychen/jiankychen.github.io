@@ -161,6 +161,8 @@ tags:
 
 [239. 滑动窗口最大值](https://jiankychen.github.io/posts/3ba13828)
 
+[347. 前 K 个高频元素](https://jiankychen.github.io/posts/f382432a)
+
 
 ## 二叉树
 
