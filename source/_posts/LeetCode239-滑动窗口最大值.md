@@ -12,9 +12,9 @@ date: 2022-05-23 16:49:23
 [239. Sliding Window Maximum](https://leetcode.cn/problems/sliding-window-maximum/)
 
 
-You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position.
+You are given an array of integers `nums`, there is a sliding window of size `k` which is moving from the very left of the array to the very right. You can only see the `k` numbers in the window. Each time the sliding window moves right by one position.
 
-Return the max sliding window.
+*Return the max sliding window.*
 
  
 
@@ -175,3 +175,6 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
  - [力扣官方题解：滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/solution/dong-hua-yan-shi-dan-diao-dui-lie-239hua-hc5u/)
  - [编程狂想曲：动画演示 单调队列 239.滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/solution/dong-hua-yan-shi-dan-diao-dui-lie-239hua-hc5u/)
  - [cplusplus：std::deque](http://www.cplusplus.com/reference/deque/deque/)
+
+
+## Method 3: 分块 + 预处理
