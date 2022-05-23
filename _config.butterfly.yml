@@ -67,15 +67,17 @@ local_search:
 
 # MathJax
 mathjax:
-  enable: false
-  per_page: false
+  enable: true
+  # true 表示每一頁都加載mathjax.js
+  # false 需要時加載，須在使用的Markdown Front-matter 加上 mathjax: true
+  per_page: true
 
 # KaTeX
 katex:
-  enable: true
+  enable: false
   # true 表示每一頁都加載katex.js
   # false 需要時加載，須在使用的Markdown Front-matter 加上 katex: true
-  per_page: true
+  per_page: false
   hide_scrollbar: true
 
 # Image (圖片設置)
