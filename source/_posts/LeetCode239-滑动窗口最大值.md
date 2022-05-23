@@ -108,7 +108,9 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
 
 空间复杂度：$O(n)$ ，这里仅考虑了优先队列所需空间，忽略了目标数组所需空间
 
-参考：[力扣官方题解：滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/solution/dong-hua-yan-shi-dan-diao-dui-lie-239hua-hc5u/)
+参考
+ - [力扣官方题解：滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/solution/dong-hua-yan-shi-dan-diao-dui-lie-239hua-hc5u/)
+ - [cplusplus：std::priority_queue](http://www.cplusplus.com/reference/queue/priority_queue/?kw=priority_queue)
 
 
 ## Method 2: 单调队列
@@ -172,3 +174,4 @@ vector<int> maxSlidingWindow(vector<int>& nums, int k) {
 参考：
  - [力扣官方题解：滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/solution/dong-hua-yan-shi-dan-diao-dui-lie-239hua-hc5u/)
  - [编程狂想曲：动画演示 单调队列 239.滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/solution/dong-hua-yan-shi-dan-diao-dui-lie-239hua-hc5u/)
+ - [cplusplus：std::deque](http://www.cplusplus.com/reference/deque/deque/)
