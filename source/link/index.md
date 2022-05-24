@@ -4,20 +4,21 @@ date: 2021-10-26 10:04:57
 type: "link"
 ---
 
-{% linksfile /_data/link.yml %}
+<!-- {% linksfile /source/_data/link.yml %} -->
 
-<!-- ## Guidance
+## Guidance
 
- - [代码随想录](https://programmercarl.com/): 刷题指引
+ - [代码随想录](https://programmercarl.com/)
 
- - [Road To Coding](https://www.r2coding.com/#/README): 编程自学之路
+ - [Road To Coding](https://www.r2coding.com/#/README)
 
 ## Resource
- - [编程导航](https://www.code-nav.cn/resources): 资源合集
 
- - [Oi Wiki](https://oi-wiki.org/): 知识集锦
+ - [编程导航](https://www.code-nav.cn/resources)
 
- - [algo](https://dowalle.gitbook.io/algo/): 知识集锦
+ - [Oi Wiki](https://oi-wiki.org/)
+
+ - [algo](https://dowalle.gitbook.io/algo/)
 
 
 ## Friends
@@ -37,16 +38,19 @@ type: "link"
 
 
 ## C++
- - [C++ Reference](https://en.cppreference.com/w/): Online reference
 
- - [C Plus Plus](http://www.cplusplus.com/): Tutorials
+ - [C Plus Plus](http://www.cplusplus.com/)
 
- - [Stack Overflow](https://stackoverflow.com/): Community
+ - [Stack Overflow](https://stackoverflow.com/)
+
+ - [C++ Reference](https://en.cppreference.com/w/)
 
 
 
 ## Support
 
- - [Hexo](https://hexo.io/zh-tw/): 网页框架 -->
+ - [Hexo](https://hexo.io/zh-tw/)
+
+ - [Shoka](https://github.com/amehime/hexo-theme-shoka)
       
       
