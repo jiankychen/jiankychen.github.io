@@ -1,6 +1,6 @@
 ---
 title: LeetCode Records
-sticky: 5
+sticky: true
 categories:
   - LeetCode
 cover: false

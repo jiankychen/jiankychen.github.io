@@ -1,96 +1,95 @@
-- class_name:  Guidance
-  class_desc:  # 可留空
-  link_list: 
-    - name: 代码随想录
-      link: https://programmercarl.com/
-      avatar: https://img-blog.csdnimg.cn/20210614201246512.png
-      descr: 刷题指引
+# - class_site:  Guidance
+#   class_desc:  # 可留空
+#   url_list: 
+- site: 代码随想录
+  url: https://programmercarl.com/
+  image: https://img-blog.csdnimg.cn/20210614201246512.png
+  desc: 刷题指引
 
-    - name: Road To Coding
-      link: https://www.r2coding.com/#/README
-      avatar: https://cdn.jsdelivr.net/gh/justacoder99/r2coding@master/img/r2coding_logo_index.15y992dieibg.png
-      descr: 编程自学之路
+- site: Road To Coding
+  url: https://www.r2coding.com/#/README
+  image: https://cdn.jsdelivr.net/gh/justacoder99/r2coding@master/img/r2coding_logo_index.15y992dieibg.png
+  desc: 编程自学之路
 
-- class_name:  Resource
-  class_desc:  # 可留空
-  link_list:
-    - name: 编程导航
-      link: https://www.code-nav.cn/resources
-      avatar: https://636f-codenav-8grj8px727565176-1256524210.tcb.qcloud.la/img/logo.png
-      descr: 资源合集
+# - class_site:  Resource
+#   class_desc:  # 可留空
+#   url_list:
+- site: 编程导航
+  url: https://www.code-nav.cn/resources
+  image: https://636f-codenav-8grj8px727565176-1256524210.tcb.qcloud.la/img/logo.png
+  desc: 资源合集
 
-    - name: Oi Wiki
-      link: https://oi-wiki.org/
-      avatar: https://oi-wiki.org/images/wordArt.webp
-      descr: 知识集锦
+- site: Oi Wiki
+  url: https://oi-wiki.org/
+  image: https://oi-wiki.org/images/wordArt.webp
+  desc: 知识集锦
 
-    - name: algo
-      link: https://dowalle.gitbook.io/algo/
-      avatar: 
-      descr: 知识集锦
-
-
-- class_name:  Friends
-  class_desc:  # 可留空
-  link_list:
-    - name: Kavin
-      link: https://kavinwkp.github.io/
-      avatar: https://kavinwkp.github.io/medias/kavin.jpg
-      descr: Kavin's blog
-
-    - name: Vyron
-      link: https://vvvvvyron.github.io/
-      avatar: https://vvvvvyron.github.io/medias/logo.png
-      descr: Vyron's blog
-      
-    - name: Konb
-      link: https://konb-hui.github.io/blog/
-      avatar: https://konb-hui.github.io/blog/images/avatar.webp
-      descr: Konb's blog
-
-    - name: Abacteria
-      link: https://abacteria.github.io
-      avatar: https://s2.loli.net/2022/05/04/qVlPbLDCGM3pjKy.jpg
-      descr: Abacteria's blog
+- site: algo
+  url: https://dowalle.gitbook.io/algo/
+  image: 
+  desc: 知识集锦
 
 
+# - class_site:  Friends
+#   class_desc:  # 可留空
+#   url_list:
+- site: Kavin
+  url: https://kavinwkp.github.io/
+  image: https://kavinwkp.github.io/medias/kavin.jpg
+  desc: Kavin's blog
 
-- class_name:  C++
-  class_desc:  # 可留空
-  link_list:
-    - name: C++ Reference
-      link: https://en.cppreference.com/w/
-      avatar: 
-      descr: Online reference
+- site: Vyron
+  url: https://vvvvvyron.github.io/
+  image: https://vvvvvyron.github.io/medias/logo.png
+  desc: Vyron's blog
+  
+- site: Konb
+  url: https://konb-hui.github.io/blog/
+  image: https://konb-hui.github.io/blog/images/image.webp
+  desc: Konb's blog
 
-    - name: C Plus Plus
-      link: http://www.cplusplus.com/
-      avatar: http://www.cplusplus.com/img/welcometo.gif
-      descr: Tutorials
+- site: Abacteria
+  url: https://abacteria.github.io
+  image: https://s2.loli.net/2022/05/04/qVlPbLDCGM3pjKy.jpg
+  desc: Abacteria's blog
 
-    - name: Stack Overflow
-      link: https://stackoverflow.com/
-      avatar: https://stackoverflow.com/
-      descr: Community
 
-      
 
-- class_name:  Support
-  class_desc:  # 可留空
-  link_list:
-    - name: Hexo
-      link: https://hexo.io/zh-tw/
-      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
-      descr: 网页框架
+# - class_site:  C++
+#   class_desc:  # 可留空
+#   url_list:
+- site: C++ Reference
+  url: https://en.cppreference.com/w/
+  image: 
+  desc: Online reference
 
-    - name: Butterfly
-      link: https://github.com/jerryc127/hexo-theme-butterfly
-      avatar: 
-      descr: Hexo 主题
-      
-    - name: Plugins
-      link: https://hexo.io/plugins/
-      avatar: 
-      descr: Hexo 插件列表
-      
+- site: C Plus Plus
+  url: http://www.cplusplus.com/
+  image: http://www.cplusplus.com/img/welcometo.gif
+  desc: Tutorials
+
+- site: Stack Overflow
+  url: https://stackoverflow.com/
+  image: https://stackoverflow.com/
+  desc: Community
+
+  
+
+# - class_site:  Support
+#   class_desc:  # 可留空
+#   url_list:
+- site: Hexo
+  url: https://hexo.io/zh-tw/
+  image: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+  desc: 网页框架
+
+- site: Butterfly
+  url: https://github.com/jerryc127/hexo-theme-butterfly
+  image: 
+  desc: Hexo 主题
+  
+- site: Plugins
+  url: https://hexo.io/plugins/
+  image: 
+  desc: Hexo 插件列表
       

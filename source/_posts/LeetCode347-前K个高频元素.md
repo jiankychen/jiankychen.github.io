@@ -7,6 +7,7 @@ categories:
 cover: false
 abbrlink: f382432a
 date: 2022-05-23 20:39:36
+math: true
 ---
 
 [347. Top K Frequent Elements](https://leetcode.cn/problems/top-k-frequent-elements/)
