@@ -87,7 +87,12 @@
   url: https://github.com/jerryc127/hexo-theme-butterfly
   image: 
   desc: Hexo 主题
-  
+
+- site: Shoka
+  url: https://github.com/amehime/hexo-theme-shoka
+  image: 
+  desc: Hexo 主题
+
 - site: Plugins
   url: https://hexo.io/plugins/
   image: 
