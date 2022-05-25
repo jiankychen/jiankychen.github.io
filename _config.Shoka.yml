@@ -179,9 +179,9 @@ creative_commons:
 
 # valine
 valine:
-  appId: jskitC9G3ceacfrDC8UKLmtI-MdYXbMMI
-  appKey: D9bRMF1NfcDMhXO0NAh8PwOi
-  placeholder: ヽ(○´∀`)ﾉ♪ # Comment box placeholder
+  appId: 9k5hfrFE936X1LuWPJ172nkt-MdYXbMMI
+  appKey: Kl2dOEsMbA1HrwpGImDi32Qz
+  placeholder: 欢迎评论~ # Comment box placeholder
   avatar: mp # Gravatar style : mp, identicon, monsterid, wavatar, robohash, retro
   pageSize: 10 # Pagination size
   lang: zh-CN
@@ -200,8 +200,8 @@ valine:
     investor: "var(--color-pink)"
   tagMember:
     master:
-       - jiechean@163.com
-       - a1102459132@gmail.com
+      # - jiechean@163.com
+      # - a1102459132@gmail.com
     friend:
       # - hash of friend@email.com
       # - hash of friend2@email.com
