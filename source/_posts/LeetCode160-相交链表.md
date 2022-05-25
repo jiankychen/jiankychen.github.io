@@ -5,6 +5,7 @@ tags:
 categories:
   - LeetCode
 cover: false
+mermaid: true
 abbrlink: fd7c45a8
 date: 2022-04-29 16:42:45
 ---

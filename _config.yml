@@ -45,14 +45,14 @@ post_asset_folder: true
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false # edit for Theme.shoka
   line_number: true
   auto_detect: true
   tab_replace: ''
   wrap: true
   hljs: false
 prismjs:
-  enable: false
+  enable: false # edit for Theme.shoka
   preprocess: true
   line_number: true
   tab_replace: ''
@@ -183,6 +183,7 @@ markdown:
         enable: true
         options:
           title: "你知道得太多了"
+
 # options for minify
 minify:
   html:
@@ -228,6 +229,9 @@ feed:
         enable: true
         template: "themes/shoka/layout/_alternate/json.ejs"
         output: "feed.json"
+
+
+
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/

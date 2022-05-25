@@ -7,6 +7,7 @@ categories:
   - LeetCode
 cover: false
 abbrlink: f84c47a9
+mermaid: true
 date: 2022-04-29 10:16:01
 ---
 
@@ -14,7 +15,7 @@ date: 2022-04-29 10:16:01
 
 Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
 
- 
+
 
 **Example 1:**
 
