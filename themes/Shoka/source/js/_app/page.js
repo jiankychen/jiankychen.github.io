@@ -147,7 +147,7 @@ const postBeauty = function () {
     }
 
     var copyright = $('#copyright')
-    if(window.getSelection().toString().length > 30 && copyright) {
+    if(window.getSelection().toString().length > 100 && copyright) {
       event.preventDefault();
       var author = "# " + copyright.child('.author').innerText
       var link = "# " + copyright.child('.link').innerText
