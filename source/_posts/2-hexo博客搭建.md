@@ -106,11 +106,13 @@ date: 2021-10-24 23:06:24
 
 ## hexo主题
 
-<!-- Butterfly
- - [Butterfly 配置](https://butterfly.js.org/posts/21cfbf15/)
- - [Butterfly 主题美化](https://guole.fun/posts/butterfly-custom/) -->
+[^_^]: 被注释掉了
 
-本博客采用主题是 [Shoka](https://github.com/amehime/hexo-theme-shoka)
+	Butterfly
+	 - [Butterfly 配置](https://butterfly.js.org/posts/21cfbf15/)
+	 - [Butterfly 主题美化](https://guole.fun/posts/butterfly-custom/)
+
+[Shoka](https://github.com/amehime/hexo-theme-shoka)
  - [Shoka 配置](https://shoka.lostyu.me/computer-science/note/theme-shoka-doc/)
  - [补充说明](https://www.reversesacle.com/Hexo-Shoka%E4%B8%BB%E9%A2%98%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D%E8%A1%A5%E5%85%85%E7%82%B9/)
 
@@ -119,27 +121,35 @@ date: 2021-10-24 23:06:24
 
 ## 插件
 
-<!-- [代码高亮: hexo-prism-plugin ](https://github.com/ele828/hexo-prism-plugin) -->
+[^_^]: 被注释掉了
+
+	[代码高亮: hexo-prism-plugin ](https://github.com/ele828/hexo-prism-plugin)
 
 [静态链接转换：hexo-abbrlink](https://github.com/rozbo/hexo-abbrlink) / [hexo-permalink-pinyin](https://github.com/viko16/hexo-permalink-pinyin)
 
-<!-- [本地搜索：hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
-
-[帖子字数统计：hexo-wordcount](https://github.com/willin/hexo-wordcount) -->
 
 [显示本地图片：hexo-asset-img](https://github.com/yiyungent/hexo-asset-img)
 
-<!-- [渲染器：hexo-renderer-pug](https://github.com/hexojs/hexo-renderer-pug) + [hexo-renderer-stylus](https://github.com/hexojs/hexo-renderer-stylus)
+[^_^]: 被注释掉了
 
-[数学公式：@neilsustc/markdown-it-katex](https://github.com/yzhang-gh/markdown-it-katex) + [@upupming/hexo-renderer-markdown-it-plus](https://github.com/upupming/hexo-renderer-markdown-it-plus) -->
+	[本地搜索：hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
+
+	[帖子字数统计：hexo-wordcount](https://github.com/willin/hexo-wordcount)
+	[渲染器：hexo-renderer-pug](https://github.com/hexojs/hexo-renderer-pug) + [hexo-renderer-stylus](https://github.com/hexojs/hexo-renderer-stylus)
+
+	[数学公式：@neilsustc/markdown-it-katex](https://github.com/yzhang-gh/markdown-it-katex) + [@upupming/hexo-renderer-markdown-it-plus](https://github.com/upupming/hexo-renderer-markdown-it-plus)
 
 [文章置顶：hexo-generator-index](https://github.com/hexojs/hexo-generator-index)
 
-<!-- [Mermaid流程图：hexo-filter-mermaid-diagrams](https://blog.csdn.net/wzh0709zml/article/details/103310405?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1) -->
+[^_^]: 被注释掉了
+
+	[Mermaid流程图：hexo-filter-mermaid-diagrams](https://blog.csdn.net/wzh0709zml/article/details/103310405?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1)
 
 [为 github 生成 readme.md 文件：hexo-generator-readme-file](https://github.com/tcatche/hexo-generator-readme-file)
 
-<!-- [hexo 插件列表](https://hexo.io/plugins/) -->
+[^_^]: 被注释掉了
+
+	[hexo 插件列表](https://hexo.io/plugins/)
 
 
 # 多终端同步
@@ -214,7 +224,9 @@ hexo g -d   		// 同步到main分支
 [hexo+github本地和线上图片不显示问题](https://blog.csdn.net/z952957407/article/details/111642548?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&utm_relevant_index=1)
 
 
-<!-- [添加 Waline 评论系统](https://blog.csdn.net/jiunian_2761/article/details/122621667)
- - [Waline邮箱设置](https://blog.csdn.net/hubojing/article/details/122659549)
- - [解决 LeanCloud 流控问题](https://www.aimtao.net/slef-wake-leancloud/)
- - [评论后台](https://waline-comments-jiankychen.vercel.app/ui/login) -->
+[^_^]: 被注释掉了
+
+	[添加 Waline 评论系统](https://blog.csdn.net/jiunian_2761/article/details/122621667)
+	- [Waline邮箱设置](https://blog.csdn.net/hubojing/article/details/122659549)
+	- [解决 LeanCloud 流控问题](https://www.aimtao.net/slef-wake-leancloud/)
+	- [评论后台](https://waline-comments-jiankychen.vercel.app/ui/login)
