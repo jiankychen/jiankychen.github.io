@@ -1,0 +1,100 @@
+# - class_site:  Guidance
+#   class_desc:  # 可留空
+#   url_list: 
+- site: 代码随想录
+  url: https://programmercarl.com/
+  image: https://img-blog.csdnimg.cn/20210614201246512.png
+  desc: 刷题指引
+
+- site: Road To Coding
+  url: https://www.r2coding.com/#/README
+  image: https://cdn.jsdelivr.net/gh/justacoder99/r2coding@master/img/r2coding_logo_index.15y992dieibg.png
+  desc: 编程自学之路
+
+# - class_site:  Resource
+#   class_desc:  # 可留空
+#   url_list:
+- site: 编程导航
+  url: https://www.code-nav.cn/resources
+  image: https://636f-codenav-8grj8px727565176-1256524210.tcb.qcloud.la/img/logo.png
+  desc: 资源合集
+
+- site: Oi Wiki
+  url: https://oi-wiki.org/
+  image: https://oi-wiki.org/images/wordArt.webp
+  desc: 知识集锦
+
+- site: algo
+  url: https://dowalle.gitbook.io/algo/
+  image: 
+  desc: 知识集锦
+
+
+# - class_site:  Friends
+#   class_desc:  # 可留空
+#   url_list:
+- site: Kavin
+  url: https://kavinwkp.github.io/
+  image: https://kavinwkp.github.io/medias/kavin.jpg
+  desc: Kavin's blog
+
+- site: Vyron
+  url: https://vvvvvyron.github.io/
+  image: https://vvvvvyron.github.io/medias/logo.png
+  desc: Vyron's blog
+  
+- site: Konb
+  url: https://konb-hui.github.io/blog/
+  image: https://konb-hui.github.io/blog/images/image.webp
+  desc: Konb's blog
+
+- site: Abacteria
+  url: https://abacteria.github.io
+  image: https://s2.loli.net/2022/05/04/qVlPbLDCGM3pjKy.jpg
+  desc: Abacteria's blog
+
+
+
+# - class_site:  C++
+#   class_desc:  # 可留空
+#   url_list:
+- site: C++ Reference
+  url: https://en.cppreference.com/w/
+  image: 
+  desc: Online reference
+
+- site: C Plus Plus
+  url: http://www.cplusplus.com/
+  image: http://www.cplusplus.com/img/welcometo.gif
+  desc: Tutorials
+
+- site: Stack Overflow
+  url: https://stackoverflow.com/
+  image: https://stackoverflow.com/
+  desc: Community
+
+  
+
+# - class_site:  Support
+#   class_desc:  # 可留空
+#   url_list:
+- site: Hexo
+  url: https://hexo.io/zh-tw/
+  image: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+  desc: 网页框架
+
+- site: Butterfly
+  url: https://github.com/jerryc127/hexo-theme-butterfly
+  image: 
+  desc: Hexo 主题
+
+- site: Shoka
+  url: https://github.com/amehime/hexo-theme-shoka
+  image: 
+  desc: Hexo 主题
+
+- site: Plugins
+  url: https://hexo.io/plugins/
+  image: 
+  desc: Hexo 插件列表
+      
