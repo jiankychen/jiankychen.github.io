@@ -179,8 +179,8 @@ creative_commons:
 
 # valine
 valine:
-  appId: 9k5hfrFE936X1LuWPJ172nkt-MdYXbMMI
-  appKey: Kl2dOEsMbA1HrwpGImDi32Qz
+  appId: 
+  appKey: 
   placeholder: 欢迎评论~ # Comment box placeholder
   avatar: mp # Gravatar style : mp, identicon, monsterid, wavatar, robohash, retro
   pageSize: 10 # Pagination size
