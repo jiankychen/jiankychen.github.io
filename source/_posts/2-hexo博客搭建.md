@@ -58,7 +58,7 @@ date: 2021-10-24 23:06:24
 ## 初始化
 1. 初始化博客：输入`hexo init`，回车，等待...直到出现`INFO Starting blogging with Hexo`
 2. 启动本地博客服务：输入`hexo s`，回车，得到本地访问地址`http://localhost:4000`
-3. 访问本地博客：浏览器打开[https://localhost:4000/](https://localhost:4000/)
+3. 访问本地博客：浏览器打开 [https://localhost:4000/](https://localhost:4000/)
 
 ## 安装git插件
 1. 配置到`blog`目录：在`cmd`命令行输入`e:`回车，然后输入`cd e:\blog`回车
@@ -106,36 +106,40 @@ date: 2021-10-24 23:06:24
 
 ## hexo主题
 
-[主题Butterfly配置](https://butterfly.js.org/posts/21cfbf15/)
- - [Butterfly 主题美化](https://guole.fun/posts/butterfly-custom/)
+<!-- Butterfly
+ - [Butterfly 配置](https://butterfly.js.org/posts/21cfbf15/)
+ - [Butterfly 主题美化](https://guole.fun/posts/butterfly-custom/) -->
 
+本博客采用主题是 [Shoka](https://github.com/amehime/hexo-theme-shoka)
+ - [Shoka 配置](https://shoka.lostyu.me/computer-science/note/theme-shoka-doc/)
+ - [补充说明](https://www.reversesacle.com/Hexo-Shoka%E4%B8%BB%E9%A2%98%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D%E8%A1%A5%E5%85%85%E7%82%B9/)
 
 [hexo主题列表](https://hexo.io/themes/)
 
 
 ## 插件
 
-[代码高亮: hexo-prism-plugin ](https://github.com/ele828/hexo-prism-plugin)
+<!-- [代码高亮: hexo-prism-plugin ](https://github.com/ele828/hexo-prism-plugin) -->
 
 [静态链接转换：hexo-abbrlink](https://github.com/rozbo/hexo-abbrlink) / [hexo-permalink-pinyin](https://github.com/viko16/hexo-permalink-pinyin)
 
-[本地搜索：hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
+<!-- [本地搜索：hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
 
-[帖子字数统计：hexo-wordcount](https://github.com/willin/hexo-wordcount)
+[帖子字数统计：hexo-wordcount](https://github.com/willin/hexo-wordcount) -->
 
 [显示本地图片：hexo-asset-img](https://github.com/yiyungent/hexo-asset-img)
 
-[渲染器：hexo-renderer-pug](https://github.com/hexojs/hexo-renderer-pug) + [hexo-renderer-stylus](https://github.com/hexojs/hexo-renderer-stylus)
+<!-- [渲染器：hexo-renderer-pug](https://github.com/hexojs/hexo-renderer-pug) + [hexo-renderer-stylus](https://github.com/hexojs/hexo-renderer-stylus)
 
-[数学公式：@neilsustc/markdown-it-katex](https://github.com/yzhang-gh/markdown-it-katex) + [@upupming/hexo-renderer-markdown-it-plus](https://github.com/upupming/hexo-renderer-markdown-it-plus)
+[数学公式：@neilsustc/markdown-it-katex](https://github.com/yzhang-gh/markdown-it-katex) + [@upupming/hexo-renderer-markdown-it-plus](https://github.com/upupming/hexo-renderer-markdown-it-plus) -->
 
 [文章置顶：hexo-generator-index](https://github.com/hexojs/hexo-generator-index)
 
-[Mermaid流程图：hexo-filter-mermaid-diagrams](https://blog.csdn.net/wzh0709zml/article/details/103310405?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1)
+<!-- [Mermaid流程图：hexo-filter-mermaid-diagrams](https://blog.csdn.net/wzh0709zml/article/details/103310405?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1) -->
 
 [为 github 生成 readme.md 文件：hexo-generator-readme-file](https://github.com/tcatche/hexo-generator-readme-file)
 
-[hexo 插件列表](https://hexo.io/plugins/)
+<!-- [hexo 插件列表](https://hexo.io/plugins/) -->
 
 
 # 多终端同步
@@ -158,6 +162,8 @@ git push origin hexo  // push到github项目的hexo分支上
 ```
 
 注意：如果使用的是通过 `git clone` 下来的主题 theme（比如 butterfly），要把主题文件夹下面把 .git 文件夹（这是一个隐藏文件夹，vscode 以及 cmd 不可见，需要在文件资源管理器中查看“隐藏的项目”）删除掉，否则的话，主题无法 push 到远程仓库
+
+> 如果此前已经创建了 hexo 分支 且 hexo 分支已经有内容，则需按照 [Hexo+Git+Github博客在多台终端同步管理](https://blog.csdn.net/steven_zdg988/article/details/111240905?spm=1001.2014.3001.5506) 教程里的 **初始化分支（PC1上面操作）** 步骤进行操作
 
 ### 终端2：将github的hexo分支clone到本地，并进行初次配置
 
@@ -207,7 +213,8 @@ hexo g -d   		// 同步到main分支
 
 [hexo+github本地和线上图片不显示问题](https://blog.csdn.net/z952957407/article/details/111642548?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_default&utm_relevant_index=1)
 
-[添加 Waline 评论系统](https://blog.csdn.net/jiunian_2761/article/details/122621667)
+
+<!-- [添加 Waline 评论系统](https://blog.csdn.net/jiunian_2761/article/details/122621667)
  - [Waline邮箱设置](https://blog.csdn.net/hubojing/article/details/122659549)
  - [解决 LeanCloud 流控问题](https://www.aimtao.net/slef-wake-leancloud/)
- - [评论后台](https://waline-comments-jiankychen.vercel.app/ui/login)
+ - [评论后台](https://waline-comments-jiankychen.vercel.app/ui/login) -->
