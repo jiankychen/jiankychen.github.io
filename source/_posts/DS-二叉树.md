@@ -6,6 +6,7 @@ categories:
   - 数据结构
 cover: false
 abbrlink: e85d694a
+math: true
 date: 2022-03-23 19:59:16
 ---
 
@@ -13,7 +14,6 @@ date: 2022-03-23 19:59:16
 
 二叉树 （Binary Tree）：每个节点 最多有两个子树 的树结构，通常子树被称作“左子树”和“右子树”
 
-[LeetBook: 二叉树](https://leetcode-cn.com/leetbook/detail/data-structure-binary-tree/)
 
 
 注意：二叉树必须严格区分左右子树。即使只有一棵子树，也要说明它是左子树还是右子树

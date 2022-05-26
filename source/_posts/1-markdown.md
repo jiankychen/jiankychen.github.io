@@ -171,10 +171,10 @@ vector<int> nums;
  - `![]()`
 
 测试代码:
-`![Jianky](https://jiankychen.github.io/img/franky.jpg)`
+`![Jianky](_data/iamges/avatar.jpg)`
 
 测试结果:
-![Jianky](https://jiankychen.github.io/img/franky.jpg)
+![Jianky](/source/_data/images/avatar.jpg)
 
 ## 注释
 语句
