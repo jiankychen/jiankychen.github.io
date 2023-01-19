@@ -10,8 +10,270 @@
         </author>
         <description></description>
         <language>zh-CN</language>
-        <pubDate>Sat, 14 Jan 2023 17:51:32 +0800</pubDate>
-        <lastBuildDate>Sat, 14 Jan 2023 17:51:32 +0800</lastBuildDate>
+        <pubDate>Thu, 19 Jan 2023 11:47:56 +0800</pubDate>
+        <lastBuildDate>Thu, 19 Jan 2023 11:47:56 +0800</lastBuildDate>
+        <item>
+            <guid isPermalink="true">https://jiankychen.github.io/posts/b80c5159/</guid>
+            <title>conda 常用命令</title>
+            <link>https://jiankychen.github.io/posts/b80c5159/</link>
+            <category term="Tutorial" scheme="https://jiankychen.github.io/categories/Tutorial/" />
+            <pubDate>Thu, 19 Jan 2023 11:47:56 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;conda-基本操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#conda-基本操作&#34;&gt;#&lt;/a&gt; conda 基本操作&lt;/h1&gt;
+&lt;h2 id=&#34;查看-conda-版本&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#查看-conda-版本&#34;&gt;#&lt;/a&gt; 查看 conda 版本&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;conda --version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;更新-conda&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更新-conda&#34;&gt;#&lt;/a&gt; 更新 conda&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;conda update conda
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;查看-conda-环境配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#查看-conda-环境配置&#34;&gt;#&lt;/a&gt; 查看 conda 环境配置&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;conda config --show
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;设置镜像源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#设置镜像源&#34;&gt;#&lt;/a&gt; 设置镜像源&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;# 设置清华镜像
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+
+# 设置 bioconda
+conda config --add channels bioconda
+conda config --add channels conda-forge
+
+# 设置搜索时显示通道地址
+conda config --set show_channel_urls yes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;查询指定命令的功能&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#查询指定命令的功能&#34;&gt;#&lt;/a&gt; 查询指定命令的功能&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;conda command_name --help
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;管理环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#管理环境&#34;&gt;#&lt;/a&gt; 管理环境&lt;/h1&gt;
+&lt;h2 id=&#34;显示所有虚拟环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#显示所有虚拟环境&#34;&gt;#&lt;/a&gt; 显示所有虚拟环境&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;conda env list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;创建虚拟环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#创建虚拟环境&#34;&gt;#&lt;/a&gt; 创建虚拟环境&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;conda create -n env_name package_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果需要指定 package 版本，可直接在 package_name 之后加上  &lt;code&gt;=&lt;/code&gt;  号以及 package 版本号，例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;conda create -n env_name python=3.x
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果需要安装多个 package ，在 env_name 之后用空格分隔多个 package_name 即可，例如：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;conda create -n python310 python=3.10 numpy pandas
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;激活环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#激活环境&#34;&gt;#&lt;/a&gt; 激活环境&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;activate env_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;退出环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#退出环境&#34;&gt;#&lt;/a&gt; 退出环境&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;deactivate env_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;删除虚拟环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#删除虚拟环境&#34;&gt;#&lt;/a&gt; 删除虚拟环境&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;conda env remove -n env_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;导出虚拟环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#导出虚拟环境&#34;&gt;#&lt;/a&gt; 导出虚拟环境&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;conda env export --name env_name &amp;gt; environment.yml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;导入虚拟环境&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#导入虚拟环境&#34;&gt;#&lt;/a&gt; 导入虚拟环境&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;conda env create -n env_name -f environment.yml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;管理-package&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#管理-package&#34;&gt;#&lt;/a&gt; 管理 package&lt;/h1&gt;
+&lt;h2 id=&#34;查看当前环境包含的所有-package&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#查看当前环境包含的所有-package&#34;&gt;#&lt;/a&gt; 查看当前环境包含的所有 package&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;conda list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;更新当前环境包含的所有-package&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更新当前环境包含的所有-package&#34;&gt;#&lt;/a&gt; 更新当前环境包含的所有 package&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;conda upgrade --all
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;更新指定-package&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更新指定-package&#34;&gt;#&lt;/a&gt; 更新指定 package&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;conda update package_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;安装指定-package&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装指定-package&#34;&gt;#&lt;/a&gt; 安装指定 package&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;conda install package_name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装装多个 package ：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;conda installl package_name_1 package_name_2 package_name_3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装固定版本的 package ：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;conda install package_name=package_version_number
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;移除指定-package&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#移除指定-package&#34;&gt;#&lt;/a&gt; 移除指定 package&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;conda remove package_name 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC82Nzc0NTE2MA==&#34;&gt;conda 常用命令&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW54eV9id2F2ZS9hcnRpY2xlL2RldGFpbHMvMTE5OTk2MDAx&#34;&gt;Anaconda conda 常用命令：从入门到精通&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://jiankychen.github.io/posts/11ea1840/</guid>
+            <title>Python 异常、模块、包</title>
+            <link>https://jiankychen.github.io/posts/11ea1840/</link>
+            <category term="Python" scheme="https://jiankychen.github.io/categories/Python/" />
+            <pubDate>Sun, 15 Jan 2023 18:19:13 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;异常&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#异常&#34;&gt;#&lt;/a&gt; 异常&lt;/h1&gt;
+&lt;p&gt;异常是指程序运行的过程中出现了错误&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;bug 就是指异常，历史上因为小虫子导致计算机失灵，所以延续至今，bug 就代表软件出现错误&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;异常的捕获&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#异常的捕获&#34;&gt;#&lt;/a&gt; 异常的捕获&lt;/h2&gt;
+&lt;p&gt;异常处理（捕获异常）：针对可能出现的异常，提前做好准备，当真的出现异常时，可以有后续处置，以免其导致程序无法正常运行&lt;/p&gt;
+&lt;h3 id=&#34;捕获常规异常&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#捕获常规异常&#34;&gt;#&lt;/a&gt; 捕获常规异常&lt;/h3&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    尝试执行的代码&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;except&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    若出现异常，将会执行本段代码&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 尝试以 &#39;r&#39; 模式打开文件，如果文件不存在，则以 &#39;w&#39; 方式打开&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    f &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token builtin&#34;&gt;open&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;linux.txt&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;r&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;except&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    f &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token builtin&#34;&gt;open&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;linux.txt&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;w&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;捕获指定异常&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#捕获指定异常&#34;&gt;#&lt;/a&gt; 捕获指定异常&lt;/h3&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    尝试执行的代码&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;except&lt;/span&gt; ErrorType &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; e&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    若出现类型为 ErrorType 的异常，将会执行本段代码&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;其中，ErrorType 是指要捕获的异常类型&lt;/p&gt;
+&lt;p&gt;注意：如果 “尝试执行的代码” 的异常类型和要捕获的异常类型不一致，则无法捕获异常&lt;/p&gt;
+&lt;p&gt;常见的异常类型如下表所示：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;类名&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;SyntaxError&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;发生语法错误时引发&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;FileNotFoundError&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;未找到指定文件或目录时引发&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;NameError&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;找不到指定名称的变量时引发&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;ZeroDivisionError&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;除数为 0 时的异常&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;IndexError&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;当使用超出列表范围的索引时引发&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;KeyError&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;当使用映射不存在的键时引发&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;AttributeError&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;当尝试访问未知对象属性时引发&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;TypeError&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;当试图在使用 a 类型的场合使用 b 类型时引发&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;name&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;except&lt;/span&gt; NameError &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; e&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;未定义 name 变量&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;捕获多个异常&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#捕获多个异常&#34;&gt;#&lt;/a&gt; 捕获多个异常&lt;/h3&gt;
+&lt;p&gt;当需要捕获多个异常时，可以把要捕获的异常类型的名字，放到 except 后，并使用元组的方式进行书写&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;p&gt;捕获多个异常（但不输出异常的具体描述）：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;NameError&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; ZeroDivisionError&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;错误...&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;捕获多个异常并输出异常的具体信息：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;num&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;NameError&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; ZeroDivisionError&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; e&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;e&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;捕获所有异常&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#捕获所有异常&#34;&gt;#&lt;/a&gt; 捕获所有异常&lt;/h3&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    尝试执行的代码&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;except&lt;/span&gt; Exception &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; e&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    若出现异常，将会执行本段代码&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;注意： &lt;code&gt;except:&lt;/code&gt;  与  &lt;code&gt;except Exception as e:&lt;/code&gt;  这两种方式都可以捕获全部的异常&lt;/p&gt;
+&lt;h3 id=&#34;异常-else&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#异常-else&#34;&gt;#&lt;/a&gt; 异常 else&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;else&lt;/code&gt;  表示没有异常时要执行的代码&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    尝试执行的代码&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;except&lt;/span&gt; Exception &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; e&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    若出现异常，将会执行本段代码&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    若没有出现异常，将会执行本段代码&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;异常-finally&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#异常-finally&#34;&gt;#&lt;/a&gt; 异常 finally&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;finally&lt;/code&gt;  表示无论是否异常都要执行的代码，例如关闭文件&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    尝试执行的代码&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;except&lt;/span&gt; Exception &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; e&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    若出现异常，将会执行本段代码&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    若没有出现异常，将会执行本段代码&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;finally&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    无论是否出现异常，都会执行本段代码&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;异常的传递&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#异常的传递&#34;&gt;#&lt;/a&gt; 异常的传递&lt;/h3&gt;
+&lt;p&gt;异常具有传递性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;当函数 / 方法执行出现异常，会将异常传递给函数 / 方法的调用一方&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果传递到主程序，仍然没有异常处理，程序才会被终止&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;利用异常具有传递性的特点，当我们想要保证程序不会因为异常崩溃的时候，就可以在  &lt;code&gt;main&lt;/code&gt;  函数中设置异常捕获，由于无论在整个程序哪里发生异常，最终都会传递到  &lt;code&gt;main&lt;/code&gt;  函数中，这样就可以确保所有的异常都会被捕获&lt;/p&gt;
+&lt;h1 id=&#34;模块&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#模块&#34;&gt;#&lt;/a&gt; 模块&lt;/h1&gt;
+&lt;p&gt;Python 模块（Module），是一个 Python 文件，以  &lt;code&gt;.py&lt;/code&gt;  为后缀名&lt;/p&gt;
+&lt;p&gt;模块能定义函数、类和变量，模块里也能包含可执行的代码&lt;/p&gt;
+&lt;p&gt;可以认为一个模块就是一个工具包，每一个工具包中都有各种不同的工具供我们使用，以实现各种不同的功能&lt;/p&gt;
+&lt;h2 id=&#34;导入模块&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#导入模块&#34;&gt;#&lt;/a&gt; 导入模块&lt;/h2&gt;
+&lt;p&gt;在使用模块之前，需要先将模块导入 Python 程序&lt;/p&gt;
+&lt;p&gt;常用的导入模块方式：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; module_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; module_name &lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; class_name&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; var_name&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; func_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; module_name &lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; module_name &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; nick_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; module_name &lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; func_name &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; nick_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;module_name 表示模块&lt;/li&gt;
+&lt;li&gt;class_name 表示模块内的类&lt;/li&gt;
+&lt;li&gt;var_name 表示模块内的变量&lt;/li&gt;
+&lt;li&gt;func_name 表示模块内的函数&lt;/li&gt;
+&lt;li&gt;nick_name 表示为模块自定义的别名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意：导入模块时，module_name 不需要包含  &lt;code&gt;.py&lt;/code&gt;  后缀&lt;/p&gt;
+&lt;h3 id=&#34;import-module_name&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#import-module_name&#34;&gt;#&lt;/a&gt; import module_name&lt;/h3&gt;
+&lt;p&gt;使用  &lt;code&gt;import&lt;/code&gt;  导入模块后，可以通过  &lt;code&gt;&#39;.&#39;&lt;/code&gt;  来使用模块中的函数或类&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; module_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;module_name&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;func_name&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;module_name&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;class_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;module_name&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;var_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;from-module_name-import-func_name&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#from-module_name-import-func_name&#34;&gt;#&lt;/a&gt; from module_name import func_name&lt;/h3&gt;
+&lt;p&gt;使用  &lt;code&gt;from … import …&lt;/code&gt;  方式导入之后，无需添加前缀，直接调用即可&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; module_name &lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; func_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;func_name&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;注意，利用  &lt;code&gt;from&lt;/code&gt;  把内容从模块中导入后，会导致相同名称的内容被覆盖，也就是说，不同模块的命名空间会在此处重叠&lt;/p&gt;
+&lt;h3 id=&#34;from-module_name-import&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#from-module_name-import&#34;&gt;#&lt;/a&gt; from module_name import *&lt;/h3&gt;
+&lt;p&gt;导入模块全部内容&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; module_name &lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;func_name&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;class_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;var_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;as-nick_name&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#as-nick_name&#34;&gt;#&lt;/a&gt; as nick_name&lt;/h3&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 模块定义别名&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; module_name &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; nick_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 功能定义别名&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; module_name &lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; func_name &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; func_nick_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;自定义模块&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#自定义模块&#34;&gt;#&lt;/a&gt; 自定义模块&lt;/h2&gt;
+&lt;p&gt;每个 Python 文件都可以作为一个模块，模块的名字就是文件的名字&lt;/p&gt;
+&lt;p&gt;因此，自定义模块只需在 Python 代码文件中正常写代码即可，通过 import、from 关键字导入（与导入 Python 内置模块一样）即可使用。但是需要注意，自定义模块名必须要符合标识符命名规则&lt;/p&gt;
+&lt;h3 id=&#34;__main__-变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#__main__-变量&#34;&gt;#&lt;/a&gt; __main__ 变量&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;if __main__ == “__main__”&lt;/code&gt;  语句的作用：只有当含有该语句的 Python 程序是被直接 run 时，才会进入  &lt;code&gt;if&lt;/code&gt;  内部。如果是被导入的，则无法进入  &lt;code&gt;if&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;该功能常用于测试模块（即，希望某些代码在测试时运行、而在被导入时不运行）&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;test&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;a&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; b&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;a &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; b&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 只在当前文件中调用该函数，其他导入的文件内均不执行 test 函数调用&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; __name__ &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;__main__&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    test &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;如果不加  &lt;code&gt;if __name__ == &amp;quot;__main__&amp;quot;&lt;/code&gt;  语句：无论是当前文件，还是其他已经导入了该模块的文件，在运行的时候都会自动执行  &lt;code&gt;test&lt;/code&gt;  函数的调用&lt;/p&gt;
+&lt;h3 id=&#34;__all__-变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#__all__-变量&#34;&gt;#&lt;/a&gt; __all__ 变量&lt;/h3&gt;
+&lt;p&gt;如果一个模块文件中有  &lt;code&gt;__all__&lt;/code&gt;  变量（该变量为列表对象），在使用  &lt;code&gt;from xxx import *&lt;/code&gt;  导入该模块时，只能导入  &lt;code&gt;__all__&lt;/code&gt;  列表中的元素&lt;/p&gt;
+&lt;p&gt;因此， &lt;code&gt;__all__&lt;/code&gt;  变量可以控制  &lt;code&gt;import *&lt;/code&gt;  导入模块时的导入内容&lt;/p&gt;
+&lt;p&gt;注意： &lt;code&gt;__all__&lt;/code&gt;  变量 仅影响  &lt;code&gt;from ... import *&lt;/code&gt;  这一导入方式&lt;/p&gt;
+&lt;p&gt;例如，自定义如下模块：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;__all__ &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;Test_A&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;Test_A&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    xxx&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;Test_B&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    xxx&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;通过  &lt;code&gt;from ... import *&lt;/code&gt;  导入该模块后，只能使用  &lt;code&gt;Test_A&lt;/code&gt;  函数，而不能使用  &lt;code&gt;Test_B&lt;/code&gt;  函数&lt;/p&gt;
+&lt;h1 id=&#34;包&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#包&#34;&gt;#&lt;/a&gt; 包&lt;/h1&gt;
+&lt;p&gt;如果 Python 模块太多，可以通过 Python 包（Package）来管理&lt;/p&gt;
+&lt;p&gt;当我们的模块文件非常多时，包可以帮助我们管理这些模块，包的作用就是包含多个模块，但包的本质依然是模块&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;从物理上看：包就是一个文件夹，在该文件夹下包含了一个  &lt;code&gt;__init__.py&lt;/code&gt;  文件，该文件夹可包含多个模块文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;从逻辑上看：包的本质依然是模块&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;自定义包&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#自定义包&#34;&gt;#&lt;/a&gt; 自定义包&lt;/h2&gt;
+&lt;p&gt;基本步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;新建 Python Package&lt;/li&gt;
+&lt;li&gt;新建 Python 模块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在 Pycharm 中，点击  &lt;code&gt;new --&amp;gt; Python Package&lt;/code&gt;  新建包后，包内部会自动创建  &lt;code&gt;__init__.py&lt;/code&gt;  文件，这个文件控制着包的导入行为&lt;/p&gt;
+&lt;h2 id=&#34;导入包&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#导入包&#34;&gt;#&lt;/a&gt; 导入包&lt;/h2&gt;
+&lt;h3 id=&#34;import-xxx&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#import-xxx&#34;&gt;#&lt;/a&gt; import xxx&lt;/h3&gt;
+&lt;h4 id=&#34;导入所有模块&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#导入所有模块&#34;&gt;#&lt;/a&gt; 导入所有模块&lt;/h4&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; package_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;package_name&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;module_name&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;func_name&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;导入指定模块&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#导入指定模块&#34;&gt;#&lt;/a&gt; 导入指定模块&lt;/h4&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; package_name&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;module_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;package_name&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;module_name&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;func_name&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;其中：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;package_name 表示 Python Package 名称&lt;/li&gt;
+&lt;li&gt;module_name 表示 Python Package 中的模块名称&lt;/li&gt;
+&lt;li&gt;func_name 表示模块中的函数名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;from-xxx-import&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#from-xxx-import&#34;&gt;#&lt;/a&gt; from xxx import&lt;/h3&gt;
+&lt;h4 id=&#34;导入所有模块-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#导入所有模块-2&#34;&gt;#&lt;/a&gt; 导入所有模块&lt;/h4&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; package_name &lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;module_name&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;func_name&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;注意：必须在  &lt;code&gt;__init__.py&lt;/code&gt;  文件中添加  &lt;code&gt;__all__&lt;/code&gt;  变量，用于控制  &lt;code&gt;from package_name import *&lt;/code&gt;  导入的模块列表（类似于模块文件中的  &lt;code&gt;__all__&lt;/code&gt;  变量）&lt;/p&gt;
+&lt;h4 id=&#34;导入指定模块-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#导入指定模块-2&#34;&gt;#&lt;/a&gt; 导入指定模块&lt;/h4&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; package_name &lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; module_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;module_name&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;func_name&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h4 id=&#34;导入指定模块中的指定函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#导入指定模块中的指定函数&#34;&gt;#&lt;/a&gt; 导入指定模块中的指定函数&lt;/h4&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;from&lt;/span&gt; package_name&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;module_name &lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; func_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;func_name&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;第三方包&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#第三方包&#34;&gt;#&lt;/a&gt; 第三方包&lt;/h2&gt;
+&lt;p&gt;在 Python 程序的生态中，有许多非常多的第三方包（非 Python 官方），可以极大的帮助我们提高开发效率，如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;科学计算：numpy&lt;/li&gt;
+&lt;li&gt;数据分析：pandas&lt;/li&gt;
+&lt;li&gt;大数据计算：pyspark、apache-flink&lt;/li&gt;
+&lt;li&gt;图形可视化：matplotlib、pyecharts&lt;/li&gt;
+&lt;li&gt;人工智能：tensorflow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意，Python 没有内置这些第三方包，需要安装它们才可以导入使用&lt;/p&gt;
+&lt;p&gt;可通过 Python 内置的 pip 安装指定的第三方包&lt;/p&gt;
+&lt;p&gt;即，在命令行中输入：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pip install package_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;pip 是连接外网进行下载，若下载速度相对较慢，可考虑通过国内的镜像源下载&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pip install &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt;i https&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;//&lt;/span&gt;pypi&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tuna&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tsinghua&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;edu&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;cn&lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt;simple package_name&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://jiankychen.github.io/posts/78c82d0a/</guid>
             <title>Python 文件操作</title>
@@ -1840,164 +2102,6 @@
 &lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;foo&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;parm_list&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;foo&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;第一种形式指定了 foo 函数的部分形参的类型，对应于这些形参的实参将会执行正常的类型检查&lt;/p&gt;
 &lt;p&gt;省略符形参所对应的实参无须类型检查&lt;/p&gt;
 &lt;p&gt;在第一种形式中，形参声明后面的逗号是可选的&lt;/p&gt;
-&lt;p&gt;参考：C++ Primer 中文版（第 5 版）&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://jiankychen.github.io/posts/1111c3f5/</guid>
-            <title>函数基础</title>
-            <link>https://jiankychen.github.io/posts/1111c3f5/</link>
-            <category term="C++" scheme="https://jiankychen.github.io/categories/C/" />
-            <pubDate>Tue, 20 Sep 2022 16:40:31 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;典型的函数（function）定义包括以下部分：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;返回类型（return type）&lt;/li&gt;
-&lt;li&gt;函数名字&lt;/li&gt;
-&lt;li&gt;由 0 个或多个形参（parameter）组成的列表，其中，形参以逗号隔开，形参的列表位于一对圆括号之内&lt;/li&gt;
-&lt;li&gt;函数体&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;例如：定义一个函数用于求数 n 的阶乘，其中，返回类型为 int 型，函数名字为 fact，形参为 int n，函数体为一对花括号 {} 内的语句&lt;/p&gt;
-&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;fact&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; n&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; ret &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;n &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        ret &lt;span class=&#34;token operator&#34;&gt;*=&lt;/span&gt; n&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; ret&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;调用函数&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#调用函数&#34;&gt;#&lt;/a&gt; 调用函数&lt;/h2&gt;
-&lt;p&gt;通过 &lt;strong&gt;调用运算符&lt;/strong&gt;（call operator）来执行函数&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;调用运算符的形式是一对圆括号，它作用于一个表达式，该表达式是函数或者指向函数的指针；圆括号之内是一个用逗号隔开的实参（argument）列表，我们用实参初始化函数的形参&lt;/li&gt;
-&lt;li&gt;调用表达式的类型就是函数的返回类型&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;函数的调用完成两项工作：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;（隐式地）定义并用实参初始化函数对应的形参&lt;/li&gt;
-&lt;li&gt;将控制权转移给被调用函数&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;此时，主调函数（calling function）的执行被暂时中断，被调函数（called function）开始执行&lt;/p&gt;
-&lt;p&gt;当遇到一条 return 语句时，函数结束执行过程&lt;/p&gt;
-&lt;p&gt;return 语句也完成两项工作：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;返回 return 语句中的值（如果有的话）&lt;/li&gt;
-&lt;li&gt;将控制权从被调函数转移回主调函数&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;形参和实参&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#形参和实参&#34;&gt;#&lt;/a&gt; 形参和实参&lt;/h2&gt;
-&lt;p&gt;实参是形参的初始值。第一个实参初始化第一个形参，第二个实参初始化第二个形参，以此类推&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;尽管实参与形参存在对应关系，但是并没有规定实参的求值顺序。编译器能以任意可行的顺序对实参求值&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;实参数量应与形参数量一致，并且，实参的类型必须与对应的形参类型匹配&lt;/p&gt;
-&lt;h2 id=&#34;函数的形参列表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#函数的形参列表&#34;&gt;#&lt;/a&gt; 函数的形参列表&lt;/h2&gt;
-&lt;p&gt;函数的形参列表可以为空，但是不能省略&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;要想定义一个不带形参的函数，最常用的办法是书写一个空的形参列表&lt;/li&gt;
-&lt;li&gt;为了与 C 语言兼容，也可以使用关键字 void 表示函数没有形参&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;f1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;/* ... */&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;// 隐式地定义空形参列表&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;f2&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;/* ... */&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 显式地定义空形参列表&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;形参列表中的形参通常用逗号隔开，其中，每个形参都是含有一个声明符的声明（即使两个形参的类型一样，也必须把两个类型都写出来）&lt;/p&gt;
-&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;f3&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; v1&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; v2&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;/* ... */&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;// 错误&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;f4&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; v1&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; v2&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;/* ... */&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 正确&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;任意两个形参都不能同名，而且，函数最外层作用域中的局部变量也与函数形参同名&lt;/p&gt;
-&lt;p&gt;形参名是可选的。如果函数不会使用到个别形参，通常不命名该形参，以表示其不会在函数体内被使用&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注意：即使某个形参不被函数使用，也必须为它提供一个实参&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;函数返回类型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#函数返回类型&#34;&gt;#&lt;/a&gt; 函数返回类型&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;大多数类型都能用作函数的返回类型&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;一种特殊的返回类型是 void ，它表示函数不返回任何值&lt;/p&gt;
-&lt;p&gt;函数的返回类型不能是&lt;a href=&#34;https://jiankychen.github.io/posts/340249a9/&#34;&gt;数组&lt;/a&gt;类型或函数类型，但可以是指向数组或函数的指针&lt;/p&gt;
-&lt;h1 id=&#34;局部对象&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#局部对象&#34;&gt;#&lt;/a&gt; 局部对象&lt;/h1&gt;
-&lt;p&gt;在 C++ 语言中，名字有作用域，对象有生命周期（lifetime）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;名字的作用域：程序文本的一部分，名字在其中可见&lt;/li&gt;
-&lt;li&gt;对象的生命周期：程序执行过程中该对象存在的一段时间&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;形参和函数体内部定义的变量统称为局部变量（local variable）。它们对函数而言是 “局部” 的，仅在函数的作用域内可见&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Parameters and variables defined inside a function body are referred to as local variables. They are “local” to that function and hide declarations of the same name made in an outer scope.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;在所有函数体之外定义的对象存在于程序的整个执行过程中。此类对象在程序启动时被创建，直到程序结束才会销毁&lt;/p&gt;
-&lt;p&gt;局部变量的生命周期依赖于定义的方式。对于普通局部变量对应的对象，当函数的控制路径经过变量定义语句时创建该对象，当到达定义所在的块末尾时销毁它&lt;/p&gt;
-&lt;h2 id=&#34;自动对象&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#自动对象&#34;&gt;#&lt;/a&gt; 自动对象&lt;/h2&gt;
-&lt;p&gt;只存在于块执行期间的对象被称为 &lt;strong&gt;自动对象&lt;/strong&gt;（automatic object）&lt;/p&gt;
-&lt;p&gt;当块的执行结束后，块中创建的自动对象的值就变成未定义的了&lt;/p&gt;
-&lt;p&gt;形参就是一种自动对象：函数开始时为形参申请存储空间，因为形参定义在函数体作用域之内，所以一旦函数终止，形参也就被销毁&lt;/p&gt;
-&lt;p&gt;自动对象的初始化：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;形参对应的自动对象：用传递给函数的实参初始化形参对应的自动对象&lt;/li&gt;
-&lt;li&gt;局部变量对应的自动对象：
-&lt;ul&gt;
-&lt;li&gt;如果变量定义本身含有初始值，就用这个初始值进行初始化&lt;/li&gt;
-&lt;li&gt;否则，如果变量定义本身不含初始值，执行默认初始化&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;内置类型的未初始化局部变量将产生未定义的值&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;局部静态对象&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#局部静态对象&#34;&gt;#&lt;/a&gt; 局部静态对象&lt;/h2&gt;
-&lt;p&gt;某些时候，有必要令局部变量的生命周期贯穿函数调用及之后的时间。此时，可以将局部变量定义成 &lt;strong&gt;static 类型&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;局部静态对象&lt;/strong&gt;（local static object）在程序第一次经过对象定义语句时进行初始化，并且直到程序终止才被销毁。在此期间，即使对象所在的函数结束执行，也不会对它有影响&lt;/p&gt;
-&lt;p&gt;如果局部静态变量没有显式的初始值，它将执行值初始化，内置类型的局部静态变量初始化为 0&lt;/p&gt;
-&lt;h1 id=&#34;函数声明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#函数声明&#34;&gt;#&lt;/a&gt; 函数声明&lt;/h1&gt;
-&lt;p&gt;类似于&lt;a href=&#34;https://jiankychen.github.io/posts/13ffbe88/&#34;&gt;变量&lt;/a&gt;，函数只能定义一次，但可以声明多次&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;唯一的例外是，如果一个函数永远也不会被我们用到，那么它可以只有声明没有定义&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;函数的声明和函数的定义非常类似，唯一的区别是，函数声明无须函数体，用一个分号替代即可&lt;/p&gt;
-&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 函数声明&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;vector&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;span class=&#34;token double-colon punctuation&#34;&gt;::&lt;/span&gt;const_iterator beg&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;           vector&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;span class=&#34;token double-colon punctuation&#34;&gt;::&lt;/span&gt;const_iterator end&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;函数的声明不包含函数体，所以也就无须形参的名字（事实上，在函数的声明中经常省略形参的名字）&lt;/p&gt;
-&lt;p&gt;函数的三要素（返回类型、函数名、形参类型）描述了函数的接口，说明了调用该函数所需的全部信息&lt;/p&gt;
-&lt;p&gt;函数声明也称作&lt;strong&gt;函数原型&lt;/strong&gt;（function prototype）&lt;/p&gt;
-&lt;h2 id=&#34;在头文件中进行函数声明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#在头文件中进行函数声明&#34;&gt;#&lt;/a&gt; 在头文件中进行函数声明&lt;/h2&gt;
-&lt;p&gt;类似于变量，函数也应该在头文件中声明而在源文件中定义&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;允许把函数的声明直接放在使用该函数的源文件中，但是这么做可能会很烦琐而且容易出错。相反，如果把函数声明放在头文件中，就能确保同一函数的所有声明保持一致。而且，一旦我们想改变函数的接口，只需改变一条声明即可&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;含有函数声明的头文件应该被包含到定义函数的源文件中&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;分离式编译&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分离式编译&#34;&gt;#&lt;/a&gt; 分离式编译&lt;/h2&gt;
-&lt;p&gt;为了允许编写程序时按照逻辑关系将其划分开来，C++ 语言支持所谓的分离式编译（separate compilation）&lt;/p&gt;
-&lt;p&gt;分离式编译允许我们把程序分割到几个文件中去，每个文件独立编译&lt;/p&gt;
-&lt;p&gt;如果我们修改了其中一个源文件，那么只需重新编译那个改动了的文件&lt;/p&gt;
-&lt;p&gt;大多数编译器提供了分离式编译每个文件的机制，这一过程通常会产生一个后缀名是 .obj（Windows）或 .o（UNIX）的文件（该文件包含对象代码（object code））&lt;/p&gt;
-&lt;p&gt;参考：C++ Primer 中文版（第 5 版）&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://jiankychen.github.io/posts/1a3d3e5c/</guid>
-            <title>术语表 - Chapter 5</title>
-            <link>https://jiankychen.github.io/posts/1a3d3e5c/</link>
-            <category term="C++" scheme="https://jiankychen.github.io/categories/C/" />
-            <pubDate>Tue, 20 Sep 2022 16:16:31 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;&lt;strong&gt;块（block）&lt;/strong&gt;：包围在花括号内的由 0 条或多条语句组成的序列。块也是一条语句，所以只要是能使用语句的地方，就可以使用块&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;break 语句（break statement）&lt;/strong&gt;：终止离它最近的循环或 switch 语句。控制权转移到循环或 switch 之后的第一条语句&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;case 标签（case label）&lt;/strong&gt;：在 switch 语句中紧跟在 case 关键字之后的常量表达式。在同一个 switch 语句中任意两个 case 标签的值不能相同&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;catch 子句（catch clause）&lt;/strong&gt;：由 catch 关键字、括号里的异常声明以及语句块三部分组成。catch 子句的代码负责处理在异常声明中定义的异常&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;复合语句（compound statement）&lt;/strong&gt;：块&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;continue 语句（continue statement）&lt;/strong&gt;：终止离它最近的循环的当前迭代。控制权转移到 while 或 do while 语句的条件部分、或者范围 for 循环的下一次迭代、或者传统 for 循环头部的表达式&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;悬垂 else（dangling else）&lt;/strong&gt;：是一个俗语，指的是如何处理嵌套 if 语句中 if 分支多于 else 分支的情况&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;C++ 语言规定，else 应该与前一个未匹配的 if 匹配在一起&lt;/li&gt;
-&lt;li&gt;使用花括号可以把位于内层的 if 语句隐藏起来，这样就能更好地控制 else 该与哪个 if 匹配&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;default 标签（default label）&lt;/strong&gt;：是一种特殊的 case 标签，当 switch 表达式的值与所有 case 标签都无法匹配时，程序执行 default 标签下的内容&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;do while 语句（do while statement）&lt;/strong&gt;：与 while 语句类似，但 do while 语句先执行循环体，再判断条件。循环体代码至少会执行一次&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;异常类（exception class）&lt;/strong&gt;：标准库定义的一组类，用于表示程序发生的错误&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;异常声明（exception declaration）&lt;/strong&gt;：位于 catch 子句中的声明，指定了该 catch 子句能处理的异常类型&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;异常处理代码（exception handler）&lt;/strong&gt;：程序某处引发异常后，用于处理该异常的另一处代码。和 catch 子句是同义词&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;异常安全（exception safe）&lt;/strong&gt;：是一个术语，表示的含义是当抛出异常后，程序能执行正确的行为&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;表达式语句（expression statement）&lt;/strong&gt;：即一条表达式后面跟上一个分号，令表达式执行求值过程&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;控制流（flow of control）&lt;/strong&gt;：程序的执行路径&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;for 语句（for statement）&lt;/strong&gt;：提供迭代执行的迭代语句。常常用于遍历一个容器或者重复计算若干次&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;goto 语句（goto statement）&lt;/strong&gt;：令控制权无条件转移到同一函数中一个指定的带标签语句。goto 语句容易造成程序的控制流混乱，应禁止使用&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;if else 语句（if else statement）&lt;/strong&gt;：判断条件，根据其结果分别执行 if 分支或 else 分支的语句&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;if 语句（if statement）&lt;/strong&gt;：判断条件，根据其结果有选择地执行语句。如果条件为真，执行 if 分支的代码；如果条件为假，控制权转移到 if 结构之后的第一条语句&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;带标签语句（labeled statement）&lt;/strong&gt;：前面带有标签的语句。所谓标签是指一个标识符以及紧跟着的一个冒号。对于同一个标识符来说，用作标签的同时还能用于其他目的，互不干扰&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;空语句（null statement）&lt;/strong&gt;：只含有一个分号的语句&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;引发（raise）&lt;/strong&gt;：含义类似于 throw 。在 C++ 语言中既可以说抛出异常，也可以说引发异常&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;范围 for 语句（range for statement）&lt;/strong&gt;：在一个序列中进行迭代的语句&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;switch 语句（switch statement）&lt;/strong&gt;：一种条件语句&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;首先求 switch 关键字后面表达式的值&lt;/li&gt;
-&lt;li&gt;如果某个 case 标签的值与表达式的值相等，程序直接跨过之前的代码从这个 case 标签开始执行&lt;/li&gt;
-&lt;li&gt;当所有 case 标签都无法匹配时，如果有 default 标签，从 default 标签继续执行；如果没有，结束 switch 语句&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;terminate&lt;/strong&gt; ：是一个标准库函数，当异常没有被捕捉到时调用。terminate 终止当前程序的执行&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;throw 表达式（throw expression）&lt;/strong&gt;：一种中断当前执行路径的表达式。throw 表达式抛出一个异常并把控制权转移到能处理该异常的最近的 catch 子句&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;try 语句块（try block）&lt;/strong&gt;：跟在 try 关键字后面的块，以及一个或多个 catch 子句。如果 try 语句块的代码引发异常并且其中一个 catch 子句匹配该异常类型，则异常被该 catch 子句处理。否则，异常将由外围 try 语句块处理，或者程序终止&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;while 语句（while statement）&lt;/strong&gt;：只要指定的条件为真，就一直迭代执行目标语句&lt;/p&gt;
 &lt;p&gt;参考：C++ Primer 中文版（第 5 版）&lt;/p&gt;
  ]]></description>
         </item>
