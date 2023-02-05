@@ -26,7 +26,7 @@
 - 2022-10-28 [LeetCode 463. 岛屿的周长](https://jiankychen.github.io/posts/a8ab548b/)  
 - 2022-10-26 [访问控制与封装](https://jiankychen.github.io/posts/760f37e5/)  
 - 2022-10-25 [定义抽象数据类型](https://jiankychen.github.io/posts/375bbd22/)  
-- 2022-10-19 [shoka 主题的若干改动](https://jiankychen.github.io/shoka)  
+- 2022-10-19 [shoka 主题的若干改动](https://jiankychen.github.io/posts/c61b9a60/)  
 - 2022-10-14 [Dijkstra](https://jiankychen.github.io/posts/72c3df1c/)  
 - 2022-10-05 [术语表 - Chapter 6](https://jiankychen.github.io/posts/8af7b840/)  
 - 2022-10-05 [函数指针](https://jiankychen.github.io/posts/42aabc7d/)  
@@ -329,7 +329,7 @@
 - 2021-10-27 [初识 C++ (下)](https://jiankychen.github.io/posts/7ca2f1e1/)  
 - 2021-10-27 [初识 C++ (中)](https://jiankychen.github.io/posts/bf7c72c5/)  
 - 2021-10-26 [初识 C++ (上)](https://jiankychen.github.io/posts/65b9c0a0/)  
-- 2021-10-26 [vscode 使用](https://jiankychen.github.io/vscode)  
+- 2021-10-26 [vscode 使用](https://jiankychen.github.io/posts/b84c37ec/)  
 - 2021-10-24 [hexo 博客搭建与配置](https://jiankychen.github.io/posts/ace9da28/)  
 - 2021-10-24 [markdown](https://jiankychen.github.io/posts/96be88e3/)  
   
