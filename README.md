@@ -1,5 +1,11 @@
 ## My posts  
-### **2023-01** (3)  
+### **2023-02** (2)  
+- 2023-02-04 [SQL 基础](https://jiankychen.github.io/posts/f416b295/)  
+- 2023-02-02 [Python 面向对象](https://jiankychen.github.io/posts/59bf225c/)  
+  
+  
+### **2023-01** (4)  
+- 2023-01-20 [pandas 基础](https://jiankychen.github.io/posts/ebba65fe/)  
 - 2023-01-19 [conda 常用命令](https://jiankychen.github.io/posts/b80c5159/)  
 - 2023-01-15 [Python 异常、模块、包](https://jiankychen.github.io/posts/11ea1840/)  
 - 2023-01-14 [Python 文件操作](https://jiankychen.github.io/posts/78c82d0a/)  
